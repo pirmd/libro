@@ -45,20 +45,3 @@ func TestPathGuesser(t *testing.T) {
 	}
 }
 
-func TestString2Categories(t *testing.T) {
-	testCases := []struct {
-		in  string
-		out []string
-	}{
-		{"A & B & C", []string{"A", "B", "C"}},
-		{"A& B & C", []string{"A", "B", "C"}},
-		{"A, B & C", []string{"A", "B", "C"}},
-		{"A", []string{"A"}},
-	}
-
-	for _, tc := range testCases {
-		if got := reCategories.Split(tc.in, -1); fmt.Sprint(got) != fmt.Sprint(tc.out) {
-			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
-		}
-	}
-}

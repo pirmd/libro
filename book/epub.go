@@ -36,17 +36,18 @@ func (b *Book) FromEpub() error {
 	b.Categories = make([]string, len(mdata.Subject))
 	copy(b.Categories, mdata.Subject)
 
+idloop:
 	for _, id := range mdata.Identifier {
 		switch {
 		case strings.HasPrefix(id.Scheme, "isbn") || strings.HasPrefix(id.Scheme, "ISBN"):
 			b.ISBN = id.Value
-			break
+			break idloop
 		case strings.HasPrefix(id.Value, "isbn:"):
 			b.ISBN = strings.TrimPrefix(id.Value, "isbn:")
-			break
+			break idloop
 		case strings.HasPrefix(id.Value, "ISBN:"):
 			b.ISBN = strings.TrimPrefix(id.Value, "ISBN:")
-			break
+			break idloop
 		}
 	}
 	if b.ISBN == "" {

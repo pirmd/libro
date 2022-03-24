@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// RunInfoSubCmd executes the "info" sub-command.
+// RunInfoSubcmd executes the "info" sub-command.
 func (app *App) RunInfoSubcmd(args []string) error {
 	fs := flag.NewFlagSet("info", flag.ExitOnError)
 
@@ -30,16 +30,18 @@ func (app *App) RunInfoSubcmd(args []string) error {
 	}
 
 	if fs.NArg() != 1 {
-		return fmt.Errorf("wrong number of arguments\nRun %s %s -help\n", app.Name(), fs.Name())
+		return fmt.Errorf("wrong number of arguments\nRun %s %s -help", app.Name(), fs.Name())
 	}
 	path := fs.Arg(0)
 
 	b, err := app.Library.Read(path)
 	if err != nil {
-		return fmt.Errorf("cannot retrieve information about '%s': %w\n", path, err)
+		return fmt.Errorf("cannot retrieve information about '%s': %w", path, err)
 	}
 
-	app.Formatter.Execute(app.Stdout, b)
+	if err := app.Formatter.Execute(app.Stdout, b); err != nil {
+		return fmt.Errorf("fail to display book information: %v", err)
+	}
 	fmt.Fprintln(app.Stdout)
 
 	return nil

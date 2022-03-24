@@ -127,7 +127,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 	for attr, value := range m {
 		switch a := strings.Title(attr); a {
 		case "Title":
-			if b.Title != "" && strings.ToLower(b.Title) != strings.ToLower(value) {
+			if b.Title != "" && strings.EqualFold(b.Title, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Title)
 			}
 
@@ -137,7 +137,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "SubTitle":
-			if b.SubTitle != "" && strings.ToLower(b.SubTitle) != strings.ToLower(value) {
+			if b.SubTitle != "" && strings.EqualFold(b.SubTitle, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.SubTitle)
 			}
 
@@ -147,7 +147,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "ShortTitle":
-			if b.ShortTitle != "" && strings.ToLower(b.ShortTitle) != strings.ToLower(value) {
+			if b.ShortTitle != "" && strings.EqualFold(b.ShortTitle, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ShortTitle)
 			}
 
@@ -159,7 +159,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 		case "Authors":
 			v := reList.Split(value, -1)
 
-			if len(b.Authors) != 0 && strings.ToLower(fmt.Sprint(b.Authors)) != strings.ToLower(fmt.Sprint(v)) {
+			if len(b.Authors) != 0 && strings.EqualFold(fmt.Sprint(b.Authors), fmt.Sprint(v)) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Authors)
 			}
 
@@ -169,7 +169,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "Publisher":
-			if b.Publisher != "" && strings.ToLower(b.Publisher) != strings.ToLower(value) {
+			if b.Publisher != "" && strings.EqualFold(b.Publisher, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Publisher)
 			}
 
@@ -179,7 +179,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "PublishedDate":
-			if b.PublishedDate != "" && strings.ToLower(b.PublishedDate) != strings.ToLower(value) {
+			if b.PublishedDate != "" && strings.EqualFold(b.PublishedDate, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.PublishedDate)
 			}
 
@@ -189,7 +189,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "Description":
-			if b.Description != "" && strings.ToLower(b.Description) != strings.ToLower(value) {
+			if b.Description != "" && strings.EqualFold(b.Description, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Description)
 			}
 
@@ -199,7 +199,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "Series":
-			if b.Series != "" && strings.ToLower(b.Series) != strings.ToLower(value) {
+			if b.Series != "" && strings.EqualFold(b.Series, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Series)
 			}
 
@@ -211,7 +211,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 		case "SeriesIndex":
 			v, err := strconv.ParseFloat(value, 32)
 			if err != nil {
-				return fmt.Errorf("cannot assign %s to '%s': %v.", value, a, err)
+				return fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
 			}
 
 			if b.SeriesIndex != 0 && b.SeriesIndex != v {
@@ -224,7 +224,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "ISBN":
-			if b.ISBN != "" && strings.ToLower(b.ISBN) != strings.ToLower(value) {
+			if b.ISBN != "" && strings.EqualFold(b.ISBN, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ISBN)
 			}
 
@@ -234,7 +234,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "Language":
-			if b.Language != "" && strings.ToLower(b.Language) != strings.ToLower(value) {
+			if b.Language != "" && strings.EqualFold(b.Language, value) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Language)
 			}
 
@@ -246,7 +246,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 		case "PageCount":
 			v, err := strconv.Atoi(value)
 			if err != nil {
-				return fmt.Errorf("cannot assign %s to '%s': %v.", value, a, err)
+				return fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
 			}
 
 			if b.PageCount != 0 && b.PageCount != v {
@@ -261,7 +261,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 		case "Categories":
 			v := reList.Split(value, -1)
 
-			if len(b.Categories) != 0 && strings.ToLower(fmt.Sprint(b.Categories)) != strings.ToLower(fmt.Sprint(v)) {
+			if len(b.Categories) != 0 && strings.EqualFold(fmt.Sprint(b.Categories), fmt.Sprint(v)) {
 				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Categories)
 			}
 

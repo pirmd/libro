@@ -105,7 +105,9 @@ func (lib *Libro) Create(b *book.Book) error {
 	}
 
 	buff := new(bytes.Buffer)
-	lib.LocationTmpl.Execute(buff, b)
+	if err := lib.LocationTmpl.Execute(buff, b); err != nil {
+		return err
+	}
 	path := filepath.Clean(os.ExpandEnv(buff.String()))
 
 	dst := lib.fullpath(path)

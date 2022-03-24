@@ -11,7 +11,7 @@ import (
 	"github.com/pirmd/libro/book"
 )
 
-// RunInsertSubCmd executes the "insert" sub-command.
+// RunInsertSubcmd executes the "insert" sub-command.
 func (app *App) RunInsertSubcmd(args []string) error {
 	fs := flag.NewFlagSet("insert", flag.ExitOnError)
 
@@ -40,25 +40,27 @@ func (app *App) RunInsertSubcmd(args []string) error {
 	switch fs.NArg() {
 	case 0:
 		if fi, _ := os.Stdin.Stat(); (fi.Mode() & os.ModeCharDevice) == os.ModeCharDevice {
-			return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help\n", app.Name(), fs.Name())
+			return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help", app.Name(), fs.Name())
 		}
 		bookJSON = os.Stdin
 	case 1:
 		bookJSON = strings.NewReader(fs.Arg(0))
 	default:
-		return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help\n", app.Name(), fs.Name())
+		return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help", app.Name(), fs.Name())
 	}
 
 	b := book.New()
 	if err := json.NewDecoder(bookJSON).Decode(&b); err != nil {
-		return fmt.Errorf("fail to decode book's JSON: %v\n", err)
+		return fmt.Errorf("fail to decode book's JSON: %v", err)
 	}
 
 	if err := app.Library.Create(b); err != nil {
-		return fmt.Errorf("fail to add new book: %v\n", err)
+		return fmt.Errorf("fail to add new book: %v", err)
 	}
 
-	app.Formatter.Execute(app.Stdout, b)
+	if err := app.Formatter.Execute(app.Stdout, b); err != nil {
+		return fmt.Errorf("fail to display book information: %v", err)
+	}
 	fmt.Fprintln(app.Stdout)
 
 	return nil

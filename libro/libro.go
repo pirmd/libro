@@ -73,10 +73,10 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 	}
 
 	if lib.UseGuesser {
-		lib.Verbose.Printf("Guessing information from '%s' and '%s'", b.Title, b.SubTitle)
-		b.GuessFromTitle()
-		lib.Verbose.Printf("Guessing information from '%s'", b.Path)
-		b.GuessFromPath()
+		lib.Verbose.Print("Guessing information from Book's filename and Title")
+		if err := b.Guess(); err != nil {
+			return nil, err
+		}
 	}
 
 	return b, nil

@@ -6,8 +6,8 @@ import (
 	"io"
 	"log"
 	"path/filepath"
-    "regexp"
-    "strconv"
+	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -23,8 +23,8 @@ var (
 	// ErrUnknownFormat is raised if supplied file format is unknown.
 	ErrUnknownFormat = errors.New("unknown file format")
 
-    // reList is a regexp that splits a list of values (like Authors or Categories).
-    reList = regexp.MustCompile(`\s?[&,]\s?`)
+	// reList is a regexp that splits a list of values (like Authors or Categories).
+	reList = regexp.MustCompile(`\s?[&,]\s?`)
 )
 
 // Book represents a book.
@@ -122,160 +122,160 @@ func (b *Book) FromFile() error {
 // provided in the map ; if override flag is off, Book's attribute is only
 // replaced if empty.
 func (b *Book) FromMap(m map[string]string, override bool) error {
-    Debug.Printf("update book's information from: '%+v'", m)
+	Debug.Printf("update book's information from: '%+v'", m)
 
-    for attr, value := range m {
-        switch a := strings.Title(attr); a {
-        case "Title":
-            if b.Title != "" && strings.ToLower(b.Title) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Title)
-            }
+	for attr, value := range m {
+		switch a := strings.Title(attr); a {
+		case "Title":
+			if b.Title != "" && strings.ToLower(b.Title) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Title)
+			}
 
-            if override || b.Title == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.Title = value
-            }
+			if override || b.Title == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.Title = value
+			}
 
-        case "SubTitle":
-            if b.SubTitle != "" && strings.ToLower(b.SubTitle) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.SubTitle)
-            }
+		case "SubTitle":
+			if b.SubTitle != "" && strings.ToLower(b.SubTitle) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.SubTitle)
+			}
 
-            if override || b.SubTitle == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.SubTitle = value
-            }
+			if override || b.SubTitle == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.SubTitle = value
+			}
 
-        case "ShortTitle":
-            if b.ShortTitle != "" && strings.ToLower(b.ShortTitle) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ShortTitle)
-            }
+		case "ShortTitle":
+			if b.ShortTitle != "" && strings.ToLower(b.ShortTitle) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ShortTitle)
+			}
 
-            if override || b.ShortTitle == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.ShortTitle = value
-            }
+			if override || b.ShortTitle == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.ShortTitle = value
+			}
 
-        case "Authors":
-            v := reList.Split(value, -1)
+		case "Authors":
+			v := reList.Split(value, -1)
 
-            if len(b.Authors) != 0 && strings.ToLower(fmt.Sprint(b.Authors)) != strings.ToLower(fmt.Sprint(v)) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Authors)
-            }
+			if len(b.Authors) != 0 && strings.ToLower(fmt.Sprint(b.Authors)) != strings.ToLower(fmt.Sprint(v)) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Authors)
+			}
 
-            if override || len(b.Authors) == 0 {
-                Verbose.Printf("sets new Book's value: %s = %v", a, v)
-                b.Authors = v
-            }
+			if override || len(b.Authors) == 0 {
+				Verbose.Printf("sets new Book's value: %s = %v", a, v)
+				b.Authors = v
+			}
 
-        case "Publisher":
-            if b.Publisher != "" && strings.ToLower(b.Publisher) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Publisher)
-            }
+		case "Publisher":
+			if b.Publisher != "" && strings.ToLower(b.Publisher) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Publisher)
+			}
 
-            if override || b.Publisher == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.Publisher = value
-            }
+			if override || b.Publisher == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.Publisher = value
+			}
 
-        case "PublishedDate":
-            if b.PublishedDate != "" && strings.ToLower(b.PublishedDate) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.PublishedDate)
-            }
+		case "PublishedDate":
+			if b.PublishedDate != "" && strings.ToLower(b.PublishedDate) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.PublishedDate)
+			}
 
-            if override || b.PublishedDate == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.PublishedDate = value
-            }
+			if override || b.PublishedDate == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.PublishedDate = value
+			}
 
-        case "Description":
-            if b.Description != "" && strings.ToLower(b.Description) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Description)
-            }
+		case "Description":
+			if b.Description != "" && strings.ToLower(b.Description) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Description)
+			}
 
-            if override || b.Description == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.Description = value
-            }
+			if override || b.Description == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.Description = value
+			}
 
-        case "Series":
-            if b.Series != "" && strings.ToLower(b.Series) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Series)
-            }
+		case "Series":
+			if b.Series != "" && strings.ToLower(b.Series) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Series)
+			}
 
-            if override || b.Series == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.Series = value
-            }
+			if override || b.Series == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.Series = value
+			}
 
-        case "SeriesIndex":
-            v, err := strconv.ParseFloat(value, 32)
-            if err != nil {
-                return fmt.Errorf("cannot assign %s to '%s': %v.", value, a, err)
-            }
+		case "SeriesIndex":
+			v, err := strconv.ParseFloat(value, 32)
+			if err != nil {
+				return fmt.Errorf("cannot assign %s to '%s': %v.", value, a, err)
+			}
 
-            if b.SeriesIndex != 0 && b.SeriesIndex != v {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%.1f != %.1f)", a, v, b.SeriesIndex)
-            }
+			if b.SeriesIndex != 0 && b.SeriesIndex != v {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%.1f != %.1f)", a, v, b.SeriesIndex)
+			}
 
-            if override || b.SeriesIndex == 0 {
-                Verbose.Printf("sets new value: %s = %.1f.", a, v)
-                b.SeriesIndex = v
-            }
+			if override || b.SeriesIndex == 0 {
+				Verbose.Printf("sets new value: %s = %.1f.", a, v)
+				b.SeriesIndex = v
+			}
 
-        case "ISBN":
-            if b.ISBN != "" && strings.ToLower(b.ISBN) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ISBN)
-            }
+		case "ISBN":
+			if b.ISBN != "" && strings.ToLower(b.ISBN) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ISBN)
+			}
 
-            if override || b.ISBN == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.ISBN = value
-            }
+			if override || b.ISBN == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.ISBN = value
+			}
 
-        case "Language":
-            if b.Language != "" && strings.ToLower(b.Language) != strings.ToLower(value) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Language)
-            }
+		case "Language":
+			if b.Language != "" && strings.ToLower(b.Language) != strings.ToLower(value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Language)
+			}
 
-            if override || b.Language == "" {
-                Verbose.Printf("sets new Book's value: %s = %s", a, value)
-                b.Language = value
-            }
+			if override || b.Language == "" {
+				Verbose.Printf("sets new Book's value: %s = %s", a, value)
+				b.Language = value
+			}
 
-        case "PageCount":
-            v, err := strconv.Atoi(value)
-            if err != nil {
-                return fmt.Errorf("cannot assign %s to '%s': %v.", value, a, err)
-            }
+		case "PageCount":
+			v, err := strconv.Atoi(value)
+			if err != nil {
+				return fmt.Errorf("cannot assign %s to '%s': %v.", value, a, err)
+			}
 
-            if b.PageCount != 0 && b.PageCount != v {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%d != %d)", a, v, b.PageCount)
-            }
+			if b.PageCount != 0 && b.PageCount != v {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%d != %d)", a, v, b.PageCount)
+			}
 
-            if override || b.PageCount == 0 {
-                Verbose.Printf("sets new value: %s = %d.", a, v)
-                b.PageCount = v
-            }
+			if override || b.PageCount == 0 {
+				Verbose.Printf("sets new value: %s = %d.", a, v)
+				b.PageCount = v
+			}
 
-        case "Categories":
-            v := reList.Split(value, -1)
+		case "Categories":
+			v := reList.Split(value, -1)
 
-            if len(b.Categories) != 0 && strings.ToLower(fmt.Sprint(b.Categories)) != strings.ToLower(fmt.Sprint(v)) {
-                Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Categories)
-            }
+			if len(b.Categories) != 0 && strings.ToLower(fmt.Sprint(b.Categories)) != strings.ToLower(fmt.Sprint(v)) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Categories)
+			}
 
-            if override || len(b.Categories) == 0 {
-                Verbose.Printf("sets new Book's value: %s = %v", a, v)
-                b.Categories = v
-            }
+			if override || len(b.Categories) == 0 {
+				Verbose.Printf("sets new Book's value: %s = %v", a, v)
+				b.Categories = v
+			}
 
-        default:
-            return fmt.Errorf("cannot set unknown attribute '%s'", a)
-        }
-    }
+		default:
+			return fmt.Errorf("cannot set unknown attribute '%s'", a)
+		}
+	}
 
-    return nil
+	return nil
 }
 
 // String proposes an easy-to-read raw representation of a Book.

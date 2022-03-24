@@ -20,7 +20,16 @@ func TestSeriesGuesser(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		if got := seriesGuesser.GuessFrom(tc.in); fmt.Sprint(got) != fmt.Sprint(tc.out) {
+		var got map[string]string
+
+		for _, re := range seriesGuessers {
+			got = submatchAsMap(tc.in, re)
+			if got != nil {
+				break
+			}
+		}
+
+		if fmt.Sprint(got) != fmt.Sprint(tc.out) {
 			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
 		}
 	}
@@ -39,9 +48,16 @@ func TestPathGuesser(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		if got := pathGuesser.GuessFrom(tc.in); fmt.Sprint(got) != fmt.Sprint(tc.out) {
+		var got map[string]string
+
+		for _, re := range pathGuessers {
+			got = submatchAsMap(tc.in, re)
+			if got != nil {
+				break
+			}
+		}
+		if fmt.Sprint(got) != fmt.Sprint(tc.out) {
 			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
 		}
 	}
 }
-

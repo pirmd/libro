@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// RunEditSubCmd executes the "edit" sub-command.
+// RunEditSubcmd executes the "edit" sub-command.
 func (app *App) RunEditSubcmd(args []string) error {
 	fs := flag.NewFlagSet("edit", flag.ExitOnError)
 
@@ -30,13 +30,13 @@ func (app *App) RunEditSubcmd(args []string) error {
 	switch fs.NArg() {
 	case 0:
 		if fi, _ := os.Stdin.Stat(); (fi.Mode() & os.ModeCharDevice) == os.ModeCharDevice {
-			return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help\n", app.Name(), fs.Name())
+			return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help", app.Name(), fs.Name())
 		}
 		data = os.Stdin
 	case 1:
 		data = strings.NewReader(fs.Arg(0))
 	default:
-		return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help\n", app.Name(), fs.Name())
+		return fmt.Errorf("invalid number of argument(s)\nRun %s %s -help", app.Name(), fs.Name())
 	}
 
 	if _, err := app.edit(data, app.Stdout, *suffix); err != nil {
@@ -65,7 +65,10 @@ func (app *App) edit(r io.Reader, w io.Writer, suffix string) (int64, error) {
 		return 0, err
 	}
 
-	tmpfile.Seek(0, io.SeekStart)
+	if _, err := tmpfile.Seek(0, io.SeekStart); err != nil {
+		return 0, err
+	}
+
 	return io.Copy(w, tmpfile)
 }
 

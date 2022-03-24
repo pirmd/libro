@@ -9,34 +9,34 @@ import (
 )
 
 var (
-	// ErrUnknownStatus is returned when trying to set a logswitcher's status
-	// tat is neither 'true' nor 'false'.
+	// ErrUnknownLogStatus is returned when trying to set a logswitcher's
+	// status tat is neither 'true' nor 'false'.
 	ErrUnknownLogStatus = errors.New("unknown status")
 )
 
-// logswitcher wraps a set of log.Logger to implement flag.Value interface and
+// Logswitcher wraps a set of log.Logger to implement flag.Value interface and
 // get activation/de-activation from command-line.
 // When activated, logger will print to os.Stderr.
-type logswitcher struct {
+type Logswitcher struct {
 	loggers []*log.Logger
 }
 
 // NewLogSwitcher creates a new Logger that prints nothing (output is
 // io.Discard), waiting for user to trigger it through command-line flags.
-func NewLogSwitcher(loggers ...*log.Logger) *logswitcher {
-	return &logswitcher{
+func NewLogSwitcher(loggers ...*log.Logger) *Logswitcher {
+	return &Logswitcher{
 		loggers: loggers,
 	}
 }
 
 // String proposes a human-friendly string representation of a logswitcher.
-func (ls logswitcher) String() string {
+func (ls Logswitcher) String() string {
 	return ""
 }
 
 // Set implements flag.Value interface to set logswitcher's status from
 // command-line. Status could be either true or false.
-func (ls *logswitcher) Set(status string) error {
+func (ls *Logswitcher) Set(status string) error {
 	switch status {
 	case "true":
 		for _, logger := range ls.loggers {
@@ -56,25 +56,25 @@ func (ls *logswitcher) Set(status string) error {
 
 // IsBoolFlag implements flag.Value interface to notify that logswitcher flag
 // is boolean.
-func (ls logswitcher) IsBoolFlag() bool {
+func (ls Logswitcher) IsBoolFlag() bool {
 	return true
 }
 
-// gotemplate wraps a text/template.Template to implement flag.Value interface
+// Gotemplate wraps a text/template.Template to implement flag.Value interface
 // and get customization through command-line.
-type gotemplate struct {
+type Gotemplate struct {
 	*template.Template
 }
 
 // NewGoTemplate creates a new gotemplate.
-func NewGoTemplate(tmpl *template.Template) *gotemplate {
-	return &gotemplate{
+func NewGoTemplate(tmpl *template.Template) *Gotemplate {
+	return &Gotemplate{
 		Template: tmpl,
 	}
 }
 
 // String proposes a human-friendly string representation of a formatter.
-func (gotmpl gotemplate) String() string {
+func (gotmpl Gotemplate) String() string {
 	if gotmpl.Template != nil {
 		return gotmpl.Template.Root.String()
 	}
@@ -82,7 +82,7 @@ func (gotmpl gotemplate) String() string {
 }
 
 // Set implements flag.Value interface for a gotemplate.
-func (gotmpl *gotemplate) Set(tmpl string) error {
+func (gotmpl *Gotemplate) Set(tmpl string) error {
 	if _, err := gotmpl.Template.Parse(tmpl); err != nil {
 		return err
 	}

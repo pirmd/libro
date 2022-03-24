@@ -11,22 +11,22 @@ const (
 )
 
 var (
-	// pathGuesser is a collection of regexp to extract information from a
+	// Reminder for guessers in this section: Order is important as only first
+	// match is considered, so it needs to be defined from the more specific to
+	// the more general capture logic.
+
+	// pathGuessers is a collection of regexp to extract information from a
 	// Book's filename.
-	// Order is important as only first match is considered, so it needs to be
-	// defined from the more specific to the more general capture logic.
-	pathGuesser = reGuesser{
+	pathGuessers = []*regexp.Regexp{
 		// parent/folder/<Authors> - [<Series> <SeriesIndex>] - <Title> [<Language>].epub
 		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s\[(?P<Series>.+)\s(?P<SeriesIndex>\d+)\]\s-\s(?P<Title>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
 		// parent/folder/<Authors> - <Title> [<Language>].epub
 		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s(?P<Title>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
 	}
 
-	// seriesGuesser is a collection of regexp to extract series information
+	// seriesGuessers is a collection of regexp to extract series information
 	// from a Book's title or subtitle.
-	// Order is important as only first match is considered, so it needs to be
-	// defined from the more specific to the more general capture logic.
-	seriesGuesser = reGuesser{
+	seriesGuessers = []*regexp.Regexp{
 		// <ShortTitle> (<Series> n°<SeriesIndex>)
 		regexp.MustCompile(`^(?P<ShortTitle>.+)\s\p{Ps}(?P<Series>.+?)\s` + reSeriesIndex + `\p{Pe}$`),
 		// <ShortTitle> - <Series> n°<SeriesIndex>
@@ -37,60 +37,57 @@ var (
 		regexp.MustCompile(`^Book\s(?P<SeriesIndex>\d+)\sof\s(?P<Series>.+)$`),
 	}
 
-	// titleGuesser is a collection of regexp that pre-processes bad-formatted Titles
-	// Order is important as only first match is considered, so it needs to be
-	// defined from the more specific to the more general capture logic.
-	titleGuesser = reGuesser{
+	// subtitleGuessers is a collection of regexp that pre-processes bad-formatted Titles
+	subtitleGuessers = []*regexp.Regexp{
 		// <ShortTitle> / <SubTitle>
 		regexp.MustCompile(`^(?P<ShortTitle>.+)\s/\s(?P<SubTitle>.+)$`),
 	}
 )
 
-// reGuesser represents a guesser based on regexp.
-type reGuesser []*regexp.Regexp
+// Guess tries to guess Book's information based on known attributes (like
+// Book's path, Book's Title).
+func (b *Book) Guess() error {
+	Debug.Printf("Guess information from book's path '%s'", b.Path)
+	if err := b.guess(b.Path, pathGuessers...); err != nil {
+		return err
+	}
 
-// GuessFrom extracts fields from a string based on guesser's regexp
-// collection. Regexps are run in the guesser declaration order and first match
-// is returned.
-func (g reGuesser) GuessFrom(s string) map[string]string {
-	for _, re := range g {
-		matches, names := re.FindStringSubmatch(s), re.SubexpNames()
-		if matches != nil {
-			found := make(map[string]string, len(matches)-1)
-			for i := range matches {
-				if i > 0 {
-					found[names[i]] = matches[i]
-				}
-			}
+	Debug.Printf("Guess subtitle from book's Title '%s'", b.Title)
+	if err := b.guess(b.Title, subtitleGuessers...); err != nil {
+		return err
+	}
 
-            Debug.Printf("guessed information: '%+v'", found)
-			return found
+	Debug.Printf("Guess series information from book's Title '%s'", b.Title)
+	if err := b.guess(b.Title, seriesGuessers...); err != nil {
+		return err
+	}
+
+	if b.SubTitle != "" {
+		Debug.Printf("Guess series information from book's Sub-Title '%s'", b.SubTitle)
+		if err := b.guess(b.SubTitle, seriesGuessers...); err != nil {
+			return err
 		}
 	}
 
 	return nil
 }
 
-// GuessFromPath tries to guess some of Book's fields based on Book's path.
-func (b *Book) GuessFromPath() {
-	Debug.Printf("Guess information from book's path '%s'", b.Path)
-    guessed := pathGuesser.GuessFrom(b.Path)
-    b.FromMap(guessed, false)
+// guess extracts new Book's attributes from a string by applying a list of
+// Regexp.
+// Regexp allows to guess attribute from a string using a named captured group
+// whose name should correspond to a known Book's attribute or an error will be
+// raised.
+// Regexps are run in the guesser declaration order and only first
+// match is returned.
+func (b *Book) guess(s string, guessers ...*regexp.Regexp) error {
+	for _, re := range guessers {
+		guessed := submatchAsMap(s, re)
+		if guessed != nil {
+			Debug.Printf("guessed information: '%+v'", guessed)
+			return b.FromMap(guessed, false)
+		}
+	}
+
+	Debug.Printf("no match found")
+	return nil
 }
-
-// GuessFromTitle tries to guess some of Book's fields based on Book's Title or
-// SubTitle.
-func (b *Book) GuessFromTitle() {
-	Debug.Printf("Guess subtitle from book's Title '%s'", b.Title)
-    guessed := titleGuesser.GuessFrom(b.Title)
-    b.FromMap(guessed, false)
-
-	Debug.Printf("Guess information from book's Title '%s'", b.Title)
-    guessed = seriesGuesser.GuessFrom(b.Title)
-    b.FromMap(guessed, false)
-
-	Debug.Printf("Guess information from book's Sub-Title '%s'", b.Title)
-    guessed = seriesGuesser.GuessFrom(b.SubTitle)
-    b.FromMap(guessed, false)
-}
-

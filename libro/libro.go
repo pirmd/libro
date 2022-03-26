@@ -66,14 +66,14 @@ func New() *Libro {
 func (lib *Libro) Read(path string) (*book.Book, error) {
 	book.Verbose, book.Debug = lib.Verbose, lib.Debug
 
-	lib.Verbose.Printf("Reading information from '%s'", path)
+	lib.Verbose.Printf("Read information from book's file")
 	b, err := book.NewFromFile(path)
 	if err != nil {
 		return nil, err
 	}
 
 	if lib.UseGuesser {
-		lib.Verbose.Print("Guessing information from Book's filename and Title")
+		lib.Verbose.Print("Guess information from book's Filename and Title")
 		if err := b.Guess(); err != nil {
 			return nil, err
 		}
@@ -92,7 +92,7 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 //
 // Create operation will fail if the target location already exists.
 func (lib *Libro) Create(b *book.Book) error {
-	lib.Verbose.Printf("Inserting book from '%s' into library in '%s'", b.Path, lib.Root)
+	lib.Verbose.Printf("Insert book into library in '%s'", lib.Root)
 
 	if b.Path == "" {
 		lib.Verbose.Printf("Done (no file attached to book)")
@@ -122,7 +122,7 @@ func (lib *Libro) Create(b *book.Book) error {
 		return nil
 	}
 
-	lib.Verbose.Printf("Copying '%s' -> '%s'", b.Path, dst)
+	lib.Verbose.Printf("copy book to '%s'", dst)
 	if err := copyFile(dst, b.Path); err != nil {
 		return err
 	}

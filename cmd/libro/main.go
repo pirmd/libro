@@ -41,8 +41,6 @@ type App struct {
 	// os.Sdtout except for test where you might want to capture output to a
 	// buffer.
 	Stdout io.Writer
-	// Editor is the editor to use to edit text.
-	Editor string
 }
 
 func main() {

@@ -15,11 +15,11 @@ const (
 	// defaultLocation is the default location scheme when creating/updating a
 	// new element in Libro's library.
 	// By default, Libro's sorts books as:
-	//  Author - [Series SeriesIndex] - ShortTitle [Language].Ext
+	//  Author - [Series SeriesIndex] - SeriesTitle [Language].Ext
 	defaultLocation = `
     {{- define "author" }}{{if .Authors}}{{index .Authors 0}}{{else}}unknown{{end}}{{end -}}
     {{- define "series" }}{{if .Series}} - [{{.Series}} {{.SeriesIndex}}]{{end}}{{end -}}
-    {{- define "title" }}{{if .ShortTitle}} - {{.ShortTitle}}{{else}} - {{.Title}}{{end}}{{end -}}
+    {{- define "title" }}{{if .SeriesTitle}} - {{.SeriesTitle}}{{else}} - {{.Title}}{{end}}{{end -}}
     {{- define "lang" }}{{if .Language}} [{{.Language}}]{{end}}{{end -}}
 
     {{- print (tmpl "author" .) (tmpl "series" . ) (tmpl "title" .) (tmpl "lang" .) (ext .Path) }}`

@@ -18,8 +18,8 @@ var (
 	// pathGuessers is a collection of regexp to extract information from a
 	// Book's filename.
 	pathGuessers = []*regexp.Regexp{
-		// parent/folder/<Authors> - [<Series> <SeriesIndex>] - <Title> [<Language>].epub
-		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s\[(?P<Series>.+)\s(?P<SeriesIndex>\d+)\]\s-\s(?P<Title>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
+		// parent/folder/<Authors> - [<Series> <SeriesIndex>] - <SeriesTitle> [<Language>].epub
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s\[(?P<Series>.+)\s(?P<SeriesIndex>\d+)\]\s-\s(?P<SeriesTitle>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
 		// parent/folder/<Authors> - <Title> [<Language>].epub
 		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s(?P<Title>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
 	}
@@ -27,10 +27,10 @@ var (
 	// seriesGuessers is a collection of regexp to extract series information
 	// from a Book's title or subtitle.
 	seriesGuessers = []*regexp.Regexp{
-		// <ShortTitle> (<Series> n°<SeriesIndex>)
-		regexp.MustCompile(`^(?P<ShortTitle>.+)\s\p{Ps}(?P<Series>.+?)\s` + reSeriesIndex + `\p{Pe}$`),
-		// <ShortTitle> - <Series> n°<SeriesIndex>
-		regexp.MustCompile(`^(?P<ShortTitle>.+?)\s\p{Pd}\s(?P<Series>.+?)\s` + reSeriesIndex + `$`),
+		// <SeriesTitle> (<Series> n°<SeriesIndex>)
+		regexp.MustCompile(`^(?P<SeriesTitle>.+)\s\p{Ps}(?P<Series>.+?)\s` + reSeriesIndex + `\p{Pe}$`),
+		// <SeriesTitle> - <Series> n°<SeriesIndex>
+		regexp.MustCompile(`^(?P<SeriesTitle>.+?)\s\p{Pd}\s(?P<Series>.+?)\s` + reSeriesIndex + `$`),
 		// <Series> n°<SeriesIndex>
 		regexp.MustCompile(`^(?P<Series>.+?)\s` + reSeriesIndex + `$`),
 		// Book <SeriesIndex> of <Series>
@@ -39,8 +39,8 @@ var (
 
 	// subtitleGuessers is a collection of regexp that pre-processes bad-formatted Titles
 	subtitleGuessers = []*regexp.Regexp{
-		// <ShortTitle> / <SubTitle>
-		regexp.MustCompile(`^(?P<ShortTitle>.+)\s/\s(?P<SubTitle>.+)$`),
+		// <SeriesTitle> / <SubTitle>
+		regexp.MustCompile(`^(?P<SeriesTitle>.+)\s/\s(?P<SubTitle>.+)$`),
 	}
 )
 

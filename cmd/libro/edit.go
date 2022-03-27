@@ -55,13 +55,13 @@ func (app *App) RunEditSubcmd(args []string) error {
 		return fmt.Errorf("fail to decode book's JSON: %v", err)
 	}
 
-	app.Library.Verbose.Printf("Edit book's information")
+	app.Verbose.Printf("Edit book's information")
 
 	switch {
 	case *editor == "":
-		app.Library.Verbose.Printf("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
+		app.Verbose.Printf("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
 	case *auto && b.IsComplete():
-		app.Library.Verbose.Printf("no need to edit book's information that seems good enough to me")
+		app.Verbose.Printf("no need to edit book's information that seems good enough to me")
 	default:
 		var err error
 		if b, err = editBook(*editor, b); err != nil {

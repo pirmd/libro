@@ -4,10 +4,12 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 	"text/template"
 
+	"github.com/pirmd/libro/book"
 	"github.com/pirmd/libro/libro"
 )
 
@@ -33,25 +35,47 @@ var (
 type App struct {
 	*flag.FlagSet
 
+	// Verbose is the logger for providing low interest messages to the user.
+	Verbose *log.Logger
+
+	// Debug is the logger for providing messages supposed to help the
+	// developer understand his/her mistakes.
+	Debug *log.Logger
+
 	// Library points to the underlying libro.Libro object.
 	Library *libro.Libro
+
 	// Formatter is the go template used by UI to pretty print an object.
 	Formatter *template.Template
+
 	// Stdout is the standard output where to print app's result. It is usually
 	// os.Sdtout except for test where you might want to capture output to a
 	// buffer.
 	Stdout io.Writer
 }
 
-func main() {
-	tmpl := template.New("formatter").Funcs(SerializationFuncMap)
+// New creates a new App
+func New() *App {
+	tmpl := template.New("formatter").Option("missingkey=error")
+	tmpl = tmpl.Funcs(SerializationFuncMap)
 
 	app := &App{
 		FlagSet:   flag.NewFlagSet(myname, flag.ExitOnError),
+		Verbose:   log.New(io.Discard, "", 0),
+		Debug:     log.New(io.Discard, "debug:", 0),
 		Stdout:    os.Stdout,
 		Library:   libro.New(),
 		Formatter: template.Must(tmpl.Parse(defaultFormat)),
 	}
+
+	app.Library.Verbose, app.Library.Debug = app.Verbose, app.Debug
+	book.Verbose, book.Debug = app.Verbose, app.Debug
+
+	return app
+}
+
+func main() {
+	app := New()
 
 	// if we are printing to a TTY, we use a format that is easier to read for a human.
 	if fi, _ := os.Stdout.Stat(); (fi.Mode() & os.ModeCharDevice) == os.ModeCharDevice {
@@ -69,8 +93,8 @@ func main() {
 		app.PrintDefaults()
 	}
 
-	app.Var(NewLogSwitcher(app.Library.Verbose), "verbose", "print messages of low interest")
-	app.Var(NewLogSwitcher(app.Library.Debug, app.Library.Verbose), "debug", "print cryptic messages supposed to help the developer understand his/her mistakes")
+	app.Var(NewLogSwitcher(app.Verbose), "verbose", "print messages of low interest")
+	app.Var(NewLogSwitcher(app.Debug, app.Verbose), "debug", "print cryptic messages supposed to help the developer understand his/her mistakes")
 	app.Var(NewGoTemplate(app.Formatter), "format", "set output format using golang text/template")
 
 	if err := app.Parse(os.Args[1:]); err != nil {

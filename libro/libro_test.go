@@ -29,6 +29,8 @@ func newTestLibro(tb testing.TB) *testLibro {
 	testLib.Root = testDir.Root
 	testLib.Verbose, testLib.Debug = testLog, testLog
 
+	book.Verbose, book.Debug = testLog, testLog
+
 	return &testLibro{
 		Libro:      testLib,
 		TestFolder: testDir,

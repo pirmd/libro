@@ -6,6 +6,7 @@ import (
 	"testing"
 	"text/template"
 
+	"github.com/pirmd/libro/book"
 	"github.com/pirmd/libro/libro"
 
 	"github.com/pirmd/verify"
@@ -32,9 +33,13 @@ func newTestApp(tb testing.TB) *testApp {
 	testLib.Root = testDir.Root
 	testLib.Verbose, testLib.Debug = testLog, testLog
 
+	book.Verbose, book.Debug = testLog, testLog
+
 	tmpl := template.New("formatter").Funcs(SerializationFuncMap)
 	app := &App{
 		FlagSet:   flag.NewFlagSet("libro-testing", flag.ExitOnError),
+		Verbose:   testLog,
+		Debug:     testLog,
 		Library:   testLib,
 		Formatter: template.Must(tmpl.Parse(testFormat)),
 		Stdout:    testOut,

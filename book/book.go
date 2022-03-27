@@ -282,41 +282,38 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 func (b Book) String() string {
 	var s strings.Builder
 
-	fmt.Fprintf(&s, "Path         :\t%v", b.Path)
-	fmt.Fprintf(&s, "\nTitle        :\t%v", b.Title)
-	fmt.Fprintf(&s, "\nAuthors      :\t%v", b.Authors)
+	fmt.Fprintf(&s, "Path         :\t%s", b.Path)
+	fmt.Fprintf(&s, "\nTitle        :\t%s", b.Title)
+	fmt.Fprintf(&s, "\nAuthors      :\t%s", strings.Join(b.Authors, " & "))
 
 	if b.ISBN != "" {
-		fmt.Fprintf(&s, "\nISBN         :\t%v", b.ISBN)
+		fmt.Fprintf(&s, "\nISBN         :\t%s", b.ISBN)
 	}
 
 	if b.SubTitle != "" {
-		fmt.Fprintf(&s, "\nSubTitle     :\t%v", b.SubTitle)
+		fmt.Fprintf(&s, "\nSubTitle     :\t%s", b.SubTitle)
 	}
 
-	if b.SeriesTitle != "" {
-		fmt.Fprintf(&s, "\nSeriesTitle   :\t%v", b.SeriesTitle)
-	}
-
-	if b.Series != "" || b.SeriesIndex != 0 {
-		fmt.Fprintf(&s, "\nSeries       :\t%v", b.Series)
+	if b.SeriesTitle != "" || b.Series != "" || b.SeriesIndex != 0 {
+		fmt.Fprintf(&s, "\nSeriesTitle  :\t%s", b.SeriesTitle)
+		fmt.Fprintf(&s, "\nSeries       :\t%s", b.Series)
 		fmt.Fprintf(&s, "\nSeriesIndex  :\t%.1f", b.SeriesIndex)
 	}
 
 	if b.Description != "" {
-		fmt.Fprintf(&s, "\nDescription  :\t%v", b.Description)
+		fmt.Fprintf(&s, "\nDescription  :\t%s", b.Description)
 	}
 
 	if b.Publisher != "" {
-		fmt.Fprintf(&s, "\nPublisher    :\t%v", b.Publisher)
+		fmt.Fprintf(&s, "\nPublisher    :\t%s", b.Publisher)
 	}
 
 	if b.PublishedDate != "" {
-		fmt.Fprintf(&s, "\nPublishedDate:\t%v", b.PublishedDate)
+		fmt.Fprintf(&s, "\nPublishedDate:\t%s", b.PublishedDate)
 	}
 
 	if b.Language != "" {
-		fmt.Fprintf(&s, "\nLanguage     :\t%v", b.Language)
+		fmt.Fprintf(&s, "\nLanguage     :\t%s", b.Language)
 	}
 
 	if b.PageCount > 0 {
@@ -324,7 +321,7 @@ func (b Book) String() string {
 	}
 
 	if len(b.Categories) > 0 {
-		fmt.Fprintf(&s, "\nCategories   :\t%v", b.Categories)
+		fmt.Fprintf(&s, "\nCategories   :\t%s", strings.Join(b.Categories, " & "))
 	}
 
 	return s.String()

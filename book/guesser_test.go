@@ -10,11 +10,11 @@ func TestSeriesGuesser(t *testing.T) {
 		in  string
 		out map[string]string
 	}{
-		{"Sun Company (La compagnie des glaces 25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "ShortTitle": "Sun Company"}},
-		{"Sun Company - La compagnie des glaces 25", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "ShortTitle": "Sun Company"}},
-		{"Sun Company (La compagnie des glaces #25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "ShortTitle": "Sun Company"}},
-		{"Sun Company (La compagnie des glaces n°25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "ShortTitle": "Sun Company"}},
-		{"Sun Company (La compagnie des glaces Series 25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "ShortTitle": "Sun Company"}},
+		{"Sun Company (La compagnie des glaces 25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
+		{"Sun Company - La compagnie des glaces 25", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
+		{"Sun Company (La compagnie des glaces #25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
+		{"Sun Company (La compagnie des glaces n°25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
+		{"Sun Company (La compagnie des glaces Series 25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
 		{"Book 25 of La compagnie des glaces", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25"}},
 		{"Unknown", nil},
 	}
@@ -40,9 +40,9 @@ func TestPathGuesser(t *testing.T) {
 		in  string
 		out map[string]string
 	}{
-		{"GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "Title": "Sun Company", "Language": "FR"}},
-		{"my/relative/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "Title": "Sun Company", "Language": "FR"}},
-		{"/my/full/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "Title": "Sun Company", "Language": "FR"}},
+		{"GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company", "Language": "FR"}},
+		{"my/relative/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company", "Language": "FR"}},
+		{"/my/full/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company", "Language": "FR"}},
 		{"/my/full/path/GJ Arnaud - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Title": "Sun Company", "Language": "FR"}},
 		{"Unknown", nil},
 	}

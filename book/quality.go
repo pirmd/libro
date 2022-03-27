@@ -32,8 +32,9 @@ func (b *Book) IsComplete() bool {
 		Verbose.Printf("warn: Book has no PublishedDate")
 	}
 
-	if (b.Series != "" && b.SeriesIndex == 0) ||
-		(b.SeriesIndex != 0 && b.Series == "") {
+	if (b.Series != "" && (b.SeriesIndex == 0 || b.SeriesTitle == "")) ||
+		(b.SeriesIndex != 0 && (b.Series == "" || b.SeriesTitle == "")) ||
+		(b.SeriesTitle != "" && (b.SeriesIndex == 0 || b.Series == "")) {
 		Verbose.Printf("warn: Book has incomplete Series information")
 		return false
 	}

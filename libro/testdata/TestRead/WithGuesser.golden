@@ -31,10 +31,10 @@
     "Authors": [
       "Herodotus"
     ],
-    "ShortTitle": "The History of Herodotus",
     "PublishedDate": "2001-01-01",
     "Series": "Volume",
     "SeriesIndex": 2,
+    "SeriesTitle": "The History of Herodotus",
     "Categories": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
@@ -46,10 +46,10 @@
     "Authors": [
       "Herodotus"
     ],
-    "ShortTitle": "The History of Herodotus",
     "PublishedDate": "2001-07-01",
     "Series": "Volume",
     "SeriesIndex": 1,
+    "SeriesTitle": "The History of Herodotus",
     "Categories": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
@@ -62,8 +62,8 @@
       "baron de Charles de Secondat Montesquieu"
     ],
     "SubTitle": "livres I à V, précédés d'une introduction de l'éditeur",
-    "ShortTitle": "Esprit des lois",
     "PublishedDate": "2008-12-20",
+    "SeriesTitle": "Esprit des lois",
     "Categories": [
       "Political science",
       "Law -- Philosophy",

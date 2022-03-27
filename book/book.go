@@ -44,10 +44,6 @@ type Book struct {
 	// SubTitle is the book's sub-title.
 	SubTitle string `json:",omitempty"`
 
-	// ShortTitle is the book's short title (whithout Series nor SubTitle
-	// information).
-	ShortTitle string `json:",omitempty"`
-
 	// Publisher is the publisher of this book.
 	Publisher string `json:",omitempty"`
 
@@ -63,6 +59,10 @@ type Book struct {
 
 	// SeriesIndex is the position in the series to which the book belongs to.
 	SeriesIndex float64 `json:",omitempty"`
+
+	// SeriesTitle is the book's title in th eseries (whithout Series nor
+	// SubTitle information).
+	SeriesTitle string `json:",omitempty"`
 
 	// Language is the book's language. It is the two-letter ISO 639-1 code
 	// such as 'fr', 'en'.
@@ -146,14 +146,14 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 				b.SubTitle = value
 			}
 
-		case "ShortTitle":
-			if b.ShortTitle != "" && strings.EqualFold(b.ShortTitle, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ShortTitle)
+		case "SeriesTitle":
+			if b.SeriesTitle != "" && strings.EqualFold(b.SeriesTitle, value) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.SeriesTitle)
 			}
 
-			if override || b.ShortTitle == "" {
+			if override || b.SeriesTitle == "" {
 				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.ShortTitle = value
+				b.SeriesTitle = value
 			}
 
 		case "Authors":
@@ -294,8 +294,8 @@ func (b Book) String() string {
 		fmt.Fprintf(&s, "\nSubTitle     :\t%v", b.SubTitle)
 	}
 
-	if b.ShortTitle != "" {
-		fmt.Fprintf(&s, "\nShortTitle   :\t%v", b.ShortTitle)
+	if b.SeriesTitle != "" {
+		fmt.Fprintf(&s, "\nSeriesTitle   :\t%v", b.SeriesTitle)
 	}
 
 	if b.Series != "" || b.SeriesIndex != 0 {

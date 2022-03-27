@@ -23,7 +23,7 @@ const (
 
 var (
 	myname    = filepath.Base(os.Args[0])
-	myversion = "v?.?.?-build" //should be set using: go build -ldflags "-X main.version=X.X.X"
+	myversion = "v?.?.?-?" //should be set using: go build -ldflags "-X main.myversion=X.X.X"
 )
 
 // App is a wrapper around a libro.Libro object that implements command line

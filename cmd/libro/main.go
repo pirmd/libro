@@ -87,7 +87,7 @@ func main() {
 		fmt.Fprintf(app.Output(), "Commands:\n")
 		fmt.Fprintf(app.Output(), "    info       retrieve information from an epub\n")
 		fmt.Fprintf(app.Output(), "    insert     insert an epub to the library\n")
-		fmt.Fprintf(app.Output(), "    edit       edit information\n")
+		fmt.Fprintf(app.Output(), "    edit       edit information about an epub\n")
 		fmt.Fprintf(app.Output(), "    version    print %s version\n", myname)
 		fmt.Fprintf(app.Output(), "Options:\n")
 		app.PrintDefaults()

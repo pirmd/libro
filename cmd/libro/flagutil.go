@@ -2,9 +2,11 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"io"
 	"log"
 	"os"
+	"strings"
 	"text/template"
 )
 
@@ -87,5 +89,36 @@ func (gotmpl *Gotemplate) Set(tmpl string) error {
 		return err
 	}
 
+	return nil
+}
+
+// KV wraps a map to implement flag.Value interface and get ability to allow
+// user to define (key, value) through command-line.
+type KV struct {
+	kv map[string]string
+}
+
+// NewKV creates a new Map.
+func NewKV(m map[string]string) *KV {
+	return &KV{
+		kv: m,
+	}
+}
+
+// String proposes a human-friendly string representation of a collection of
+// (key,value).
+func (kv KV) String() string {
+	return fmt.Sprint(kv.kv)
+}
+
+// Set implements flag.Value interface for a KV.
+// Command-line flag format is key=value
+func (kv *KV) Set(s string) error {
+	arg := strings.SplitN(s, "=", 2)
+	if len(arg) != 2 {
+		return fmt.Errorf("argument is not in key=value format")
+	}
+
+	kv.kv[arg[0]] = arg[1]
 	return nil
 }

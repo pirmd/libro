@@ -62,29 +62,29 @@ func (ls Logswitcher) IsBoolFlag() bool {
 	return true
 }
 
-// Gotemplate wraps a text/template.Template to implement flag.Value interface
+// GoTemplate wraps a text/template.Template to implement flag.Value interface
 // and get customization through command-line.
-type Gotemplate struct {
+type GoTemplate struct {
 	*template.Template
 }
 
-// NewGoTemplate creates a new gotemplate.
-func NewGoTemplate(tmpl *template.Template) *Gotemplate {
-	return &Gotemplate{
+// NewGoTemplate creates a new GoTemplate.
+func NewGoTemplate(tmpl *template.Template) *GoTemplate {
+	return &GoTemplate{
 		Template: tmpl,
 	}
 }
 
 // String proposes a human-friendly string representation of a formatter.
-func (gotmpl Gotemplate) String() string {
+func (gotmpl GoTemplate) String() string {
 	if gotmpl.Template != nil {
 		return gotmpl.Template.Root.String()
 	}
 	return ""
 }
 
-// Set implements flag.Value interface for a gotemplate.
-func (gotmpl *Gotemplate) Set(tmpl string) error {
+// Set implements flag.Value interface for a GoTemplate.
+func (gotmpl *GoTemplate) Set(tmpl string) error {
 	if _, err := gotmpl.Template.Parse(tmpl); err != nil {
 		return err
 	}

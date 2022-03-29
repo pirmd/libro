@@ -1,0 +1,106 @@
+{
+  "Path": "../../testdata/books/pg11.epub",
+  "Title": "Alice's Adventures in Wonderland",
+  "Authors": [
+    "Lewis Carroll"
+  ],
+  "PublishedDate": "2008-06-27",
+  "Categories": [
+    "Fantasy fiction",
+    "Children's stories",
+    "Imaginary places -- Juvenile fiction",
+    "Alice (Fictitious character from Carroll) -- Juvenile fiction"
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg24039.epub",
+  "Title": "老子",
+  "Authors": [
+    "Laozi"
+  ],
+  "PublishedDate": "2007-12-26",
+  "Categories": [
+    "Taoism",
+    "Philosophy, Chinese"
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg2456.epub",
+  "Title": "The History of Herodotus — Volume 2",
+  "Authors": [
+    "Herodotus"
+  ],
+  "PublishedDate": "2001-01-01",
+  "Categories": [
+    "History, Ancient",
+    "Greece -- History -- To 146 B.C."
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg2707.epub",
+  "Title": "The History of Herodotus — Volume 1",
+  "Authors": [
+    "Herodotus"
+  ],
+  "PublishedDate": "2001-07-01",
+  "Categories": [
+    "History, Ancient",
+    "Greece -- History -- To 146 B.C."
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg27573.epub",
+  "Title": "Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur",
+  "Authors": [
+    "baron de Charles de Secondat Montesquieu"
+  ],
+  "PublishedDate": "2008-12-20",
+  "Categories": [
+    "Political science",
+    "Law -- Philosophy",
+    "State, The",
+    "Jurisprudence"
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg29052.epub",
+  "Title": "Histoire de Pierre Lapin",
+  "Authors": [
+    "Beatrix Potter"
+  ],
+  "PublishedDate": "2009-06-06",
+  "Categories": [
+    "Rabbits -- Juvenile fiction"
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg54873.epub",
+  "Title": "Vingt mille lieues sous les mers",
+  "Authors": [
+    "Jules Verne"
+  ],
+  "PublishedDate": "2017-06-09",
+  "Categories": [
+    "libro",
+    "testing"
+  ]
+}
+
+{
+  "Path": "../../testdata/books/pg6099.epub",
+  "Title": "Les Fleurs du Mal",
+  "Authors": [
+    "Charles Baudelaire"
+  ],
+  "PublishedDate": "2004-07-01",
+  "Categories": [
+    "French poetry -- 19th century"
+  ]
+}
+

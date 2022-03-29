@@ -30,8 +30,20 @@ func (app *App) RunEditSubcmd(args []string) error {
 		fs.PrintDefaults()
 	}
 
-	auto := fs.Bool("auto", false, "do not trigger an editor if libro get the impression that Book's information is good enough")
-	editor := fs.String("editor", os.Getenv("EDITOR"), "sets editor's name to use for editing Book's information")
+	var auto bool
+	fs.BoolVar(&auto, "auto", false, "do not trigger an editor if libro get the impression that Book's information is good enough")
+
+	var dontedit bool
+	fs.BoolVar(&dontedit, "dont-edit", false, "do not trigger any editor at all. Supersedes 'auto' flag")
+
+	var editor string
+	fs.StringVar(&editor, "editor", os.Getenv("EDITOR"), "sets editor's name to use for editing Book's information")
+
+	setAttr := make(map[string]string)
+	fs.Var(NewKV(setAttr), "set", "set a new value for a book's attribute (format attribute=value)")
+
+	defaultAttr := make(map[string]string)
+	fs.Var(NewKV(defaultAttr), "default", "set a new value for a book's attribute if the attribute is not yet set (format attribute=value)")
 
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -55,16 +67,31 @@ func (app *App) RunEditSubcmd(args []string) error {
 		return fmt.Errorf("fail to decode book's JSON: %v", err)
 	}
 
-	app.Verbose.Printf("Edit book's information")
+	if len(defaultAttr) != 0 {
+		app.Verbose.Printf("Set default value for book's information")
+		if err := b.FromMap(defaultAttr, false); err != nil {
+			return fmt.Errorf("fail to set default value: %v", err)
+		}
+	}
 
+	if len(setAttr) != 0 {
+		app.Verbose.Printf("Set new value for book's information")
+		if err := b.FromMap(setAttr, true); err != nil {
+			return fmt.Errorf("fail to set new value: %v", err)
+		}
+	}
+
+	app.Verbose.Printf("Edit book's information")
 	switch {
-	case *editor == "":
+	case dontedit:
+		app.Verbose.Printf("manual edition of book's information has been prevented by '-dont-edit' flag")
+	case editor == "":
 		app.Verbose.Printf("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
-	case *auto && b.IsComplete():
+	case auto && b.IsComplete():
 		app.Verbose.Printf("no need to edit book's information that seems good enough to me")
 	default:
 		var err error
-		if b, err = editBook(*editor, b); err != nil {
+		if b, err = editBook(editor, b); err != nil {
 			return fmt.Errorf("fail to edit book: %v", err)
 		}
 	}

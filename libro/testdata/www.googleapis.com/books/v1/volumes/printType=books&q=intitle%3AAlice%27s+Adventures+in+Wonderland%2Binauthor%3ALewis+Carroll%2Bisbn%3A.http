@@ -1,0 +1,742 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 07 Apr 2022 09:29:00 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 68,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "QmQVDAAAQBAJ",
+      "etag": "rnf/uh1husU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/QmQVDAAAQBAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland and Through the Looking-Glass",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Oxford University Press",
+        "publishedDate": "2009-09-10",
+        "description": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780199558292"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0199558299"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 297,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=QmQVDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=QmQVDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=QmQVDAAAQBAJ&printsec=frontcover&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=QmQVDAAAQBAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland_and_Thr.html?hl=&id=QmQVDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=QmQVDAAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "jae3YKIz4RgC",
+      "etag": "4FlH6Xu5Y0M",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/jae3YKIz4RgC",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland & Through the Looking-Glass",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Modern Library",
+        "publishedDate": "2002-12-10",
+        "description": "Introduction by A. S. Byatt Illustrations by John Tenniel Includes commissioned endnotes Conceived by a shy British don on a golden afternoon to entertain ten-year-old Alice Liddell and her sisters, Alice’s Adventures in Wonderland and Through the Looking-Glass have delighted generations of readers in more than eighty languages. “The clue to the enduring fascination and greatness of the Alice books,” writes A. S. Byatt in her Introduction, “lies in language. It is play, and word-play, and its endless intriguing puzzles continue to reveal themselves long after we have ceased to be children.” Includes a Modern Library Reading Group Guide",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780375761386"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0375761381"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 304,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 9,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=jae3YKIz4RgC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=jae3YKIz4RgC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=jae3YKIz4RgC&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=jae3YKIz4RgC&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland_Through.html?hl=&id=jae3YKIz4RgC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=jae3YKIz4RgC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Introduction by A. S. Byatt Illustrations by John Tenniel Includes commissioned endnotes Conceived by a shy British don on a golden afternoon to entertain ten-year-old Alice Liddell and her sisters, Alice’s Adventures in Wonderland and ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "TRwXVxmjaZcC",
+      "etag": "qjPkLlgDO4M",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/TRwXVxmjaZcC",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland",
+        "subtitle": "&, Through the Looking-glass",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Bantam Classics",
+        "publishedDate": "1981",
+        "description": "A young girl enters two bizarre worlds by following a white rabbit down a rabbit hole and moving through the mirror on the mantel.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780553213454"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0553213458"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 272,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.0.0.preview.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=TRwXVxmjaZcC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=TRwXVxmjaZcC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=TRwXVxmjaZcC&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=TRwXVxmjaZcC&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland.html?hl=&id=TRwXVxmjaZcC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=TRwXVxmjaZcC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A young girl enters two bizarre worlds by following a white rabbit down a rabbit hole and moving through the mirror on the mantel."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "0UO5oQEACAAJ",
+      "etag": "1RzF+m7PwVE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/0UO5oQEACAAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publishedDate": "2015-04-02",
+        "description": "On an ordinary summer's afternoon, Alice tumbles down a hole and an extraordinary adventure begins. In a strange world with even stranger characters, she meets a rabbit with a pocket watch, joins a Mad Hatter's Tea Party, and plays croquet with the Queen! Lost in this fantasy land, Alice finds herself growing more and more curious by the minute ...",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0141361344"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780141361345"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 192,
+        "printType": "BOOK",
+        "categories": [
+          "Children's stories"
+        ],
+        "averageRating": 4.5,
+        "ratingsCount": 15,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=0UO5oQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=0UO5oQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=0UO5oQEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=0UO5oQEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland.html?hl=&id=0UO5oQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=0UO5oQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "On an ordinary summer&#39;s afternoon, Alice tumbles down a hole and an extraordinary adventure begins."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "TmCbDwAAQBAJ",
+      "etag": "TcY3fzOY/Qo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/TmCbDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland",
+        "subtitle": "The Classic Edition",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Applesauce Press",
+        "publishedDate": "2017-09-26",
+        "description": "\"A stunning new edition of a classic children's book!...It's the perfect new book for your kids to enjoy...this could even become their new all-time favorite children's book...It's time to bring your child's attention to something that's truly special.\" -- Devante, \"Kelly's Thoughts on Things\" family blog Alice’s adventures come to life in the most definitive and elaborately illustrated edition of Alice's Adventures in Wonderland on the market, featuring stunning original artwork by #1 New York Times bestselling illustrator Charles Santore! This beloved children’s classic bursts with never-before-seen full-color artwork from #1 New York Times best-selling illustrator Charles Santore. Complete with three breathtaking gatefolds, this classic edition promises to be the next must-read bedtime story, creating new traditions for the whole family. Children, parents and grandparents alike will share in this new addition to the family bookshelves!",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781604337112"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1604337117"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 96,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Fiction"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.0.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=TmCbDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=TmCbDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=TmCbDwAAQBAJ&printsec=frontcover&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=5&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=TmCbDwAAQBAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland.html?hl=&id=TmCbDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=TmCbDwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Complete with three breathtaking gatefolds, this classic edition promises to be the next must-read bedtime story, creating new traditions for the whole family."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "RPGlQAAACAAJ",
+      "etag": "Ji+6x1Hzhjc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/RPGlQAAACAAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland",
+        "subtitle": "Open Me for Curiouser and Curiouser Surprises",
+        "authors": [
+          "Harriet Castor",
+          "Lewis Carroll"
+        ],
+        "publisher": "Barrons Juveniles",
+        "publishedDate": "2010-02-01",
+        "description": "Presents an adaptation of the Lewis Carroll classic where a young girl falls through a rabbit hole into a fantastical world where nothing is as it seems.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0764163337"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780764163333"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 28,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=RPGlQAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=RPGlQAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=RPGlQAAACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=6&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=RPGlQAAACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland.html?hl=&id=RPGlQAAACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=RPGlQAAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Presents an adaptation of the Lewis Carroll classic where a young girl falls through a rabbit hole into a fantastical world where nothing is as it seems."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "cBJaDwAAQBAJ",
+      "etag": "O9iHeXhbem0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/cBJaDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland - Second Edition",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Broadview Press",
+        "publishedDate": "2011-03-23",
+        "description": "First published in 1865, Alice’s Adventures in Wonderland began as a story told to Alice Liddell and her two sisters on a boating trip in July 1862. The novel follows Alice down a rabbit-hole and into a world of strange and wonderful characters who constantly turn everything upside down with their mind-boggling logic, word play, and fantastic parodies. Like the first, this second edition includes Carroll’s earlier story Alice’s Adventures Under Ground, which allows readers to trace the revisions and to compare Carroll’s own illustrations in the original with the famous John Tenniel illustrations for Alice’s Adventures in Wonderland. This edition also includes new appendix material: George MacDonald writing on the fantastic, the eighteenth-century children’s story Goody Two-Shoes, a section on film and television adaptations of Alice, and new illustrations.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781554810390"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1554810396"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 344,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Fiction"
+        ],
+        "averageRating": 3,
+        "ratingsCount": 2,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=cBJaDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=cBJaDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=cBJaDwAAQBAJ&printsec=frontcover&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=7&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=cBJaDwAAQBAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland_Second.html?hl=&id=cBJaDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=cBJaDwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This edition also includes new appendix material: George MacDonald writing on the fantastic, the eighteenth-century children’s story Goody Two-Shoes, a section on film and television adaptations of Alice, and new illustrations."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "YXENrgEACAAJ",
+      "etag": "B0ttypAZOGU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/YXENrgEACAAJ",
+      "volumeInfo": {
+        "title": "Classics Reimagined, Alice's Adventures in Wonderland",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Rockport Publishers",
+        "publishedDate": "2015-08-15",
+        "description": "A modern and dazzling illustrated edition of a classic tale. The Classics Reimagined series is a library of stunning collector's editions of classic novels illustrated by contemporary artists from around the world. Each artist offers his or her own unique, visual interpretation of the most well-loved, widely read, and avidly collected literature from renowned authors. From Grimm's Fairy Tales to The Wonderful Wizard of Oz and from Edgar Allen Poe to Sir Arthur Conan Doyle, art lovers and book collectors alike will not be able to resist owning the whole collection. Enjoy Lewis Carroll's Alice's Adventures in Wonderland as you've never seen it before! Andrea D'Aquino's modern, illustrative interpretation of this classic tale follows Alice on her fanciful journey down the rabbit hole where she meets friends like the Mad Hatter, Cheshire Cat, and the Caterpillar! The lush, multi-faceted images breathe new life into this classic novel, making it a collectible for book and art lovers every where.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1631590758"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781631590757"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 248,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=YXENrgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=YXENrgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=YXENrgEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=8&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=YXENrgEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Classics_Reimagined_Alice_s_Adventures_i.html?hl=&id=YXENrgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=YXENrgEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Enjoy Lewis Carroll&#39;s Alice&#39;s Adventures in Wonderland as you&#39;ve never seen it before. Andrea D&#39;Aquino&#39;s modern, illustrative interpretation of this classic tale follows Alice on her fanciful journey down the rabbit hole."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "K7MYzgEACAAJ",
+      "etag": "NgyeM1WBW74",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/K7MYzgEACAAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland - Handwritten Style",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publishedDate": "2020-12",
+        "description": "This book is a reprint, in handwritten style, of Lewis Carroll's masterpiece \"Alice's Adventures in Wonderland\". Directly from the 1865 version, printed with a customized handwritten font, the book gives an old fashion style feeling to the reader. Alice's Adventures in Wonderland is a brilliant book for children, but with enough hilarity and joy for life in it to please adults too. A lovely book to take a brief respite from our overly rational and sometimes dreary world. This book belongs to the Masterpieces Collection Masterpieces Collection A Study in Scarlet - Arthur Conan Doyle (ISBN:979-8573516875 - ASIN: B08P4HFFLR) Frankenstein - Mary Shelley (ISBN: 979-8574009178 - ASIN: B08P3V7P22) Alice's Adventures in Wonderland - Lewis Carroll (ISBN: 9798575068273 - ASIN: )",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9798575068273"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 122,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=K7MYzgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=K7MYzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=K7MYzgEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=9&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=K7MYzgEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland_Handwri.html?hl=&id=K7MYzgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=K7MYzgEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This book is a reprint, in handwritten style, of Lewis Carroll&#39;s masterpiece &quot;Alice&#39;s Adventures in Wonderland&quot;."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "pd2rBwAAQBAJ",
+      "etag": "AcMDXk6A4/E",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/pd2rBwAAQBAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland and Other Tales",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Knickerbocker Press",
+        "publishedDate": "2015-05-19",
+        "description": "Delve into this stunning gift edition boasting the complete collection of Alice's Adventures in Wonderland and Other Tales and original, iconic illustrations by John Tenniel. The next edition in the Knickerbocker Classic series, Alice's Adventures in Wonderland and Other Tales features the writings of Lewis Carroll, the master of puns, puzzles, and fantasy that have been delighting adults and children alike for over 150 years.This volume is comprised of both Alice books (Alice's Adventures in Wonderland and Through the Looking-Glass); the nonsense poems, including \"The Hunting of the Snark\" and \"Jabberwocky\"; the novels Sylvie and Bruno and Sylvie and Bruno Concluded; and essays and other miscellaneous writings of this prolific writer. For Lewis Carroll fans worldwide, this stunning gift edition with an elegantly designed cloth binding features a slipcase, ribbon marker, and a new introduction by Lori Campbell.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781631060687"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1631060686"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 1060,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=pd2rBwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=pd2rBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=pd2rBwAAQBAJ&printsec=frontcover&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&cd=10&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=pd2rBwAAQBAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland_and_Oth.html?hl=&id=pd2rBwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=pd2rBwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Delve into this stunning gift edition boasting the complete collection of Alice&#39;s Adventures in Wonderland and Other Tales and original, iconic illustrations by John Tenniel."
+      }
+    }
+  ]
+}

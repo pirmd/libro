@@ -1,0 +1,125 @@
+[
+  {
+    "Path": "../testdata/books/pg11.epub",
+    "Title": "Alice's Adventures in Wonderland",
+    "Authors": [
+      "Lewis Carroll"
+    ],
+    "ISBN": "9780199558292",
+    "Publisher": "Oxford University Press",
+    "PublishedDate": "2008-06-27",
+    "Description": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters.",
+    "Language": "en",
+    "PageCount": 297,
+    "Categories": [
+      "Fantasy fiction",
+      "Children's stories",
+      "Imaginary places -- Juvenile fiction",
+      "Alice (Fictitious character from Carroll) -- Juvenile fiction"
+    ]
+  },
+  {
+    "Path": "../testdata/books/pg24039.epub",
+    "Title": "老子",
+    "Authors": [
+      "Laozi"
+    ],
+    "PublishedDate": "2007-12-26",
+    "Categories": [
+      "Taoism",
+      "Philosophy, Chinese"
+    ]
+  },
+  {
+    "Path": "../testdata/books/pg2456.epub",
+    "Title": "The History of Herodotus — Volume 2",
+    "Authors": [
+      "Herodotus"
+    ],
+    "ISBN": "9781291489002",
+    "Publisher": "Lulu.com",
+    "PublishedDate": "2001-01-01",
+    "Description": "From the 'father of history', the second volume in English translation of the heroic deeds of the Persians and Greeks in the centuries before Christ",
+    "Language": "en",
+    "PageCount": 568,
+    "Categories": [
+      "History, Ancient",
+      "Greece -- History -- To 146 B.C."
+    ]
+  },
+  {
+    "Path": "../testdata/books/pg2707.epub",
+    "Title": "The History of Herodotus — Volume 1",
+    "Authors": [
+      "Herodotus"
+    ],
+    "ISBN": "9780140449082",
+    "Publisher": "Penguin UK",
+    "PublishedDate": "2001-07-01",
+    "Description": "Recounts the causes and history of the wars between the Greek city-states and Persia.",
+    "Language": "en",
+    "PageCount": 716,
+    "Categories": [
+      "History, Ancient",
+      "Greece -- History -- To 146 B.C."
+    ]
+  },
+  {
+    "Path": "../testdata/books/pg27573.epub",
+    "Title": "Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur",
+    "Authors": [
+      "baron de Charles de Secondat Montesquieu"
+    ],
+    "PublishedDate": "2008-12-20",
+    "Categories": [
+      "Political science",
+      "Law -- Philosophy",
+      "State, The",
+      "Jurisprudence"
+    ]
+  },
+  {
+    "Path": "../testdata/books/pg29052.epub",
+    "Title": "Histoire de Pierre Lapin",
+    "Authors": [
+      "Beatrix Potter"
+    ],
+    "ISBN": "0486285405",
+    "SubTitle": "Livre d'Histoires en Couleurs",
+    "Publisher": "Courier Corporation",
+    "PublishedDate": "2009-06-06",
+    "Description": "Peter disobeys his mother by going into Mr. McGregor's garden and almost gets caught.",
+    "Language": "fr",
+    "PageCount": 32,
+    "Categories": [
+      "Rabbits -- Juvenile fiction"
+    ]
+  },
+  {
+    "Path": "../testdata/books/pg54873.epub",
+    "Title": "Vingt mille lieues sous les mers",
+    "Authors": [
+      "Jules Verne"
+    ],
+    "ISBN": "2211238432",
+    "PublishedDate": "2017-06-09",
+    "Description": "Ce roman constitue le deuxième volet d'une trilogie romanesque que complètent Les Enfants du capitaine Grant (premier volet) et L'Ile mystérieuse (troisième volet). Le savant Aronnax, accompagné de Conseil, son domestique, ainsi que d'un harponneur, Ned Land, embarquent sur la frégate Abraham-Lincoln pour capturer ce qu'ils croient être un monstre marin... Or, le monstre n'est autre que le Nautilus, le sous-marin du capitaine Nemo. Prisonniers du submersible, ils assisteront à une inhumation dans les fonds marins, découvriront l'Atlantide, lutteront contre des pieuvres géantes et comprendront que le mystérieux capitaine Nemo n'est pas le moindre des dangers qu'ils auront à affronter. \" Ah ! mon cher Hetzel, si je ratais ce livre-là, je ne m'en consolerais pas. Je n'ai jamais eu un plus beau sujet entre les mains. \" (Lettre à Pierre-Jules Hetzel du 28 mars 1868.)",
+    "Language": "fr",
+    "PageCount": 142
+  },
+  {
+    "Path": "../testdata/books/pg6099.epub",
+    "Title": "Les Fleurs du Mal",
+    "Authors": [
+      "Charles Baudelaire"
+    ],
+    "ISBN": "2017064653",
+    "Publisher": "Hachette Education",
+    "PublishedDate": "2004-07-01",
+    "Language": "fr",
+    "PageCount": 326,
+    "Categories": [
+      "French poetry -- 19th century"
+    ]
+  }
+]

@@ -1,0 +1,841 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 07 Apr 2022 09:29:02 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 15,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "WrPxj8hk9OAC",
+      "etag": "MR2QgMIZ6ow",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/WrPxj8hk9OAC",
+      "volumeInfo": {
+        "title": "The Histories",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Penguin UK",
+        "publishedDate": "2003",
+        "description": "Recounts the causes and history of the wars between the Greek city-states and Persia.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780140449082"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0140449086"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 716,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 509,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.5.2.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=WrPxj8hk9OAC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=WrPxj8hk9OAC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=WrPxj8hk9OAC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=WrPxj8hk9OAC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Histories.html?hl=&id=WrPxj8hk9OAC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=WrPxj8hk9OAC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Recounts the causes and history of the wars between the Greek city-states and Persia."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Ff2pLwAACAAJ",
+      "etag": "XYPZdpo/0us",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Ff2pLwAACAAJ",
+      "volumeInfo": {
+        "title": "The Landmark Herodotus",
+        "subtitle": "The Histories",
+        "authors": [
+          "Herodotus"
+        ],
+        "publishedDate": "2008",
+        "description": "In the 5th century BC an adventurous Ionian Greek, Herodotus of Halicarnassus, journeyed extensively through the lands of the eastern Mediterranean, from Egypt to Asia Minor, collecting tales of the upheavals that had afflicted the region in the earlier part of the century. The fruits of his wanderings were The Histories, in which he used his narrative gifts not only to chronicle the rise of the Achaemenid Persian Empire and its war with the Greek city-states, but also to recount his experiences with the varied peoples and cultures he had encountered during his journey. Herodotus earned the nickname 'the father of history' for this, the first authentic work of historical writing in the Western literary canon. In it he explored such universal themes as the nature of freedom, the role of religion, the human costs of war, and the dangers of absolute power. But in addition to his narrative of the Greek-Persian conflict, he included in The Histories rich seams of anthropology, ethnography, geology, and geography, pioneering these fields of study. Successful navigation of this sprawling, monumental work requires an understanding of ancient geography and events that will often be unfamiliar to the modern reader. Ten years in the making, Robert Strassler's magisterial new edition of The Histories is amplified by a veritable battery of editorial features - illustrations, maps, annotations, explanatory synopses, and state-of-the-art appendices on such critical themes as Athenian government, Egypt, Persian weaponry and tactics, oracles, religion tyranny and the position of women - that makes Herodotus' masterpiece more comprehensible, more accessible, even more enjoyable than ever before. The Landmark Herodotus is the definitive edition of a Western cultural milestone. It belongs on the bookshelf of every literate individual.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1847246869"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781847246868"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 953,
+        "printType": "BOOK",
+        "categories": [
+          "Greece"
+        ],
+        "averageRating": 4.5,
+        "ratingsCount": 16,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Ff2pLwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Ff2pLwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=Ff2pLwAACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Ff2pLwAACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Landmark_Herodotus.html?hl=&id=Ff2pLwAACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Ff2pLwAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The Landmark Herodotus is the definitive edition of a Western cultural milestone. It belongs on the bookshelf of every literate individual."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "NnqNumtqyaQC",
+      "etag": "g3xzPBWTzSo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/NnqNumtqyaQC",
+      "volumeInfo": {
+        "title": "The History",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "University of Chicago Press",
+        "publishedDate": "1988-01-15",
+        "description": "David Grene, one of the best known translators of the Greek classics, splendidly captures the peculiar quality of Herodotus, the father of history. Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past. In his History, the war between the Greeks and Persians, the origins of their enmity, and all the more general features of the civilizations of the world of his day are seen as a unity and expressed as the vision of one man who as a child lived through the last of the great acts in this universal drama. In Grene's remarkable translation and commentary, we see the historian as a storyteller, combining through his own narration the skeletal \"historical\" facts and the imaginative reality toward which his story reaches. Herodotus emerges in all his charm and complexity as a writer and the first historian in the Western tradition, perhaps unique in the way he has seen the interrelation of fact and fantasy. \"Reading Herodotus in English has never been so much fun. . . . Herodotus crowds his fresco-like pages with all shades of humanity. Whether Herodotus's view is 'tragic,' mythical, or merely common sense, it provided him with a moral salt with which the diversity of mankind could be savored. And savor it we do in David Grene's translation.\"—Thomas D'Evelyn, Christian Science Monitor \"Grene's work is a monument to what translation intends, and to what it is hungry to accomplish. . . . Herodotus gives more sheer pleasure than almost any other writer.\"—Peter Levi, New York Times Book Review",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0226327728"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780226327723"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 709,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=NnqNumtqyaQC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=NnqNumtqyaQC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=NnqNumtqyaQC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=NnqNumtqyaQC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History.html?hl=&id=NnqNumtqyaQC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=NnqNumtqyaQC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "R6aMDQAAQBAJ",
+      "etag": "Z0VAtmblslM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/R6aMDQAAQBAJ",
+      "volumeInfo": {
+        "title": "The Histories",
+        "subtitle": "(Penguin Classics Deluxe Edition)",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Penguin",
+        "publishedDate": "2015-05-19",
+        "description": "“Unquestionably the best English translation of Herodotus to have appeared in the past half-century.” —The Times Literary Supplement In Tom Holland’s vibrant translation, one of the great masterpieces of Western history springs to life. Herodotus of Halicarnassus—hailed by Cicero as the “Father of History”—composed his histories around 440 BC. The earliest surviving work of nonfiction, The Histories works its way from the Trojan War through an epic account of the war between the Persian empire and the Greek city-states in the fifth century BC, recording landmark events that ensured the development of Western culture and still capture our modern imagination. Beautifully packaged in a Penguin Classics Deluxe edition with a comprehensive array of tools to guide first-time readers and experts alike, this accessible translation makes Herodotus fresh and irresistible once more. For more than seventy years, Penguin has been the leading publisher of classic literature in the English-speaking world. With more than 1,700 titles, Penguin Classics represents a global bookshelf of the best works throughout history and across genres and disciplines. Readers trust the series to provide authoritative texts enhanced by introductions and notes by distinguished scholars and contemporary authors, as well as up-to-date translations by award-winning translators.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780143107545"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0143107542"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 880,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.0.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=R6aMDQAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=R6aMDQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=R6aMDQAAQBAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=R6aMDQAAQBAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Histories.html?hl=&id=R6aMDQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=R6aMDQAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Herodotus of Halicarnassus—hailed by Cicero as the “Father of History”—composed his histories around 440 BC. The earliest surviving work of nonfiction, The Histories works its way from the Trojan War through an epic account of the ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "yXp-1FZfHDYC",
+      "etag": "RpI4wPz583A",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/yXp-1FZfHDYC",
+      "volumeInfo": {
+        "title": "The History of Herodotus",
+        "subtitle": "",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Library of Alexandria",
+        "publishedDate": "1791",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781613106488"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1613106483"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Greece"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 5,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.1.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=yXp-1FZfHDYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=yXp-1FZfHDYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=yXp-1FZfHDYC&pg=PT462&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=5&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=yXp-1FZfHDYC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=yXp-1FZfHDYC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 5.26,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 5.26,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=yXp-1FZfHDYC&rdid=book-yXp-1FZfHDYC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 5260000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 5260000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_History_of_Herodotus-sample-epub.acsm?id=yXp-1FZfHDYC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=yXp-1FZfHDYC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "THE \u003cb\u003eHISTORY OF HERODOTUS\u003c/b\u003e ByHerodotus Translated into EnglishbyG.C.Macaulay IN TWO \u003cb\u003eVOLUMES VOL\u003c/b\u003e. II. {e Herodotou diathesis en apasin epieikes, kai tois men agathois sunedomene, tois de kakois sunalgousa}.—Dion. Halic."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "fz-aDAAAQBAJ",
+      "etag": "2fAB/abANiM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/fz-aDAAAQBAJ",
+      "volumeInfo": {
+        "title": "The Histories Book 1: Clio",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Simon and Schuster",
+        "publishedDate": "2015-08-24",
+        "description": "Herodotus was an ancient Greek historian who lived in the fifth century BC (c.484 - 425 BC). He has been called the \"Father of History\", and was the first historian known to collect his materials systematically, test their accuracy to a certain extent and arrange them in a well-constructed and vivid narrative. The Histories-his masterpiece and the only work he is known to have produced-is a record of his \"inquiry\", being an investigation of the origins of the Greco-Persian Wars and including a wealth of geographical and ethnographical information. The Histories, were divided into nine books, named after the nine Muses: the \"Muse of History\", Clio, representing the first book, then Euterpe, Thaleia, Melpomene, Terpsichore, Erato, Polymnia, Ourania and Calliope for books 2 to 9, respectively.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781681462905"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1681462907"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 175,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.3.3.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=fz-aDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=fz-aDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=fz-aDAAAQBAJ&pg=PT3&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=6&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=fz-aDAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=fz-aDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 1.84,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 1.84,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=fz-aDAAAQBAJ&rdid=book-fz-aDAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 1840000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 1840000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_Histories_Book_1_Clio-sample-epub.acsm?id=fz-aDAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=fz-aDAAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eBook\u003c/b\u003e. \u003cb\u003e1\u003c/b\u003e,. Clio. This is the Showing forth of the Inquiry of \u003cb\u003eHerodotus\u003c/b\u003e of Halicarnassos, to the end that neither the deeds of men may be forgotten by lapse of time, nor the works great and marvellous, which have been produced some by&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "m0miBQAAQBAJ",
+      "etag": "uWPSC1N//0s",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/m0miBQAAQBAJ",
+      "volumeInfo": {
+        "title": "The Greeks and the Persians: the first history",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Lulu.com",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781291488975"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1291488979"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=m0miBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=m0miBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=m0miBQAAQBAJ&pg=PP1&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=7&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=m0miBQAAQBAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Greeks_and_the_Persians_the_first_hi.html?hl=&id=m0miBQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=m0miBQAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eHerodotus\u003c/b\u003e. \u003cb\u003eHerodotus\u003c/b\u003e The \u003cb\u003ehistory\u003c/b\u003e of the Greeks and the Perišigns \u003cb\u003eVolume 1\u003c/b\u003e THE \u003cb\u003eHISTORY OF HERODOTUS\u003c/b\u003e By \u003cb\u003eHerodotus\u003c/b\u003e Translated into English by. Front Cover."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ZIgPYmYalLMC",
+      "etag": "b+bb18F+aC8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ZIgPYmYalLMC",
+      "volumeInfo": {
+        "title": "The History",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "University of Chicago Press",
+        "publishedDate": "2010-05-15",
+        "description": "David Grene, one of the best known translators of the Greek classics, splendidly captures the peculiar quality of Herodotus, the father of history. Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past. In his History, the war between the Greeks and Persians, the origins of their enmity, and all the more general features of the civilizations of the world of his day are seen as a unity and expressed as the vision of one man who as a child lived through the last of the great acts in this universal drama. In Grene's remarkable translation and commentary, we see the historian as a storyteller, combining through his own narration the skeletal \"historical\" facts and the imaginative reality toward which his story reaches. Herodotus emerges in all his charm and complexity as a writer and the first historian in the Western tradition, perhaps unique in the way he has seen the interrelation of fact and fantasy. \"Reading Herodotus in English has never been so much fun. . . . Herodotus crowds his fresco-like pages with all shades of humanity. Whether Herodotus's view is 'tragic,' mythical, or merely common sense, it provided him with a moral salt with which the diversity of mankind could be savored. And savor it we do in David Grene's translation.\"—Thomas D'Evelyn, Christian Science Monitor \"Grene's work is a monument to what translation intends, and to what it is hungry to accomplish. . . . Herodotus gives more sheer pleasure than almost any other writer.\"—Peter Levi, New York Times Book Review",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780226327754"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0226327752"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 710,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.14.9.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ZIgPYmYalLMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ZIgPYmYalLMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=ZIgPYmYalLMC&pg=PA13&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=8&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=ZIgPYmYalLMC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=ZIgPYmYalLMC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 13.93,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 13.93,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=ZIgPYmYalLMC&rdid=book-ZIgPYmYalLMC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 13930000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 13930000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_History-sample-epub.acsm?id=ZIgPYmYalLMC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_History-sample-pdf.acsm?id=ZIgPYmYalLMC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ZIgPYmYalLMC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The older editors, such as Sayce, respond to what they constantly refer to as the charm of \u003cb\u003eHerodotus\u003c/b\u003e&#39; stories, but they are far from seeing in what the charm consists. They regard the myths and folklore in the \u003cb\u003eHistory\u003c/b\u003e as something&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3ijqBQAAQBAJ",
+      "etag": "TI961Xv2qr4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3ijqBQAAQBAJ",
+      "volumeInfo": {
+        "title": "The Histories",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Everyman's Library",
+        "publishedDate": "2015-01-21",
+        "description": "Herodotus is not only the father of the art and the science of historical writing but also one of the Western tradition's most compelling storytellers. In tales such as that of Gyges—who murders Candaules, the king of Lydia, and unsurps his throne and his marriage bed, thereby bringing on, generations later, war with the Persians—he laid bare the intricate human entanglements at the core of great historical events. In his love for the stranger, more marvelous facts of the world, he infused his magnificent history with a continuous awareness of the mythic and the wonderful.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780375712715"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0375712712"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 816,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.4.3.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3ijqBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3ijqBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=3ijqBQAAQBAJ&pg=PR37&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=9&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=3ijqBQAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=3ijqBQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 12.75,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 12.75,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=3ijqBQAAQBAJ&rdid=book-3ijqBQAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 12750000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 12750000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_Histories-sample-epub.acsm?id=3ijqBQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3ijqBQAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "11uo1-:, Herodoti Historiae, 2 \u003cb\u003evolumes\u003c/b\u003e, Clarendon Press, Oxford, 3rd edition 1927. The commentary by w. w. 11ow and J. WELLS, A Commentary on \u003cb\u003eHerodotus\u003c/b\u003e, 2 \u003cb\u003evolumes\u003c/b\u003e, Clarendon Press, Oxford, 1913 (reprinted with corrections in 1928) is&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "MXdsAAAAQBAJ",
+      "etag": "yyoLQUh/dcQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/MXdsAAAAQBAJ",
+      "volumeInfo": {
+        "title": "Herodotus: The Seventh, Eighth, and Ninth Books",
+        "subtitle": "With Introduction, Text, Apparatus, Commentary, Appendices, Indices, Maps",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Cambridge University Press",
+        "publishedDate": "2010-01-17",
+        "description": "This 1908 edition of the last books of Herodotus is particularly valuable for its introduction, commentary, maps, appendices and indexes.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781108009683"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1108009689"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 462,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=MXdsAAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=MXdsAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=MXdsAAAAQBAJ&pg=PR17&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=10&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=MXdsAAAAQBAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Herodotus_The_Seventh_Eighth_and_Ninth_B.html?hl=&id=MXdsAAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=MXdsAAAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "With Introduction, Text, Apparatus, Commentary, Appendices, Indices, Maps \u003cb\u003eHerodotus\u003c/b\u003e Reginald Walter Macan. author&#39;s pen, with which the \u003cb\u003eBook\u003c/b\u003e now concludes; but neither in the original nor in the final draft of this section or \u003cb\u003evolume\u003c/b\u003e of&nbsp;..."
+      }
+    }
+  ]
+}

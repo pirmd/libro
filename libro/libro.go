@@ -38,9 +38,14 @@ type Libro struct {
 	// developer understand his/her mistakes.
 	Debug *log.Logger
 
+	// UseGooglebooks, if set, will complete book's missing metadata by
+	// searching Googlebooks.
+	// Default to false (do not try fetching missing metadata)
+	UseGooglebooks bool
+
 	// UseGuesser, if set,  tries to complete book's metadata by guessing
 	// missing information using media's filename and title.
-	// Default to false (do not try metadata guessing)
+	// Default to false (do not try guessing missing metadata)
 	UseGuesser bool
 
 	// LocationTmpl is a text.Template that determines the standardized media
@@ -72,9 +77,19 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 		return nil, err
 	}
 
+	// TODO: split b.Guess to separate guessing from filename from guessing Series and Cie
+	//       guess series at the end (after googlebooks) as googlebooks does
+	//       not provide series information.
 	if lib.UseGuesser {
 		lib.Verbose.Print("Guess information from book's Filename and Title")
 		if err := b.Guess(); err != nil {
+			return nil, err
+		}
+	}
+
+	if lib.UseGooglebooks {
+		lib.Verbose.Print("Get book's information from Googlebooks")
+		if err := b.FromGooglebooks(); err != nil {
 			return nil, err
 		}
 	}

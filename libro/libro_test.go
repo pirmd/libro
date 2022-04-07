@@ -87,6 +87,59 @@ func TestRead(t *testing.T) {
 			t.Fatalf("Metadata is not as expected:\n%v", failure)
 		}
 	})
+
+	t.Run("WithGooglebooks", func(t *testing.T) {
+		httpmock := verify.StartMockHTTPResponse()
+		defer httpmock.Stop()
+
+		library := newTestLibro(t)
+		library.UseGooglebooks = true
+
+		out := make([]*book.Book, len(testCases))
+		for i, tc := range testCases {
+			b, err := library.Read(tc)
+			if err != nil {
+				t.Errorf("Fail to read information for %s: %v", tc, err)
+			}
+			out[i] = b
+		}
+
+		got, err := json.MarshalIndent(out, "", "  ")
+		if err != nil {
+			t.Fatalf("Fail to marshal test output to json: %v", err)
+		}
+
+		if failure := verify.MatchGolden(t.Name(), string(got)); failure != nil {
+			t.Fatalf("Metadata is not as expected:\n%v", failure)
+		}
+	})
+
+	t.Run("WithGooglebooksAndGuesser", func(t *testing.T) {
+		httpmock := verify.StartMockHTTPResponse()
+		defer httpmock.Stop()
+
+		library := newTestLibro(t)
+		library.UseGooglebooks = true
+		library.UseGuesser = true
+
+		out := make([]*book.Book, len(testCases))
+		for i, tc := range testCases {
+			b, err := library.Read(tc)
+			if err != nil {
+				t.Errorf("Fail to read information for %s: %v", tc, err)
+			}
+			out[i] = b
+		}
+
+		got, err := json.MarshalIndent(out, "", "  ")
+		if err != nil {
+			t.Fatalf("Fail to marshal test output to json: %v", err)
+		}
+
+		if failure := verify.MatchGolden(t.Name(), string(got)); failure != nil {
+			t.Fatalf("Metadata is not as expected:\n%v", failure)
+		}
+	})
 }
 
 func TestCreate(t *testing.T) {

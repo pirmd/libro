@@ -24,6 +24,7 @@ func (app *App) RunInfoSubcmd(args []string) error {
 	}
 
 	fs.BoolVar(&app.Library.UseGuesser, "use-guesser", false, "completes book's metadata by guessing lacking information from book's filename and title")
+	fs.BoolVar(&app.Library.UseGooglebooks, "use-googlebooks", false, "completes book's metadata by searching lacking information from Googlebooks")
 
 	if err := fs.Parse(args); err != nil {
 		return err

@@ -36,4 +36,18 @@ func TestRunInfoSubCmd(t *testing.T) {
 	t.Run("WithGuesser", func(t *testing.T) {
 		testRunInfoSubcmd("-use-guesser")(t)
 	})
+
+	t.Run("WithGooglebooks", func(t *testing.T) {
+		httpmock := verify.StartMockHTTPResponse()
+		defer httpmock.Stop()
+
+		testRunInfoSubcmd("-use-googlebooks")(t)
+	})
+
+	t.Run("WithGooglebooksAndGuesser", func(t *testing.T) {
+		httpmock := verify.StartMockHTTPResponse()
+		defer httpmock.Stop()
+
+		testRunInfoSubcmd("-use-guesser", "-use-googlebooks")(t)
+	})
 }

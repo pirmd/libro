@@ -69,7 +69,7 @@ type Book struct {
 	Language string `json:",omitempty"`
 
 	// PageCount is total number of pages of this book.
-	PageCount int `json:",omitempty"`
+	PageCount int64 `json:",omitempty"`
 
 	// Categories is the list of subject categories, such as "Fiction",
 	// "Suspense".
@@ -244,7 +244,7 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 			}
 
 		case "PageCount":
-			v, err := strconv.Atoi(value)
+			v, err := strconv.ParseInt(value, 10, 0)
 			if err != nil {
 				return fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
 			}

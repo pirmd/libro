@@ -1,0 +1,776 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 07 Apr 2022 09:29:04 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 47,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "JXu4xQEACAAJ",
+      "etag": "RYfnLG9ObVc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/JXu4xQEACAAJ",
+      "volumeInfo": {
+        "title": "Les Fleur du mal",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Companyédition Belin/Gallimard",
+        "publishedDate": "2019-05-29",
+        "description": "Dossier pédagogique de Julie Proust, revu pour les Nouveaux programmes par Denis Roche et Olivier Rocheteau. 1857 : la publication des Fleurs du Mal fait scandale et vaut à leur auteur, Charles Baudelaire, un procès retentissant. Aujourd'hui encore, la modernité subversive de ce recueil de poèmes, riche d'images et de symboles, ne peut qu'étonner : alliance inédite de la volupté et de la souffrance, exaltation du mal, fascination pour la laideur comme pour la beauté... Des profondeurs de la ville aux paradis artificiels, du spleen à l'évasion, suivez le poète dans son cheminement vers l'idéal.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9791035805319"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 298,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=JXu4xQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=JXu4xQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_Fleur_du_mal.html?hl=&id=JXu4xQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=JXu4xQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "HriGrgEACAAJ",
+      "etag": "FBsqEupnI2o",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/HriGrgEACAAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Editions Gallimard",
+        "publishedDate": "2004",
+        "description": "\"Plonger au fond du gouffre, Enfer ou Ciel, qu'importe ? Au fond de l'inconnu, pour trouver du nouveau !\". Ces vers du \"Voyage\" éclairent à eux seuls l'entreprise du poète. Esprit vagabond, toujours mobile, Baudelaire explore les dédales de la conscience. Il atteint tantôt à l'extase, tantôt se perd dans les abîmes du péché. A travers ses poèmes, il nous fait partager le drame qui se joue en lui et qui n'est autre que la tragédie humaine. Baudelaire, premier poète moderne, donne à la poésie sa véritable dimension : exprimer, par-delà les mots, ce vertige absolu qui s'empare de l'âme. Tout chez lui, en lui affirme la nécessité de la souffrance, la fatalité du péché. Tout traduit en lui une âme profondément troublée mais charitable. Baudelaire fait des Fleurs du Mal un immense poème de la vie et du monde.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2070307662"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782070307661"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 353,
+        "printType": "BOOK",
+        "categories": [
+          "French poetry"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=HriGrgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=HriGrgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=HriGrgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=HriGrgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_fleurs_du_mal.html?hl=&id=HriGrgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=HriGrgEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Tout traduit en lui une âme profondément troublée mais charitable. Baudelaire fait des Fleurs du Mal un immense poème de la vie et du monde. -- [payot.ch]."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "k7mwyQEACAAJ",
+      "etag": "mlRhjYkvKv8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/k7mwyQEACAAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal",
+        "subtitle": "Parcours associé : Alchimie poétique : la boue et l'or",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publishedDate": "2019-08-29",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2091512141"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782091512143"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 300,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=k7mwyQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=k7mwyQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_fleurs_du_mal.html?hl=&id=k7mwyQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=k7mwyQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Les Fleurs du Mal - Charles Beaudelaire Résumé de l&#39;oeuvre : Un poète à l&#39;élégance recherchée, provocateur et hanté par la mélancolie, nous invite, dans ce recueil original, à découvrir son univers."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "gmCftgEACAAJ",
+      "etag": "HeRyo+qMitI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/gmCftgEACAAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs Du Mal, En Édition Intégrale",
+        "subtitle": "172 Poèmes, Dont Ceux Qui Furent Censurés",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Createspace Independent Publishing Platform",
+        "publishedDate": "2018-04-23",
+        "description": "Edition intégrale en format broché Cet ouvrage en 7 parties (Spleen et Idéal, Tableaux Parisiens, Le Vin, leurs du Mal, Révolte, La Mort, Les épaves) inclut les poèmes censurés du vivant de l'auteur. Plongez dans la lecture d'un des plus grands chefs-d'oeuvre de la poésie française. Charles Baudelaire (1821-1867) est le premier poète français moderne. Il donna à la poésie sa véritable dimension: exprimer, par-delà les mots, la tragédie humaine, le vertige absolu qui s'empare de l'âme. Son influence sur des poètes ultérieurs aussi éminents que Verlaine, Rimbaud et Mallarmé est considérable. Il façonna sa vie durant un recueil de poèmes, oeuvre majeure de la poésie moderne: Les Fleurs du mal, qui englobe la quasi-totalité de ses productions. Publié en 1857, le livre fait scandale et suscite un procès retentissant pour outrage à la morale publique et offense à la morale religieuse, qui entraîne la censure de plusieurs poèmes, seulement réhabilités en 1949. Ce chef-d'oeuvre qui rompt avec le style convenu en usage jusqu'alors, explore les dédales de la conscience et révèle tout ce qui nous habite et nous hante, pour nous fait vivre les émotions les plus intenses. Cette édition inclut l'intégralité des poèmes des Fleurs du mal, y compris les oeuvres condamnées - soit 172 poèmes, et invite le lecteur dans un univers bouleversant, témoignage de l'immense talent de l'auteur. Un incontournable de la littérature classique qui ravira les lecteurs de tous âges. Dans la même collection brochée de l'éditeur Atlantic Editions, retrouvez deux autres chefs-d'oeuvre de la poésie française: Les contemplations, de Victor Hugo (ISBN 978-1533477071) Alcools, de Guillaume Apollinaire (ISBN 978-1533468147) (c) Atlantic Editions",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "171733296X"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781717332967"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 204,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=gmCftgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=gmCftgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=gmCftgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=gmCftgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_Fleurs_Du_Mal_En_%C3%89dition_Int%C3%A9grale.html?hl=&id=gmCftgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=gmCftgEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Plongez dans la lecture d&#39;un des plus grands chefs-d&#39;oeuvre de la poésie française. Charles Baudelaire (1821-1867) est le premier poète français moderne."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "HAjUswEACAAJ",
+      "etag": "Naa90Jeh4bA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/HAjUswEACAAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs du Mal",
+        "subtitle": "Edition Intégrale",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Createspace Independent Publishing Platform",
+        "publishedDate": "2017-12",
+        "description": "** EDITION INTEGRALE EXCEPTIONNELLE ** *** Cet ouvrage en 7 parties (Spleen et Id�al, Tableaux Parisiens, Le Vin, leurs du Mal, R�volte, La Mort, Les �paves) inclut les po�mes censur�s du vivant de l'auteur *** Plongez dans la lecture d'un des plus grands chefs-d'oeuvre de la po�sie fran�aise dans une tr�s belle �dition broch�e. Charles Baudelaire (1821-1867) est le premier po�te fran�ais moderne. Il donna � la po�sie sa v�ritable dimension: exprimer, par-del� les mots, la trag�die humaine, le vertige absolu qui s'empare de l'�me. Son influence sur des po�tes ult�rieurs aussi �minents que Verlaine, Rimbaud et Mallarm� est consid�rable. Il fa�onna sa vie durant un recueil de po�mes, oeuvre majeure de la po�sie moderne: Les Fleurs du mal, qui englobe la quasi-totalit� de ses productions. Publi� en 1857, le livre fait scandale et suscite un proc�s retentissant pour outrage � la morale publique et offense � la morale religieuse, qui entra�ne la censure de plusieurs po�mes, seulement r�habilit�s en 1949. Ce chef-d'oeuvre qui rompt avec le style convenu en usage jusqu'alors, explore les d�dales de la conscience et r�v�le tout ce qui nous habite et nous hante, pour nous fait vivre les �motions les plus intenses. Cette �dition inclut l'int�gralit� des po�mes des Fleurs du mal, y compris les oeuvres condamn�es - soit 172 po�mes, et invite le lecteur dans un univers bouleversant, t�moignage de l'immense talent de l'auteur. Un incontournable de la litt�rature classique qui ravira les lecteurs de tous �ges. Dans la m�me collection broch�e de l'�diteur Atlantic Editions, retrouvez deux autres chefs-d'oeuvre de la po�sie fran�aise: Les contemplations, de Victor Hugo (ISBN 978-1533477071) Alcools, de Guillaume Apollinaire (ISBN 978-1533468147)",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1981319697"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781981319695"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 204,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=HAjUswEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=HAjUswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=HAjUswEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=5&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=HAjUswEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_Fleurs_du_Mal.html?hl=&id=HAjUswEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=HAjUswEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Charles Baudelaire (1821-1867) est le premier poete francais moderne. Il donna a la poesie sa veritable dimension: exprimer, par-dela les mots, la tragedie humaine, le vertige absolu qui s&#39;empare de l&#39;ame."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "G6ihswEACAAJ",
+      "etag": "zFOrJLHKs4M",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/G6ihswEACAAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs du mal",
+        "subtitle": "Illustrées par la peinture symboliste et décadente",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publishedDate": "2017-04-06",
+        "description": "Les Fleurs du Mal de Charles Baudelaire illustrées par la peinture symboliste et décadente, Petite Collection Dix ans après les débuts de \"La Petite Collection\" des Editions Diane de Selliers, redécouvrez Les Fleurs du Mal de Charles Baudelaire illustrées par la peinture symboliste et décadente, augmentées à la fin de l'ouvrage d'un carnet de dédicaces des personnes ayant contribué à la réédition de cet ouvrage. Le livre présente l'intégralité du recueil des Fleurs du Mal (édition de 1861) augmenté des Epaves (1866) et de l'édition posthume (1868), soit un ensemble de 164 poèmes. Ces derniers sont accompagnés de 185 reproductions pleine page de peintures, lithographies et aquarelles de plus de 80 artistes essentiellement issus de la seconde moitié du XIXe siècle, parmi lesquels Félicien Rops, Léon Spilliaert, James Ensor, Jean Delville, Alfred Kubin, Edvard Munch, Odilon Redon et Gustave Moreau, Carlos Schwabe, Max Klinger, etc. Cette confrontation du poétique et du pictural souligne les correspondances entre deux univers, et restitue à l'oeuvre de Baudelaire sa grandeur prophétique et fondatrice pour toute une nouvelle génération de poètes et de peintres. Héritage du second romantisme et première manifestation du symbolisme, la décadence est une esthétique où l'étrange et l'artificiel s'unissent afin de créer un langage pictural nouveau, en réaction aux préoccupations industrielles d'une bourgeoisie optimiste et dirigiste. De la décadence naîtra le symbolisme, un art de la suggestion, de l'analogie et de la métaphore, au sein duquel poètes et artistes expriment leurs obsessions les plus profondes : la solitude, la mélancolie, le mysticisme, la sensualité, le rêve, l'étrange, le morbide. Cette édition préfacée par Jean-David Jumeau-Lafond propose une biographie des 86 artistes présents dans l'ouvrage ainsi qu'une chronologie précisant notamment les liens de Charles Baudelaire avec les artistes et les hommes de lettres de son époque.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2364370779"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782364370777"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 487,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=G6ihswEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=6&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=G6ihswEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_Fleurs_du_mal.html?hl=&id=G6ihswEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=G6ihswEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "rYobCwAAQBAJ",
+      "etag": "RGzGwQGkR2c",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/rYobCwAAQBAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal (Baudelaire) - suivi de Poèmes (Rimbaud)",
+        "subtitle": "édition intégrale",
+        "authors": [
+          "Charles Baudelaire",
+          "Arthur Rimbaud"
+        ],
+        "publisher": "Ink book",
+        "publishedDate": "2013-01-07",
+        "description": "Cette édition de référence propose dans un même volume, deux grands recueils de poésie romantique, mélancolique, onirique, truffée de symboles, ésotérique, funèbre, écrits par deux grands poètes maudits que sont Charles Baudelaire et Arthur Rimbaud. Comme si face à une société inconséquente et cruelle (\"l'Albatros, Femmes Damnés, le Vampire, la fontaine de Sang\") que le poète veut fuir (\"Le Voyage, Le Voyage à Cythère, Invitation au voyage, Parfum Exotique), Baudelaire posait les bases du Symbolisme (Correspondances, Elevation) dans le vertige grandissant d'un homme tourmenté par l'ivresse (L'Ame du Vin, le Flacon), la peur de la Mort (Réversibilité, l'Horloge, l'Irrémédiable) et par la Femme, Fleur du Mal (Les Bijoux, Sed non Satiata). On peut ainsi donner à Baudelaire ce compliment que faisait Hugo à Shakespeare : il est l'Homme. Les Fleurs du Mal sont l'Œuvre de l'Homme. Suivi de « Poèmes » par Arthur Rimbaud Rimbaud n’avait que 17 ans quand il composa ses poèmes. Puis il cessa toute activité littéraire pour se consacrer entièrement au mercenariat et à la vente d’armes... Comment cet homme a-t-il pu oublier totalement toute poésie et devenir un marchand a Harar (Abyssinie), à Aden, en Ogadine, puis se livrer au commerce d’armes destinées à Ménélik ?... De ce moment son esprit ne sera plus occupé que de comptes !... Camus, à qui quelqu’un posait cette question, répondit : « Parce qu’il avait tout dit ! » Format professionnel électronique © Ink Book édition",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9791023201901"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.9.8.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=rYobCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=rYobCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=rYobCwAAQBAJ&pg=PP4&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=7&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=rYobCwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=rYobCwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 1.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 1.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=rYobCwAAQBAJ&rdid=book-rYobCwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 1990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 1990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=rYobCwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "édition intégrale Charles \u003cb\u003eBaudelaire\u003c/b\u003e, Arthur Rimbaud. \u003cb\u003eISBN\u003c/b\u003e : 979-10-232-0190-1 © Ink Book édition, Paris, 2012."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "nhRLAQAAIAAJ",
+      "etag": "QN7n/TkQueg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/nhRLAQAAIAAJ",
+      "volumeInfo": {
+        "title": "Les dessins de Baudelaire",
+        "authors": [
+          "Claude Pichois",
+          "Jean-Paul Avice",
+          "Charles Baudelaire"
+        ],
+        "publishedDate": "2003",
+        "description": "Observateur insatiable, flâneur patenté, capteur des effluves de son temps, Baudelaire, avec Les Fleurs du Mal et les Petits Poèmes en prose, a ouvert la voie de la modernité en poésie. Explorateur des insondables sinuosités de l'âme, il s'est posé dans son siècle comme le peintre incontournable de la vie moderne. Voici présentés pour la première fois l'ensemble des dessins de Baudelaire. Trente-neuf pièces, pour la majorité des portraits, tracés à la plume et rehaussés pour certains de quelques touches de couleur. Les dessins de Baudelaire sont pour la plupart méconnus du public. Tout au plus connaît-on quelques autoportraits. La dernière édition -épuisée- des dessins de Baudelaire date de 1927 et demeure incomplète : elle ne comportait en effet que 16 dessins. D'où la gageure ambitieuse de cet ouvrage qui révèle au public 23 dessins inédits. Baudelaire saisit ici l'âme changeante des êtres qui l'entourent. Il fixe en quelques traits véloces et cursifs la physionomie de ses contemporains : figures littéraires obsédantes, physionomies d'ami(e)s intimes, visages de créatures singulières, etc. L'ouvrage est rythmé en deux temps : La première partie est consacrée à la reproduction en fac-similés en quadrichromie de l'ensemble des dessins de Baudelaire. Chaque dessin fait l'objet de légendes complètes. La seconde est dédiée aux commentaires de Claude Pichois et Jean-Paul Avice, séquencés en cinq thèmes : les autoportraits, les femmes, les amis et rencontres, les autres dessins et caricatures, et enfin, les \"questions\". Ce deuxième temps de l'ouvrage donne la parole aux spécialistes que sont Claude Pichois et Jean-Paul Avice, et est l'occasion d'éclairages contextuels : sous la forme de notice, chaque dessin est convoqué et interrogé dans son histoire et son contexte (qui sont les personnes représentées ?, cheminement du dessin à travers les collections, etc.). C'est une facette du poète absolument inédite que Claude Pichois et Jean-Paul Avice révèlent dans cet ouvrage de référence.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105119433337"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 123,
+        "printType": "BOOK",
+        "categories": [
+          "Portraits français"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=nhRLAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=nhRLAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=nhRLAQAAIAAJ&q=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=8&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=nhRLAQAAIAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_dessins_de_Baudelaire.html?hl=&id=nhRLAQAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=nhRLAQAAIAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Trente-neuf pièces, pour la majorité des portraits, tracés à la plume et rehaussés pour certains de quelques touches de couleur. Les dessins de Baudelaire sont pour la plupart méconnus du public."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3Ec-EAAAQBAJ",
+      "etag": "pnAcHIsvRYQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3Ec-EAAAQBAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs du mal - BAC 2022 - Parcours « Alchimie poétique : la boue et l'or »",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Flammarion",
+        "publishedDate": "2021-08-25T00:00:00+02:00",
+        "description": "D’une modernité géniale, ce recueil extrait la beauté des noires immondices et dévoile la condition tragique de l’homme, partagé entre volupté et souffrance, désir d’absolu et goût du vice. Prince des nuées déchu ou mage investi d’une mission prophétique, Baudelaire offre à l’aveugle humanité ses fleurs maladives. TOUT POUR COMPRENDRE • Notes lexicales • Biographie de l’auteur • Contexte historique et littéraire • Genèse et genre de l’œuvre • Chronologie et carte mentale ALCHIMIE POÉTIQUE : LA BOUE ET L’OR • Analyse du parcours • Groupements de textes • Histoire des arts VERS LE BAC • Explications linéaires guidées • Sujets de dissertation et de commentaire guidés • Méthodologie CAHIER ICONOGRAPHIQUE.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782080253972"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2080253972"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 328,
+        "printType": "BOOK",
+        "categories": [
+          "Poetry"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.2.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3Ec-EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3Ec-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=3Ec-EAAAQBAJ&pg=PP3&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=9&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=3Ec-EAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=3Ec-EAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 2.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 2.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=3Ec-EAAAQBAJ&rdid=book-3Ec-EAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 2990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Les_Fleurs_du_mal_BAC_2022_Parcours_Alch-sample-epub.acsm?id=3Ec-EAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Les_Fleurs_du_mal_BAC_2022_Parcours_Alch-sample-pdf.acsm?id=3Ec-EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3Ec-EAAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eBaudelaire\u003c/b\u003e Les \u003cb\u003eFleurs du mal\u003c/b\u003e Appareil pédagogique par Anne Princen Avec un groupement conçu par Chloé Brendlé Méthodologie par Laure Sermage Versos de couverture par Élise Sultan Flammarion © Flammarion, 2021 \u003cb\u003eISBN\u003c/b\u003e Epub : 9782080253972&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "zzDnDwAAQBAJ",
+      "etag": "iWEJNjHyTJs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/zzDnDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs du Mal de Baudelaire - BAC Français 1re 2022 - Parcours associé Alchimie poétique : la boue et l'or - édition intégrale - Carrés Classiques Oeuvres Intégrales - EPUB 2022",
+        "authors": [
+          "Sophie Pailloux",
+          "David Galand",
+          "Charles Baudelaire"
+        ],
+        "publisher": "Nathan",
+        "publishedDate": "2020-05-20",
+        "description": "Une nouvelle collection dédiée aux œuvres intégrales 1 re du BAC 2020 et à leurs parcours associés ! Parcours associé : Alchimie poétique : la boue et l'or Résumé de l'œuvre Un poète à l'élégance recherchée, provocateur et hanté par la mélancolie, nous invite, dans ce recueil original, à découvrir son univers. Ses audaces sont telles que le livre passa en justice. Visitons dons le laboratoire d'alchimiste de Charles Baudelaire, dans lequel les femmes s'épanouissent sur le terreau du mal et de la douleur, et où la misère et la boue de la ville sont transmutées en or poétique. Lire et comprendre l'œuvre • Tous les repères sur Baudelaire et le contexte de l'œuvre • Des encarts culturels et des éclairages au fil du texte • Des explications de texte avec une question de langue pour préparer l'oral Préparer le Bac 60 pages pour préparer vos élèves aux épreuves écrites et orales du Bac ! L'œuvre • Des tests de lecture de l'œuvre • Les clés pour bien connaître l'œuvre : L'influence du romantisme, celle du Parnasse Une vision de la beauté moderne - La question du lyrisme Le parcours • Tout pour comprendre le parcours : les thèmes clés (L'alchimie poétique - La boue : de la trivialité à la monstruosité - L'or : la transfiguration poétique de la réaité - Une esthétique de la tension), des groupements de textes complémentaires, des citations, des prolongements artistiques... • Vers le Bac : des sujets de dissertation traités, des points de méthode et des outils pour préparer l'oral du Bac",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782091320960"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "209132096X"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 305,
+        "printType": "BOOK",
+        "categories": [
+          "Education"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=zzDnDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=zzDnDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=zzDnDwAAQBAJ&pg=PP5&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=10&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=zzDnDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=zzDnDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 2.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 2.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=zzDnDwAAQBAJ&rdid=book-zzDnDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 2990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=zzDnDwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Sophie Pailloux, David Galand, Charles \u003cb\u003eBaudelaire\u003c/b\u003e ... 94 Explication de texte 5 « Alchimie de la douleur » Comment le choix du \u003cb\u003emal\u003c/b\u003e et du malheur s&#39;a  irme-t-il poétiquement ? ...................................................... 131&nbsp;..."
+      }
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 07 Apr 2022 07:50:57 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 3,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "lCDh2ypoCZsC",
+      "etag": "2fmcrDiaOQo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/lCDh2ypoCZsC",
+      "volumeInfo": {
+        "title": "L' Histoire de Pierre Lapin",
+        "subtitle": "Livre d'Histoires en Couleurs",
+        "authors": [
+          "Beatrix Potter",
+          "Anna Pomaska"
+        ],
+        "publisher": "Courier Corporation",
+        "publishedDate": "1995-01-01",
+        "description": "Peter disobeys his mother by going into Mr. McGregor's garden and almost gets caught.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0486285405"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780486285405"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 32,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Nonfiction"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.2.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=lCDh2ypoCZsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=lCDh2ypoCZsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=lCDh2ypoCZsC&pg=PT2&dq=intitle:Histoire+de+Pierre+Lapin%2Binauthor:Beatrix+Potter%2Bisbn:&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=lCDh2ypoCZsC&dq=intitle:Histoire+de+Pierre+Lapin%2Binauthor:Beatrix+Potter%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/L_Histoire_de_Pierre_Lapin.html?hl=&id=lCDh2ypoCZsC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=lCDh2ypoCZsC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Livre d&#39;Histoires en Couleurs Beatrix \u003cb\u003ePotter\u003c/b\u003e, Anna Pomaska. L&#39;Histoire de \u003cb\u003ePierre Lapin\u003c/b\u003e Livre d&#39;Histoires en Couleurs \u003cb\u003ePotter\u003c/b\u003e / Pomaska L&#39;Histoire de \u003cb\u003ePierre Lapin\u003c/b\u003e : Livre d&#39;Histoires en Couleurs Dover 0-486-28540-5."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "cRlSDwAAQBAJ",
+      "etag": "k3OlYE6vaMk",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/cRlSDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Histoire de Pierre Lapin",
+        "authors": [
+          "Beatrix Potter"
+        ],
+        "publisher": "BoD – Books on Demand",
+        "publishedDate": "2018-03-20",
+        "description": "Histoire de Pierre Lapin: \"IL y avait une fois quatre petits lapins qui s'appelaient - Flopsaut, Trotsaut, Oueue-de-Coton, et Pierre. ...\"",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9783746091761"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "3746091764"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 11,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.2.3.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=cRlSDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=cRlSDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=cRlSDwAAQBAJ&pg=PT1&dq=intitle:Histoire+de+Pierre+Lapin%2Binauthor:Beatrix+Potter%2Bisbn:&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=cRlSDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=cRlSDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 0.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 0.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=cRlSDwAAQBAJ&rdid=book-cRlSDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Histoire_de_Pierre_Lapin-sample-epub.acsm?id=cRlSDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Histoire_de_Pierre_Lapin-sample-pdf.acsm?id=cRlSDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=cRlSDwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Beatrix \u003cb\u003ePotter\u003c/b\u003e. Histoire de \u003cb\u003ePierre Lapin\u003c/b\u003e Histoire de \u003cb\u003ePierre Lapin\u003c/b\u003e IL y avait une fois quatre petits lapins ... Page de copyright Beatrix \u003cb\u003ePotter\u003c/b\u003e Histoire de \u003cb\u003ePierre Lapin\u003c/b\u003e."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "PU54Rgk_QjgC",
+      "etag": "fo98GcB33d4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/PU54Rgk_QjgC",
+      "volumeInfo": {
+        "title": "L Histoire De Jemima Cane-De-Flaque: (The Tale of Jemima Puddle-Duck in French)",
+        "authors": [
+          "Beatrix Potter",
+          "Anna Pomaska"
+        ],
+        "publisher": "Courier Corporation",
+        "publishedDate": "1995-01-01",
+        "description": "The classic tale of a duck's anxious pursuit of a safe place to build her nest. 20 new full-color illus. Translated by Catherine Dana.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0486286940"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780486286945"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 32,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Nonfiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=PU54Rgk_QjgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=PU54Rgk_QjgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=PU54Rgk_QjgC&pg=PT10&dq=intitle:Histoire+de+Pierre+Lapin%2Binauthor:Beatrix+Potter%2Bisbn:&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=PU54Rgk_QjgC&dq=intitle:Histoire+de+Pierre+Lapin%2Binauthor:Beatrix+Potter%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/L_Histoire_De_Jemima_Cane_De_Flaque_The.html?hl=&id=PU54Rgk_QjgC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=PU54Rgk_QjgC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003ePotter\u003c/b\u003e / Pomaska L&#39;Histoire de Jemima Cane - de - flaque : Livre d&#39;Histoires en Couleurs Dover 0-486-28694-00 ALSO AVAILABLE L&#39;HISTOIRE DE \u003cb\u003ePIERRE LAPIN\u003c/b\u003e : LIVRE D&#39;HISTOIRES EN COULEURS , Beatrix \u003cb\u003ePotter\u003c/b\u003e and Anna Pomaska . 32pp ."
+      }
+    }
+  ]
+}

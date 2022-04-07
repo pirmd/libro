@@ -55,7 +55,7 @@ func TestEdit(t *testing.T) {
 			}
 			bInJSON := string(j)
 
-			if err := testApp.RunEditSubcmd([]string{"-dont-edit", "-default", "Categories=libro&testing", bInJSON}); err != nil {
+			if err := testApp.RunEditSubcmd([]string{"-dont-edit", "-default", "Subject=libro&testing", bInJSON}); err != nil {
 				t.Errorf("Fail to create book for %v: %v", b, err)
 			}
 
@@ -81,7 +81,7 @@ func TestEdit(t *testing.T) {
 			}
 			bInJSON := string(j)
 
-			if err := testApp.RunEditSubcmd([]string{"-dont-edit", "-set", "Categories=libro&testing", bInJSON}); err != nil {
+			if err := testApp.RunEditSubcmd([]string{"-dont-edit", "-set", "Subject=libro&testing", bInJSON}); err != nil {
 				t.Errorf("Fail to create book for %v: %v", b, err)
 			}
 

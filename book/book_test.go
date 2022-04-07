@@ -76,12 +76,12 @@ func TestNewFromMapWithoutOverride(t *testing.T) {
 		},
 
 		{
-			&Book{Title: "Mon père fouettard", Categories: []string{"Biographie"}},
+			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
-				Title: "Mon père fouettard", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Categories: []string{"Biographie"}, Language: "FR",
+				Title: "Mon père fouettard", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Subject: []string{"Biographie"}, Language: "FR",
 			},
 		},
 
@@ -126,12 +126,12 @@ func TestNewFromMapWithOverride(t *testing.T) {
 		},
 
 		{
-			&Book{Title: "Mon père fouettard", Categories: []string{"Biographie"}},
+			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
-				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Categories: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
+				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Subject: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
 			},
 		},
 

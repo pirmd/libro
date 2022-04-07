@@ -59,7 +59,7 @@ func (b Book) toVolumeInfo() *googlebooks.VolumeInfo {
 		Language:      b.Language,
 		Identifier:    []googlebooks.Identifier{{Type: "ISBN", Identifier: b.ISBN}},
 		Authors:       append([]string{}, b.Authors...),
-		Subject:       append([]string{}, b.Categories...),
+		Subject:       append([]string{}, b.Subject...),
 		Description:   b.Description,
 		Publisher:     b.Publisher,
 		PublishedDate: b.PublishedDate,
@@ -161,12 +161,12 @@ func (b *Book) fromVolumeInfo(vi *googlebooks.VolumeInfo, override bool) {
 	}
 
 	if len(vi.Subject) > 0 {
-		if len(b.Categories) != 0 && strings.EqualFold(fmt.Sprint(b.Categories), fmt.Sprint(vi.Subject)) {
-			Debug.Printf("new Book's Categories is different from the existing one (%v != %v)", vi.Subject, b.Categories)
+		if len(b.Subject) != 0 && strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(vi.Subject)) {
+			Debug.Printf("new Book's Subject is different from the existing one (%v != %v)", vi.Subject, b.Subject)
 		}
-		if override || len(b.Categories) == 0 {
-			Verbose.Printf("sets new Book's value: Categories = %v", vi.Subject)
-			b.Categories = append([]string{}, vi.Subject...)
+		if override || len(b.Subject) == 0 {
+			Verbose.Printf("sets new Book's value: Subject = %v", vi.Subject)
+			b.Subject = append([]string{}, vi.Subject...)
 		}
 	}
 }

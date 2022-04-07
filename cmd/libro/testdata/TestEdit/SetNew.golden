@@ -5,7 +5,7 @@
     "Lewis Carroll"
   ],
   "PublishedDate": "2008-06-27",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -18,7 +18,7 @@
     "Laozi"
   ],
   "PublishedDate": "2007-12-26",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -31,7 +31,7 @@
     "Herodotus"
   ],
   "PublishedDate": "2001-01-01",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -44,7 +44,7 @@
     "Herodotus"
   ],
   "PublishedDate": "2001-07-01",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -57,7 +57,7 @@
     "baron de Charles de Secondat Montesquieu"
   ],
   "PublishedDate": "2008-12-20",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -70,7 +70,7 @@
     "Beatrix Potter"
   ],
   "PublishedDate": "2009-06-06",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -83,7 +83,7 @@
     "Jules Verne"
   ],
   "PublishedDate": "2017-06-09",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]
@@ -96,7 +96,7 @@
     "Charles Baudelaire"
   ],
   "PublishedDate": "2004-07-01",
-  "Categories": [
+  "Subject": [
     "libro",
     "testing"
   ]

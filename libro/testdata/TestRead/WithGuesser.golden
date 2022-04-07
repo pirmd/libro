@@ -6,7 +6,7 @@
       "Lewis Carroll"
     ],
     "PublishedDate": "2008-06-27",
-    "Categories": [
+    "Subject": [
       "Fantasy fiction",
       "Children's stories",
       "Imaginary places -- Juvenile fiction",
@@ -20,7 +20,7 @@
       "Laozi"
     ],
     "PublishedDate": "2007-12-26",
-    "Categories": [
+    "Subject": [
       "Taoism",
       "Philosophy, Chinese"
     ]
@@ -35,7 +35,7 @@
     "Series": "Volume",
     "SeriesIndex": 2,
     "SeriesTitle": "The History of Herodotus",
-    "Categories": [
+    "Subject": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
     ]
@@ -50,7 +50,7 @@
     "Series": "Volume",
     "SeriesIndex": 1,
     "SeriesTitle": "The History of Herodotus",
-    "Categories": [
+    "Subject": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
     ]
@@ -64,7 +64,7 @@
     "SubTitle": "livres I à V, précédés d'une introduction de l'éditeur",
     "PublishedDate": "2008-12-20",
     "SeriesTitle": "Esprit des lois",
-    "Categories": [
+    "Subject": [
       "Political science",
       "Law -- Philosophy",
       "State, The",
@@ -78,7 +78,7 @@
       "Beatrix Potter"
     ],
     "PublishedDate": "2009-06-06",
-    "Categories": [
+    "Subject": [
       "Rabbits -- Juvenile fiction"
     ]
   },
@@ -97,7 +97,7 @@
       "Charles Baudelaire"
     ],
     "PublishedDate": "2004-07-01",
-    "Categories": [
+    "Subject": [
       "French poetry -- 19th century"
     ]
   }

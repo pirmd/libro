@@ -33,8 +33,7 @@ func (b *Book) FromEpub() error {
 		b.Description = mdata.Description[0]
 	}
 
-	b.Categories = make([]string, len(mdata.Subject))
-	copy(b.Categories, mdata.Subject)
+	b.Subject = append([]string{}, mdata.Subject...)
 
 idloop:
 	for _, id := range mdata.Identifier {

@@ -11,7 +11,7 @@
     "Description": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters.",
     "Language": "en",
     "PageCount": 297,
-    "Categories": [
+    "Subject": [
       "Fantasy fiction",
       "Children's stories",
       "Imaginary places -- Juvenile fiction",
@@ -25,7 +25,7 @@
       "Laozi"
     ],
     "PublishedDate": "2007-12-26",
-    "Categories": [
+    "Subject": [
       "Taoism",
       "Philosophy, Chinese"
     ]
@@ -42,7 +42,7 @@
     "Description": "From the 'father of history', the second volume in English translation of the heroic deeds of the Persians and Greeks in the centuries before Christ",
     "Language": "en",
     "PageCount": 568,
-    "Categories": [
+    "Subject": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
     ]
@@ -59,7 +59,7 @@
     "Description": "Recounts the causes and history of the wars between the Greek city-states and Persia.",
     "Language": "en",
     "PageCount": 716,
-    "Categories": [
+    "Subject": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
     ]
@@ -71,7 +71,7 @@
       "baron de Charles de Secondat Montesquieu"
     ],
     "PublishedDate": "2008-12-20",
-    "Categories": [
+    "Subject": [
       "Political science",
       "Law -- Philosophy",
       "State, The",
@@ -91,7 +91,7 @@
     "Description": "Peter disobeys his mother by going into Mr. McGregor's garden and almost gets caught.",
     "Language": "fr",
     "PageCount": 32,
-    "Categories": [
+    "Subject": [
       "Rabbits -- Juvenile fiction"
     ]
   },
@@ -119,7 +119,7 @@
     "Description": "Dossier pédagogique de Julie Proust, revu pour les Nouveaux programmes par Denis Roche et Olivier Rocheteau. 1857 : la publication des Fleurs du Mal fait scandale et vaut à leur auteur, Charles Baudelaire, un procès retentissant. Aujourd'hui encore, la modernité subversive de ce recueil de poèmes, riche d'images et de symboles, ne peut qu'étonner : alliance inédite de la volupté et de la souffrance, exaltation du mal, fascination pour la laideur comme pour la beauté... Des profondeurs de la ville aux paradis artificiels, du spleen à l'évasion, suivez le poète dans son cheminement vers l'idéal.",
     "Language": "fr",
     "PageCount": 298,
-    "Categories": [
+    "Subject": [
       "French poetry -- 19th century"
     ]
   }

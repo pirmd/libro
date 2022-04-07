@@ -23,7 +23,7 @@ var (
 	// ErrUnknownFormat is raised if supplied file format is unknown.
 	ErrUnknownFormat = errors.New("unknown file format")
 
-	// reList is a regexp that splits a list of values (like Authors or Categories).
+	// reList is a regexp that splits a list of values (like Authors or Subject).
 	reList = regexp.MustCompile(`\s?[&,]\s?`)
 )
 
@@ -71,9 +71,9 @@ type Book struct {
 	// PageCount is total number of pages of this book.
 	PageCount int64 `json:",omitempty"`
 
-	// Categories is the list of subject categories, such as "Fiction",
+	// Subject is the list of subject categories, such as "Fiction",
 	// "Suspense".
-	Categories []string `json:",omitempty"`
+	Subject []string `json:",omitempty"`
 }
 
 // New creates a new Book
@@ -115,7 +115,7 @@ func (b *Book) FromFile() error {
 // FromMap updates a Book's information according to the attributes defined as
 // a map where keys are attribute's name (insensitive to case) and value
 // is a string representation of the attribute's value.
-// For attributes that accept a list of values (like Authors or Categories),
+// For attributes that accept a list of values (like Authors or Subject),
 // provided map value should be formatted like "val0 & val1" (individual value
 // in as string separated by '&').
 // If override flag is on, existing Book's attribute is replaced by the one
@@ -258,16 +258,16 @@ func (b *Book) FromMap(m map[string]string, override bool) error {
 				b.PageCount = v
 			}
 
-		case "Categories":
+		case "Subject":
 			v := reList.Split(value, -1)
 
-			if len(b.Categories) != 0 && strings.EqualFold(fmt.Sprint(b.Categories), fmt.Sprint(v)) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Categories)
+			if len(b.Subject) != 0 && strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(v)) {
+				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Subject)
 			}
 
-			if override || len(b.Categories) == 0 {
+			if override || len(b.Subject) == 0 {
 				Verbose.Printf("sets new Book's value: %s = %v", a, v)
-				b.Categories = v
+				b.Subject = v
 			}
 
 		default:
@@ -320,8 +320,8 @@ func (b Book) String() string {
 		fmt.Fprintf(&s, "\nPageCount    :\t%d", b.PageCount)
 	}
 
-	if len(b.Categories) > 0 {
-		fmt.Fprintf(&s, "\nCategories   :\t%s", strings.Join(b.Categories, " & "))
+	if len(b.Subject) > 0 {
+		fmt.Fprintf(&s, "\nSubject      :\t%s", strings.Join(b.Subject, " & "))
 	}
 
 	return s.String()

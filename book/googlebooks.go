@@ -39,12 +39,14 @@ func (b *Book) FromGooglebooks() error {
 	}
 
 	if strings.EqualFold(b.ISBN, getVolumeInfoISBN(found[0])) {
-		Verbose.Printf("found same book (ISBN: %s) on Googlebooks. Superseding book's metadata with Googlebooks' one", b.ISBN)
+		Debug.Printf("found same book (ISBN: %s) on Googlebooks", b.ISBN)
+		Debug.Printf("replace book's metadata with Googlebooks' one")
 		b.fromVolumeInfo(found[0], true)
 		return nil
 	}
 
-	Verbose.Printf("found %d similar books on Googlebooks. Complete book's metadata from Googlbooks' best one", len(found))
+	Debug.Printf("found %d similar books on Googlebooks", len(found))
+	Debug.Printf("complete book's metadata from Googlebooks' best match")
 	b.fromVolumeInfo(found[0], false)
 	return nil
 }

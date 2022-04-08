@@ -77,12 +77,9 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 		return nil, err
 	}
 
-	// TODO: split b.Guess to separate guessing from filename from guessing Series and Cie
-	//       guess series at the end (after googlebooks) as googlebooks does
-	//       not provide series information.
 	if lib.UseGuesser {
-		lib.Verbose.Print("Guess information from book's Filename and Title")
-		if err := b.Guess(); err != nil {
+		lib.Verbose.Print("Guess information from book's Filename")
+		if err := b.GuessFromFilename(); err != nil {
 			return nil, err
 		}
 	}
@@ -90,6 +87,13 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 	if lib.UseGooglebooks {
 		lib.Verbose.Print("Get book's information from Googlebooks")
 		if err := b.FromGooglebooks(); err != nil {
+			return nil, err
+		}
+	}
+
+	if lib.UseGuesser {
+		lib.Verbose.Print("Guess information from book's Metadata")
+		if err := b.GuessFromMetadata(); err != nil {
 			return nil, err
 		}
 	}

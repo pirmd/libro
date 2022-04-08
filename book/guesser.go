@@ -44,14 +44,19 @@ var (
 	}
 )
 
-// Guess tries to guess Book's information based on known attributes (like
-// Book's path, Book's Title).
-func (b *Book) Guess() error {
+// GuessFromFilename tries to guess Book's information based on its filename.
+func (b *Book) GuessFromFilename() error {
 	Debug.Printf("Guess information from book's path '%s'", b.Path)
 	if err := b.guess(b.Path, pathGuessers...); err != nil {
 		return err
 	}
 
+	return nil
+}
+
+// GuessFromMetadata tries to guess Book's information based on known
+// attributes (like Book's Title).
+func (b *Book) GuessFromMetadata() error {
 	Debug.Printf("Guess subtitle from book's Title '%s'", b.Title)
 	if err := b.guess(b.Title, subtitleGuessers...); err != nil {
 		return err

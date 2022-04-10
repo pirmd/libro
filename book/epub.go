@@ -7,11 +7,15 @@ import (
 	"github.com/pirmd/epub"
 )
 
-// FromEpub populates a Book's information out of an EPUB file's Metadata.
-func (b *Book) FromEpub() error {
+// NewFromEpub create a Book by populating information out of an EPUB file's
+// Metadata.
+func NewFromEpub(path string) (*Book, error) {
+	b := New()
+	b.Path = path
+
 	mdata, err := epub.GetMetadataFromFile(b.Path)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	if len(mdata.Title) > 0 {
@@ -75,7 +79,7 @@ idloop:
 		case "calibre:series_index":
 			v, err := strconv.ParseFloat(meta.Content, 32)
 			if err != nil {
-				return err
+				return nil, err
 			}
 			b.SeriesIndex = v
 
@@ -86,7 +90,7 @@ idloop:
 		}
 	}
 
-	return nil
+	return b, nil
 }
 
 func fmtTimeStamp(stamp string) string {

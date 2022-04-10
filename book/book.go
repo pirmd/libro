@@ -84,197 +84,255 @@ func New() *Book {
 // NewFromFile creates a new Book and populates its information according to
 // the file's metadata.
 func NewFromFile(path string) (*Book, error) {
-	b := New()
-	b.Path = path
+	Debug.Printf("create a Book from '%s'", path)
 
-	if err := b.FromFile(); err != nil {
-		return nil, err
+	switch ext := filepath.Ext(path); ext {
+	case ".epub":
+		return NewFromEpub(path)
+
+	default:
+		return nil, ErrUnknownFormat
+	}
+}
+
+// NewFromMap creates a Book's from to the attributes defined as a map
+// where keys are attribute's name (insensitive to case) and value is a string
+// representation of the attribute's value.
+// For attributes that accept a list of values (like Authors or Subject),
+// provided map value should be formatted like "val0 & val1" (individual value
+// in as string separated by '&').
+func NewFromMap(m map[string]string) (*Book, error) {
+	b := New()
+
+	for attr, value := range m {
+		switch a := strings.Title(attr); a {
+		case "Title":
+			b.Title = value
+
+		case "SubTitle":
+			b.SubTitle = value
+
+		case "SeriesTitle":
+			b.SeriesTitle = value
+
+		case "Authors":
+			b.Authors = reList.Split(value, -1)
+
+		case "Publisher":
+			b.Publisher = value
+
+		case "PublishedDate":
+			b.PublishedDate = value
+
+		case "Description":
+			b.Description = value
+
+		case "Series":
+			b.Series = value
+
+		case "SeriesIndex":
+			var err error
+			if b.SeriesIndex, err = strconv.ParseFloat(value, 32); err != nil {
+				return nil, fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
+			}
+
+		case "ISBN":
+			b.ISBN = value
+
+		case "Language":
+			b.Language = value
+
+		case "PageCount":
+			var err error
+			if b.PageCount, err = strconv.ParseInt(value, 10, 0); err != nil {
+				return nil, fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
+			}
+
+		case "Subject":
+			b.Subject = reList.Split(value, -1)
+
+		default:
+			return nil, fmt.Errorf("cannot set unknown attribute '%s'", a)
+		}
 	}
 
 	return b, nil
 }
 
-// FromFile populates Book's information according to the file's metadata.
-func (b *Book) FromFile() error {
-	Debug.Printf("looking for book's metadata in '%s'", b.Path)
-
-	switch ext := filepath.Ext(b.Path); ext {
-	case ".epub":
-		if err := b.FromEpub(); err != nil {
-			return err
+// MergeWith merges Book with 'b1' Book.
+// If override is set, Book's attributes are replaced by the none-empty
+// corresponding attribute of 'b1' Book.
+func (b *Book) MergeWith(b1 *Book, override bool) {
+	if b1.Title != "" {
+		if b.Title != "" && !strings.EqualFold(b.Title, b1.Title) {
+			Debug.Printf("new Title (%s) is different from the existing one (%s)", b1.Title, b.Title)
 		}
-
-	default:
-		return ErrUnknownFormat
+		if override || b.Title == "" {
+			Verbose.Printf("sets Title to %s", b1.Title)
+			b.Title = b1.Title
+		}
 	}
 
-	Debug.Printf("found book's metadata: '%#v'", b)
+	if len(b1.Authors) > 0 {
+		if len(b.Authors) != 0 && !strings.EqualFold(fmt.Sprint(b.Authors), fmt.Sprint(b1.Authors)) {
+			Debug.Printf("new Authors (%v) is different from the existing one (%v)", b1.Authors, b.Authors)
+		}
+		if override || len(b.Authors) == 0 {
+			Verbose.Printf("sets Authors to %v", b1.Authors)
+			b.Authors = append([]string{}, b1.Authors...)
+		}
+	}
+
+	if b1.ISBN != "" {
+		// TODO: implements better ISBN  comparison and replacement logic (if ISBN_10 vs. same in ISBN_13)
+		if b.ISBN != "" && b.ISBN != b1.ISBN {
+			Debug.Printf("new ISBN (%s) is different from the existing one (%s)", b1.ISBN, b.ISBN)
+		}
+		if override || b.ISBN == "" {
+			Verbose.Printf("sets ISBN to %s", b1.ISBN)
+			b.ISBN = b1.ISBN
+		}
+	}
+
+	if b1.SubTitle != "" {
+		if b.SubTitle != "" && !strings.EqualFold(b.SubTitle, b1.SubTitle) {
+			Debug.Printf("new SubTitle (%s) is different from the existing one (%s)", b1.SubTitle, b.SubTitle)
+		}
+		if override || b.SubTitle == "" {
+			Verbose.Printf("sets SubTitle to %s", b1.SubTitle)
+			b.SubTitle = b1.SubTitle
+		}
+	}
+
+	if b1.Publisher != "" {
+		if b.Publisher != "" && !strings.EqualFold(b.Publisher, b1.Publisher) {
+			Debug.Printf("new Publisher (%s) is different from the existing one (%s)", b1.Publisher, b.Publisher)
+		}
+		if override || b.Publisher == "" {
+			Verbose.Printf("sets Publisher to %s", b1.Publisher)
+			b.Publisher = b1.Publisher
+		}
+	}
+
+	if b1.PublishedDate != "" {
+		// TODO: implements better date comparison and replacement logic (if similar, use the most specific date)
+		if b.PublishedDate != "" && b.PublishedDate != b1.PublishedDate {
+			Debug.Printf("new PublishedDate (%s) is different from the existing one (%s)", b1.PublishedDate, b.PublishedDate)
+		}
+		if override || b.PublishedDate == "" {
+			Verbose.Printf("sets PublishedDate to %s", b1.PublishedDate)
+			b.PublishedDate = b1.PublishedDate
+		}
+	}
+
+	if b1.Description != "" {
+		if b.Description != "" && !strings.EqualFold(b.Description, b1.Description) {
+			Debug.Printf("new Description (%.12v) is different from the existing one (%.12v)", b1.Description, b.Description)
+		}
+		if override || b.Description == "" {
+			Verbose.Printf("sets Description to %s", b1.Description)
+			b.Description = b1.Description
+		}
+	}
+
+	if b1.Series != "" {
+		if b.Series != "" && !strings.EqualFold(b.Series, b1.Series) {
+			Debug.Printf("new Series (%s) is different from the existing one (%s)", b1.Series, b.Series)
+		}
+		if override || b.Series == "" {
+			Verbose.Printf("sets Series to %s", b1.Series)
+			b.Series = b1.Series
+		}
+	}
+
+	if b1.SeriesIndex != 0 {
+		if b.SeriesIndex != 0 && b.SeriesIndex != b1.SeriesIndex {
+			Debug.Printf("new SeriesIndex (%.1f) is different from the existing one (%.1f)", b1.SeriesIndex, b.SeriesIndex)
+		}
+		if override || b.SeriesIndex == 0 {
+			Verbose.Printf("sets SeriesIndex to %.1f", b1.SeriesIndex)
+			b.SeriesIndex = b1.SeriesIndex
+		}
+	}
+
+	if b1.SeriesTitle != "" {
+		if b.SeriesTitle != "" && !strings.EqualFold(b.SeriesTitle, b1.SeriesTitle) {
+			Debug.Printf("new SeriesTitle (%s) is different from the existing one (%s)", b1.SeriesTitle, b.SeriesTitle)
+		}
+		if override || b.SeriesTitle == "" {
+			Verbose.Printf("sets SeriesTitle to %s", b1.SeriesTitle)
+			b.SeriesTitle = b1.SeriesTitle
+		}
+	}
+
+	if b1.Language != "" {
+		if b.Language != "" && !strings.EqualFold(b.Language, b1.Language) {
+			Debug.Printf("new Language (%s) is different from the existing one (%s)", b1.Language, b.Language)
+		}
+		if override || b.Language == "" {
+			Verbose.Printf("sets Language to %s", b1.Language)
+			b.Language = b1.Language
+		}
+	}
+
+	if b1.PageCount != 0 {
+		if b.PageCount != 0 && b.PageCount != b1.PageCount {
+			Debug.Printf("new PageCount (%d) is different from the existing one (%d)", b1.PageCount, b.PageCount)
+		}
+		if override || b.PageCount == 0 {
+			Verbose.Printf("sets PageCount to %d", b1.PageCount)
+			b.PageCount = b1.PageCount
+		}
+	}
+
+	if len(b1.Subject) > 0 {
+		if len(b.Subject) != 0 && !strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(b1.Subject)) {
+			Debug.Printf("new Subject (%v) is different from the existing one (%v)", b1.Subject, b.Subject)
+		}
+		if override || len(b.Subject) == 0 {
+			Verbose.Printf("sets new Subject to %v", b1.Subject)
+			b.Subject = append([]string{}, b1.Subject...)
+		}
+	}
+}
+
+// CompleteFrom completes Book's attributes by setting empty values to the
+// corresponding value of the provided 'b1' Book.
+// CompleteFrom is a shortcut to call MergeWith with override set to false.
+func (b *Book) CompleteFrom(b1 *Book) {
+	b.MergeWith(b1, false)
+}
+
+// ReplaceFrom completes and replaces Book's attributes using the non-empty
+// corresponding value of the provided 'b1' Book.
+// ReplaceFrom is a shortcut to call MergeWith with override set to true.
+func (b *Book) ReplaceFrom(b1 *Book) {
+	b.MergeWith(b1, true)
+}
+
+// CompleteFromMap completes Book's attributes by setting empty values to the
+// corresponding value of the provided map.
+// map format is similar to NewFromMap.
+func (b *Book) CompleteFromMap(m map[string]string) error {
+	b1, err := NewFromMap(m)
+	if err != nil {
+		return err
+	}
+
+	b.CompleteFrom(b1)
 	return nil
 }
 
-// FromMap updates a Book's information according to the attributes defined as
-// a map where keys are attribute's name (insensitive to case) and value
-// is a string representation of the attribute's value.
-// For attributes that accept a list of values (like Authors or Subject),
-// provided map value should be formatted like "val0 & val1" (individual value
-// in as string separated by '&').
-// If override flag is on, existing Book's attribute is replaced by the one
-// provided in the map ; if override flag is off, Book's attribute is only
-// replaced if empty.
-func (b *Book) FromMap(m map[string]string, override bool) error {
-	Debug.Printf("update book's information from: '%+v'", m)
-
-	for attr, value := range m {
-		switch a := strings.Title(attr); a {
-		case "Title":
-			if b.Title != "" && strings.EqualFold(b.Title, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Title)
-			}
-
-			if override || b.Title == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.Title = value
-			}
-
-		case "SubTitle":
-			if b.SubTitle != "" && strings.EqualFold(b.SubTitle, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.SubTitle)
-			}
-
-			if override || b.SubTitle == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.SubTitle = value
-			}
-
-		case "SeriesTitle":
-			if b.SeriesTitle != "" && strings.EqualFold(b.SeriesTitle, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.SeriesTitle)
-			}
-
-			if override || b.SeriesTitle == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.SeriesTitle = value
-			}
-
-		case "Authors":
-			v := reList.Split(value, -1)
-
-			if len(b.Authors) != 0 && strings.EqualFold(fmt.Sprint(b.Authors), fmt.Sprint(v)) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Authors)
-			}
-
-			if override || len(b.Authors) == 0 {
-				Verbose.Printf("sets new Book's value: %s = %v", a, v)
-				b.Authors = v
-			}
-
-		case "Publisher":
-			if b.Publisher != "" && strings.EqualFold(b.Publisher, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Publisher)
-			}
-
-			if override || b.Publisher == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.Publisher = value
-			}
-
-		case "PublishedDate":
-			if b.PublishedDate != "" && strings.EqualFold(b.PublishedDate, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.PublishedDate)
-			}
-
-			if override || b.PublishedDate == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.PublishedDate = value
-			}
-
-		case "Description":
-			if b.Description != "" && strings.EqualFold(b.Description, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Description)
-			}
-
-			if override || b.Description == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.Description = value
-			}
-
-		case "Series":
-			if b.Series != "" && strings.EqualFold(b.Series, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Series)
-			}
-
-			if override || b.Series == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.Series = value
-			}
-
-		case "SeriesIndex":
-			v, err := strconv.ParseFloat(value, 32)
-			if err != nil {
-				return fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
-			}
-
-			if b.SeriesIndex != 0 && b.SeriesIndex != v {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%.1f != %.1f)", a, v, b.SeriesIndex)
-			}
-
-			if override || b.SeriesIndex == 0 {
-				Verbose.Printf("sets new value: %s = %.1f.", a, v)
-				b.SeriesIndex = v
-			}
-
-		case "ISBN":
-			if b.ISBN != "" && strings.EqualFold(b.ISBN, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.ISBN)
-			}
-
-			if override || b.ISBN == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.ISBN = value
-			}
-
-		case "Language":
-			if b.Language != "" && strings.EqualFold(b.Language, value) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%s != %s)", a, value, b.Language)
-			}
-
-			if override || b.Language == "" {
-				Verbose.Printf("sets new Book's value: %s = %s", a, value)
-				b.Language = value
-			}
-
-		case "PageCount":
-			v, err := strconv.ParseInt(value, 10, 0)
-			if err != nil {
-				return fmt.Errorf("cannot assign %s to '%s': %v", value, a, err)
-			}
-
-			if b.PageCount != 0 && b.PageCount != v {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%d != %d)", a, v, b.PageCount)
-			}
-
-			if override || b.PageCount == 0 {
-				Verbose.Printf("sets new value: %s = %d.", a, v)
-				b.PageCount = v
-			}
-
-		case "Subject":
-			v := reList.Split(value, -1)
-
-			if len(b.Subject) != 0 && strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(v)) {
-				Debug.Printf("new Book's value for '%s' is different from the existing one (%v != %v)", a, v, b.Subject)
-			}
-
-			if override || len(b.Subject) == 0 {
-				Verbose.Printf("sets new Book's value: %s = %v", a, v)
-				b.Subject = v
-			}
-
-		default:
-			return fmt.Errorf("cannot set unknown attribute '%s'", a)
-		}
+// ReplaceFromMap completes and replaces Book's attributes using the non-empty
+// corresponding value of the provided map.
+// map format is similar to NewFromMap.
+func (b *Book) ReplaceFromMap(m map[string]string) error {
+	b1, err := NewFromMap(m)
+	if err != nil {
+		return err
 	}
 
+	b.ReplaceFrom(b1)
 	return nil
 }
 

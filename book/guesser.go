@@ -89,7 +89,7 @@ func (b *Book) guess(s string, guessers ...*regexp.Regexp) error {
 		guessed := submatchAsMap(s, re)
 		if guessed != nil {
 			Debug.Printf("guessed information: '%+v'", guessed)
-			return b.FromMap(guessed, false)
+			return b.CompleteFromMap(guessed)
 		}
 	}
 

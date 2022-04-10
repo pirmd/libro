@@ -69,14 +69,14 @@ func (app *App) RunEditSubcmd(args []string) error {
 
 	if len(defaultAttr) != 0 {
 		app.Verbose.Printf("Set default value for book's information")
-		if err := b.FromMap(defaultAttr, false); err != nil {
+		if err := b.CompleteFromMap(defaultAttr); err != nil {
 			return fmt.Errorf("fail to set default value: %v", err)
 		}
 	}
 
 	if len(setAttr) != 0 {
 		app.Verbose.Printf("Set new value for book's information")
-		if err := b.FromMap(setAttr, true); err != nil {
+		if err := b.ReplaceFromMap(setAttr); err != nil {
 			return fmt.Errorf("fail to set new value: %v", err)
 		}
 	}

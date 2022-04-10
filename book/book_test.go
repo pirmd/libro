@@ -99,7 +99,7 @@ func TestNewFromMapWithoutOverride(t *testing.T) {
 	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)
 
 	for _, tc := range testCases {
-		if err := tc.in.FromMap(tc.inM, false); err != nil {
+		if err := tc.in.CompleteFromMap(tc.inM); err != nil {
 			t.Fatalf("fail to update Book: %v", err)
 		}
 
@@ -149,7 +149,7 @@ func TestNewFromMapWithOverride(t *testing.T) {
 	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)
 
 	for _, tc := range testCases {
-		if err := tc.in.FromMap(tc.inM, true); err != nil {
+		if err := tc.in.ReplaceFromMap(tc.inM); err != nil {
 			t.Fatalf("fail to update Book: %v", err)
 		}
 

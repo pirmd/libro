@@ -15,7 +15,7 @@ func (b Book) SearchGooglebooks() ([]*Book, error) {
 
 	var res []*Book
 	for _, vi := range found {
-		Debug.Printf("found Googlebook match: %#v", vi)
+		Debug.Printf("found Googlebooks match: %#v", vi)
 		res = append(res, newFromVolumeInfo(vi))
 	}
 
@@ -33,21 +33,21 @@ func (b *Book) FromGooglebooks() error {
 	}
 
 	if len(found) == 0 {
-		Debug.Print("no match found on Googlebooks")
+		Verbose.Print("no match found on Googlebooks")
 		return nil
 	}
 
 	bestMatch := newFromVolumeInfo(found[0])
 
 	if strings.EqualFold(b.ISBN, bestMatch.ISBN) {
-		Debug.Printf("found same book (ISBN: %s) on Googlebooks", b.ISBN)
-		Debug.Printf("replace book's metadata with Googlebooks' one")
+		Verbose.Printf("found same book (ISBN: %s) on Googlebooks", b.ISBN)
+		Debug.Printf("replace book's metadata with Googlebooks %#v", bestMatch)
 		b.ReplaceFrom(bestMatch)
 		return nil
 	}
 
-	Debug.Printf("found %d similar books on Googlebooks", len(found))
-	Debug.Printf("complete book's metadata from Googlebooks' best match")
+	Verbose.Printf("found %d similar books on Googlebooks", len(found))
+	Debug.Printf("complete book's metadata from Googlebooks %#v", bestMatch)
 	b.CompleteFrom(bestMatch)
 	return nil
 }

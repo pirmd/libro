@@ -81,7 +81,7 @@ func newFromVolumeInfo(vi *googlebooks.VolumeInfo) *Book {
 		ISBN:          getVolumeInfoISBN(vi),
 		SubTitle:      vi.SubTitle,
 		Publisher:     vi.Publisher,
-		PublishedDate: vi.PublishedDate,
+		PublishedDate: NormalizeDate(vi.PublishedDate),
 		Description:   vi.Description,
 		Language:      vi.Language,
 		PageCount:     vi.PageCount,

@@ -63,7 +63,7 @@ idloop:
 
 	for _, d := range mdata.Date {
 		if d.Event == "publication" || d.Event == "" {
-			b.PublishedDate = fmtTimeStamp(d.Stamp)
+			b.PublishedDate = NormalizeDate(d.Stamp)
 			break
 		}
 	}
@@ -91,13 +91,4 @@ idloop:
 	}
 
 	return b, nil
-}
-
-func fmtTimeStamp(stamp string) string {
-	t, err := ParseTime(stamp)
-	if err != nil {
-		return stamp
-	}
-
-	return t.Format("2006-01-02")
 }

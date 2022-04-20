@@ -39,6 +39,8 @@ type Book struct {
 	Authors []string
 
 	// ISBN is the unique industry standard identifier for this book.
+	// Most Book's functions dealing with ISBN will better work if ISBN is
+	// 'normalized' using book.NormalizeISBN.
 	ISBN string `json:",omitempty"`
 
 	// SubTitle is the book's sub-title.
@@ -184,7 +186,6 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 	}
 
 	if b1.ISBN != "" {
-		// TODO: implements better ISBN  comparison and replacement logic (if ISBN_10 vs. same in ISBN_13)
 		if b.ISBN != "" && b.ISBN != b1.ISBN {
 			Debug.Printf("new ISBN (%s) is different from the existing one (%s)", b1.ISBN, b.ISBN)
 		}

@@ -39,19 +39,9 @@ func NewFromEpub(path string) (*Book, error) {
 
 	b.Subject = append([]string{}, mdata.Subject...)
 
-idloop:
-	for _, id := range mdata.Identifier {
-		switch {
-		case strings.HasPrefix(id.Scheme, "isbn") || strings.HasPrefix(id.Scheme, "ISBN"):
-			b.ISBN = id.Value
-			break idloop
-		case strings.HasPrefix(id.Value, "isbn:"):
-			b.ISBN = strings.TrimPrefix(id.Value, "isbn:")
-			break idloop
-		case strings.HasPrefix(id.Value, "ISBN:"):
-			b.ISBN = strings.TrimPrefix(id.Value, "ISBN:")
-			break idloop
-		}
+	b.ISBN, err = getEpubISBN(mdata)
+	if err != nil {
+		Verbose.Printf("warn: found non-supported ISBN (%s): %v", b.ISBN, err)
 	}
 	if b.ISBN == "" {
 		Verbose.Printf("warn: no 'ISBN' found in epub's metadata (%+v)", mdata.Identifier)
@@ -91,4 +81,26 @@ idloop:
 	}
 
 	return b, nil
+}
+
+func getEpubISBN(mdata *epub.Metadata) (string, error) {
+	var isbn string
+	for _, id := range mdata.Identifier {
+		switch {
+		case strings.HasPrefix(id.Scheme, "isbn") || strings.HasPrefix(id.Scheme, "ISBN"):
+			isbn = id.Value
+
+		case strings.HasPrefix(id.Value, "isbn:"):
+			isbn = strings.TrimPrefix(id.Value, "isbn:")
+
+		case strings.HasPrefix(id.Value, "ISBN:"):
+			isbn = strings.TrimPrefix(id.Value, "ISBN:")
+		}
+
+		if len(isbn) == 13 {
+			break
+		}
+	}
+
+	return NormalizeISBN(isbn)
 }

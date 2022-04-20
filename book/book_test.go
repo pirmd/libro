@@ -10,7 +10,8 @@ import (
 )
 
 const (
-	testdataBooks = "../testdata/books" //Use test data of the main package
+	testdata      = "../testdata" //Use test data of the main package
+	testdataBooks = testdata + "/books"
 )
 
 func TestFromFile(t *testing.T) {

@@ -13,8 +13,9 @@ import (
 )
 
 const (
-	testdataBooks = "../../testdata/books"   //Use test data of the main package
-	testFormat    = "{{ toPrettyJSON . }}\n" //Output to pretty JSON to easier testing failures analysis
+	testdata      = "../../testdata" //Use test data of the main package
+	testdataBooks = testdata + "/books"
+	testFormat    = "{{ toPrettyJSON . }}" //Output to pretty JSON to easier testing failures analysis
 )
 
 type testApp struct {

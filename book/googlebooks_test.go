@@ -14,7 +14,7 @@ func TestSearchGooglebooks(t *testing.T) {
 		t.Fatalf("cannot read test data in %s: %v", testdataBooks, err)
 	}
 
-	httpmock := verify.StartMockHTTPResponse()
+	httpmock := verify.StartMockHTTPResponse(testdata)
 	defer httpmock.Stop()
 
 	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)
@@ -50,7 +50,7 @@ func TestFromGooglebooks(t *testing.T) {
 		t.Fatalf("cannot read test data in %s: %v", testdataBooks, err)
 	}
 
-	httpmock := verify.StartMockHTTPResponse()
+	httpmock := verify.StartMockHTTPResponse(testdata)
 	defer httpmock.Stop()
 
 	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)

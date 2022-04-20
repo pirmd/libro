@@ -13,7 +13,8 @@ import (
 )
 
 const (
-	testdataBooks = "../testdata/books" //Use test data of the main package
+	testdata      = "../testdata" //Use test data of the main package
+	testdataBooks = testdata + "/books"
 )
 
 type testLibro struct {
@@ -89,7 +90,7 @@ func TestRead(t *testing.T) {
 	})
 
 	t.Run("WithGooglebooks", func(t *testing.T) {
-		httpmock := verify.StartMockHTTPResponse()
+		httpmock := verify.StartMockHTTPResponse(testdata)
 		defer httpmock.Stop()
 
 		library := newTestLibro(t)
@@ -115,7 +116,7 @@ func TestRead(t *testing.T) {
 	})
 
 	t.Run("WithGooglebooksAndGuesser", func(t *testing.T) {
-		httpmock := verify.StartMockHTTPResponse()
+		httpmock := verify.StartMockHTTPResponse(testdata)
 		defer httpmock.Stop()
 
 		library := newTestLibro(t)

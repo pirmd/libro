@@ -4,12 +4,12 @@
   "Authors": [
     "Lewis Carroll"
   ],
-  "ISBN": "9780375761386",
-  "Publisher": "Modern Library",
+  "ISBN": "9780199558292",
+  "Publisher": "Oxford University Press",
   "PublishedDate": "2008-06-27",
-  "Description": "Introduction by A. S. Byatt Illustrations by John Tenniel Includes commissioned endnotes Conceived by a shy British don on a golden afternoon to entertain ten-year-old Alice Liddell and her sisters, Alice’s Adventures in Wonderland and Through the Looking-Glass have delighted generations of readers in more than eighty languages. “The clue to the enduring fascination and greatness of the Alice books,” writes A. S. Byatt in her Introduction, “lies in language. It is play, and word-play, and its endless intriguing puzzles continue to reveal themselves long after we have ceased to be children.” Includes a Modern Library Reading Group Guide",
+  "Description": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters.",
   "Language": "en",
-  "PageCount": 304,
+  "PageCount": 297,
   "Subject": [
     "Fantasy fiction",
     "Children's stories",
@@ -17,7 +17,6 @@
     "Alice (Fictitious character from Carroll) -- Juvenile fiction"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg24039.epub",
   "Title": "老子",
@@ -30,7 +29,6 @@
     "Philosophy, Chinese"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg2456.epub",
   "Title": "The History of Herodotus — Volume 2",
@@ -48,7 +46,6 @@
     "Greece -- History -- To 146 B.C."
   ]
 }
-
 {
   "Path": "../../testdata/books/pg2707.epub",
   "Title": "The History of Herodotus — Volume 1",
@@ -66,7 +63,6 @@
     "Greece -- History -- To 146 B.C."
   ]
 }
-
 {
   "Path": "../../testdata/books/pg27573.epub",
   "Title": "Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur",
@@ -81,7 +77,6 @@
     "Jurisprudence"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg29052.epub",
   "Title": "Histoire de Pierre Lapin",
@@ -99,7 +94,6 @@
     "Rabbits -- Juvenile fiction"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg54873.epub",
   "Title": "Vingt mille lieues sous les mers",
@@ -112,7 +106,6 @@
   "Language": "fr",
   "PageCount": 142
 }
-
 {
   "Path": "../../testdata/books/pg6099.epub",
   "Title": "Les Fleurs du Mal",
@@ -128,4 +121,3 @@
     "French poetry -- 19th century"
   ]
 }
-

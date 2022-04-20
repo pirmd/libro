@@ -12,7 +12,6 @@
     "Alice (Fictitious character from Carroll) -- Juvenile fiction"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg24039.epub",
   "Title": "老子",
@@ -25,7 +24,6 @@
     "Philosophy, Chinese"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg2456.epub",
   "Title": "The History of Herodotus — Volume 2",
@@ -38,7 +36,6 @@
     "Greece -- History -- To 146 B.C."
   ]
 }
-
 {
   "Path": "../../testdata/books/pg2707.epub",
   "Title": "The History of Herodotus — Volume 1",
@@ -51,7 +48,6 @@
     "Greece -- History -- To 146 B.C."
   ]
 }
-
 {
   "Path": "../../testdata/books/pg27573.epub",
   "Title": "Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur",
@@ -66,7 +62,6 @@
     "Jurisprudence"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg29052.epub",
   "Title": "Histoire de Pierre Lapin",
@@ -78,7 +73,6 @@
     "Rabbits -- Juvenile fiction"
   ]
 }
-
 {
   "Path": "../../testdata/books/pg54873.epub",
   "Title": "Vingt mille lieues sous les mers",
@@ -87,7 +81,6 @@
   ],
   "PublishedDate": "2017-06-09"
 }
-
 {
   "Path": "../../testdata/books/pg6099.epub",
   "Title": "Les Fleurs du Mal",
@@ -99,4 +92,3 @@
     "French poetry -- 19th century"
   ]
 }
-

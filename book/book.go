@@ -50,6 +50,8 @@ type Book struct {
 	Publisher string `json:",omitempty"`
 
 	// PublishedDate is the date of publication of this book.
+	// Most Book's functions dealing with Date will better work if Date is
+	// 'normalized' using book.NormalizeDate.
 	PublishedDate string `json:",omitempty"`
 
 	// Description is the synopsis of the book. The text of the description
@@ -170,7 +172,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Title (%s) is different from the existing one (%s)", b1.Title, b.Title)
 		}
 		if override || b.Title == "" {
-			Verbose.Printf("sets Title to %s", b1.Title)
+			Verbose.Printf("set Title to %s", b1.Title)
 			b.Title = b1.Title
 		}
 	}
@@ -180,7 +182,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Authors (%v) is different from the existing one (%v)", b1.Authors, b.Authors)
 		}
 		if override || len(b.Authors) == 0 {
-			Verbose.Printf("sets Authors to %v", b1.Authors)
+			Verbose.Printf("set Authors to %v", b1.Authors)
 			b.Authors = append([]string{}, b1.Authors...)
 		}
 	}
@@ -190,7 +192,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new ISBN (%s) is different from the existing one (%s)", b1.ISBN, b.ISBN)
 		}
 		if override || b.ISBN == "" {
-			Verbose.Printf("sets ISBN to %s", b1.ISBN)
+			Verbose.Printf("set ISBN to %s", b1.ISBN)
 			b.ISBN = b1.ISBN
 		}
 	}
@@ -200,7 +202,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new SubTitle (%s) is different from the existing one (%s)", b1.SubTitle, b.SubTitle)
 		}
 		if override || b.SubTitle == "" {
-			Verbose.Printf("sets SubTitle to %s", b1.SubTitle)
+			Verbose.Printf("set SubTitle to %s", b1.SubTitle)
 			b.SubTitle = b1.SubTitle
 		}
 	}
@@ -210,19 +212,25 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Publisher (%s) is different from the existing one (%s)", b1.Publisher, b.Publisher)
 		}
 		if override || b.Publisher == "" {
-			Verbose.Printf("sets Publisher to %s", b1.Publisher)
+			Verbose.Printf("set Publisher to %s", b1.Publisher)
 			b.Publisher = b1.Publisher
 		}
 	}
 
 	if b1.PublishedDate != "" {
-		// TODO: implements better date comparison and replacement logic (if similar, use the most specific date)
-		if b.PublishedDate != "" && b.PublishedDate != b1.PublishedDate {
-			Debug.Printf("new PublishedDate (%s) is different from the existing one (%s)", b1.PublishedDate, b.PublishedDate)
-		}
-		if override || b.PublishedDate == "" {
-			Verbose.Printf("sets PublishedDate to %s", b1.PublishedDate)
-			b.PublishedDate = b1.PublishedDate
+		if date, equal := CompareNormalizedDate(b.PublishedDate, b1.PublishedDate); equal {
+			if b.PublishedDate != date {
+				Verbose.Printf("prefer more precise new PublishedDate. Set PublishedDate to %s", b1.PublishedDate)
+				b.PublishedDate = date
+			}
+		} else {
+			if b.PublishedDate != "" {
+				Debug.Printf("new PublishedDate (%s) is different from the existing one (%s)", b1.PublishedDate, b.PublishedDate)
+			}
+			if override || b.PublishedDate == "" {
+				Verbose.Printf("set PublishedDate to %s", b1.PublishedDate)
+				b.PublishedDate = b1.PublishedDate
+			}
 		}
 	}
 
@@ -231,7 +239,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Description (%.12v) is different from the existing one (%.12v)", b1.Description, b.Description)
 		}
 		if override || b.Description == "" {
-			Verbose.Printf("sets Description to %s", b1.Description)
+			Verbose.Printf("set Description to %s", b1.Description)
 			b.Description = b1.Description
 		}
 	}
@@ -241,7 +249,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Series (%s) is different from the existing one (%s)", b1.Series, b.Series)
 		}
 		if override || b.Series == "" {
-			Verbose.Printf("sets Series to %s", b1.Series)
+			Verbose.Printf("set Series to %s", b1.Series)
 			b.Series = b1.Series
 		}
 	}
@@ -251,7 +259,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new SeriesIndex (%.1f) is different from the existing one (%.1f)", b1.SeriesIndex, b.SeriesIndex)
 		}
 		if override || b.SeriesIndex == 0 {
-			Verbose.Printf("sets SeriesIndex to %.1f", b1.SeriesIndex)
+			Verbose.Printf("set SeriesIndex to %.1f", b1.SeriesIndex)
 			b.SeriesIndex = b1.SeriesIndex
 		}
 	}
@@ -261,7 +269,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new SeriesTitle (%s) is different from the existing one (%s)", b1.SeriesTitle, b.SeriesTitle)
 		}
 		if override || b.SeriesTitle == "" {
-			Verbose.Printf("sets SeriesTitle to %s", b1.SeriesTitle)
+			Verbose.Printf("set SeriesTitle to %s", b1.SeriesTitle)
 			b.SeriesTitle = b1.SeriesTitle
 		}
 	}
@@ -271,7 +279,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Language (%s) is different from the existing one (%s)", b1.Language, b.Language)
 		}
 		if override || b.Language == "" {
-			Verbose.Printf("sets Language to %s", b1.Language)
+			Verbose.Printf("set Language to %s", b1.Language)
 			b.Language = b1.Language
 		}
 	}
@@ -281,7 +289,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new PageCount (%d) is different from the existing one (%d)", b1.PageCount, b.PageCount)
 		}
 		if override || b.PageCount == 0 {
-			Verbose.Printf("sets PageCount to %d", b1.PageCount)
+			Verbose.Printf("set PageCount to %d", b1.PageCount)
 			b.PageCount = b1.PageCount
 		}
 	}
@@ -291,7 +299,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Debug.Printf("new Subject (%v) is different from the existing one (%v)", b1.Subject, b.Subject)
 		}
 		if override || len(b.Subject) == 0 {
-			Verbose.Printf("sets new Subject to %v", b1.Subject)
+			Verbose.Printf("set new Subject to %v", b1.Subject)
 			b.Subject = append([]string{}, b1.Subject...)
 		}
 	}

@@ -1,0 +1,40 @@
+Path         :  {{.Path}}
+Title        :  {{.Title}}
+Authors      :  {{join .Authors " & "}}
+{{ if .ISBN -}}
+ISBN         :  {{.ISBN}}
+{{end -}}
+
+{{- if .SubTitle -}} 
+SubTitle     :  {{.SubTitle}}
+{{end -}}
+
+{{- if or (or .SeriesTitle .Series) .SeriesIndex -}}
+SeriesTitle  : {{.SeriesTitle}}
+Series       : {{.Series}}
+SeriesIndex  : {{.SeriesIndex}}
+{{end -}}
+
+{{- if .Description -}} 
+Description  : {{.Description}}
+{{end -}}
+
+{{- if .Publisher -}}
+Publisher    : {{.Publisher}}
+{{end -}}
+
+{{- if .PublishedDate -}}
+PublishedDate: {{.PublishedDate}}
+{{end -}}
+
+{{- if .Language -}}
+Language     : {{.Language}}
+{{end -}}
+
+{{- if .PageCount -}}
+PageCount    : {{.PageCount}}
+{{end -}}
+
+{{- if .Subject -}}
+Subject      : {{join .Subject " & "}}
+{{end -}}

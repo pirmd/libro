@@ -2,12 +2,8 @@ package main
 
 import (
 	"bytes"
-	"flag"
 	"testing"
 	"text/template"
-
-	"github.com/pirmd/libro/book"
-	"github.com/pirmd/libro/libro"
 
 	"github.com/pirmd/verify"
 )
@@ -15,14 +11,11 @@ import (
 const (
 	testdata      = "../../testdata" //Use test data of the main package
 	testdataBooks = testdata + "/books"
-	testFormat    = "{{ toPrettyJSON . }}" //Output to pretty JSON to easier testing failures analysis
 )
 
 type testApp struct {
 	*App
 	*verify.TestFolder
-
-	out *bytes.Buffer
 }
 
 func newTestApp(tb testing.TB) *testApp {
@@ -30,25 +23,20 @@ func newTestApp(tb testing.TB) *testApp {
 	testLog := verify.NewLogger(tb)
 	testDir := verify.MustNewTestFolder(tb)
 
-	testLib := libro.New()
-	testLib.Root = testDir.Root
-	testLib.Verbose, testLib.Debug = testLog, testLog
+	app := New()
+	app.Stdout = testOut
+	app.Verbose, app.Debug = testLog, testLog
+	app.Library.Root = testDir.Root
+	app.Formatter = template.Must(app.Formatter.Parse(`{{toPrettyJSON .}}`)) //Output to pretty JSON to easier testing failures analysis
 
-	book.Verbose, book.Debug = testLog, testLog
-
-	tmpl := template.New("formatter").Funcs(SerializationFuncMap)
-	app := &App{
-		FlagSet:   flag.NewFlagSet("libro-testing", flag.ExitOnError),
-		Verbose:   testLog,
-		Debug:     testLog,
-		Library:   testLib,
-		Formatter: template.Must(tmpl.Parse(testFormat)),
-		Stdout:    testOut,
-	}
+	app.Var(NewGoTemplate(app.Formatter), "format", "set output format using golang text/template")
 
 	return &testApp{
 		App:        app,
 		TestFolder: testDir,
-		out:        testOut,
 	}
+}
+
+func (app *testApp) Out() string {
+	return app.App.Stdout.(*bytes.Buffer).String()
 }

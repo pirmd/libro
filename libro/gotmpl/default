@@ -1,0 +1,6 @@
+{{/* Author[0] - [Series SeriesIndex] - Title [LANG].epub */ -}}
+{{if .Authors}}{{index .Authors 0}}{{else}}unknown{{end -}}
+{{if .Series}} - [{{.Series}} {{.SeriesIndex}}]{{end -}}
+{{if .SeriesTitle}} - {{.SeriesTitle}}{{else}} - {{.Title}}{{end -}}
+{{if .Language}} [{{.Language | upper}}]{{end -}}
+{{ ext .Path -}}

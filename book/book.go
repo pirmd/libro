@@ -39,6 +39,9 @@ type Book struct {
 	Authors []string
 
 	// ISBN is the unique industry standard identifier for this book.
+	// libro tends to prefer ISBN_13 format when available or when it can be
+	// derived from an ISBN_10.  ISBN10 and ISBN13 methods can be invoked to
+	// convert from one format to the other.
 	// Most Book's functions dealing with ISBN will better work if ISBN is
 	// 'normalized' using book.NormalizeISBN.
 	ISBN string `json:",omitempty"`
@@ -50,6 +53,9 @@ type Book struct {
 	Publisher string `json:",omitempty"`
 
 	// PublishedDate is the date of publication of this book.
+	// `libro` tries to normalize dates using '2006-01-02' format. When
+	// 'precision' of date is not enough to capture known month or days, date
+	// is cut to '2006-01' or simply to '2006'.
 	// Most Book's functions dealing with Date will better work if Date is
 	// 'normalized' using book.NormalizeDate.
 	PublishedDate string `json:",omitempty"`
@@ -64,7 +70,7 @@ type Book struct {
 	// SeriesIndex is the position in the series to which the book belongs to.
 	SeriesIndex float64 `json:",omitempty"`
 
-	// SeriesTitle is the book's title in th eseries (whithout Series nor
+	// SeriesTitle is the book's title in the series (without Series nor
 	// SubTitle information).
 	SeriesTitle string `json:",omitempty"`
 
@@ -343,53 +349,4 @@ func (b *Book) ReplaceFromMap(m map[string]string) error {
 
 	b.ReplaceFrom(b1)
 	return nil
-}
-
-// String proposes an easy-to-read raw representation of a Book.
-func (b Book) String() string {
-	var s strings.Builder
-
-	fmt.Fprintf(&s, "Path         :\t%s", b.Path)
-	fmt.Fprintf(&s, "\nTitle        :\t%s", b.Title)
-	fmt.Fprintf(&s, "\nAuthors      :\t%s", strings.Join(b.Authors, " & "))
-
-	if b.ISBN != "" {
-		fmt.Fprintf(&s, "\nISBN         :\t%s", b.ISBN)
-	}
-
-	if b.SubTitle != "" {
-		fmt.Fprintf(&s, "\nSubTitle     :\t%s", b.SubTitle)
-	}
-
-	if b.SeriesTitle != "" || b.Series != "" || b.SeriesIndex != 0 {
-		fmt.Fprintf(&s, "\nSeriesTitle  :\t%s", b.SeriesTitle)
-		fmt.Fprintf(&s, "\nSeries       :\t%s", b.Series)
-		fmt.Fprintf(&s, "\nSeriesIndex  :\t%.1f", b.SeriesIndex)
-	}
-
-	if b.Description != "" {
-		fmt.Fprintf(&s, "\nDescription  :\t%s", b.Description)
-	}
-
-	if b.Publisher != "" {
-		fmt.Fprintf(&s, "\nPublisher    :\t%s", b.Publisher)
-	}
-
-	if b.PublishedDate != "" {
-		fmt.Fprintf(&s, "\nPublishedDate:\t%s", b.PublishedDate)
-	}
-
-	if b.Language != "" {
-		fmt.Fprintf(&s, "\nLanguage     :\t%s", b.Language)
-	}
-
-	if b.PageCount > 0 {
-		fmt.Fprintf(&s, "\nPageCount    :\t%d", b.PageCount)
-	}
-
-	if len(b.Subject) > 0 {
-		fmt.Fprintf(&s, "\nSubject      :\t%s", strings.Join(b.Subject, " & "))
-	}
-
-	return s.String()
 }

@@ -30,7 +30,8 @@ func (app *App) RunInsertSubcmd(args []string) error {
 	}
 
 	fs.StringVar(&app.Library.Root, "root", app.Library.Root, "root folder where the books library is to be found")
-	fs.Var(NewGoTemplate(app.Library.LocationTmpl), "rename", "sets filename format using golang text/template")
+	fs.Var(NewGoTemplate(app.Library.PathTmpl), "rename", "sets filename format using golang text/template")
+	fs.Var(NewGoTemplateFS(app.Library.PathTmpl), "rename-tmpl", "loads user-defined filename template(s) from golang text/template definition files")
 
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -61,7 +62,7 @@ func (app *App) RunInsertSubcmd(args []string) error {
 	if err := app.Formatter.Execute(app.Stdout, b); err != nil {
 		return fmt.Errorf("fail to display book information: %v", err)
 	}
-	fmt.Fprintln(app.Stdout)
+	fmt.Fprint(app.Stdout)
 
 	return nil
 }

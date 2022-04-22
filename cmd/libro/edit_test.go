@@ -35,7 +35,7 @@ func TestEdit(t *testing.T) {
 
 		}
 
-		if failure := verify.MatchGolden(t.Name(), testApp.out.String()); failure != nil {
+		if failure := verify.MatchGolden(t.Name(), testApp.Out()); failure != nil {
 			t.Fatalf("Output is not as expected.\n%v", failure)
 		}
 	})
@@ -61,7 +61,7 @@ func TestEdit(t *testing.T) {
 
 		}
 
-		if failure := verify.MatchGolden(t.Name(), testApp.out.String()); failure != nil {
+		if failure := verify.MatchGolden(t.Name(), testApp.Out()); failure != nil {
 			t.Fatalf("Output is not as expected.\n%v", failure)
 		}
 	})
@@ -87,7 +87,7 @@ func TestEdit(t *testing.T) {
 
 		}
 
-		if failure := verify.MatchGolden(t.Name(), testApp.out.String()); failure != nil {
+		if failure := verify.MatchGolden(t.Name(), testApp.Out()); failure != nil {
 			t.Fatalf("Output is not as expected.\n%v", failure)
 		}
 	})

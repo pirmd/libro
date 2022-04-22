@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"flag"
 	"fmt"
 	"io"
@@ -11,21 +12,15 @@ import (
 
 	"github.com/pirmd/libro/book"
 	"github.com/pirmd/libro/libro"
-)
-
-const (
-	// defaultFormat is the default text/template for pretty-printing
-	// retrieved information when printing to a pipeline.
-	defaultFormat = "{{ toJSON . }}"
-
-	// defaultFormatForHuman is the default text/template for pretty-printing
-	// retrieved information when printing to a TTY.
-	defaultFormatForHuman = "{{ . }}"
+	"github.com/pirmd/libro/util"
 )
 
 var (
 	myname    = filepath.Base(os.Args[0])
 	myversion = "v?.?.?-?" //should be set using: go build -ldflags "-X main.myversion=X.X.X"
+
+	//go:embed gotmpl/*
+	bookTmplDir embed.FS
 )
 
 // App is a wrapper around a libro.Libro object that implements command line
@@ -57,7 +52,8 @@ type App struct {
 // New creates a new App
 func New() *App {
 	tmpl := template.New("formatter").Option("missingkey=error")
-	tmpl = tmpl.Funcs(SerializationFuncMap)
+	tmpl = tmpl.Funcs(util.SerializationFuncMap).Funcs(util.StringsFuncMap)
+	tmpl = template.Must(tmpl.ParseFS(bookTmplDir, "gotmpl/*"))
 
 	app := &App{
 		FlagSet:   flag.NewFlagSet(myname, flag.ExitOnError),
@@ -65,7 +61,7 @@ func New() *App {
 		Debug:     log.New(io.Discard, "debug:", 0),
 		Stdout:    os.Stdout,
 		Library:   libro.New(),
-		Formatter: template.Must(tmpl.Parse(defaultFormat)),
+		Formatter: template.Must(tmpl.Parse(`{{toJSON .}}`)),
 	}
 
 	app.Library.Verbose, app.Library.Debug = app.Verbose, app.Debug
@@ -79,7 +75,7 @@ func main() {
 
 	// if we are printing to a TTY, we use a format that is easier to read for a human.
 	if fi, _ := os.Stdout.Stat(); (fi.Mode() & os.ModeCharDevice) == os.ModeCharDevice {
-		template.Must(app.Formatter.Parse(defaultFormatForHuman))
+		template.Must(app.Formatter.Parse(`{{template "plaintext" .}}`))
 	}
 
 	app.Usage = func() {
@@ -96,6 +92,7 @@ func main() {
 	app.Var(NewLogSwitcher(app.Verbose), "verbose", "print messages of low interest")
 	app.Var(NewLogSwitcher(app.Debug, app.Verbose), "debug", "print cryptic messages supposed to help the developer understand his/her mistakes")
 	app.Var(NewGoTemplate(app.Formatter), "format", "set output format using golang text/template")
+	app.Var(NewGoTemplateFS(app.Formatter), "format-tmpl", "loads user-defined format template(s) from golang text/template definition files")
 
 	if err := app.Parse(os.Args[1:]); err != nil {
 		fmt.Fprintf(app.Output(), "err: wrong arguments\nRun %s -help\n", app.Name())

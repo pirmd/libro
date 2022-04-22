@@ -1,0 +1,3 @@
+{{/* Authors[0]/Title.epub */ -}}
+{{if .Authors}}{{index .Authors 0}}{{sep}}{{else}}unknown{{sep}}{{end -}}
+{{template "short" . -}}

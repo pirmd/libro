@@ -1,6 +1,8 @@
 package libro
 
 import (
+	"embed"
+
 	"bytes"
 	"io"
 	"log"
@@ -9,21 +11,11 @@ import (
 	"text/template"
 
 	"github.com/pirmd/libro/book"
+	"github.com/pirmd/libro/util"
 )
 
-const (
-	// defaultLocation is the default location scheme when creating/updating a
-	// new element in Libro's library.
-	// By default, Libro's sorts books as:
-	//  Author - [Series SeriesIndex] - SeriesTitle [Language].Ext
-	defaultLocation = `
-    {{- define "author" }}{{if .Authors}}{{index .Authors 0}}{{else}}unknown{{end}}{{end -}}
-    {{- define "series" }}{{if .Series}} - [{{.Series}} {{.SeriesIndex}}]{{end}}{{end -}}
-    {{- define "title" }}{{if .SeriesTitle}} - {{.SeriesTitle}}{{else}} - {{.Title}}{{end}}{{end -}}
-    {{- define "lang" }}{{if .Language}} [{{.Language}}]{{end}}{{end -}}
-
-    {{- print (tmpl "author" .) (tmpl "series" . ) (tmpl "title" .) (tmpl "lang" .) (ext .Path) }}`
-)
+//go:embed gotmpl/*
+var pathTmplDir embed.FS
 
 // Libro represents a collection of media and its associated management
 // facilities.
@@ -48,22 +40,23 @@ type Libro struct {
 	// Default to false (do not try guessing missing metadata)
 	UseGuesser bool
 
-	// LocationTmpl is a text.Template that determines the standardized media
+	// PathTmpl is a text.Template that determines the standardized media
 	// files location in the collection based on their metadata.
 	// Default to nil (keep item location as-is)
-	LocationTmpl *template.Template
+	PathTmpl *template.Template
 }
 
 // New creates a new Libro.
 func New() *Libro {
 	tmpl := template.New("location").Option("missingkey=error")
-	tmpl = tmpl.Funcs(FilepathFuncMap).Funcs(TmplFuncMap(tmpl))
+	tmpl = tmpl.Funcs(util.StringsFuncMap).Funcs(util.FilepathFuncMap).Funcs(util.TmplFuncMap(tmpl))
+	tmpl = template.Must(tmpl.ParseFS(pathTmplDir, "gotmpl/*"))
 
 	return &Libro{
-		Root:         ".",
-		Verbose:      log.New(io.Discard, "", 0),
-		Debug:        log.New(io.Discard, "debug:", 0),
-		LocationTmpl: template.Must(tmpl.Parse(defaultLocation)),
+		Root:     ".",
+		Verbose:  log.New(io.Discard, "", 0),
+		Debug:    log.New(io.Discard, "debug:", 0),
+		PathTmpl: template.Must(tmpl.Parse(`{{template "default" .}}`)),
 	}
 }
 
@@ -103,7 +96,7 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 
 // Create inserts a new book in Libro's collection.
 //
-// It determines the location in the collection by executing Libro.LocationTmpl
+// It determines the location in the collection by executing Libro.PathTmpl
 // against book's metadata. Location can be relative or absolute, relative
 // location are relative to the Libro's root folder.
 // Location can contain reference to environment variables that are expanded to
@@ -118,13 +111,13 @@ func (lib *Libro) Create(b *book.Book) error {
 		return nil
 	}
 
-	if lib.LocationTmpl == nil {
+	if lib.PathTmpl == nil {
 		lib.Verbose.Printf("Done (no template to relocate book)")
 		return nil
 	}
 
 	buff := new(bytes.Buffer)
-	if err := lib.LocationTmpl.Execute(buff, b); err != nil {
+	if err := lib.PathTmpl.Execute(buff, b); err != nil {
 		return err
 	}
 	path := filepath.Clean(os.ExpandEnv(buff.String()))

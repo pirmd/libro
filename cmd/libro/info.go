@@ -43,7 +43,7 @@ func (app *App) RunInfoSubcmd(args []string) error {
 	if err := app.Formatter.Execute(app.Stdout, b); err != nil {
 		return fmt.Errorf("fail to display book information: %v", err)
 	}
-	fmt.Fprintln(app.Stdout)
+	fmt.Fprint(app.Stdout)
 
 	return nil
 }

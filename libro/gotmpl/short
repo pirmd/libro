@@ -1,0 +1,3 @@
+{{/* Title.epub */ -}}
+{{.Title -}}
+{{ ext .Path -}}

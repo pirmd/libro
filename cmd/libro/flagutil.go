@@ -75,7 +75,7 @@ func NewGoTemplate(tmpl *template.Template) *GoTemplate {
 	}
 }
 
-// String proposes a human-friendly string representation of a formatter.
+// String proposes a human-friendly string representation of a go template.
 func (gotmpl GoTemplate) String() string {
 	if gotmpl.Template != nil {
 		return gotmpl.Template.Root.String()
@@ -86,6 +86,37 @@ func (gotmpl GoTemplate) String() string {
 // Set implements flag.Value interface for a GoTemplate.
 func (gotmpl *GoTemplate) Set(tmpl string) error {
 	if _, err := gotmpl.Template.Parse(tmpl); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// GoTemplateFS wraps a text/template.Template that parses its template
+// definition from files in order to implement flag.Value interface and get
+// customization through command-line.
+type GoTemplateFS struct {
+	*template.Template
+}
+
+// NewGoTemplateFS creates a new GoTemplateFS.
+func NewGoTemplateFS(tmpl *template.Template) *GoTemplateFS {
+	return &GoTemplateFS{
+		Template: tmpl,
+	}
+}
+
+// String proposes a human-friendly string representation of a go template.
+func (gotmplFS GoTemplateFS) String() string {
+	if gotmplFS.Template != nil {
+		return gotmplFS.Template.Root.String()
+	}
+	return ""
+}
+
+// Set implements flag.Value interface for a GoTemplateFS.
+func (gotmplFS *GoTemplateFS) Set(pattern string) error {
+	if _, err := gotmplFS.Template.ParseGlob(pattern); err != nil {
 		return err
 	}
 

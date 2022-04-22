@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"path/filepath"
 	"testing"
 
@@ -15,15 +16,17 @@ func TestRunInfoSubCmd(t *testing.T) {
 
 	testRunInfoSubcmd := func(args ...string) func(*testing.T) {
 		return func(t *testing.T) {
-			app := newTestApp(t)
+			testApp := newTestApp(t)
 
 			for _, tc := range testCases {
-				if err := app.RunInfoSubcmd(append(args, tc)); err != nil {
+				if err := testApp.RunInfoSubcmd(append(args, tc)); err != nil {
 					t.Errorf("Fail to read information for %s: %v", tc, err)
 				}
+
+				fmt.Fprintln(testApp.Stdout)
 			}
 
-			if failure := verify.MatchGolden(t.Name(), app.out.String()); failure != nil {
+			if failure := verify.MatchGolden(t.Name(), testApp.Out()); failure != nil {
 				t.Fatalf("Output is not as expected.\n%v", failure)
 			}
 		}
@@ -31,6 +34,11 @@ func TestRunInfoSubCmd(t *testing.T) {
 
 	t.Run("Default", func(t *testing.T) {
 		testRunInfoSubcmd()(t)
+	})
+
+	t.Run("WithPlaintextTemplate", func(t *testing.T) {
+		testTmpl := `{{template "plaintext" .}}`
+		testRunInfoSubcmd("--format=" + testTmpl)(t)
 	})
 
 	t.Run("WithGuesser", func(t *testing.T) {

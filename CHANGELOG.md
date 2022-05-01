@@ -1,8 +1,9 @@
 # Changelog
 ## [0.2.1]
-- Add support to correct reversed Authors name
+- add support to correct reversed Authors name
 - improve templates support
 - improve documentation
+- simplify code's repository
 
 ## [0.2.0] - 2022-04-20
 - add basic Googlebooks API support

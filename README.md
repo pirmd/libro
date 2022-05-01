@@ -61,16 +61,15 @@ Templating language is based on golang's built-in template language
 
 Some pre-defined templates are available:
 - when renaming books (invoke by `-rename={{template "xXx" .}}`): 
-    * default         : Author[0] - [Series SeriesIndex] - Title [LANG].epub
-    * default_byauthor: Author[0]/Author[0] - [Series SeriesIndex] - Title [LANG].epub
-    * short           : Title.epub
-    * short_byauthor  : Author[0]/Title.epub
-    * donothing       : keep original book's path
+    * fullname.gotmpl          : Author[0] - [Series SeriesIndex] - Title [LANG].epub
+    * fullname_byauthor.gotmpl : Author[0]/Author[0] - [Series SeriesIndex] - Title [LANG].epub
+    * shortname.gotmpl         : Title.epub
+    * shortname_byauthor.gotmpl: Author[0]/Title.epub
   In each cases, Author[0] is the first known Authors. Empty Authors is
   replaced by 'Unknown" Unknown or empty SeriesxXx, or LANG are ignored.
 - when formatting books information (invoke by `-format={{template "xXx" .}}`):
-    * plaintext: format book's attributes as plaintext in a key: value fashion.
-                 Empty optional attributes are not displayed.
+    * book.txt.gotmpl: format book's attributes as plaintext in a key: value fashion.
+                       Empty optional attributes are not displayed.
 
 Examples:
 ``` shell

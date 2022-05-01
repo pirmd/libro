@@ -1,5 +1,6 @@
 # Changelog
 ## [0.2.1]
+- Add support to correct reversed Authors name
 - improve templates support
 - improve documentation
 

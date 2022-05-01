@@ -25,10 +25,11 @@ func NewFromEpub(path string) (*Book, error) {
 		Verbose.Printf("warn: no 'Title' found in epub's metadata")
 	}
 
-	b.Authors = make([]string, len(mdata.Creator))
+	authors := make([]string, len(mdata.Creator))
 	for i, a := range mdata.Creator {
-		b.Authors[i] = a.FullName
+		authors[i] = a.FullName
 	}
+	b.SetAuthors(authors)
 	if len(b.Authors) == 0 {
 		Verbose.Printf("warn: no 'Author' found in epub's metadata")
 	}
@@ -39,10 +40,8 @@ func NewFromEpub(path string) (*Book, error) {
 
 	b.Subject = append([]string{}, mdata.Subject...)
 
-	b.ISBN, err = getEpubISBN(mdata)
-	if err != nil {
-		Verbose.Printf("warn: found non-supported ISBN (%s): %v", b.ISBN, err)
-	}
+	isbn := getEpubISBN(mdata)
+	b.SetISBN(isbn)
 	if b.ISBN == "" {
 		Verbose.Printf("warn: no 'ISBN' found in epub's metadata (%+v)", mdata.Identifier)
 	}
@@ -53,7 +52,7 @@ func NewFromEpub(path string) (*Book, error) {
 
 	for _, d := range mdata.Date {
 		if d.Event == "publication" || d.Event == "" {
-			b.PublishedDate = NormalizeDate(d.Stamp)
+			b.SetPublishedDate(d.Stamp)
 			break
 		}
 	}
@@ -83,8 +82,7 @@ func NewFromEpub(path string) (*Book, error) {
 	return b, nil
 }
 
-func getEpubISBN(mdata *epub.Metadata) (string, error) {
-	var isbn string
+func getEpubISBN(mdata *epub.Metadata) (isbn string) {
 	for _, id := range mdata.Identifier {
 		switch {
 		case strings.HasPrefix(id.Scheme, "isbn") || strings.HasPrefix(id.Scheme, "ISBN"):
@@ -102,5 +100,5 @@ func getEpubISBN(mdata *epub.Metadata) (string, error) {
 		}
 	}
 
-	return NormalizeISBN(isbn)
+	return
 }

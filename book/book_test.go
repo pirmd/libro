@@ -49,7 +49,6 @@ func TestString2List(t *testing.T) {
 	}{
 		{"A & B & C", []string{"A", "B", "C"}},
 		{"A& B & C", []string{"A", "B", "C"}},
-		{"A, B & C", []string{"A", "B", "C"}},
 		{"A", []string{"A"}},
 	}
 

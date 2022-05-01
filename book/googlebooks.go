@@ -75,27 +75,27 @@ func (b Book) toVolumeInfo() *googlebooks.VolumeInfo {
 
 // newFromVolumeInfo populates Book's information from a googlebooks.VolumeInfo.
 func newFromVolumeInfo(vi *googlebooks.VolumeInfo) *Book {
-	isbn13, err := getVolumeInfoISBN(vi)
-	if err != nil {
-		Verbose.Printf("warn: found non-supported ISBN (%s): %v", isbn13, err)
+	b := &Book{
+		Title:       vi.Title,
+		SubTitle:    vi.SubTitle,
+		Publisher:   vi.Publisher,
+		Description: vi.Description,
+		Language:    vi.Language,
+		PageCount:   vi.PageCount,
+		Subject:     append([]string{}, vi.Subject...),
 	}
 
-	return &Book{
-		Title:         vi.Title,
-		Authors:       append([]string{}, vi.Authors...),
-		ISBN:          isbn13,
-		SubTitle:      vi.SubTitle,
-		Publisher:     vi.Publisher,
-		PublishedDate: NormalizeDate(vi.PublishedDate),
-		Description:   vi.Description,
-		Language:      vi.Language,
-		PageCount:     vi.PageCount,
-		Subject:       append([]string{}, vi.Subject...),
-	}
+	b.SetAuthors(vi.Authors)
+
+	isbn := getVolumeInfoISBN(vi)
+	b.SetISBN(isbn)
+
+	b.SetPublishedDate(vi.PublishedDate)
+
+	return b
 }
 
-func getVolumeInfoISBN(vi *googlebooks.VolumeInfo) (string, error) {
-	var isbn string
+func getVolumeInfoISBN(vi *googlebooks.VolumeInfo) (isbn string) {
 	for _, id := range vi.Identifier {
 		if id.Type == "ISBN" || id.Type == "ISBN_10" || id.Type == "ISBN_13" {
 			isbn = id.Identifier
@@ -106,5 +106,5 @@ func getVolumeInfoISBN(vi *googlebooks.VolumeInfo) (string, error) {
 		}
 	}
 
-	return NormalizeISBN(isbn)
+	return
 }

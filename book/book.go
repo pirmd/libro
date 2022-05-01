@@ -24,7 +24,11 @@ var (
 	ErrUnknownFormat = errors.New("unknown file format")
 
 	// reList is a regexp that splits a list of values (like Authors or Subject).
-	reList = regexp.MustCompile(`\s?[&,]\s?`)
+	reList = regexp.MustCompile(`\s?&\s?`)
+
+	// reAuthName is a regexp that splits an Author's name into its surname and
+	// forename.
+	reAuthName = regexp.MustCompile(`\s?,\s?`)
 )
 
 // Book represents a book.
@@ -43,7 +47,7 @@ type Book struct {
 	// derived from an ISBN_10.  ISBN10 and ISBN13 methods can be invoked to
 	// convert from one format to the other.
 	// Most Book's functions dealing with ISBN will better work if ISBN is
-	// 'normalized' using book.NormalizeISBN.
+	// 'normalized' using Book.SetISBN.
 	ISBN string `json:",omitempty"`
 
 	// SubTitle is the book's sub-title.
@@ -57,7 +61,7 @@ type Book struct {
 	// 'precision' of date is not enough to capture known month or days, date
 	// is cut to '2006-01' or simply to '2006'.
 	// Most Book's functions dealing with Date will better work if Date is
-	// 'normalized' using book.NormalizeDate.
+	// 'normalized' using Book.SetPublishedDate.
 	PublishedDate string `json:",omitempty"`
 
 	// Description is the synopsis of the book. The text of the description
@@ -105,6 +109,35 @@ func NewFromFile(path string) (*Book, error) {
 	}
 }
 
+// SetISBN sets Book's ISBN and tries to normalize it to ISBN_13 format.
+// SetISBN reports non-recognized ISBN but do not fail.
+func (b *Book) SetISBN(isbn string) {
+	var err error
+	if b.ISBN, err = NormalizeISBN(isbn); err != nil {
+		Verbose.Printf("warn: found non-supported ISBN (%s): %v", b.ISBN, err)
+	}
+}
+
+// SetPublishedDate sets Book's PublishedDate and tries to normalize its
+// format.
+func (b *Book) SetPublishedDate(date string) {
+	b.PublishedDate = NormalizeDate(date)
+}
+
+// SetAuthors sets Book's Authors and tries to keep Authors' names and
+// surnames in a pre-defined order.
+func (b *Book) SetAuthors(authors []string) {
+	b.Authors = make([]string, len(authors))
+
+	for i, auth := range authors {
+		if name := reAuthName.Split(auth, 2); len(name) == 2 {
+			b.Authors[i] = strings.TrimSpace(name[1] + " " + name[0])
+		} else {
+			b.Authors[i] = auth
+		}
+	}
+}
+
 // NewFromMap creates a Book's from to the attributes defined as a map
 // where keys are attribute's name (insensitive to case) and value is a string
 // representation of the attribute's value.
@@ -126,13 +159,13 @@ func NewFromMap(m map[string]string) (*Book, error) {
 			b.SeriesTitle = value
 
 		case "Authors":
-			b.Authors = reList.Split(value, -1)
+			b.SetAuthors(reList.Split(value, -1))
 
 		case "Publisher":
 			b.Publisher = value
 
 		case "PublishedDate":
-			b.PublishedDate = value
+			b.SetPublishedDate(value)
 
 		case "Description":
 			b.Description = value
@@ -147,7 +180,7 @@ func NewFromMap(m map[string]string) (*Book, error) {
 			}
 
 		case "ISBN":
-			b.ISBN = value
+			b.SetISBN(value)
 
 		case "Language":
 			b.Language = value

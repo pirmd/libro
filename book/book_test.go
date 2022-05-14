@@ -132,6 +132,7 @@ func TestNewFromMapWithOverride(t *testing.T) {
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Subject: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
+				ToReview: []string{"changed Title from Mon père fouettard to Mon père, ce héros"},
 			},
 		},
 
@@ -142,6 +143,7 @@ func TestNewFromMapWithOverride(t *testing.T) {
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
+				ToReview: []string{"changed Authors from [Mini Moi] to [Luke Skywalker]", "changed PublishedDate from 2002 to 1980"},
 			},
 		},
 	}

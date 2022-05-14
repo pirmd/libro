@@ -266,7 +266,7 @@ func (app *App) RunEditSubcmd(args []string) error {
 		app.Verbose.Printf("manual edition of book's information has been prevented by '-dont-edit' flag")
 	case editor == "":
 		app.Verbose.Printf("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
-	case auto && b.IsComplete():
+	case auto && (b.IsComplete() && len(b.ToReview) == 0):
 		app.Verbose.Printf("no need to edit book's information that seems good enough to me")
 	default:
 		var err error

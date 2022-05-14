@@ -33,7 +33,7 @@ func (b *Book) FromGooglebooks() error {
 	}
 
 	if len(found) == 0 {
-		Verbose.Print("warn: no match found on Googlebooks")
+		b.ReportIssue("no match found on Googlebooks")
 		return nil
 	}
 
@@ -47,7 +47,7 @@ func (b *Book) FromGooglebooks() error {
 	}
 
 	if b.ISBN != "" {
-		Verbose.Printf("warn: found book on Googlebooks with different ISBN (%s != %s), ignore it", b.ISBN, bestMatch.ISBN)
+		b.ReportIssue("found book on Googlebooks with different ISBN (%s != %s), ignore it", b.ISBN, bestMatch.ISBN)
 		return nil
 	}
 

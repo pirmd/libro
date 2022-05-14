@@ -21,18 +21,12 @@ func NewFromEpub(path string) (*Book, error) {
 	if len(mdata.Title) > 0 {
 		b.Title = mdata.Title[0]
 	}
-	if b.Title == "" {
-		Verbose.Printf("warn: no 'Title' found in epub's metadata")
-	}
 
 	authors := make([]string, len(mdata.Creator))
 	for i, a := range mdata.Creator {
 		authors[i] = a.FullName
 	}
 	b.SetAuthors(authors)
-	if len(b.Authors) == 0 {
-		Verbose.Printf("warn: no 'Author' found in epub's metadata")
-	}
 
 	if len(mdata.Description) > 0 {
 		b.Description = mdata.Description[0]
@@ -42,9 +36,6 @@ func NewFromEpub(path string) (*Book, error) {
 
 	isbn := getEpubISBN(mdata)
 	b.SetISBN(isbn)
-	if b.ISBN == "" {
-		Verbose.Printf("warn: no 'ISBN' found in epub's metadata (%+v)", mdata.Identifier)
-	}
 
 	if len(mdata.Publisher) > 0 {
 		b.Publisher = mdata.Publisher[0]
@@ -56,8 +47,8 @@ func NewFromEpub(path string) (*Book, error) {
 			break
 		}
 	}
-	if b.PublishedDate == "" {
-		Verbose.Printf("warn: no 'publication date' found in epub's metadata (%+v)", mdata.Date)
+	if len(mdata.Date) > 0 && b.PublishedDate == "" {
+		Debug.Printf("no 'publication date' found in epub's metadata (%+v)", mdata.Date)
 	}
 
 	for _, meta := range mdata.Meta {

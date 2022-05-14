@@ -109,34 +109,35 @@ This behavior can be altered using `-auto` or `-dont-edit` flags.
 
 ## BOOK ATTRIBUTES
 `libro` uses the following attributes for a Book:
-- Path         : Path is the location of the book's file in the file-system.
-- Title        : Title is the book's title.
-- Authors      : Authors is the list names of the authors and/or editors for this book.
-- ISBN         : ISBN is the unique industry standard identifier for this book.
+- Path:          Path is the location of the book's file in the file-system.
+- Title:         Title is the book's title.
+- Authors:       Authors is the list names of the authors and/or editors for this book.
+- ISBN:          ISBN is the unique industry standard identifier for this book.
                  `libro` tends to prefer ISBN_13 format when available or when
                  it can be derived from an ISBN_10.
                  ISBN10 and ISBN13 methods can be invoked to convert from one
                  format to the other.
-- SubTitle     : SubTitle is the book's sub-title.
-- Publisher    : Publisher is the publisher of this book.
+- SubTitle:      SubTitle is the book's sub-title.
+- Publisher:     Publisher is the publisher of this book.
 - PublishedDate: PublishedDate is the date of publication of this book.
                  `libro` tries to normalize dates using '2006-01-02' format.
                  When 'precision' of date is not enough to capture known month or days, date is
                  cut to '2006-01' or simply to '2006'.
-- Description  : Description is the synopsis of the book. The text of the
+- Description:   Description is the synopsis of the book. The text of the
                  description is formatted in HTML and includes simple
                  formatting elements.
-- Series       : Series is the series to which this book belongs to.
-- SeriesIndex  : SeriesIndex is the position in the series to which the book
+- Series:        Series is the series to which this book belongs to.
+- SeriesIndex:   SeriesIndex is the position in the series to which the book
                  belongs to.
-- SeriesTitle  : SeriesTitle is the book's title in the series (without Series
+- SeriesTitle:   SeriesTitle is the book's title in the series (without Series
                  nor SubTitle information).
-- Language     : Language is the book's language. It is the two-letter
+- Language:      Language is the book's language. It is the two-letter
                  ISO 639-1 code such as 'fr', 'en'.
-- PageCount    : PageCount is total number of pages of this book.
-- Subject      : Subject is the list of subject categories, such as "Fiction",
+- PageCount:     PageCount is total number of pages of this book.
+- Subject:       Subject is the list of subject categories, such as "Fiction",
                  "Suspense".
-
+- Issues:        Issues collects (possible) issues encountered during Book's processing
+                 that deserve end-user attention.
 
 ## MAIN GOALS
 Beside bug hunting and improved user experience, main functions planned to be

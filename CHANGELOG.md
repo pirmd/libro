@@ -1,5 +1,7 @@
 # Changelog
 ## [0.2.1]
+- add a reporting function that draws end-user attention on possible issues
+  encountered during Book's processing.
 - add support to correct reversed Authors name
 - improve templates support
 - improve documentation

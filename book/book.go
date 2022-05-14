@@ -88,6 +88,10 @@ type Book struct {
 	// Subject is the list of subject categories, such as "Fiction",
 	// "Suspense".
 	Subject []string `json:",omitempty"`
+
+	// ToReview collects messages that report events encountered during Book's
+	// processing that deserve end-user attention.
+	ToReview []string `json:",omitempty"`
 }
 
 // New creates a new Book
@@ -114,7 +118,7 @@ func NewFromFile(path string) (*Book, error) {
 func (b *Book) SetISBN(isbn string) {
 	var err error
 	if b.ISBN, err = NormalizeISBN(isbn); err != nil {
-		Verbose.Printf("warn: found non-supported ISBN (%s): %v", b.ISBN, err)
+		b.ReportIssue("found non-supported ISBN (%s): %v", isbn, err)
 	}
 }
 
@@ -207,138 +211,134 @@ func NewFromMap(m map[string]string) (*Book, error) {
 // corresponding attribute of 'b1' Book.
 func (b *Book) MergeWith(b1 *Book, override bool) {
 	if b1.Title != "" {
-		if b.Title != "" && !strings.EqualFold(b.Title, b1.Title) {
-			Debug.Printf("new Title (%s) is different from the existing one (%s)", b1.Title, b.Title)
-		}
-		if override || b.Title == "" {
-			Verbose.Printf("set Title to %s", b1.Title)
+		if b.Title == "" {
+			Verbose.Printf("set empty Title to %v", b1.Title)
+			b.Title = b1.Title
+		} else if override && !strings.EqualFold(b.Title, b1.Title) {
+			b.ReportIssue("changed Title from %v to %v", b.Title, b1.Title)
 			b.Title = b1.Title
 		}
 	}
 
 	if len(b1.Authors) > 0 {
-		if len(b.Authors) != 0 && !strings.EqualFold(fmt.Sprint(b.Authors), fmt.Sprint(b1.Authors)) {
-			Debug.Printf("new Authors (%v) is different from the existing one (%v)", b1.Authors, b.Authors)
-		}
-		if override || len(b.Authors) == 0 {
-			Verbose.Printf("set Authors to %v", b1.Authors)
+		if len(b.Authors) == 0 {
+			Verbose.Printf("set empty Authors to %v", b1.Authors)
+			b.Authors = append([]string{}, b1.Authors...)
+		} else if override && !strings.EqualFold(fmt.Sprint(b.Authors), fmt.Sprint(b1.Authors)) {
+			b.ReportIssue("changed Authors from %v to %v", b.Authors, b1.Authors)
 			b.Authors = append([]string{}, b1.Authors...)
 		}
 	}
 
 	if b1.ISBN != "" {
-		if b.ISBN != "" && b.ISBN != b1.ISBN {
-			Debug.Printf("new ISBN (%s) is different from the existing one (%s)", b1.ISBN, b.ISBN)
-		}
-		if override || b.ISBN == "" {
-			Verbose.Printf("set ISBN to %s", b1.ISBN)
+		if b.ISBN == "" {
+			Verbose.Printf("set empty ISBN to %v", b1.ISBN)
+			b.ISBN = b1.ISBN
+		} else if override && (b.ISBN != b1.ISBN) {
+			b.ReportIssue("changed ISBN from %v to %v", b.ISBN, b1.ISBN)
 			b.ISBN = b1.ISBN
 		}
 	}
 
 	if b1.SubTitle != "" {
-		if b.SubTitle != "" && !strings.EqualFold(b.SubTitle, b1.SubTitle) {
-			Debug.Printf("new SubTitle (%s) is different from the existing one (%s)", b1.SubTitle, b.SubTitle)
-		}
-		if override || b.SubTitle == "" {
+		if b.SubTitle == "" {
 			Verbose.Printf("set SubTitle to %s", b1.SubTitle)
+			b.SubTitle = b1.SubTitle
+		} else if override && !strings.EqualFold(b.SubTitle, b1.SubTitle) {
+			b.ReportIssue("changed SubTitle from %v to %v", b.SubTitle, b1.SubTitle)
 			b.SubTitle = b1.SubTitle
 		}
 	}
 
 	if b1.Publisher != "" {
-		if b.Publisher != "" && !strings.EqualFold(b.Publisher, b1.Publisher) {
-			Debug.Printf("new Publisher (%s) is different from the existing one (%s)", b1.Publisher, b.Publisher)
-		}
-		if override || b.Publisher == "" {
-			Verbose.Printf("set Publisher to %s", b1.Publisher)
+		if b.Publisher == "" {
+			Verbose.Printf("set empty Publisher to %s", b1.Publisher)
+			b.Publisher = b1.Publisher
+		} else if override && !strings.EqualFold(b.Publisher, b1.Publisher) {
+			b.ReportIssue("changed Publisher from %v to %v", b.Publisher, b1.Publisher)
 			b.Publisher = b1.Publisher
 		}
 	}
 
 	if b1.PublishedDate != "" {
-		if date, equal := CompareNormalizedDate(b.PublishedDate, b1.PublishedDate); equal {
-			if b.PublishedDate != date {
-				Verbose.Printf("prefer more precise new PublishedDate. Set PublishedDate to %s", b1.PublishedDate)
-				b.PublishedDate = date
-			}
-		} else {
-			if b.PublishedDate != "" {
-				Debug.Printf("new PublishedDate (%s) is different from the existing one (%s)", b1.PublishedDate, b.PublishedDate)
-			}
-			if override || b.PublishedDate == "" {
-				Verbose.Printf("set PublishedDate to %s", b1.PublishedDate)
-				b.PublishedDate = b1.PublishedDate
-			}
+		if b.PublishedDate == "" {
+			Verbose.Printf("set empty PublishedDate to %s", b1.PublishedDate)
+			b.PublishedDate = b1.PublishedDate
+		} else if date, equal := CompareNormalizedDate(b.PublishedDate, b1.PublishedDate); override && !equal {
+			b.ReportIssue("changed PublishedDate from %v to %v", b.PublishedDate, b1.PublishedDate)
+			b.PublishedDate = b1.PublishedDate
+		} else if equal && b.PublishedDate != date {
+			Verbose.Printf("changed PublishedDate from %v to (more precise) %v", b.PublishedDate, b1.PublishedDate)
+			b.PublishedDate = date
 		}
 	}
 
 	if b1.Description != "" {
-		if b.Description != "" && !strings.EqualFold(b.Description, b1.Description) {
-			Debug.Printf("new Description (%.12v) is different from the existing one (%.12v)", b1.Description, b.Description)
-		}
-		if override || b.Description == "" {
-			Verbose.Printf("set Description to %s", b1.Description)
+		if b.Description == "" {
+			Verbose.Printf("set (empty) Description to %.12v", b1.Description)
+			b.Description = b1.Description
+		} else if override && !strings.EqualFold(b.Description, b1.Description) {
+			Verbose.Printf("changed Description from %.12v to %.12v", b.Description, b1.Description)
 			b.Description = b1.Description
 		}
 	}
 
 	if b1.Series != "" {
-		if b.Series != "" && !strings.EqualFold(b.Series, b1.Series) {
-			Debug.Printf("new Series (%s) is different from the existing one (%s)", b1.Series, b.Series)
-		}
-		if override || b.Series == "" {
-			Verbose.Printf("set Series to %s", b1.Series)
+		if b.Series == "" {
+			Verbose.Printf("set (empty) Series to %v", b1.Series)
+			b.Series = b1.Series
+		} else if override && !strings.EqualFold(b.Series, b1.Series) {
+			Verbose.Printf("changed Series from %v to %v", b.Series, b1.Series)
 			b.Series = b1.Series
 		}
 	}
 
 	if b1.SeriesIndex != 0 {
-		if b.SeriesIndex != 0 && b.SeriesIndex != b1.SeriesIndex {
-			Debug.Printf("new SeriesIndex (%.1f) is different from the existing one (%.1f)", b1.SeriesIndex, b.SeriesIndex)
-		}
-		if override || b.SeriesIndex == 0 {
-			Verbose.Printf("set SeriesIndex to %.1f", b1.SeriesIndex)
+		if b.SeriesIndex == 0 {
+			Verbose.Printf("set (empty) SeriesIndex to %v", b1.SeriesIndex)
+			b.SeriesIndex = b1.SeriesIndex
+		} else if override && (b.SeriesIndex != b1.SeriesIndex) {
+			b.ReportIssue("changed SeriesIndex from %v to %v", b.SeriesIndex, b1.SeriesIndex)
 			b.SeriesIndex = b1.SeriesIndex
 		}
 	}
 
 	if b1.SeriesTitle != "" {
-		if b.SeriesTitle != "" && !strings.EqualFold(b.SeriesTitle, b1.SeriesTitle) {
-			Debug.Printf("new SeriesTitle (%s) is different from the existing one (%s)", b1.SeriesTitle, b.SeriesTitle)
-		}
-		if override || b.SeriesTitle == "" {
-			Verbose.Printf("set SeriesTitle to %s", b1.SeriesTitle)
+		if b.SeriesTitle == "" {
+			Verbose.Printf("set (empty) SeriesTitle to %v", b1.SeriesTitle)
+			b.SeriesTitle = b1.SeriesTitle
+		} else if override && !strings.EqualFold(b.SeriesTitle, b1.SeriesTitle) {
+			b.ReportIssue("changed SeriesTitle from %v to %v", b.SeriesTitle, b1.SeriesTitle)
 			b.SeriesTitle = b1.SeriesTitle
 		}
 	}
 
 	if b1.Language != "" {
-		if b.Language != "" && !strings.EqualFold(b.Language, b1.Language) {
-			Debug.Printf("new Language (%s) is different from the existing one (%s)", b1.Language, b.Language)
-		}
-		if override || b.Language == "" {
-			Verbose.Printf("set Language to %s", b1.Language)
+		if b.Language == "" {
+			Verbose.Printf("set (empty) Language to %v", b1.Language)
+			b.Language = b1.Language
+		} else if override && !strings.EqualFold(b.Language, b1.Language) {
+			Verbose.Printf("changed Language from %v to %v", b.Language, b1.Language)
 			b.Language = b1.Language
 		}
 	}
 
 	if b1.PageCount != 0 {
-		if b.PageCount != 0 && b.PageCount != b1.PageCount {
-			Debug.Printf("new PageCount (%d) is different from the existing one (%d)", b1.PageCount, b.PageCount)
-		}
-		if override || b.PageCount == 0 {
-			Verbose.Printf("set PageCount to %d", b1.PageCount)
+		if b.PageCount == 0 {
+			Verbose.Printf("set (empty) PageCount to %v", b1.PageCount)
+			b.PageCount = b1.PageCount
+		} else if override && (b.PageCount != b1.PageCount) {
+			Verbose.Printf("changed PageCount from %v to %v", b.PageCount, b1.PageCount)
 			b.PageCount = b1.PageCount
 		}
 	}
 
 	if len(b1.Subject) > 0 {
-		if len(b.Subject) != 0 && !strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(b1.Subject)) {
-			Debug.Printf("new Subject (%v) is different from the existing one (%v)", b1.Subject, b.Subject)
-		}
-		if override || len(b.Subject) == 0 {
-			Verbose.Printf("set new Subject to %v", b1.Subject)
+		if len(b.Subject) == 0 {
+			Verbose.Printf("set (empty) Subject to %v", b1.Subject)
+			b.Subject = append([]string{}, b1.Subject...)
+		} else if override && !strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(b1.Subject)) {
+			Verbose.Printf("changed Subject from %v to %v", b.Subject, b1.Subject)
 			b.Subject = append([]string{}, b1.Subject...)
 		}
 	}

@@ -1,0 +1,214 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Wed, 18 May 2022 12:49:42 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 51,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "gQGqvAEACAAJ",
+      "etag": "lVIIdo+e+iQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/gQGqvAEACAAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publishedDate": "2018-09-26",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2266289241"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782266289245"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 190,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=gQGqvAEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=gQGqvAEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_fleurs_du_mal.html?hl=&id=gQGqvAEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=gQGqvAEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "k7mwyQEACAAJ",
+      "etag": "hOsR2z1ve7I",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/k7mwyQEACAAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal",
+        "subtitle": "Parcours associé : Alchimie poétique : la boue et l'or",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publishedDate": "2019-08-29",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2091512141"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782091512143"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 300,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=k7mwyQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=k7mwyQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_fleurs_du_mal.html?hl=&id=k7mwyQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=k7mwyQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Les Fleurs du Mal - Charles Beaudelaire Résumé de l&#39;oeuvre : Un poète à l&#39;élégance recherchée, provocateur et hanté par la mélancolie, nous invite, dans ce recueil original, à découvrir son univers."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "HriGrgEACAAJ",
+      "etag": "bJxFhSR65Xo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/HriGrgEACAAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Editions Gallimard",
+        "publishedDate": "2004",
+        "description": "\"Plonger au fond du gouffre, Enfer ou Ciel, qu'importe ? Au fond de l'inconnu, pour trouver du nouveau !\". Ces vers du \"Voyage\" éclairent à eux seuls l'entreprise du poète. Esprit vagabond, toujours mobile, Baudelaire explore les dédales de la conscience. Il atteint tantôt à l'extase, tantôt se perd dans les abîmes du péché. A travers ses poèmes, il nous fait partager le drame qui se joue en lui et qui n'est autre que la tragédie humaine. Baudelaire, premier poète moderne, donne à la poésie sa véritable dimension : exprimer, par-delà les mots, ce vertige absolu qui s'empare de l'âme. Tout chez lui, en lui affirme la nécessité de la souffrance, la fatalité du péché. Tout traduit en lui une âme profondément troublée mais charitable. Baudelaire fait des Fleurs du Mal un immense poème de la vie et du monde.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2070307662"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782070307661"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 353,
+        "printType": "BOOK",
+        "categories": [
+          "French poetry"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=HriGrgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=HriGrgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=HriGrgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=HriGrgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_fleurs_du_mal.html?hl=&id=HriGrgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=HriGrgEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Tout traduit en lui une âme profondément troublée mais charitable. Baudelaire fait des Fleurs du Mal un immense poème de la vie et du monde. -- [payot.ch]."
+      }
+    }
+  ]
+}

@@ -91,12 +91,14 @@ type Book struct {
 
 	// ToReview collects messages that report events encountered during Book's
 	// processing that deserve end-user attention.
-	ToReview []string `json:",omitempty"`
+	*Report
 }
 
 // New creates a new Book
 func New() *Book {
-	return &Book{}
+	return &Book{
+		Report: NewReport(),
+	}
 }
 
 // NewFromFile creates a new Book and populates its information according to
@@ -275,7 +277,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.Description != "" {
 		if b.Description == "" {
-			Verbose.Printf("set (empty) Description to %.12v", b1.Description)
+			Verbose.Printf("set empty Description to %.12v", b1.Description)
 			b.Description = b1.Description
 		} else if override && !strings.EqualFold(b.Description, b1.Description) {
 			Verbose.Printf("changed Description from %.12v to %.12v", b.Description, b1.Description)
@@ -285,7 +287,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.Series != "" {
 		if b.Series == "" {
-			Verbose.Printf("set (empty) Series to %v", b1.Series)
+			Verbose.Printf("set empty Series to %v", b1.Series)
 			b.Series = b1.Series
 		} else if override && !strings.EqualFold(b.Series, b1.Series) {
 			Verbose.Printf("changed Series from %v to %v", b.Series, b1.Series)
@@ -295,7 +297,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.SeriesIndex != 0 {
 		if b.SeriesIndex == 0 {
-			Verbose.Printf("set (empty) SeriesIndex to %v", b1.SeriesIndex)
+			Verbose.Printf("set empty SeriesIndex to %v", b1.SeriesIndex)
 			b.SeriesIndex = b1.SeriesIndex
 		} else if override && (b.SeriesIndex != b1.SeriesIndex) {
 			b.ReportIssue("changed SeriesIndex from %v to %v", b.SeriesIndex, b1.SeriesIndex)
@@ -305,7 +307,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.SeriesTitle != "" {
 		if b.SeriesTitle == "" {
-			Verbose.Printf("set (empty) SeriesTitle to %v", b1.SeriesTitle)
+			Verbose.Printf("set empty SeriesTitle to %v", b1.SeriesTitle)
 			b.SeriesTitle = b1.SeriesTitle
 		} else if override && !strings.EqualFold(b.SeriesTitle, b1.SeriesTitle) {
 			b.ReportIssue("changed SeriesTitle from %v to %v", b.SeriesTitle, b1.SeriesTitle)
@@ -315,7 +317,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.Language != "" {
 		if b.Language == "" {
-			Verbose.Printf("set (empty) Language to %v", b1.Language)
+			Verbose.Printf("set empty Language to %v", b1.Language)
 			b.Language = b1.Language
 		} else if override && !strings.EqualFold(b.Language, b1.Language) {
 			Verbose.Printf("changed Language from %v to %v", b.Language, b1.Language)
@@ -325,7 +327,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.PageCount != 0 {
 		if b.PageCount == 0 {
-			Verbose.Printf("set (empty) PageCount to %v", b1.PageCount)
+			Verbose.Printf("set empty PageCount to %v", b1.PageCount)
 			b.PageCount = b1.PageCount
 		} else if override && (b.PageCount != b1.PageCount) {
 			Verbose.Printf("changed PageCount from %v to %v", b.PageCount, b1.PageCount)
@@ -335,7 +337,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if len(b1.Subject) > 0 {
 		if len(b.Subject) == 0 {
-			Verbose.Printf("set (empty) Subject to %v", b1.Subject)
+			Verbose.Printf("set empty Subject to %v", b1.Subject)
 			b.Subject = append([]string{}, b1.Subject...)
 		} else if override && !strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(b1.Subject)) {
 			Verbose.Printf("changed Subject from %v to %v", b.Subject, b1.Subject)

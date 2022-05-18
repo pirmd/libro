@@ -5,17 +5,62 @@
     "Authors": [
       "Lewis Carroll"
     ],
-    "ISBN": "9780199558292",
-    "Publisher": "Oxford University Press",
     "PublishedDate": "2008-06-27",
-    "Description": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters.",
-    "Language": "en",
-    "PageCount": 297,
     "Subject": [
       "Fantasy fiction",
       "Children's stories",
       "Imaginary places -- Juvenile fiction",
       "Alice (Fictitious character from Carroll) -- Juvenile fiction"
+    ],
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "Alice's Adventures in Wonderland",
+        "Authors": [
+          "Lewis Carroll"
+        ],
+        "ISBN": "9780553213454",
+        "SubTitle": "\u0026 Through the Looking-glass",
+        "Publisher": "Bantam Classics",
+        "PublishedDate": "1981",
+        "Description": "A young girl enters two bizarre worlds by following a white rabbit down a rabbit hole and moving through the mirror on the mantel.",
+        "Language": "en",
+        "PageCount": 272,
+        "Subject": [
+          "Fiction"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "Alice's Adventures in Wonderland and Through the Looking-Glass",
+        "Authors": [
+          "Lewis Carroll"
+        ],
+        "ISBN": "9780199558292",
+        "Publisher": "Oxford University Press",
+        "PublishedDate": "2009-09-10",
+        "Description": "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters.",
+        "Language": "en",
+        "PageCount": 297,
+        "Subject": [
+          "Fiction"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "Alice's Adventures in Wonderland",
+        "Authors": [
+          "Lewis Carroll"
+        ],
+        "ISBN": "9780141361345",
+        "PublishedDate": "2015-04-02",
+        "Description": "On an ordinary summer's afternoon, Alice tumbles down a hole and an extraordinary adventure begins. In a strange world with even stranger characters, she meets a rabbit with a pocket watch, joins a Mad Hatter's Tea Party, and plays croquet with the Queen! Lost in this fantasy land, Alice finds herself growing more and more curious by the minute ...",
+        "Language": "en",
+        "PageCount": 192,
+        "Subject": [
+          "Children's stories"
+        ]
+      }
     ]
   },
   {
@@ -29,7 +74,7 @@
       "Taoism",
       "Philosophy, Chinese"
     ],
-    "ToReview": [
+    "Issues": [
       "no match found on Googlebooks"
     ]
   },
@@ -39,18 +84,63 @@
     "Authors": [
       "Herodotus"
     ],
-    "ISBN": "9781291489002",
-    "Publisher": "Lulu.com",
     "PublishedDate": "2001-01-01",
-    "Description": "From the 'father of history', the second volume in English translation of the heroic deeds of the Persians and Greeks in the centuries before Christ",
     "Series": "Volume",
     "SeriesIndex": 2,
     "SeriesTitle": "The History of Herodotus",
-    "Language": "en",
-    "PageCount": 568,
     "Subject": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
+    ],
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "The Histories",
+        "Authors": [
+          "Herodotus"
+        ],
+        "ISBN": "9780199535668",
+        "Publisher": "Oxford Paperbacks",
+        "PublishedDate": "2008-04-17",
+        "Description": "Originally published: Oxford; New York: Oxford University Press, 1998.",
+        "Language": "en",
+        "PageCount": 772,
+        "Subject": [
+          "Foreign Language Study"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "The history of the Greeks and the Persians volume 2",
+        "Authors": [
+          "Herodotus"
+        ],
+        "ISBN": "9781291489002",
+        "Publisher": "Lulu.com",
+        "PublishedDate": "2013-07-24",
+        "Description": "From the 'father of history', the second volume in English translation of the heroic deeds of the Persians and Greeks in the centuries before Christ",
+        "Language": "en",
+        "PageCount": 568,
+        "Subject": [
+          "History"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "The History",
+        "Authors": [
+          "Herodotus"
+        ],
+        "ISBN": "9780226327723",
+        "Publisher": "University of Chicago Press",
+        "PublishedDate": "1988-01-15",
+        "Description": "David Grene, one of the best known translators of the Greek classics, splendidly captures the peculiar quality of Herodotus, the father of history. Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past. In his History, the war between the Greeks and Persians, the origins of their enmity, and all the more general features of the civilizations of the world of his day are seen as a unity and expressed as the vision of one man who as a child lived through the last of the great acts in this universal drama. In Grene's remarkable translation and commentary, we see the historian as a storyteller, combining through his own narration the skeletal \"historical\" facts and the imaginative reality toward which his story reaches. Herodotus emerges in all his charm and complexity as a writer and the first historian in the Western tradition, perhaps unique in the way he has seen the interrelation of fact and fantasy. \"Reading Herodotus in English has never been so much fun. . . . Herodotus crowds his fresco-like pages with all shades of humanity. Whether Herodotus's view is 'tragic,' mythical, or merely common sense, it provided him with a moral salt with which the diversity of mankind could be savored. And savor it we do in David Grene's translation.\"—Thomas D'Evelyn, Christian Science Monitor \"Grene's work is a monument to what translation intends, and to what it is hungry to accomplish. . . . Herodotus gives more sheer pleasure than almost any other writer.\"—Peter Levi, New York Times Book Review",
+        "Language": "en",
+        "PageCount": 709,
+        "Subject": [
+          "History"
+        ]
+      }
     ]
   },
   {
@@ -59,18 +149,64 @@
     "Authors": [
       "Herodotus"
     ],
-    "ISBN": "9780140449082",
-    "Publisher": "Penguin UK",
     "PublishedDate": "2001-07-01",
-    "Description": "Recounts the causes and history of the wars between the Greek city-states and Persia.",
     "Series": "Volume",
     "SeriesIndex": 1,
     "SeriesTitle": "The History of Herodotus",
-    "Language": "en",
-    "PageCount": 716,
     "Subject": [
       "History, Ancient",
       "Greece -- History -- To 146 B.C."
+    ],
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "The Histories",
+        "Authors": [
+          "Herodotus"
+        ],
+        "ISBN": "9780140449082",
+        "Publisher": "Penguin UK",
+        "PublishedDate": "2003",
+        "Description": "Recounts the causes and history of the wars between the Greek city-states and Persia.",
+        "Language": "en",
+        "PageCount": 716,
+        "Subject": [
+          "Fiction"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "The History",
+        "Authors": [
+          "Herodotus"
+        ],
+        "ISBN": "9780226327723",
+        "Publisher": "University of Chicago Press",
+        "PublishedDate": "1988-01-15",
+        "Description": "David Grene, one of the best known translators of the Greek classics, splendidly captures the peculiar quality of Herodotus, the father of history. Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past. In his History, the war between the Greeks and Persians, the origins of their enmity, and all the more general features of the civilizations of the world of his day are seen as a unity and expressed as the vision of one man who as a child lived through the last of the great acts in this universal drama. In Grene's remarkable translation and commentary, we see the historian as a storyteller, combining through his own narration the skeletal \"historical\" facts and the imaginative reality toward which his story reaches. Herodotus emerges in all his charm and complexity as a writer and the first historian in the Western tradition, perhaps unique in the way he has seen the interrelation of fact and fantasy. \"Reading Herodotus in English has never been so much fun. . . . Herodotus crowds his fresco-like pages with all shades of humanity. Whether Herodotus's view is 'tragic,' mythical, or merely common sense, it provided him with a moral salt with which the diversity of mankind could be savored. And savor it we do in David Grene's translation.\"—Thomas D'Evelyn, Christian Science Monitor \"Grene's work is a monument to what translation intends, and to what it is hungry to accomplish. . . . Herodotus gives more sheer pleasure than almost any other writer.\"—Peter Levi, New York Times Book Review",
+        "Language": "en",
+        "PageCount": 709,
+        "Subject": [
+          "History"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "The Histories",
+        "Authors": [
+          "Herodotus"
+        ],
+        "ISBN": "9780143107545",
+        "SubTitle": "(Penguin Classics Deluxe Edition)",
+        "Publisher": "Penguin",
+        "PublishedDate": "2015-05-19",
+        "Description": "“Unquestionably the best English translation of Herodotus to have appeared in the past half-century.” —The Times Literary Supplement In Tom Holland’s vibrant translation, one of the great masterpieces of Western history springs to life. Herodotus of Halicarnassus—hailed by Cicero as the “Father of History”—composed his histories around 440 BC. The earliest surviving work of nonfiction, The Histories works its way from the Trojan War through an epic account of the war between the Persian empire and the Greek city-states in the fifth century BC, recording landmark events that ensured the development of Western culture and still capture our modern imagination. Beautifully packaged in a Penguin Classics Deluxe edition with a comprehensive array of tools to guide first-time readers and experts alike, this accessible translation makes Herodotus fresh and irresistible once more. For more than seventy years, Penguin has been the leading publisher of classic literature in the English-speaking world. With more than 1,700 titles, Penguin Classics represents a global bookshelf of the best works throughout history and across genres and disciplines. Readers trust the series to provide authoritative texts enhanced by introductions and notes by distinguished scholars and contemporary authors, as well as up-to-date translations by award-winning translators.",
+        "Language": "en",
+        "PageCount": 880,
+        "Subject": [
+          "History"
+        ]
+      }
     ]
   },
   {
@@ -88,7 +224,7 @@
       "State, The",
       "Jurisprudence"
     ],
-    "ToReview": [
+    "Issues": [
       "no match found on Googlebooks"
     ]
   },
@@ -98,15 +234,62 @@
     "Authors": [
       "Beatrix Potter"
     ],
-    "ISBN": "9780486285405",
-    "SubTitle": "Livre d'Histoires en Couleurs",
-    "Publisher": "Courier Corporation",
     "PublishedDate": "2009-06-06",
-    "Description": "Peter disobeys his mother by going into Mr. McGregor's garden and almost gets caught.",
-    "Language": "fr",
-    "PageCount": 32,
     "Subject": [
       "Rabbits -- Juvenile fiction"
+    ],
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "L' Histoire de Pierre Lapin",
+        "Authors": [
+          "Beatrix Potter",
+          "Anna Pomaska"
+        ],
+        "ISBN": "9780486285405",
+        "SubTitle": "Livre d'Histoires en Couleurs",
+        "Publisher": "Courier Corporation",
+        "PublishedDate": "1995-01-01",
+        "Description": "Peter disobeys his mother by going into Mr. McGregor's garden and almost gets caught.",
+        "Language": "fr",
+        "PageCount": 32,
+        "Subject": [
+          "Juvenile Nonfiction"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "Histoire de Pierre Lapin",
+        "Authors": [
+          "Beatrix Potter"
+        ],
+        "ISBN": "9783746091761",
+        "Publisher": "BoD – Books on Demand",
+        "PublishedDate": "2018-03-20",
+        "Description": "Histoire de Pierre Lapin: \"IL y avait une fois quatre petits lapins qui s'appelaient - Flopsaut, Trotsaut, Oueue-de-Coton, et Pierre. ...\"",
+        "Language": "fr",
+        "PageCount": 11,
+        "Subject": [
+          "Juvenile Fiction"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "L Histoire De Jemima Cane-De-Flaque: (The Tale of Jemima Puddle-Duck in French)",
+        "Authors": [
+          "Beatrix Potter",
+          "Anna Pomaska"
+        ],
+        "ISBN": "9780486286945",
+        "Publisher": "Courier Corporation",
+        "PublishedDate": "1995-01-01",
+        "Description": "The classic tale of a duck's anxious pursuit of a safe place to build her nest. 20 new full-color illus. Translated by Catherine Dana.",
+        "Language": "fr",
+        "PageCount": 32,
+        "Subject": [
+          "Juvenile Nonfiction"
+        ]
+      }
     ]
   },
   {
@@ -115,11 +298,53 @@
     "Authors": [
       "Jules Verne"
     ],
-    "ISBN": "9782211238434",
     "PublishedDate": "2017-06-09",
-    "Description": "Ce roman constitue le deuxième volet d'une trilogie romanesque que complètent Les Enfants du capitaine Grant (premier volet) et L'Ile mystérieuse (troisième volet). Le savant Aronnax, accompagné de Conseil, son domestique, ainsi que d'un harponneur, Ned Land, embarquent sur la frégate Abraham-Lincoln pour capturer ce qu'ils croient être un monstre marin... Or, le monstre n'est autre que le Nautilus, le sous-marin du capitaine Nemo. Prisonniers du submersible, ils assisteront à une inhumation dans les fonds marins, découvriront l'Atlantide, lutteront contre des pieuvres géantes et comprendront que le mystérieux capitaine Nemo n'est pas le moindre des dangers qu'ils auront à affronter. \" Ah ! mon cher Hetzel, si je ratais ce livre-là, je ne m'en consolerais pas. Je n'ai jamais eu un plus beau sujet entre les mains. \" (Lettre à Pierre-Jules Hetzel du 28 mars 1868.)",
-    "Language": "fr",
-    "PageCount": 142
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "Vingt mille lieues sous les mers",
+        "Authors": [
+          "Jules Verne"
+        ],
+        "ISBN": "9782211238434",
+        "PublishedDate": "2019-01-16",
+        "Description": "Ce roman constitue le deuxième volet d'une trilogie romanesque que complètent Les Enfants du capitaine Grant (premier volet) et L'Ile mystérieuse (troisième volet). Le savant Aronnax, accompagné de Conseil, son domestique, ainsi que d'un harponneur, Ned Land, embarquent sur la frégate Abraham-Lincoln pour capturer ce qu'ils croient être un monstre marin... Or, le monstre n'est autre que le Nautilus, le sous-marin du capitaine Nemo. Prisonniers du submersible, ils assisteront à une inhumation dans les fonds marins, découvriront l'Atlantide, lutteront contre des pieuvres géantes et comprendront que le mystérieux capitaine Nemo n'est pas le moindre des dangers qu'ils auront à affronter. \" Ah ! mon cher Hetzel, si je ratais ce livre-là, je ne m'en consolerais pas. Je n'ai jamais eu un plus beau sujet entre les mains. \" (Lettre à Pierre-Jules Hetzel du 28 mars 1868.)",
+        "Language": "fr",
+        "PageCount": 142
+      },
+      {
+        "Path": "",
+        "Title": "Vingt mille lieues sous les mers",
+        "Authors": [
+          "Jules Verne"
+        ],
+        "ISBN": "9782080246547",
+        "Publisher": "Flammarion",
+        "PublishedDate": "2021-10-20",
+        "Description": "Un monstre mystérieux sème la terreur en mer. Lancé à sa poursuite, le professeur Aronnax va vivre une aventure exaltante et dangereuse, qui l’amènera à découvrir les merveilles cachées au fond des océans, mais aussi à frôler la mort... Épopée moderne où la technologie rapproche de la nature, ce voyage extraordinaire sonde les ténèbres des abysses et les profondeurs, non moins énigmatiques, du cœur de l’homme. TOUT POUR COMPRENDRE • Notes lexicales • Biographie de l’auteur • Contexte historique et culturel • Genèse et genre de l’œuvre • Chronologie et carte mentale TOUT POUR RÉUSSIR • Questions sur l’œuvre • Travaux d’écriture • Glossaire GROUPEMENT DE TEXTES • Mer, monstres et marins CAHIER ICONOGRAPHIQUE.",
+        "Language": "fr",
+        "PageCount": 223,
+        "Subject": [
+          "Fiction"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "Vingt mille lieues sous les mers - Niveau 1/A1 - Lecture CLE en français facile - Ebook",
+        "Authors": [
+          "Jules Verne"
+        ],
+        "ISBN": "9782090376524",
+        "Publisher": "Clé International",
+        "PublishedDate": "2018-08-08",
+        "Description": "Lecture en français langue étrangère (FLE) au format ebook dans la collection Lecture CLE en français facile destinée aux grands adolescents et adultes niveau A1. Vingt mille lieues sous les mers Un monstre marin parcourt toutes les mers du globe et terrifie les navigateurs. Le gouvernement américain décide d'en finir avec lui et offre au professeur Aronnax, un célèbre savant français, de participer à une expédition destinée à le poursuivre. Le professeur accepte. C'est alors que commence pour lui l'aventure la plus inimaginable.",
+        "Language": "fr",
+        "PageCount": 66,
+        "Subject": [
+          "Education"
+        ]
+      }
+    ]
   },
   {
     "Path": "testdata/books/pg6099.epub",
@@ -127,13 +352,50 @@
     "Authors": [
       "Charles Baudelaire"
     ],
-    "ISBN": "9782017064657",
-    "Publisher": "Hachette Education",
     "PublishedDate": "2004-07-01",
-    "Language": "fr",
-    "PageCount": 326,
     "Subject": [
       "French poetry -- 19th century"
+    ],
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "Les fleurs du mal",
+        "Authors": [
+          "Charles Baudelaire"
+        ],
+        "ISBN": "9782266289245",
+        "PublishedDate": "2018-09-26",
+        "Language": "fr",
+        "PageCount": 190
+      },
+      {
+        "Path": "",
+        "Title": "Les fleurs du mal",
+        "Authors": [
+          "Charles Baudelaire"
+        ],
+        "ISBN": "9782091512143",
+        "SubTitle": "Parcours associé : Alchimie poétique : la boue et l'or",
+        "PublishedDate": "2019-08-29",
+        "Language": "fr",
+        "PageCount": 300
+      },
+      {
+        "Path": "",
+        "Title": "Les fleurs du mal",
+        "Authors": [
+          "Charles Baudelaire"
+        ],
+        "ISBN": "9782070307661",
+        "Publisher": "Editions Gallimard",
+        "PublishedDate": "2004",
+        "Description": "\"Plonger au fond du gouffre, Enfer ou Ciel, qu'importe ? Au fond de l'inconnu, pour trouver du nouveau !\". Ces vers du \"Voyage\" éclairent à eux seuls l'entreprise du poète. Esprit vagabond, toujours mobile, Baudelaire explore les dédales de la conscience. Il atteint tantôt à l'extase, tantôt se perd dans les abîmes du péché. A travers ses poèmes, il nous fait partager le drame qui se joue en lui et qui n'est autre que la tragédie humaine. Baudelaire, premier poète moderne, donne à la poésie sa véritable dimension : exprimer, par-delà les mots, ce vertige absolu qui s'empare de l'âme. Tout chez lui, en lui affirme la nécessité de la souffrance, la fatalité du péché. Tout traduit en lui une âme profondément troublée mais charitable. Baudelaire fait des Fleurs du Mal un immense poème de la vie et du monde.",
+        "Language": "fr",
+        "PageCount": 353,
+        "Subject": [
+          "French poetry"
+        ]
+      }
     ]
   }
 ]

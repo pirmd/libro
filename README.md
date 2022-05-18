@@ -138,6 +138,10 @@ This behavior can be altered using `-auto` or `-dont-edit` flags.
                  "Suspense".
 - Issues:        Issues collects (possible) issues encountered during Book's processing
                  that deserve end-user attention.
+- SimilarBooks   SimilarBooks collects alternative Book's metadata that are possibly
+                 better or more complete than actual metada set. `libro`is for some reasons
+                 usually not sure enough whether they are corresponding to exactly the
+                 same book.
 
 ## MAIN GOALS
 Beside bug hunting and improved user experience, main functions planned to be

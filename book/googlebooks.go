@@ -6,28 +6,13 @@ import (
 	"github.com/pirmd/libro/book/googlebooks"
 )
 
-// SearchGooglebooks search Googlebooks for same or similar Books.
-func (b Book) SearchGooglebooks() ([]*Book, error) {
-	found, err := googlebooks.SearchVolume(b.toVolumeInfo())
-	if err != nil {
-		return nil, err
-	}
-
-	var res []*Book
-	for _, vi := range found {
-		Debug.Printf("found Googlebooks match: %#v", vi)
-		res = append(res, newFromVolumeInfo(vi))
-	}
-
-	return res, nil
-}
-
 // FromGooglebooks gets Book's metadata from Googlebooks.
-// If searching Googlebooks successfully found a Book with same ISBN, Book's
-// metadata are superseded by Googlebooks' one, otherwise the best match is use
-// to complete Book's metada.
-func (b *Book) FromGooglebooks() error {
-	found, err := googlebooks.SearchVolume(b.toVolumeInfo())
+// If search successfully returns a Book with same ISBN, Book's metadata are
+// superseded, otherwise the first MaxResult matches are memorized for further
+// end-user review only.
+func (b *Book) FromGooglebooks(MaxResults int) error {
+	google := googlebooks.API{MaxResults: MaxResults}
+	found, err := google.SearchVolume(b.toVolumeInfo())
 	if err != nil {
 		return err
 	}
@@ -37,6 +22,8 @@ func (b *Book) FromGooglebooks() error {
 		return nil
 	}
 
+	// TODO: assumes bestMatch should be the one with corresponding ISBN? is it
+	// always the case?
 	bestMatch := newFromVolumeInfo(found[0])
 
 	if strings.EqualFold(b.ISBN, bestMatch.ISBN) {
@@ -47,13 +34,12 @@ func (b *Book) FromGooglebooks() error {
 	}
 
 	if b.ISBN != "" {
-		b.ReportIssue("found book on Googlebooks with different ISBN (%s != %s), ignore it", b.ISBN, bestMatch.ISBN)
-		return nil
+		b.ReportIssue("found book on Googlebooks with different ISBN")
 	}
 
-	Verbose.Printf("found %d similar books on Googlebooks", len(found))
-	Debug.Printf("complete book's metadata from Googlebooks %#v", bestMatch)
-	b.CompleteFrom(bestMatch)
+	for _, vi := range found {
+		b.ReportSimilarBook(newFromVolumeInfo(vi))
+	}
 	return nil
 }
 

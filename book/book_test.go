@@ -116,34 +116,39 @@ func TestNewFromMapWithOverride(t *testing.T) {
 		out *Book
 	}{
 		{
-			&Book{},
+			&Book{Report: NewReport()},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
+				Report: NewReport(),
 			},
 		},
 
 		{
-			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}},
+			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}, Report: NewReport()},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Subject: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
-				ToReview: []string{"changed Title from Mon père fouettard to Mon père, ce héros"},
+				Report: &Report{
+					Issues: []string{"changed Title from Mon père fouettard to Mon père, ce héros"},
+				},
 			},
 		},
 
 		{
-			&Book{Authors: []string{"Mini Moi"}, PublishedDate: "2002"},
+			&Book{Authors: []string{"Mini Moi"}, PublishedDate: "2002", Report: NewReport()},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
-				ToReview: []string{"changed Authors from [Mini Moi] to [Luke Skywalker]", "changed PublishedDate from 2002 to 1980"},
+				Report: &Report{
+					Issues: []string{"changed Authors from [Mini Moi] to [Luke Skywalker]", "changed PublishedDate from 2002 to 1980"},
+				},
 			},
 		},
 	}
@@ -156,7 +161,7 @@ func TestNewFromMapWithOverride(t *testing.T) {
 		}
 
 		if failure := verify.Equal(tc.out, tc.in); failure != nil {
-			t.Errorf("Update Book from map %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.inM, tc.out, tc.in)
+			t.Errorf("Update Book from map %#v failed:\nWant: %#v\nGot : %#v\n(Report is%#v)\n\n", tc.inM, tc.out, tc.in, tc.out.Report)
 		}
 	}
 }

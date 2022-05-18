@@ -2,7 +2,7 @@ HTTP/2.0 200 OK
 Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
 Cache-Control: private
 Content-Type: application/json; charset=UTF-8
-Date: Thu, 07 Apr 2022 07:50:57 GMT
+Date: Wed, 18 May 2022 12:49:41 GMT
 Server: ESF
 Vary: Origin
 Vary: X-Origin
@@ -18,7 +18,7 @@ X-Xss-Protection: 0
     {
       "kind": "books#volume",
       "id": "lCDh2ypoCZsC",
-      "etag": "2fmcrDiaOQo",
+      "etag": "AImT5lzOOKw",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/lCDh2ypoCZsC",
       "volumeInfo": {
         "title": "L' Histoire de Pierre Lapin",
@@ -95,7 +95,7 @@ X-Xss-Protection: 0
     {
       "kind": "books#volume",
       "id": "cRlSDwAAQBAJ",
-      "etag": "k3OlYE6vaMk",
+      "etag": "WBm3FEI06jA",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/cRlSDwAAQBAJ",
       "volumeInfo": {
         "title": "Histoire de Pierre Lapin",
@@ -193,7 +193,7 @@ X-Xss-Protection: 0
     {
       "kind": "books#volume",
       "id": "PU54Rgk_QjgC",
-      "etag": "fo98GcB33d4",
+      "etag": "v9QzTjerhTU",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/PU54Rgk_QjgC",
       "volumeInfo": {
         "title": "L Histoire De Jemima Cane-De-Flaque: (The Tale of Jemima Puddle-Duck in French)",

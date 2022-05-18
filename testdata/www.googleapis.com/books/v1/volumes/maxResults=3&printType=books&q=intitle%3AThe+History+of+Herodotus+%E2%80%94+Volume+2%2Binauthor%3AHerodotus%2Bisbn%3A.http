@@ -1,0 +1,236 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Wed, 18 May 2022 12:49:40 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 31,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "Q7y3Suc6bKkC",
+      "etag": "cxHh6A6C+e0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Q7y3Suc6bKkC",
+      "volumeInfo": {
+        "title": "The Histories",
+        "authors": [
+          "Herodotus,"
+        ],
+        "publisher": "Oxford Paperbacks",
+        "publishedDate": "2008-04-17",
+        "description": "Originally published: Oxford; New York: Oxford University Press, 1998.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780199535668"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0199535663"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 772,
+        "printType": "BOOK",
+        "categories": [
+          "Foreign Language Study"
+        ],
+        "averageRating": 4.5,
+        "ratingsCount": 3,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.8.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Q7y3Suc6bKkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Q7y3Suc6bKkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=Q7y3Suc6bKkC&printsec=frontcover&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Q7y3Suc6bKkC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Histories.html?hl=&id=Q7y3Suc6bKkC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Q7y3Suc6bKkC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Originally published: Oxford; New York: Oxford University Press, 1998."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "q6ifBQAAQBAJ",
+      "etag": "QsUrMG3M2U4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/q6ifBQAAQBAJ",
+      "volumeInfo": {
+        "title": "The history of the Greeks and the Persians volume 2",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Lulu.com",
+        "publishedDate": "2013-07-24",
+        "description": "From the 'father of history', the second volume in English translation of the heroic deeds of the Persians and Greeks in the centuries before Christ",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781291489002"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1291489002"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 568,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=q6ifBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=q6ifBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=q6ifBQAAQBAJ&pg=PT1&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=q6ifBQAAQBAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_history_of_the_Greeks_and_the_Persia.html?hl=&id=q6ifBQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=q6ifBQAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eHerodotus\u003c/b\u003e. THE \u003cb\u003eHISTORY OF HERODOTUS VOLUME 2\u003c/b\u003e Translated into English by G. C. Macaulay Callender Press 2013 ╪ \u003cb\u003eISBN\u003c/b\u003e 9781291489002."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "NnqNumtqyaQC",
+      "etag": "rNKpWkTBN9o",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/NnqNumtqyaQC",
+      "volumeInfo": {
+        "title": "The History",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "University of Chicago Press",
+        "publishedDate": "1988-01-15",
+        "description": "David Grene, one of the best known translators of the Greek classics, splendidly captures the peculiar quality of Herodotus, the father of history. Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past. In his History, the war between the Greeks and Persians, the origins of their enmity, and all the more general features of the civilizations of the world of his day are seen as a unity and expressed as the vision of one man who as a child lived through the last of the great acts in this universal drama. In Grene's remarkable translation and commentary, we see the historian as a storyteller, combining through his own narration the skeletal \"historical\" facts and the imaginative reality toward which his story reaches. Herodotus emerges in all his charm and complexity as a writer and the first historian in the Western tradition, perhaps unique in the way he has seen the interrelation of fact and fantasy. \"Reading Herodotus in English has never been so much fun. . . . Herodotus crowds his fresco-like pages with all shades of humanity. Whether Herodotus's view is 'tragic,' mythical, or merely common sense, it provided him with a moral salt with which the diversity of mankind could be savored. And savor it we do in David Grene's translation.\"—Thomas D'Evelyn, Christian Science Monitor \"Grene's work is a monument to what translation intends, and to what it is hungry to accomplish. . . . Herodotus gives more sheer pleasure than almost any other writer.\"—Peter Levi, New York Times Book Review",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0226327728"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780226327723"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 709,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=NnqNumtqyaQC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=NnqNumtqyaQC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=NnqNumtqyaQC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=NnqNumtqyaQC&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus%2Bisbn:&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History.html?hl=&id=NnqNumtqyaQC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=NnqNumtqyaQC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Here is the historian, investigating and judging what he has seen, heard, and read, and seeking out the true causes and consequences of the great deeds of the past."
+      }
+    }
+  ]
+}

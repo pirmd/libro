@@ -35,6 +35,11 @@ type Libro struct {
 	// Default to false (do not try fetching missing metadata)
 	UseGooglebooks bool
 
+	// MaxSearchResults defines the maximum number of results to consider when
+	// looking for a book.
+	// Default to 3
+	MaxSearchResults int
+
 	// UseGuesser, if set,  tries to complete book's metadata by guessing
 	// missing information using media's filename and title.
 	// Default to false (do not try guessing missing metadata)
@@ -53,10 +58,11 @@ func NewLibro() *Libro {
 	tmpl = template.Must(tmpl.ParseFS(nameTmplDir, "templates/name/*"))
 
 	return &Libro{
-		Root:     ".",
-		Verbose:  log.New(io.Discard, "", 0),
-		Debug:    log.New(io.Discard, "debug:", 0),
-		PathTmpl: template.Must(tmpl.Parse(`{{template "fullname.gotmpl" .}}`)),
+		Root:             ".",
+		Verbose:          log.New(io.Discard, "", 0),
+		Debug:            log.New(io.Discard, "debug:", 0),
+		PathTmpl:         template.Must(tmpl.Parse(`{{template "fullname.gotmpl" .}}`)),
+		MaxSearchResults: 3,
 	}
 }
 
@@ -77,7 +83,7 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 
 	if lib.UseGooglebooks {
 		lib.Verbose.Print("Get book's information from Googlebooks")
-		if err := b.FromGooglebooks(); err != nil {
+		if err := b.FromGooglebooks(lib.MaxSearchResults); err != nil {
 			return nil, err
 		}
 	}

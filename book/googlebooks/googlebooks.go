@@ -153,7 +153,7 @@ type VolumeInfo struct {
 }
 
 func (vi *VolumeInfo) toQuery() (query []string) {
-	if len(vi.Title) > 0 {
+	if vi.Title != "" {
 		query = append(query, "intitle:"+vi.Title)
 	}
 
@@ -161,7 +161,7 @@ func (vi *VolumeInfo) toQuery() (query []string) {
 		query = append(query, "inauthor:"+strings.Join(vi.Authors, "+"))
 	}
 
-	if len(vi.Publisher) > 0 {
+	if vi.Publisher != "" {
 		query = append(query, "inpublisher:"+vi.Publisher)
 	}
 

@@ -1,0 +1,251 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 19 May 2022 08:36:00 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 172,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "Db0RAQAAIAAJ",
+      "etag": "xAzlvQBCvY0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Db0RAQAAIAAJ",
+      "volumeInfo": {
+        "title": "Yeshayahou Leibowitz",
+        "subtitle": "le retour du sadducéen",
+        "authors": [
+          "Ami Bouganim"
+        ],
+        "publishedDate": "1999",
+        "description": "Yeshayahou Leibowitz est probablement l'une des plus grandes figures intellectuelles de la deuxième moitié du XXe siècle en Israël. Il est né en Diaspora, il a assisté à la naissance de l'Etat hébreu et l'a accompagné dons ses déboires et ses succès. A la fois homme de science et de foi, Leibowitz pose les questions religieuses les plus troublantes dans un contexte positiviste, ne cédant ni au prêche ni à la prédication morale. Il s'interroge en particulier sur les conditions qui ont permis au peuple juif de survivre pendant les deux mille ans d'exil et sur les circonstances qui lui ont permis de retrouver sa souveraineté nationale. Dans ses études, Leibowitz prend en considération la création de l'État d'Israël et les bouleversements qu'elle a introduits dans la condition juive. Il ne choisit pas ses mots pour mettre en garde contre les risques de déliquescence et d'éclatement que l'exaltation religieuse du nationalisme d'une part, la déjudaïsation des cercles séculiers d'autre part, font peser sur la société israélienne. Ami Bouganim brosse le portrait intellectuel et religieux d'un homme que son activisme religieux situe dans la tradition prophétique d'Israël et qui renoue à son insu, avec la mouvance sadducéenne au sein du judaïsme.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105029099087"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 72,
+        "printType": "BOOK",
+        "categories": [
+          "Jewish philosophy"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Db0RAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Db0RAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=Db0RAQAAIAAJ&dq=intitle:Leibowitz&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Db0RAQAAIAAJ&dq=intitle:Leibowitz&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Yeshayahou_Leibowitz.html?hl=&id=Db0RAQAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Db0RAQAAIAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Yeshayahou Leibowitz est probablement l&#39;une des plus grandes figures intellectuelles de la deuxième moitié du XXe siècle en Israël."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "vS6eDwAAQBAJ",
+      "etag": "8Axoujrxw40",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/vS6eDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Leibowitz ou l'absence de Dieu",
+        "authors": [
+          "Daniel Horowitz"
+        ],
+        "publisher": "Editions L'Harmattan",
+        "publishedDate": "2019-06-18",
+        "description": "En sa qualité de scientifique, de philosophe et d'érudit du judaïsme, Yeshayahu Leibowitz fut l'un des penseurs juifs les plus remarquables du XXème siècle. Il n'est pas aisé de cerner l'approche philosophique de Leibowitz du judaïsme, parce que nous sommes confrontés au paradoxe d'un Juif orthodoxe qui, en tant que rationaliste, exclut toute idée d'intervention divine dans la Nature ou dans l'Histoire. En quoi, dans ces conditions, consiste la foi de Leibowitz ?",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782140124242"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2140124243"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 180,
+        "printType": "BOOK",
+        "categories": [
+          "Religion"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=vS6eDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=vS6eDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=vS6eDwAAQBAJ&printsec=frontcover&dq=intitle:Leibowitz&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=vS6eDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=vS6eDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 13.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 13.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=vS6eDwAAQBAJ&rdid=book-vS6eDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 13990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 13990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Leibowitz_ou_l_absence_de_Dieu-sample-epub.acsm?id=vS6eDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Leibowitz_ou_l_absence_de_Dieu-sample-pdf.acsm?id=vS6eDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=vS6eDwAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "En sa qualité de scientifique, de philosophe et d&#39;érudit du judaïsme, Yeshayahu Leibowitz fut l&#39;un des penseurs juifs les plus remarquables du XXème siècle."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "tJZtAAAAMAAJ",
+      "etag": "alflo8ibZn0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/tJZtAAAAMAAJ",
+      "volumeInfo": {
+        "title": "Leibowitz",
+        "subtitle": "Une pensée de la religion",
+        "authors": [
+          "Jean-Marc Joubert"
+        ],
+        "publishedDate": "2008",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UOM:39015073990767"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 335,
+        "printType": "BOOK",
+        "categories": [
+          "Anthropologie"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.1.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=tJZtAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=tJZtAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=tJZtAAAAMAAJ&dq=intitle:Leibowitz&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=tJZtAAAAMAAJ&dq=intitle:Leibowitz&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Leibowitz.html?hl=&id=tJZtAAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=tJZtAAAAMAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    }
+  ]
+}

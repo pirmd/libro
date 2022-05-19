@@ -1,0 +1,117 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 19 May 2022 08:36:01 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "vFuktopfbhAC",
+      "etag": "h3/Hw5N8LN0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/vFuktopfbhAC",
+      "volumeInfo": {
+        "title": "Un cantique pour Leibowitz",
+        "authors": [
+          "Walter M. Miller Jr."
+        ],
+        "publisher": "Editions Gallimard",
+        "publishedDate": "2013-06-19T00:00:00+02:00",
+        "description": "Dans le désert de l’Utah, parmi les vestiges d’une civilisation disparue, frère Francis de l’ordre albertien de Leibowitz a fait une miraculeuse découverte : d’inestimables reliques du martyr Isaac Leibowitz lui-même, qui jadis avait organisé la sauvegarde des dernières miettes du savoir balayé par le Grand Déluge de Flammes. C’est une lueur d’espoir en cet âge de ténèbres et d'ignorance, le signe tant attendu d’une nouvelle Renaissance. Mais l’humanité a-t-elle tiré les leçons d’un cataclysme qui l’a laissée exsangue, défigurée par le feu nucléaire? Saura-t-elle enfin se préserver des apprentis sorciers? Car l’Histoire, bientôt, menace de se répéter... Entre Le nom de la rose d’Umberto Eco et Docteur Folamour de Stanley Kubrick, une chronique rageuse et sarcastique de la folie humaine.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782072477065"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2072477069"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 451,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.25.24.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=vFuktopfbhAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=vFuktopfbhAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=vFuktopfbhAC&printsec=frontcover&dq=isbn:9782072477065&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=vFuktopfbhAC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=vFuktopfbhAC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 8.49,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 8.49,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=vFuktopfbhAC&rdid=book-vFuktopfbhAC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 8490000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 8490000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Un_cantique_pour_Leibowitz-sample-epub.acsm?id=vFuktopfbhAC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Un_cantique_pour_Leibowitz-sample-pdf.acsm?id=vFuktopfbhAC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=vFuktopfbhAC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Dans le désert de l’Utah, parmi les vestiges d’une civilisation disparue, frère Francis de l’ordre albertien de Leibowitz a fait une miraculeuse découverte : d’inestimables reliques du martyr Isaac Leibowitz lui-même, qui jadis ..."
+      }
+    }
+  ]
+}

@@ -100,12 +100,18 @@ libro add -rename-tmpl=$HOME/books/my_template.gotmpl -rename='{{template "my_te
 - when a match is found online but ISBN are not similar, online information is
   only used to complete information obtained from epub's metadata or guessed;
 - guessed information are usually not preferred over epub's metadata or online
-  information
+  information.
 
 When editing book's information (using `libro edit`), user is only asked to review information if:
 - key attributes are not filled,
-- conflicts or dubious automatic operation have been performed.
+- unresolved conflicts or dubious automatic operation have been performed.
 This behavior can be altered using `-auto` or `-dont-edit` flags.
+
+## GUESSERS
+`libro` can run guessers to complete (and/or confirm) Book's metadata. Current guessers are:
+- guess Title, Series, Authors or Language from Book's filename,
+- guess Series information from Book's Title or SubTitle.
+Use of guessers is governed by the `-use-guesser` flag of `libro info` sub-command.
 
 ## BOOK ATTRIBUTES
 `libro` uses the following attributes for a Book:
@@ -146,15 +152,14 @@ This behavior can be altered using `-auto` or `-dont-edit` flags.
 ## MAIN GOALS
 Beside bug hunting and improved user experience, main functions planned to be
 developed (in no special order):
-- more scrapers to retrieve metadata from known remote sites (like
-  googlebooks);
-- offering more record's metadata processing allowing further cleaning and
-  quality of collection content; 
-- allowing syncing file's embedded metadata with cleaned and completed
-  metadata stored in the collection;
+- more scrapers to retrieve metadata from known remote sites;
+- more guessers with ability to easily extend current guessers;
+- more metadata processing to improve cleaning, quality, correctness and safety
+  of collection content; 
 - tweak output template to issue static html description of the collection;
 - improve batch operation (add several media at a time);
-- add book indexing support for getting fancy search features ;
+- add book indexing support for getting fancy search features;
+- syncing file's embedded metadata with metadata stored in the collection;
 - new media family to be supported (like mp3).
 
 ## CONTRIBUTION

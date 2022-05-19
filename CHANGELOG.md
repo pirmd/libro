@@ -1,5 +1,5 @@
 # Changelog
-## [0.2.1]
+## [0.2.1] - 2022-05-19
 - change Books' metadata completion logic by avoiding using googlebooks search
   results if ISBN identifiers are not matching. Libro prefers in this case to
   rely on the end-user choice.

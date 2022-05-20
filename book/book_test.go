@@ -59,39 +59,42 @@ func TestString2List(t *testing.T) {
 	}
 }
 
-func TestNewFromMapWithoutOverride(t *testing.T) {
+func TestCompleteFromMap(t *testing.T) {
 	testCases := []struct {
 		in  *Book
 		inM map[string]string
 		out *Book
 	}{
 		{
-			&Book{},
+			New(),
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
+				Report: NewReport(),
 			},
 		},
 
 		{
-			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}},
+			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}, Report: NewReport()},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père fouettard", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Subject: []string{"Biographie"}, Language: "FR",
+				Report: NewReport(),
 			},
 		},
 
 		{
-			&Book{Authors: []string{"Mini Moi"}, PublishedDate: "2002"},
+			&Book{Authors: []string{"Mini Moi"}, PublishedDate: "2002", Report: NewReport()},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Mini Moi"}, PublishedDate: "2002", Language: "FR",
+				Report: NewReport(),
 			},
 		},
 	}
@@ -109,14 +112,14 @@ func TestNewFromMapWithoutOverride(t *testing.T) {
 	}
 }
 
-func TestNewFromMapWithOverride(t *testing.T) {
+func TestReplaceFromMap(t *testing.T) {
 	testCases := []struct {
 		in  *Book
 		inM map[string]string
 		out *Book
 	}{
 		{
-			&Book{Report: NewReport()},
+			New(),
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
@@ -134,7 +137,8 @@ func TestNewFromMapWithOverride(t *testing.T) {
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Subject: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
 				Report: &Report{
-					Issues: []string{"changed Title from Mon père fouettard to Mon père, ce héros"},
+					Issues:       []string{"changed Title from Mon père fouettard to Mon père, ce héros"},
+					SimilarBooks: []*Book{},
 				},
 			},
 		},
@@ -147,7 +151,8 @@ func TestNewFromMapWithOverride(t *testing.T) {
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
 				Report: &Report{
-					Issues: []string{"changed Authors from [Mini Moi] to [Luke Skywalker]", "changed PublishedDate from 2002 to 1980"},
+					Issues:       []string{"changed Authors from [Mini Moi] to [Luke Skywalker]", "changed PublishedDate from 2002 to 1980"},
+					SimilarBooks: []*Book{},
 				},
 			},
 		},
@@ -161,7 +166,7 @@ func TestNewFromMapWithOverride(t *testing.T) {
 		}
 
 		if failure := verify.Equal(tc.out, tc.in); failure != nil {
-			t.Errorf("Update Book from map %#v failed:\nWant: %#v\nGot : %#v\n(Report is%#v)\n\n", tc.inM, tc.out, tc.in, tc.out.Report)
+			t.Errorf("Update Book from map %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.inM, tc.out, tc.in)
 		}
 	}
 }

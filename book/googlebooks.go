@@ -61,22 +61,17 @@ func (b Book) toVolumeInfo() *googlebooks.VolumeInfo {
 
 // newFromVolumeInfo populates Book's information from a googlebooks.VolumeInfo.
 func newFromVolumeInfo(vi *googlebooks.VolumeInfo) *Book {
-	b := &Book{
-		Title:       vi.Title,
-		SubTitle:    vi.SubTitle,
-		Publisher:   vi.Publisher,
-		Description: vi.Description,
-		Language:    vi.Language,
-		PageCount:   vi.PageCount,
-		Subject:     append([]string{}, vi.Subject...),
-	}
-
+	b := New()
+	b.Title = vi.Title
 	b.SetAuthors(vi.Authors)
-
-	isbn := getVolumeInfoISBN(vi)
-	b.SetISBN(isbn)
-
+	b.SetISBN(getVolumeInfoISBN(vi))
+	b.SubTitle = vi.SubTitle
+	b.Publisher = vi.Publisher
 	b.SetPublishedDate(vi.PublishedDate)
+	b.Description = vi.Description
+	b.Language = vi.Language
+	b.PageCount = vi.PageCount
+	b.Subject = append([]string{}, vi.Subject...)
 
 	return b
 }

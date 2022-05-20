@@ -21,7 +21,10 @@ type Report struct {
 
 // NewReport creates a new empty Report.
 func NewReport() *Report {
-	return &Report{}
+	return &Report{
+		Issues:       []string{},
+		SimilarBooks: []*Book{},
+	}
 }
 
 // ReportIssue reports a (possible) issue encountered during Book's processing
@@ -35,7 +38,7 @@ func (r *Report) ReportIssue(format string, a ...interface{}) {
 // ReportSimilarBook reports possible similar Book.
 func (r *Report) ReportSimilarBook(book *Book) {
 	r.SimilarBooks = append(r.SimilarBooks, book)
-	Verbose.Printf("found similar book: %v", book)
+	Verbose.Printf("found similar book: %#v", book)
 }
 
 // NeedReview returns whether Report contains significant elements for the

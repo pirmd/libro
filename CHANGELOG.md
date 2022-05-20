@@ -1,10 +1,13 @@
 # Changelog
+## [0.3.0]
+- use SimilarBooks information to improve end-user edition of book's attributes.
+ 
 ## [0.2.1] - 2022-05-19
 - change Books' metadata completion logic by avoiding using googlebooks search
   results if ISBN identifiers are not matching. Libro prefers in this case to
-  rely on the end-user choice.
+  rely on the end-user choice
 - add a reporting function that draws end-user attention on possible issues
-  encountered during Book's processing.
+  encountered during Book's processing
 - add support to correct reversed Authors name
 - improve templates support
 - improve documentation

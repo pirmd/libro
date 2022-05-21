@@ -166,7 +166,7 @@ func (vi *VolumeInfo) toQuery() (query []string) {
 	}
 
 	for _, id := range vi.Identifier {
-		if strings.HasPrefix(id.Type, "ISBN") {
+		if id.Identifier != "" && strings.HasPrefix(id.Type, "ISBN") {
 			query = append(query, "isbn:"+id.Identifier)
 		}
 	}

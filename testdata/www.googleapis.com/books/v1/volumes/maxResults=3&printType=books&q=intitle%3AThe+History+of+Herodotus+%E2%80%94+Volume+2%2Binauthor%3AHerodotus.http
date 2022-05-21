@@ -1,0 +1,206 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Sat, 21 May 2022 06:52:30 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 110,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "uHRSAQAACAAJ",
+      "etag": "ZLPW2yEIOxA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/uHRSAQAACAAJ",
+      "volumeInfo": {
+        "title": "The History of Herodotus --",
+        "authors": [
+          "Herodotus"
+        ],
+        "publishedDate": "2001",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:703971660"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Greece"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=uHRSAQAACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=uHRSAQAACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History_of_Herodotus.html?hl=&id=uHRSAQAACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=uHRSAQAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "WVApzQEACAAJ",
+      "etag": "Ds3CtsxO928",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/WVApzQEACAAJ",
+      "volumeInfo": {
+        "title": "The History of Herodotus",
+        "subtitle": "Volume 2",
+        "authors": [
+          "Herodotus"
+        ],
+        "publishedDate": "1910",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:819686623"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 353,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=WVApzQEACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=WVApzQEACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History_of_Herodotus.html?hl=&id=WVApzQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=WVApzQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "rBZJtAEACAAJ",
+      "etag": "9Q4Znj6pmgM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/rBZJtAEACAAJ",
+      "volumeInfo": {
+        "title": "The History of Herodotus",
+        "authors": [
+          "Herodotus",
+          "GEORGE C. HERODOTUS. MACAULAY"
+        ],
+        "publishedDate": "2017-07-13",
+        "description": "The History of Herodotus - Volume 2 is an unchanged, high-quality reprint of the original edition of 1890. Hansebooks is editor of the literature on different topic areas such as research and science, travel and expeditions, cooking and nutrition, medicine, and other genres. As a publisher we focus on the preservation of historical literature. Many works of historical writers and scientists are available today as antiques only. Hansebooks newly publishes these books and contributes to the preservation of literature which has become rare and historical knowledge for the future.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "3337195229"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9783337195229"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 442,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=rBZJtAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=rBZJtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=rBZJtAEACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=rBZJtAEACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+2%2Binauthor:Herodotus&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History_of_Herodotus.html?hl=&id=rBZJtAEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=rBZJtAEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Many works of historical writers and scientists are available today as antiques only. Hansebooks newly publishes these books and contributes to the preservation of literature which has become rare and historical knowledge for the future."
+      }
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Sat, 21 May 2022 06:52:31 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 108,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "uFQ-DgAAQBAJ",
+      "etag": "6RL4jGILuNc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/uFQ-DgAAQBAJ",
+      "volumeInfo": {
+        "title": "The History of Herodotus \u0086 Volume 1",
+        "authors": [
+          "Herodotus"
+        ],
+        "publisher": "Prabhat Prakashan",
+        "publishedDate": "101-01-01",
+        "description": "Written in 440 BC in the Ionic dialect of classical Greek, 'The History of Herodotus' serves as a record of the ancient traditions, politics, geography, and clashes of various cultures that were known in Western Asia, Northern Africa and Greece at that time. Although not a fully impartial record, it remains one of West's most important sources regarding these affairs. Moreover, it established the genre and study of history in the Western world, despite the existence of historical records and chronicles beforehand.",
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 6,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=uFQ-DgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=uFQ-DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=uFQ-DgAAQBAJ&printsec=frontcover&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=uFQ-DgAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=uFQ-DgAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 2.01,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 2.01,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=uFQ-DgAAQBAJ&rdid=book-uFQ-DgAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2010000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 2010000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_History_of_Herodotus_Volume_1-sample-epub.acsm?id=uFQ-DgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/The_History_of_Herodotus_Volume_1-sample-pdf.acsm?id=uFQ-DgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=uFQ-DgAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Written in 440 BC in the Ionic dialect of classical Greek, &#39;The History of Herodotus&#39; serves as a record of the ancient traditions, politics, geography, and clashes of various cultures that were known in Western Asia, Northern Africa and ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "pyhjAQAACAAJ",
+      "etag": "mDCZIJ+T2+I",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/pyhjAQAACAAJ",
+      "volumeInfo": {
+        "title": "The History of Herodotus",
+        "authors": [
+          "Herodotus"
+        ],
+        "publishedDate": "2001",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:696428087"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Greece"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=pyhjAQAACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=pyhjAQAACAAJ&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History_of_Herodotus.html?hl=&id=pyhjAQAACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=pyhjAQAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "tzENAAAAIAAJ",
+      "etag": "oquSo4G1deY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/tzENAAAAIAAJ",
+      "volumeInfo": {
+        "title": "The History of Herodotus",
+        "subtitle": "A New English Version, Ed. with Copious Notes and Appendices, Illustrating the History and Geography of Herodotus, from the Most Recent Sources of Information; and Embodying the Chief Results, Historical and Ethnographical, which Have Been Obtained in the Progress of Cuneiform and Hieroglyphical Discovery",
+        "authors": [
+          "Herodotus"
+        ],
+        "publishedDate": "1862",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105010432404"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 2079,
+        "printType": "BOOK",
+        "categories": [
+          "Greece"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.5.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=tzENAAAAIAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=tzENAAAAIAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=tzENAAAAIAAJ&printsec=frontcover&dq=intitle:The+History+of+Herodotus+%E2%80%94+Volume+1%2Binauthor:Herodotus&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=tzENAAAAIAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=tzENAAAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=tzENAAAAIAAJ&rdid=book-tzENAAAAIAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.fr/books/download/The_History_of_Herodotus.epub?id=tzENAAAAIAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.fr/books/download/The_History_of_Herodotus.pdf?id=tzENAAAAIAAJ&hl=&output=pdf&sig=ACfU3U1IV_PHztv_IfnK9fpwUTk0_Gw22w&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=tzENAAAAIAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Sat, 21 May 2022 06:52:29 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 222,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "Y7sOAAAAIAAJ",
+      "etag": "vIhFTKIWEWs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Y7sOAAAAIAAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publishedDate": "1920",
+        "description": "In the most renowned novel by English author Lewis Carroll, restless young Alice literally stumbles into adventure when she follows the hurried, time-obsessed White Rabbit down a hole and into a fantastical realm where animals are quite verbose, logic is in short supply, and royalty tends to be exceedingly unpleasant. Each playfully engaging chapter presents absurd scenarios involving an unforgettable cast of characters, including the grinning Cheshire Cat and the short-tempered Queen of Hearts, and every stop on Alice's peculiar journey is marked by sharp social satire and wondrously witty wordplay.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105004896523"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 200,
+        "printType": "BOOK",
+        "categories": [
+          "Alice (Fictitious character : Carroll)"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 1531,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.7.9.0.full.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Y7sOAAAAIAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Y7sOAAAAIAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=Y7sOAAAAIAAJ&printsec=frontcover&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=Y7sOAAAAIAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Y7sOAAAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=Y7sOAAAAIAAJ&rdid=book-Y7sOAAAAIAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.fr/books/download/Alice_s_Adventures_in_Wonderland.epub?id=Y7sOAAAAIAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.fr/books/download/Alice_s_Adventures_in_Wonderland.pdf?id=Y7sOAAAAIAAJ&hl=&output=pdf&sig=ACfU3U0LJuWczqOh8hN2H4-DDF1Ym-Vr7g&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Y7sOAAAAIAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "In the most renowned novel by English author Lewis Carroll, restless young Alice literally stumbles into adventure when she follows the hurried, time-obsessed White Rabbit down a hole and into a fantastical realm where animals are quite ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "0UO5oQEACAAJ",
+      "etag": "Spee0B/josE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/0UO5oQEACAAJ",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publishedDate": "2015-04-02",
+        "description": "On an ordinary summer's afternoon, Alice tumbles down a hole and an extraordinary adventure begins. In a strange world with even stranger characters, she meets a rabbit with a pocket watch, joins a Mad Hatter's Tea Party, and plays croquet with the Queen! Lost in this fantasy land, Alice finds herself growing more and more curious by the minute ...",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0141361344"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780141361345"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 192,
+        "printType": "BOOK",
+        "categories": [
+          "Children's stories"
+        ],
+        "averageRating": 4.5,
+        "ratingsCount": 15,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=0UO5oQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=0UO5oQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=0UO5oQEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=0UO5oQEACAAJ&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland.html?hl=&id=0UO5oQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=0UO5oQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "On an ordinary summer&#39;s afternoon, Alice tumbles down a hole and an extraordinary adventure begins."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "u3Uvk1yKfHwC",
+      "etag": "MnUn2626CD0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/u3Uvk1yKfHwC",
+      "volumeInfo": {
+        "title": "Alice's Adventures in Wonderland and Through the Looking-Glass",
+        "authors": [
+          "Lewis Carroll"
+        ],
+        "publisher": "Simon and Schuster",
+        "publishedDate": "2010-11-16",
+        "description": "ENDURING LITERATURE ILLUMINATED BY PRACTICAL SCHOLARSHIP In these beloved works by Lewis Carroll, a young girl named Alice finds fantastical adventures down a rabbit hole and through a mirror, encountering a variety of wonderfully eccentric creatures. Strikingly unique for their time, Carroll’s enchanting stories not only incite our imaginations, but also deliver a brilliant parody of Victorian children’s literature. THIS ENRICHED CLASSIC EDITION INCLUDES: • A concise introduction that gives the reader important background information • A chronology of the author’s life and work • A timeline of significant events that provides the book’s historical context • An outline of key themes and plot points to guide the reader’s own interpretations • Detailed explanatory notes • Critical analysis and modern perspectives on the work • Discussion questions to promote lively classroom and book group interaction • A list of recommended related books and films to broaden the reader’s experience Simon & Schuster Enriched Classics offer readers affordable editions of great works of literature enhanced by helpful notes and insightful commentary. The scholarship provided in Enriched Classics enables readers to appreciate, understand, and enjoy the world’s finest books to their full potential.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781439169476"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1439169470"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 336,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 10,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=u3Uvk1yKfHwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=u3Uvk1yKfHwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=u3Uvk1yKfHwC&printsec=frontcover&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=u3Uvk1yKfHwC&dq=intitle:Alice%27s+Adventures+in+Wonderland%2Binauthor:Lewis+Carroll&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_s_Adventures_in_Wonderland_and_Thr.html?hl=&id=u3Uvk1yKfHwC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=u3Uvk1yKfHwC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "ENDURING LITERATURE ILLUMINATED BY PRACTICAL SCHOLARSHIP In these beloved works by Lewis Carroll, a young girl named Alice finds fantastical adventures down a rabbit hole and through a mirror, encountering a variety of wonderfully eccentric ..."
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Sat, 21 May 2022 06:52:31 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 6,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "Z_dgAQAACAAJ",
+      "etag": "UR81DrOw5JE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Z_dgAQAACAAJ",
+      "volumeInfo": {
+        "title": "Esprit des lois livres I à V, précédés d'une introduction de l'éditeur",
+        "authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "publishedDate": "2008",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:747739230"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=Z_dgAQAACAAJ&dq=intitle:Esprit+des+lois+/+livres+I+%C3%A0+V,+pr%C3%A9c%C3%A9d%C3%A9s+d%27une+introduction+de+l%27%C3%A9diteur%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Z_dgAQAACAAJ&dq=intitle:Esprit+des+lois+/+livres+I+%C3%A0+V,+pr%C3%A9c%C3%A9d%C3%A9s+d%27une+introduction+de+l%27%C3%A9diteur%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Esprit_des_lois_livres_I_%C3%A0_V_pr%C3%A9c%C3%A9d%C3%A9.html?hl=&id=Z_dgAQAACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Z_dgAQAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Dp13AQAACAAJ",
+      "etag": "+vIXJLfEfbM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Dp13AQAACAAJ",
+      "volumeInfo": {
+        "title": "Esprit des lois",
+        "subtitle": "livres I à V, précédés d'une introduction de l'éditeur",
+        "authors": [
+          "Charles de Secondat Montesquieu (baron de)"
+        ],
+        "publishedDate": "2008",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:914175906"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=Dp13AQAACAAJ&dq=intitle:Esprit+des+lois+/+livres+I+%C3%A0+V,+pr%C3%A9c%C3%A9d%C3%A9s+d%27une+introduction+de+l%27%C3%A9diteur%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Dp13AQAACAAJ&dq=intitle:Esprit+des+lois+/+livres+I+%C3%A0+V,+pr%C3%A9c%C3%A9d%C3%A9s+d%27une+introduction+de+l%27%C3%A9diteur%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Esprit_des_lois.html?hl=&id=Dp13AQAACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Dp13AQAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "HdWcmQEACAAJ",
+      "etag": "/Oa6zDL1Oms",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/HdWcmQEACAAJ",
+      "volumeInfo": {
+        "title": "Esprit des Lois. Livres I.-V. Précédés d'une introduction de l'éditeur et suivis d'un Appendice contenant des extraits de Montesquieu et des notes explicatives par P. Janet. (Éloge ... par d'Alembert.) ... Deuxième édition",
+        "authors": [
+          "Charles de Secondat baron de Montesquieu",
+          "Paul Alexandre René JANET"
+        ],
+        "publishedDate": "1892",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OCLC:753173750"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 328,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=HdWcmQEACAAJ&dq=intitle:Esprit+des+lois+/+livres+I+%C3%A0+V,+pr%C3%A9c%C3%A9d%C3%A9s+d%27une+introduction+de+l%27%C3%A9diteur%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=HdWcmQEACAAJ&dq=intitle:Esprit+des+lois+/+livres+I+%C3%A0+V,+pr%C3%A9c%C3%A9d%C3%A9s+d%27une+introduction+de+l%27%C3%A9diteur%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Esprit_des_Lois_Livres_I_V_Pr%C3%A9c%C3%A9d%C3%A9s_d.html?hl=&id=HdWcmQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=HdWcmQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    }
+  ]
+}

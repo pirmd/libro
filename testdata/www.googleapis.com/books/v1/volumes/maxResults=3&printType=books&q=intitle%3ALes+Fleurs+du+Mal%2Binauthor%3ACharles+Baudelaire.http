@@ -1,0 +1,214 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Sat, 21 May 2022 06:52:33 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 258,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "IV8OKQEACAAJ",
+      "etag": "pU9Z5LVVNjs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/IV8OKQEACAAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs du mal",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publisher": "Hachette (RCS)",
+        "publishedDate": "2006",
+        "description": "Pourquoi le recueil des Fleurs du mal a-t-il cette audience aujourd’hui ? Parce qu’il représente, depuis 1857, la naissance d’une poésie nouvelle. Baudelaire utilise les formes classiques – le sonnet, l’alexandrin – pour dire la modernité : la bizarrerie, les villes immenses, le malaise d’une existence douloureuse. Face à cette angoisse, il nous propose un moyen de vaincre le mal, le dégoût de soi et des autres, le « spleen » : l’idéal d’un langage qui nous montrerait un ailleurs rêvé, un monde enfin habitable.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "203586156X"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782035861566"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 255,
+        "printType": "BOOK",
+        "categories": [
+          "French poetry"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=IV8OKQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=IV8OKQEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_Fleurs_du_mal.html?hl=&id=IV8OKQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=IV8OKQEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Pourquoi le recueil des Fleurs du mal a-t-il cette audience aujourd&#39;hui ?"
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "J_eArgEACAAJ",
+      "etag": "3OFISFLWqp8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/J_eArgEACAAJ",
+      "volumeInfo": {
+        "title": "Les fleurs du mal",
+        "authors": [
+          "Charles Baudelaire"
+        ],
+        "publishedDate": "2015-05-06",
+        "description": "Le 25 juin 1857, la publication des Fleurs du mal fait l'effet d'une bombe. Ce recueil de poésie signé Charles Baudelaire offusque autant qu'il fascine. L'auteur y puise son inspiration dans la mort, la déchéance, le sang, la drogue ; autant de sujets pour le moins... non conventionnels. Son style, son utilisation esthétique du langage, la diversité et la singularité des thèmes abordés et le regard sans concessions qu'il porte sur la société le feront entrer au panthéon des écrivains : lus, relus et étudiés. Son œuvre a marqué la poésie et la littérature comme jamais, inspirant des générations de grands auteurs après lui.Liberatore est de ceux-là. Après Les Onze Mille Verges d'Apollinaire, le sulfureux illustrateur italien s'attaque à une nouvelle œuvre majeure de la poésie et de la littérature française. Son trait hyperréaliste, cru, et son extraordinaire talent de peintre viennent ici illustrer et transcender ce chef d'œuvre, lui conférant une modernité et une intemporalité exceptionnelles. Une sélection de 30 poèmes, accompagnée de nombreuses recherches graphiques...",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2723492524"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782723492522"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 112,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=J_eArgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=J_eArgEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_fleurs_du_mal.html?hl=&id=J_eArgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=J_eArgEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Le 25 juin 1857, la publication des Fleurs du mal fait l&#39;effet d&#39;une bombe. Ce recueil de poésie signé Charles Baudelaire offusque autant qu&#39;il fascine."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "qCoQlAEACAAJ",
+      "etag": "QCYRccIdqgY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/qCoQlAEACAAJ",
+      "volumeInfo": {
+        "title": "Les Fleurs Du Mal",
+        "authors": [
+          "Charles P. Baudelaire"
+        ],
+        "publisher": "Hachette Livre - Bnf",
+        "publishedDate": "2012-03",
+        "description": "Les fleurs du mal / par Charles BaudelaireDate de l'edition originale : 1861Ce livre est la reproduction fidele d'une oeuvre publiee avant 1920 et fait partie d'une collection de livres reimprimes a la demande editee par Hachette Livre, dans le cadre d'un partenariat avec la Bibliotheque nationale de France, offrant l'opportunite d'acceder a des ouvrages anciens et souvent rares issus des fonds patrimoniaux de la BnF.Les oeuvres faisant partie de cette collection ont ete numerisees par la BnF et sont presentes sur Gallica, sa bibliotheque numerique.En entreprenant de redonner vie a ces ouvrages au travers d'une collection de livres reimprimes a la demande, nous leur donnons la possibilite de rencontrer un public elargi et participons a la transmission de connaissances et de savoirs parfois difficilement accessibles.Nous avons cherche a concilier la reproduction fidele d'un livre ancien a partir de sa version numerisee avec le souci d'un confort de lecture optimal. Nous esperons que les ouvrages de cette nouvelle collection vous apporteront entiere satisfaction.Pour plus d'informations, rendez-vous sur www.hachettebnf.frhttp://gallica.bnf.fr/ark:/12148/bpt6k70860g",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "2012575951"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9782012575950"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 332,
+        "printType": "BOOK",
+        "categories": [
+          "Poetry"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=qCoQlAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=qCoQlAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=qCoQlAEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=qCoQlAEACAAJ&dq=intitle:Les+Fleurs+du+Mal%2Binauthor:Charles+Baudelaire&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Les_Fleurs_Du_Mal.html?hl=&id=qCoQlAEACAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=qCoQlAEACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Les fleurs du mal / par Charles BaudelaireDate de l&#39;edition originale : 1861Ce livre est la reproduction fidele d&#39;une oeuvre publiee avant 1920 et fait partie d&#39;une collection de livres reimprimes a la demande editee par Hachette Livre, ..."
+      }
+    }
+  ]
+}

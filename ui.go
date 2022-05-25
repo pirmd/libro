@@ -27,6 +27,12 @@ func editBook(editor string, b *book.Book) (*book.Book, error) {
 		panic("edit book fail: no temp file containing book's JSON exists")
 	}
 
+	if empty, err := util.IsEmptyFile(files[0]); err != nil {
+		return nil, err
+	} else if empty {
+		return nil, nil
+	}
+
 	edbook, err := file2book(files[0])
 	if err != nil {
 		return nil, err
@@ -46,6 +52,7 @@ func book2file(b *book.Book) ([]string, error) {
 	prettyJSON.SetIndent("", "  ")
 	if err := prettyJSON.Encode(struct {
 		*book.Book
+		Path         string       `json:",omitempty"`
 		SimilarBooks []*book.Book `json:",omitempty"`
 	}{
 		Book: b,

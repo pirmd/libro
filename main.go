@@ -273,6 +273,11 @@ func (app *App) RunEditSubcmd(args []string) error {
 		if b, err = editBook(editor, b); err != nil {
 			return fmt.Errorf("fail to edit book: %v", err)
 		}
+
+		if b == nil {
+			fmt.Fprint(app.Stdout, "edition canceled by user (book's attributes have been emptied)")
+			return nil
+		}
 	}
 
 	if err := app.Formatter.Execute(app.Stdout, b); err != nil {

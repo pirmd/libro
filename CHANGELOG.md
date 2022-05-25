@@ -1,6 +1,7 @@
 # Changelog
 ## [0.3.0]
 - use SimilarBooks information to improve end-user edition of book's attributes.
+- allow to cancel edit operation by emptying the edited book's attributes list.
  
 ## [0.2.1] - 2022-05-19
 - change Books' metadata completion logic by avoiding using googlebooks search

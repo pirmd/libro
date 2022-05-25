@@ -51,3 +51,13 @@ func SamePath(path1, path2 string) (bool, error) {
 
 	return abspath1 == abspath2, nil
 }
+
+// IsEmptyFile checks whether a file is empty or not.
+func IsEmptyFile(path string) (bool, error) {
+	fi, err := os.Stat(path)
+	if err != nil {
+		return false, err
+	}
+
+	return (fi.Size() == 0), nil
+}

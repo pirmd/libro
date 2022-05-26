@@ -61,3 +61,34 @@ func TestPathGuesser(t *testing.T) {
 		}
 	}
 }
+
+func TestTitleCleaner(t *testing.T) {
+	testCases := []struct {
+		in  string
+		out map[string]string
+	}{
+		{
+			"Sun Company / La compagnie des glaces 25",
+			map[string]string{"SubTitle": "La compagnie des glaces 25", "Title": "Sun Company"},
+		},
+		{
+			"Sun Company (French Edition)",
+			map[string]string{"Title": "Sun Company"},
+		},
+		{"Unknown", nil},
+	}
+
+	for _, tc := range testCases {
+		var got map[string]string
+
+		for _, re := range titleCleaners {
+			got = submatchAsMap(tc.in, re)
+			if got != nil {
+				break
+			}
+		}
+		if fmt.Sprint(got) != fmt.Sprint(tc.out) {
+			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
+		}
+	}
+}

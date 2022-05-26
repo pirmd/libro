@@ -79,6 +79,11 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 		if err := b.GuessFromFilename(); err != nil {
 			return nil, err
 		}
+
+		lib.Verbose.Print("Clean book's metadata")
+		if err := b.CleanMetadata(); err != nil {
+			return nil, err
+		}
 	}
 
 	if lib.UseGooglebooks {

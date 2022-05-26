@@ -65,11 +65,12 @@
 }
 {
   "Path": "testdata/books/pg27573.epub",
-  "Title": "Esprit des lois livres I à V, précédés d'une introduction de l'éditeur",
+  "Title": "Œuvres complètes de Montesquieu: De l'esprit des lois, livres X-X",
   "Authors": [
     "Charles de Secondat baron de Montesquieu"
   ],
-  "PublishedDate": "2008-12-20",
+  "SubTitle": "livres I à V, précédés d'une introduction de l'éditeur",
+  "PublishedDate": "1876",
   "Language": "fr",
   "Subject": [
     "Political science",
@@ -78,8 +79,10 @@
     "Jurisprudence"
   ],
   "Issues": [
-    "changed Title from Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur to Esprit des lois livres I à V, précédés d'une introduction de l'éditeur",
-    "changed Authors from [baron de Charles de Secondat Montesquieu] to [Charles de Secondat baron de Montesquieu]"
+    "changed Title from Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur to Esprit des lois",
+    "changed Title from Esprit des lois to Œuvres complètes de Montesquieu: De l'esprit des lois, livres X-X",
+    "changed Authors from [baron de Charles de Secondat Montesquieu] to [Charles de Secondat baron de Montesquieu]",
+    "changed PublishedDate from 2008-12-20 to 1876"
   ]
 }
 {

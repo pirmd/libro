@@ -57,18 +57,20 @@
   },
   {
     "Path": "testdata/books/pg27573.epub",
-    "Title": "Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur",
+    "Title": "Esprit des lois",
     "Authors": [
       "baron de Charles de Secondat Montesquieu"
     ],
     "SubTitle": "livres I à V, précédés d'une introduction de l'éditeur",
     "PublishedDate": "2008-12-20",
-    "SeriesTitle": "Esprit des lois",
     "Subject": [
       "Political science",
       "Law -- Philosophy",
       "State, The",
       "Jurisprudence"
+    ],
+    "Issues": [
+      "changed Title from Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur to Esprit des lois"
     ]
   },
   {

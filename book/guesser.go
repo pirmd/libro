@@ -37,10 +37,12 @@ var (
 		regexp.MustCompile(`^Book\s(?P<SeriesIndex>\d+)\sof\s(?P<Series>.+)$`),
 	}
 
-	// subtitleGuessers is a collection of regexp that pre-processes bad-formatted Titles
-	subtitleGuessers = []*regexp.Regexp{
-		// <SeriesTitle> / <SubTitle>
-		regexp.MustCompile(`^(?P<SeriesTitle>.+)\s/\s(?P<SubTitle>.+)$`),
+	// titleCleaners is a collection of regexp that pre-processes bad-formatted Titles
+	titleCleaners = []*regexp.Regexp{
+		// <Title> / <SubTitle>
+		regexp.MustCompile(`^(?P<Title>.+)\s/\s(?P<SubTitle>.+)$`),
+		// <Title> (French Edition)
+		regexp.MustCompile(`^(?P<Title>.+)\s\p{Ps}(?i:.+\sedition)\p{Pe}$`),
 	}
 )
 
@@ -57,11 +59,6 @@ func (b *Book) GuessFromFilename() error {
 // GuessFromMetadata tries to guess Book's information based on known
 // attributes (like Book's Title).
 func (b *Book) GuessFromMetadata() error {
-	Debug.Printf("Guess subtitle from book's Title '%s'", b.Title)
-	if err := b.guess(b.Title, subtitleGuessers...); err != nil {
-		return err
-	}
-
 	Debug.Printf("Guess series information from book's Title '%s'", b.Title)
 	if err := b.guess(b.Title, seriesGuessers...); err != nil {
 		return err
@@ -77,19 +74,48 @@ func (b *Book) GuessFromMetadata() error {
 	return nil
 }
 
+// CleanMetadata cleans Book's metadata.
+func (b *Book) CleanMetadata() error {
+	Debug.Printf("Clean book's Title '%s'", b.Title)
+	if err := b.clean(b.Title, titleCleaners...); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // guess extracts new Book's attributes from a string by applying a list of
 // Regexp.
-// Regexp allows to guess attribute from a string using a named captured group
-// whose name should correspond to a known Book's attribute or an error will be
-// raised.
-// Regexps are run in the guesser declaration order and only first
-// match is returned.
+// Regexp guesses new attribute's value using capturing group whose name shall
+// correspond to the attribute to create. Unknown attribute name will raise an
+// error.
+// Regexp are run in guessers order and only first match is returned.
 func (b *Book) guess(s string, guessers ...*regexp.Regexp) error {
 	for _, re := range guessers {
 		guessed := submatchAsMap(s, re)
 		if guessed != nil {
 			Debug.Printf("guessed information: '%+v'", guessed)
 			return b.CompleteFromMap(guessed)
+		}
+	}
+
+	Debug.Printf("no match found")
+	return nil
+}
+
+// clean rewrites Book's attributes by applying a list of Regexp.
+// Regexp guesses new attribute's value using capturing group whoses nama
+// correspond to the attribute to update or to create. Unknown attribute name
+// will raise an error.
+// Regexp are run in the cleaners order.
+func (b *Book) clean(s string, cleaners ...*regexp.Regexp) error {
+	for _, re := range cleaners {
+		cleaned := submatchAsMap(s, re)
+		if cleaned != nil {
+			Debug.Printf("clean information: '%+v'", cleaned)
+			if err := b.ReplaceFromMap(cleaned); err != nil {
+				return err
+			}
 		}
 	}
 

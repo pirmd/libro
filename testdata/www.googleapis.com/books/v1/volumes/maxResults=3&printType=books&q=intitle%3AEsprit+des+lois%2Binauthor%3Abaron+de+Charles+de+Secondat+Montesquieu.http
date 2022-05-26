@@ -1,0 +1,212 @@
+HTTP/2.0 200 OK
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Cache-Control: private
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 26 May 2022 08:54:49 GMT
+Server: ESF
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 0
+
+{
+  "kind": "books#volumes",
+  "totalItems": 222,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "vwUvAAAAMAAJ",
+      "etag": "QT9cRRunvgA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/vwUvAAAAMAAJ",
+      "volumeInfo": {
+        "title": "Œuvres complètes de Montesquieu: De l'esprit des lois, livres X-X",
+        "authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "publishedDate": "1876",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "NYPL:33433075787261"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "3.7.7.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=vwUvAAAAMAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=vwUvAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=vwUvAAAAMAAJ&printsec=frontcover&dq=intitle:Esprit+des+lois%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=vwUvAAAAMAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=vwUvAAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=vwUvAAAAMAAJ&rdid=book-vwUvAAAAMAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.fr/books/download/%C5%92uvres_compl%C3%A8tes_de_Montesquieu_De_l_e.epub?id=vwUvAAAAMAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.fr/books/download/%C5%92uvres_compl%C3%A8tes_de_Montesquieu_De_l_e.pdf?id=vwUvAAAAMAAJ&hl=&output=pdf&sig=ACfU3U0ogqIa6sU2762jgdqqpraLet6M1g&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=vwUvAAAAMAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "VpFIAQAAMAAJ",
+      "etag": "LUguvjm9vLE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/VpFIAQAAMAAJ",
+      "volumeInfo": {
+        "title": "De l'esprit des lois",
+        "authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "publishedDate": "1834",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112039381725"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Jurisprudence"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.3.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=VpFIAQAAMAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=VpFIAQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=VpFIAQAAMAAJ&printsec=frontcover&dq=intitle:Esprit+des+lois%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=VpFIAQAAMAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=VpFIAQAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=VpFIAQAAMAAJ&rdid=book-VpFIAQAAMAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.fr/books/download/De_l_esprit_des_lois.epub?id=VpFIAQAAMAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=VpFIAQAAMAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "mkNPAQAAMAAJ",
+      "etag": "3mTMiOenPw4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/mkNPAQAAMAAJ",
+      "volumeInfo": {
+        "title": "De l'esprit de lois",
+        "authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "publishedDate": "1834",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "SRLF:B0000046664"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Jurisprudence"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.3.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=mkNPAQAAMAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=mkNPAQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=mkNPAQAAMAAJ&printsec=frontcover&dq=intitle:Esprit+des+lois%2Binauthor:baron+de+Charles+de+Secondat+Montesquieu&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=mkNPAQAAMAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=mkNPAQAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=mkNPAQAAMAAJ&rdid=book-mkNPAQAAMAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.fr/books/download/De_l_esprit_de_lois.epub?id=mkNPAQAAMAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=mkNPAQAAMAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    }
+  ]
+}

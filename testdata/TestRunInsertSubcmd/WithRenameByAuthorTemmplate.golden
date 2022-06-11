@@ -1,10 +1,11 @@
 {
-  "Path": "Lewis Carroll/Lewis Carroll - Alice's Adventures in Wonderland.epub",
+  "Path": "Lewis Carroll/Lewis Carroll - Alice's Adventures in Wonderland [EN].epub",
   "Title": "Alice's Adventures in Wonderland",
   "Authors": [
     "Lewis Carroll"
   ],
   "PublishedDate": "2008-06-27",
+  "Language": "en",
   "Subject": [
     "Fantasy fiction",
     "Children's stories",
@@ -13,48 +14,52 @@
   ]
 }
 {
-  "Path": "Laozi/Laozi - 老子.epub",
+  "Path": "Laozi/Laozi - 老子 [ZH].epub",
   "Title": "老子",
   "Authors": [
     "Laozi"
   ],
   "PublishedDate": "2007-12-26",
+  "Language": "zh",
   "Subject": [
     "Taoism",
     "Philosophy, Chinese"
   ]
 }
 {
-  "Path": "Herodotus/Herodotus - The History of Herodotus — Volume 2.epub",
+  "Path": "Herodotus/Herodotus - The History of Herodotus — Volume 2 [EN].epub",
   "Title": "The History of Herodotus — Volume 2",
   "Authors": [
     "Herodotus"
   ],
   "PublishedDate": "2001-01-01",
+  "Language": "en",
   "Subject": [
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
   ]
 }
 {
-  "Path": "Herodotus/Herodotus - The History of Herodotus — Volume 1.epub",
+  "Path": "Herodotus/Herodotus - The History of Herodotus — Volume 1 [EN].epub",
   "Title": "The History of Herodotus — Volume 1",
   "Authors": [
     "Herodotus"
   ],
   "PublishedDate": "2001-07-01",
+  "Language": "en",
   "Subject": [
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
   ]
 }
 {
-  "Path": "baron de Charles de Secondat Montesquieu/baron de Charles de Secondat Montesquieu - Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur.epub",
+  "Path": "baron de Charles de Secondat Montesquieu/baron de Charles de Secondat Montesquieu - Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur [FR].epub",
   "Title": "Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur",
   "Authors": [
     "baron de Charles de Secondat Montesquieu"
   ],
   "PublishedDate": "2008-12-20",
+  "Language": "fr",
   "Subject": [
     "Political science",
     "Law -- Philosophy",
@@ -63,31 +68,34 @@
   ]
 }
 {
-  "Path": "Beatrix Potter/Beatrix Potter - Histoire de Pierre Lapin.epub",
+  "Path": "Beatrix Potter/Beatrix Potter - Histoire de Pierre Lapin [FR].epub",
   "Title": "Histoire de Pierre Lapin",
   "Authors": [
     "Beatrix Potter"
   ],
   "PublishedDate": "2009-06-06",
+  "Language": "fr",
   "Subject": [
     "Rabbits -- Juvenile fiction"
   ]
 }
 {
-  "Path": "Jules Verne/Jules Verne - Vingt mille lieues sous les mers.epub",
+  "Path": "Jules Verne/Jules Verne - Vingt mille lieues sous les mers [FR].epub",
   "Title": "Vingt mille lieues sous les mers",
   "Authors": [
     "Jules Verne"
   ],
-  "PublishedDate": "2017-06-09"
+  "PublishedDate": "2017-06-09",
+  "Language": "fr"
 }
 {
-  "Path": "Charles Baudelaire/Charles Baudelaire - Les Fleurs du Mal.epub",
+  "Path": "Charles Baudelaire/Charles Baudelaire - Les Fleurs du Mal [FR].epub",
   "Title": "Les Fleurs du Mal",
   "Authors": [
     "Charles Baudelaire"
   ],
   "PublishedDate": "2004-07-01",
+  "Language": "fr",
   "Subject": [
     "French poetry -- 19th century"
   ]
@@ -95,18 +103,18 @@
 
 Final list of books in library:
 Beatrix Potter/
-Beatrix Potter/Beatrix Potter - Histoire de Pierre Lapin.epub
+Beatrix Potter/Beatrix Potter - Histoire de Pierre Lapin [FR].epub
 Charles Baudelaire/
-Charles Baudelaire/Charles Baudelaire - Les Fleurs du Mal.epub
+Charles Baudelaire/Charles Baudelaire - Les Fleurs du Mal [FR].epub
 Herodotus/
-Herodotus/Herodotus - The History of Herodotus — Volume 1.epub
-Herodotus/Herodotus - The History of Herodotus — Volume 2.epub
+Herodotus/Herodotus - The History of Herodotus — Volume 1 [EN].epub
+Herodotus/Herodotus - The History of Herodotus — Volume 2 [EN].epub
 Jules Verne/
-Jules Verne/Jules Verne - Vingt mille lieues sous les mers.epub
+Jules Verne/Jules Verne - Vingt mille lieues sous les mers [FR].epub
 Laozi/
-Laozi/Laozi - 老子.epub
+Laozi/Laozi - 老子 [ZH].epub
 Lewis Carroll/
-Lewis Carroll/Lewis Carroll - Alice's Adventures in Wonderland.epub
+Lewis Carroll/Lewis Carroll - Alice's Adventures in Wonderland [EN].epub
 baron de Charles de Secondat Montesquieu/
 baron de Charles de Secondat Montesquieu/baron de Charles de Secondat Montesquieu - Esprit des lois /
-baron de Charles de Secondat Montesquieu/baron de Charles de Secondat Montesquieu - Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur.epub
+baron de Charles de Secondat Montesquieu/baron de Charles de Secondat Montesquieu - Esprit des lois / livres I à V, précédés d'une introduction de l'éditeur [FR].epub

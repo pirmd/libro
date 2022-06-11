@@ -5,6 +5,7 @@
     "Lewis Carroll"
   ],
   "PublishedDate": "2008-06-27",
+  "Language": "en",
   "Subject": [
     "Fantasy fiction",
     "Children's stories",
@@ -19,6 +20,7 @@
     "Laozi"
   ],
   "PublishedDate": "2007-12-26",
+  "Language": "zh",
   "Subject": [
     "Taoism",
     "Philosophy, Chinese"
@@ -31,6 +33,7 @@
     "Herodotus"
   ],
   "PublishedDate": "2001-01-01",
+  "Language": "en",
   "Subject": [
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
@@ -43,6 +46,7 @@
     "Herodotus"
   ],
   "PublishedDate": "2001-07-01",
+  "Language": "en",
   "Subject": [
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
@@ -55,6 +59,7 @@
     "baron de Charles de Secondat Montesquieu"
   ],
   "PublishedDate": "2008-12-20",
+  "Language": "fr",
   "Subject": [
     "Political science",
     "Law -- Philosophy",
@@ -69,6 +74,7 @@
     "Beatrix Potter"
   ],
   "PublishedDate": "2009-06-06",
+  "Language": "fr",
   "Subject": [
     "Rabbits -- Juvenile fiction"
   ]
@@ -80,6 +86,7 @@
     "Jules Verne"
   ],
   "PublishedDate": "2017-06-09",
+  "Language": "fr",
   "Subject": [
     "libro",
     "testing"
@@ -92,6 +99,7 @@
     "Charles Baudelaire"
   ],
   "PublishedDate": "2004-07-01",
+  "Language": "fr",
   "Subject": [
     "French poetry -- 19th century"
   ]

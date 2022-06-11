@@ -22,6 +22,10 @@ func NewFromEpub(path string) (*Book, error) {
 		b.Title = mdata.Title[0]
 	}
 
+	if len(mdata.SubTitle) > 0 {
+		b.SubTitle = mdata.SubTitle[0]
+	}
+
 	authors := make([]string, len(mdata.Creator))
 	for i, a := range mdata.Creator {
 		authors[i] = a.FullName
@@ -51,33 +55,40 @@ func NewFromEpub(path string) (*Book, error) {
 		Debug.Printf("no 'publication date' found in epub's metadata (%+v)", mdata.Date)
 	}
 
+	if mdata.Series != "" {
+		b.Series = mdata.Series
+	}
+
+	if mdata.SeriesIndex != "" {
+		v, err := strconv.ParseFloat(mdata.SeriesIndex, 32)
+		if err != nil {
+			return nil, err
+		}
+		b.SeriesIndex = v
+	}
+
+	if len(mdata.Language) > 0 {
+		b.Language = mdata.Language[0]
+	}
+
+	// We extract remaining unused metadata for later improving libro tools.
 	for _, meta := range mdata.Meta {
-		switch meta.Name {
-		case "calibre:series":
-			b.Series = meta.Content
-
-		case "calibre:series_index":
-			v, err := strconv.ParseFloat(meta.Content, 32)
-			if err != nil {
-				return nil, err
-			}
-			b.SeriesIndex = v
-
-		default:
-			if meta.Name != "" || meta.Content != "" {
-				Debug.Printf("found 'Meta' unused information: %+v", meta)
-			}
+		if meta.Name != "" || meta.Content != "" {
+			Debug.Printf("found 'Meta' unused information: %+v", meta)
 		}
 	}
 
 	return b, nil
 }
 
-func getEpubISBN(mdata *epub.Metadata) (isbn string) {
+func getEpubISBN(mdata *epub.MetaInformation) (isbn string) {
 	for _, id := range mdata.Identifier {
 		switch {
 		case strings.HasPrefix(id.Scheme, "isbn") || strings.HasPrefix(id.Scheme, "ISBN"):
 			isbn = id.Value
+
+		case strings.HasPrefix(id.Value, "urn:isbn:"):
+			isbn = strings.TrimPrefix(id.Value, "urn:isbn:")
 
 		case strings.HasPrefix(id.Value, "isbn:"):
 			isbn = strings.TrimPrefix(id.Value, "isbn:")
@@ -86,6 +97,7 @@ func getEpubISBN(mdata *epub.Metadata) (isbn string) {
 			isbn = strings.TrimPrefix(id.Value, "ISBN:")
 		}
 
+		// we prefer ISBN_13 over ISBN_10 so if we have it, we're done.
 		if len(isbn) == 13 {
 			break
 		}

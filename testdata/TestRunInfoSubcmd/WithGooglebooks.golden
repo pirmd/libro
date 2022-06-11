@@ -87,6 +87,7 @@
     "Beatrix Potter"
   ],
   "PublishedDate": "2009-06-06",
+  "Language": "fr",
   "Subject": [
     "Rabbits -- Juvenile fiction"
   ],
@@ -142,6 +143,7 @@
     "Jules Verne"
   ],
   "PublishedDate": "2017-06-09",
+  "Language": "fr",
   "SimilarBooks": [
     {
       "Path": "",
@@ -193,6 +195,7 @@
     "Charles Baudelaire"
   ],
   "PublishedDate": "2004-07-01",
+  "Language": "fr",
   "Subject": [
     "French poetry -- 19th century"
   ],

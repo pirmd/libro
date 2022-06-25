@@ -80,6 +80,11 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 			return nil, err
 		}
 
+		lib.Verbose.Print("Guess information from book's Content")
+		if err := b.GuessFromContent(); err != nil {
+			return nil, err
+		}
+
 		lib.Verbose.Print("Clean book's metadata")
 		if err := b.CleanMetadata(); err != nil {
 			return nil, err

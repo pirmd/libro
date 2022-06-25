@@ -1,5 +1,6 @@
 # Changelog
 ## [0.3.0]
+- add a guesser that looks for ISBN numbers within the EPUB's content.
 - use SimilarBooks information to improve end-user edition of book's attributes.
 - allow to cancel edit operation by emptying the edited book's attributes list.
 - extend guessers to support so-called cleaners that can replace existing

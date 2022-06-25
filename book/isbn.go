@@ -8,6 +8,8 @@ import (
 )
 
 // ISBN13 returns the ISBN_13 identifier of Book.
+// ISBN13 assumes that b.ISBN is a "cleaned" ISBN (only digits, no '-' or
+// things like that)
 func (b Book) ISBN13() (string, error) {
 	if len(b.ISBN) == 13 {
 		return b.ISBN, nil
@@ -16,6 +18,8 @@ func (b Book) ISBN13() (string, error) {
 }
 
 // ISBN10 returns the ISBN_10 identifier of Book.
+// ISBN10 assumes that b.ISBN is a "cleaned" ISBN (only digits, no '-' or
+// things like that)
 func (b Book) ISBN10() (string, error) {
 	if len(b.ISBN) == 10 {
 		return b.ISBN, nil
@@ -25,35 +29,55 @@ func (b Book) ISBN10() (string, error) {
 
 // NormalizeISBN returns a cleaned ISBN_13 identifier.
 // If isbn is in ISBN_10 format it will be converted to ISBN_13.
-// If isbn is in a non-supported format, the 'cleaned' ISBN is returned and an
-// error will be raised.
+// If isbn is not a valid ISBN format, an error will be raised.
 func NormalizeISBN(isbn string) (string, error) {
 	if isbn == "" {
-		return isbn, nil
+		return "", nil
 	}
 
 	clean := cleanISBN(isbn)
 
-	if len(clean) == 13 {
+	if isValidISBN13(clean) {
 		return clean, nil
 	}
 
-	isbn13, err := toISBN13(clean)
-	if err != nil {
-		return clean, err
+	if isValidISBN10(clean) {
+		isbn13, err := toISBN13(clean)
+		if err != nil {
+			return "", err
+		}
+
+		return isbn13, nil
 	}
 
-	return isbn13, nil
+	return "", fmt.Errorf("%s: invalid ISBN_10 or ISBN_13", isbn)
 }
 
-// cleanISBN returns an ISBN identifier without any separator or blank.
+// cleanISBN returns an ISBN identifier without anything that is not a digit or
+// 'X'.
 func cleanISBN(isbn string) string {
 	return strings.Map(func(r rune) rune {
-		if unicode.IsDigit(r) || r == 'X' {
+		if unicode.IsDigit(r) || r == 'x' || r == 'X' {
 			return r
 		}
 		return -1
 	}, isbn)
+}
+
+// isValidISBN13 checks if provided isbn is a valid ISBN13.
+// isValidISBN13 does not verify formatting.
+// isbn13 is supposed to be a "cleaned" ISBN (only digits, no '-' or things
+// like that).
+func isValidISBN13(isbn13 string) bool {
+	if len(isbn13) != 13 || (isbn13[:3] != "978" && isbn13[:3] != "979") {
+		return false
+	}
+
+	if _, err := calcISBN13checkdigit(isbn13); err != nil {
+		return false
+	}
+
+	return true
 }
 
 // toISBN13 tries to convert an ISBN_10 to an ISBN_13.
@@ -76,7 +100,7 @@ func toISBN13(isbn10 string) (string, error) {
 
 // calcISBN13checkdigit calculates last check-digit of an ISBN_13.
 // isbn13 should be a 'cleaned' isbn13.
-// if isbn13 is provided with a 13th digit, check-digit calculation outcome
+// If isbn13 is provided with a 13th digit, check-digit calculation outcome
 // will be compared to this 13th digit and an error will be raised if they are
 // different.
 func calcISBN13checkdigit(isbn13 string) (string, error) {
@@ -103,6 +127,22 @@ func calcISBN13checkdigit(isbn13 string) (string, error) {
 	return checkdigit, nil
 }
 
+// isValidISBN10 checks if provided isbn is a valid ISBN13.
+// isValidISBN10 does not verify formatting.
+// isbn10 is supposed to be a "cleaned" ISBN (only digits, no '-' or things
+// like that).
+func isValidISBN10(isbn10 string) bool {
+	if len(isbn10) != 10 {
+		return false
+	}
+
+	if _, err := calcISBN10checkdigit(isbn10); err != nil {
+		return false
+	}
+
+	return true
+}
+
 // toISBN10 tries to convert an ISBN_13 to an ISBN_10.
 // isbn13 is supposed to be a "cleaned" ISBN (only digits, no '-' or things
 // like that)
@@ -124,8 +164,8 @@ func toISBN10(isbn13 string) (string, error) {
 
 // calcISBN10checkdigit calculates last check-digit of an ISBN_10.
 // isbn10 should be a 'cleaned' isbn10 without its last checksum digit.
-// if isbn13 is provided with a 13th digit, check-digit calculation outcome
-// will be compared to this 13th digit and an error will be raised if they are
+// If isbn10 is provided with a 10th digit, check-digit calculation outcome
+// will be compared to this 10th digit and an error will be raised if they are
 // different.
 func calcISBN10checkdigit(isbn10 string) (string, error) {
 	if len(isbn10) != 9 && len(isbn10) != 10 {

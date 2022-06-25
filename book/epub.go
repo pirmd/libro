@@ -81,7 +81,7 @@ func NewFromEpub(path string) (*Book, error) {
 	return b, nil
 }
 
-func getEpubISBN(mdata *epub.MetaInformation) (isbn string) {
+func getEpubISBN(mdata *epub.Information) (isbn string) {
 	for _, id := range mdata.Identifier {
 		switch {
 		case strings.HasPrefix(id.Scheme, "isbn") || strings.HasPrefix(id.Scheme, "ISBN"):

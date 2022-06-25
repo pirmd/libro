@@ -110,7 +110,8 @@ This behavior can be altered using `-auto` or `-dont-edit` flags.
 ## GUESSERS
 `libro` can run guessers to complete (and/or confirm) Book's metadata. Current guessers are:
 - guess Title, Series, Authors or Language from Book's filename,
-- guess Series information from Book's Title or SubTitle.
+- guess Series information from Book's Title or SubTitle,
+- guess ISBN by extracting it from the EPUB's content.
 Use of guessers is governed by the `-use-guesser` flag of `libro info` sub-command.
 
 ## BOOK ATTRIBUTES

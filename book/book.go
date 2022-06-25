@@ -118,10 +118,13 @@ func NewFromFile(path string) (*Book, error) {
 // SetISBN sets Book's ISBN and tries to normalize it to ISBN_13 format.
 // SetISBN reports non-recognized ISBN but do not fail.
 func (b *Book) SetISBN(isbn string) {
-	var err error
-	if b.ISBN, err = NormalizeISBN(isbn); err != nil {
-		b.ReportIssue("found non-supported ISBN (%s): %v", isbn, err)
+	normISBN, err := NormalizeISBN(isbn)
+	if err != nil {
+		b.ReportIssue("non-supported ISBN (%s): %v", isbn, err)
+		return
 	}
+
+	b.ISBN = normISBN
 }
 
 // SetPublishedDate sets Book's PublishedDate and tries to normalize its
@@ -234,17 +237,19 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 
 	if b1.ISBN != "" {
 		if b.ISBN == "" {
-			Verbose.Printf("set empty ISBN to %v", b1.ISBN)
+			b.ReportIssue("set empty ISBN to %v", b1.ISBN)
 			b.ISBN = b1.ISBN
 		} else if override && (b.ISBN != b1.ISBN) {
 			b.ReportIssue("changed ISBN from %v to %v", b.ISBN, b1.ISBN)
 			b.ISBN = b1.ISBN
+		} else if b.ISBN != b1.ISBN {
+			b.ReportIssue("found a different ISBN: %v (vs. %s)", b1.ISBN, b.ISBN)
 		}
 	}
 
 	if b1.SubTitle != "" {
 		if b.SubTitle == "" {
-			Verbose.Printf("set SubTitle to %s", b1.SubTitle)
+			Verbose.Printf("set empty SubTitle to %s", b1.SubTitle)
 			b.SubTitle = b1.SubTitle
 		} else if override && !strings.EqualFold(b.SubTitle, b1.SubTitle) {
 			b.ReportIssue("changed SubTitle from %v to %v", b.SubTitle, b1.SubTitle)
@@ -343,6 +348,15 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			Verbose.Printf("changed Subject from %v to %v", b.Subject, b1.Subject)
 			b.Subject = append([]string{}, b1.Subject...)
 		}
+	}
+
+	if len(b1.Report.Issues) > 0 {
+		//TODO: I'm relatively defensive here by reporting any issues even the
+		//one encountered on intermediate book attributes consolidation that
+		//even might not end in the final result.
+		//Does it make sense as b1 issues might not be relevant for the final
+		//consolidation of attributes?
+		b.Report.Issues = append(b.Report.Issues, b1.Report.Issues...)
 	}
 }
 

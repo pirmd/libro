@@ -10,7 +10,9 @@ SubTitle     : {{.SubTitle}}
 {{end -}}
 
 {{- if or (or .SeriesTitle .Series) .SeriesIndex -}}
+{{- if .SeriesTitle -}}
 SeriesTitle  : {{.SeriesTitle}}
+{{end -}}
 Series       : {{.Series}}
 SeriesIndex  : {{.SeriesIndex}}
 {{end -}}

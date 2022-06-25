@@ -1,12 +1,12 @@
-Path         :  {{.Path}}
-Title        :  {{.Title}}
-Authors      :  {{join .Authors " & "}}
+Path         : {{.Path}}
+Title        : {{.Title}}
+Authors      : {{join .Authors " & "}}
 {{ if .ISBN -}}
-ISBN         :  {{.ISBN}}
+ISBN         : {{.ISBN}}
 {{end -}}
 
 {{- if .SubTitle -}} 
-SubTitle     :  {{.SubTitle}}
+SubTitle     : {{.SubTitle}}
 {{end -}}
 
 {{- if or (or .SeriesTitle .Series) .SeriesIndex -}}

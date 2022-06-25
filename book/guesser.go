@@ -59,7 +59,9 @@ var (
 		// <Title> / <SubTitle>
 		regexp.MustCompile(`^(?P<Title>.+)\s/\s(?P<SubTitle>.+)$`),
 		// <Title> (French Edition)
-		regexp.MustCompile(`^(?P<Title>.+)\s\p{Ps}(?i:.+\sedition)\p{Pe}$`),
+		regexp.MustCompile(`^(?P<Title>.+)\s\p{Ps}(?i:.+?\sedition)\p{Pe}$`),
+		// <Title> (Littérature française)
+		regexp.MustCompile(`^(?P<Title>.+)\s\p{Ps}(?i:.*?littérature.+?)\p{Pe}$`),
 	}
 )
 

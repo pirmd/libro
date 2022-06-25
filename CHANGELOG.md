@@ -1,10 +1,10 @@
 # Changelog
-## [0.3.0]
+## [0.3.0] - 2022-06-25
 - add a guesser that looks for ISBN numbers within the EPUB's content.
 - use SimilarBooks information to improve end-user edition of book's attributes.
 - allow to cancel edit operation by emptying the edited book's attributes list.
-- extend guessers to support so-called cleaners that can replace existing
-  attributes (with their cleaned version).
+- extend guessers to support cleaners that can replace existing attributes with
+  their 'cleaned' version.
  
 ## [0.2.1] - 2022-05-19
 - change Books' metadata completion logic by avoiding using googlebooks search

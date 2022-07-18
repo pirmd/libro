@@ -130,14 +130,14 @@ func TestReplaceFromMap(t *testing.T) {
 		},
 
 		{
-			&Book{Title: "Mon père fouettard", Subject: []string{"Biographie"}, Report: NewReport()},
+			&Book{Title: "La gloire de mon père", Subject: []string{"Biographie"}, Report: NewReport()},
 			map[string]string{
 				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
 			},
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Subject: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
 				Report: &Report{
-					Issues:       []string{"changed Title from Mon père fouettard to Mon père, ce héros"},
+					Issues:       []string{"changed Title from La gloire de mon père to Mon père, ce héros"},
 					SimilarBooks: []*Book{},
 				},
 			},

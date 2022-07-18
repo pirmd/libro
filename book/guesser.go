@@ -65,22 +65,26 @@ var (
 	}
 )
 
-// GuessFromFilename tries to guess Book's information based on its filename.
-func (b *Book) GuessFromFilename() error {
-	Debug.Printf("Guess information from book's path '%s'", b.Path)
-	if err := b.guess(b.Path, pathGuessers...); err != nil {
-		return err
-	}
+// NewFromFilename creates a Book whose information are guessed from its filename.
+func NewFromFilename(path string) (*Book, error) {
+	Debug.Printf("Guess information from book's path '%s'", path)
+	return guess(path, pathGuessers...)
+}
 
-	return nil
+// NewFromContent creates a Book whose information are guessed from its Content.
+func NewFromContent(path string) (*Book, error) {
+	Debug.Printf("Guess information from book's Content '%s'", path)
+	return grep(path, contentGuesser)
 }
 
 // GuessFromMetadata tries to guess Book's information based on known
 // attributes (like Book's Title).
 func (b *Book) GuessFromMetadata() error {
-	Debug.Printf("Guess series information from book's Title '%s'", b.Title)
-	if err := b.guess(b.Title, seriesGuessers...); err != nil {
-		return err
+	if b.Title != "" {
+		Debug.Printf("Guess series information from book's Title '%s'", b.Title)
+		if err := b.guess(b.Title, seriesGuessers...); err != nil {
+			return err
+		}
 	}
 
 	if b.SubTitle != "" {
@@ -88,16 +92,6 @@ func (b *Book) GuessFromMetadata() error {
 		if err := b.guess(b.SubTitle, seriesGuessers...); err != nil {
 			return err
 		}
-	}
-
-	return nil
-}
-
-// GuessFromContent tries to guess Book's information from the Book's content.
-func (b *Book) GuessFromContent() error {
-	Debug.Print("Guess ISBN information from book's Content")
-	if err := b.grep(contentGuesser); err != nil {
-		return err
 	}
 
 	return nil
@@ -120,33 +114,51 @@ func (b *Book) CleanMetadata() error {
 // error.
 // Regexp are run in guessers order and only first match is returned.
 func (b *Book) guess(s string, guessers ...*regexp.Regexp) error {
+	guessedBook, err := guess(s, guessers...)
+	if err != nil {
+		return err
+	}
+
+	if guessedBook != nil {
+		b.CompleteFrom(guessedBook)
+	}
+
+	return nil
+}
+
+// guess extracts new Book's attributes from a string by applying a list of
+// Regexp.
+// Regexp guesses new attribute's value using capturing group whose name shall
+// correspond to the attribute to create. Unknown attribute name will raise an
+// error.
+// Regexp are run in guessers order and only first match is returned.
+func guess(s string, guessers ...*regexp.Regexp) (*Book, error) {
 	for _, re := range guessers {
-		guessed := reFindStringSubmatchAsMap(s, re)
-		if guessed != nil {
+		if guessed := reFindStringSubmatchAsMap(s, re); guessed != nil {
 			Debug.Printf("guessed information: '%+v'", guessed)
-			return b.CompleteFromMap(guessed)
+			return NewFromMap(guessed)
 		}
 	}
 
 	Debug.Printf("no match found")
-	return nil
+	return nil, nil
 }
 
-// grep extracts new Book's attributes from a Reader by applying a Regexp.
+// grep extracts new Book's attributes from its content by applying a Regexp.
 // Regexp guesses new attribute's value using capturing group whose name shall
 // correspond to the attribute to create. Unknown attribute name will raise an
 // error.
 // Several matches for the same attribute can be returned, management of
 // inconsistent values is left to Book.CompleteFromMap logic, eventually
 // reporting to end-user such situation.
-func (b *Book) grep(re *regexp.Regexp) error {
+func grep(path string, re *regexp.Regexp) (*Book, error) {
 	// TODO: I'm quite 'defensive' here as I capture every matches and report
 	// possible inconsistent values. This can maybe be removed later one once
 	// better confident in the heuristic so that we can just stop on the first
 	// match.
 	var found []map[string]string
 
-	if err := epub.WalkReadingContent(b.Path, func(r io.Reader, fi fs.FileInfo) error {
+	if err := epub.WalkReadingContent(path, func(r io.Reader, fi fs.FileInfo) error {
 		rawr, err := getRawTextFromHTML(r)
 		if err != nil {
 			return err
@@ -160,19 +172,25 @@ func (b *Book) grep(re *regexp.Regexp) error {
 
 		return nil
 	}); err != nil {
-		return err
+		return nil, err
 	}
 
 	if len(found) == 0 {
 		Debug.Printf("no match found")
+		return nil, nil
 	}
 
-	for _, f := range found {
+	b, err := NewFromMap(found[0])
+	if err != nil {
+		return nil, err
+	}
+
+	for _, f := range found[1:] {
 		if err := b.CompleteFromMap(f); err != nil {
-			return err
+			return nil, err
 		}
 	}
-	return nil
+	return b, nil
 }
 
 // clean rewrites Book's attributes by applying a list of Regexp.

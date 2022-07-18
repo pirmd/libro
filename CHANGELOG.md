@@ -1,4 +1,7 @@
 # Changelog
+## [0.4.0]
+- add string edit distances to improve detection of inconsistencies tracking.
+
 ## [0.3.0] - 2022-06-25
 - add a guesser that looks for ISBN numbers within the EPUB's content.
 - use SimilarBooks information to improve end-user edition of book's attributes.

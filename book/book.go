@@ -219,8 +219,13 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if b.Title == "" {
 			Verbose.Printf("set empty Title to %v", b1.Title)
 			b.Title = b1.Title
-		} else if override && !strings.EqualFold(b.Title, b1.Title) {
-			b.ReportIssue("changed Title from %v to %v", b.Title, b1.Title)
+		} else if override {
+			if b.compareTitleWith(b1) < AreAlmostTheSame {
+				b.ReportIssue("changed Title from %v to %v", b.Title, b1.Title)
+			} else {
+				Verbose.Printf("changed Title from %v to %v", b.Title, b1.Title)
+			}
+
 			b.Title = b1.Title
 		}
 	}
@@ -229,8 +234,13 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if len(b.Authors) == 0 {
 			Verbose.Printf("set empty Authors to %v", b1.Authors)
 			b.Authors = append([]string{}, b1.Authors...)
-		} else if override && !strings.EqualFold(fmt.Sprint(b.Authors), fmt.Sprint(b1.Authors)) {
-			b.ReportIssue("changed Authors from %v to %v", b.Authors, b1.Authors)
+		} else if override {
+			if b.compareAuthorsWith(b1) < AreAlmostTheSame {
+				b.ReportIssue("changed Authors from %v to %v", b.Authors, b1.Authors)
+			} else {
+				Verbose.Printf("changed Authors from %v to %v", b.Authors, b1.Authors)
+			}
+
 			b.Authors = append([]string{}, b1.Authors...)
 		}
 	}
@@ -239,10 +249,10 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if b.ISBN == "" {
 			b.ReportIssue("set empty ISBN to %v", b1.ISBN)
 			b.ISBN = b1.ISBN
-		} else if override && (b.ISBN != b1.ISBN) {
+		} else if override && b.compareIdentifierWith(b1) != AreTheSame {
 			b.ReportIssue("changed ISBN from %v to %v", b.ISBN, b1.ISBN)
 			b.ISBN = b1.ISBN
-		} else if b.ISBN != b1.ISBN {
+		} else if b.compareIdentifierWith(b1) != AreTheSame {
 			b.ReportIssue("found a different ISBN: %v (vs. %s)", b1.ISBN, b.ISBN)
 		}
 	}
@@ -251,8 +261,12 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if b.SubTitle == "" {
 			Verbose.Printf("set empty SubTitle to %s", b1.SubTitle)
 			b.SubTitle = b1.SubTitle
-		} else if override && !strings.EqualFold(b.SubTitle, b1.SubTitle) {
-			b.ReportIssue("changed SubTitle from %v to %v", b.SubTitle, b1.SubTitle)
+		} else if override {
+			if b.compareSubTitleWith(b1) < AreAlmostTheSame {
+				b.ReportIssue("changed SubTitle from %v to %v", b.SubTitle, b1.SubTitle)
+			} else {
+				Verbose.Printf("changed SubTitle from %v to %v", b.SubTitle, b1.SubTitle)
+			}
 			b.SubTitle = b1.SubTitle
 		}
 	}
@@ -261,8 +275,12 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if b.Publisher == "" {
 			Verbose.Printf("set empty Publisher to %s", b1.Publisher)
 			b.Publisher = b1.Publisher
-		} else if override && !strings.EqualFold(b.Publisher, b1.Publisher) {
-			b.ReportIssue("changed Publisher from %v to %v", b.Publisher, b1.Publisher)
+		} else if override {
+			if b.comparePublisherWith(b1) < AreAlmostTheSame {
+				b.ReportIssue("changed Publisher from %v to %v", b.Publisher, b1.Publisher)
+			} else {
+				Verbose.Printf("changed Publisher from %v to %v", b.Publisher, b1.Publisher)
+			}
 			b.Publisher = b1.Publisher
 		}
 	}
@@ -271,12 +289,16 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if b.PublishedDate == "" {
 			Verbose.Printf("set empty PublishedDate to %s", b1.PublishedDate)
 			b.PublishedDate = b1.PublishedDate
-		} else if date, equal := CompareNormalizedDate(b.PublishedDate, b1.PublishedDate); override && !equal {
-			b.ReportIssue("changed PublishedDate from %v to %v", b.PublishedDate, b1.PublishedDate)
+		} else if override {
+			if b.comparePublishedDateWith(b1) < AreAlmostTheSame {
+				b.ReportIssue("changed PublishedDate from %v to %v", b.PublishedDate, b1.PublishedDate)
+			} else {
+				Verbose.Printf("changed PublishedDate from %v to (more precise) %v", b.PublishedDate, b1.PublishedDate)
+			}
 			b.PublishedDate = b1.PublishedDate
-		} else if equal && b.PublishedDate != date {
+		} else if b.comparePublishedDateWith(b1) == AreAlmostTheSame && len(b1.PublishedDate) > len(b.PublishedDate) {
 			Verbose.Printf("changed PublishedDate from %v to (more precise) %v", b.PublishedDate, b1.PublishedDate)
-			b.PublishedDate = date
+			b.PublishedDate = b1.PublishedDate
 		}
 	}
 
@@ -344,7 +366,7 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 		if len(b.Subject) == 0 {
 			Verbose.Printf("set empty Subject to %v", b1.Subject)
 			b.Subject = append([]string{}, b1.Subject...)
-		} else if override && !strings.EqualFold(fmt.Sprint(b.Subject), fmt.Sprint(b1.Subject)) {
+		} else if override && b.compareSubjectWith(b1) != AreTheSame {
 			Verbose.Printf("changed Subject from %v to %v", b.Subject, b1.Subject)
 			b.Subject = append([]string{}, b1.Subject...)
 		}

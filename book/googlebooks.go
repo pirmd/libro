@@ -1,46 +1,24 @@
 package book
 
 import (
-	"strings"
-
 	"github.com/pirmd/libro/book/googlebooks"
 )
 
-// FromGooglebooks gets Book's metadata from Googlebooks.
-// If search successfully returns a Book with same ISBN, Book's metadata are
-// superseded, otherwise the first MaxResult matches are memorized for further
-// end-user review only.
-func (b *Book) FromGooglebooks(MaxResults int) error {
-	google := googlebooks.API{MaxResults: MaxResults}
-	found, err := google.SearchVolume(b.toVolumeInfo())
+// SearchOnGooglebooks search Googlebooks for the Book.
+// At most MaxResults Books are returned.
+func (b *Book) SearchOnGooglebooks(MaxResults int) ([]*Book, error) {
+	api := googlebooks.API{MaxResults: MaxResults}
+	found, err := api.SearchVolume(b.toVolumeInfo())
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	if len(found) == 0 {
-		b.ReportIssue("no match found on Googlebooks")
-		return nil
+	books := make([]*Book, len(found))
+	for i, vi := range found {
+		books[i] = newFromVolumeInfo(vi)
 	}
 
-	// TODO: assumes bestMatch should be the one with corresponding ISBN? is it
-	// always the case?
-	bestMatch := newFromVolumeInfo(found[0])
-
-	if strings.EqualFold(b.ISBN, bestMatch.ISBN) {
-		Verbose.Printf("found same book (ISBN: %s) on Googlebooks", b.ISBN)
-		Debug.Printf("replace book's metadata with Googlebooks %#v", bestMatch)
-		b.ReplaceFrom(bestMatch)
-		return nil
-	}
-
-	if b.ISBN != "" {
-		b.ReportIssue("found book on Googlebooks with different ISBN")
-	}
-
-	for _, vi := range found {
-		b.ReportSimilarBook(newFromVolumeInfo(vi))
-	}
-	return nil
+	return books, nil
 }
 
 // toVolumeInfo converts a Book's information into a googlebooks.VolumeInfo.

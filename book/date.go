@@ -59,20 +59,6 @@ func NormalizeDate(stamp string) string {
 	}
 }
 
-// CompareNormalizedDate compares two 'normalized' date and returns the most
-// 'precise' one in case of equality.
-func CompareNormalizedDate(date1, date2 string) (string, bool) {
-	d1, d2 := date1, date2
-	if len(date1) < len(date2) {
-		d1, d2 = date2, date1
-	}
-
-	if strings.HasPrefix(d1, d2) {
-		return d1, true
-	}
-	return "", false
-}
-
 // cleanStamp returns an stamp without any separator or blank.
 func cleanStamp(stamp string) string {
 	return strings.Map(func(r rune) rune {

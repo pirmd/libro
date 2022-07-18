@@ -58,32 +58,3 @@ func TestNormalizeDate(t *testing.T) {
 		}
 	}
 }
-
-func TestComareNormalizedDate(t *testing.T) {
-	testCases := []struct {
-		in1, in2  string
-		want      string
-		wantEqual bool
-	}{
-		{"1976", "1976", "1976", true},
-		{"1976", "1976-01", "1976-01", true},
-		{"1976-01-17", "1976-01", "1976-01-17", true},
-		{"1976-01-17", "1976", "1976-01-17", true},
-		{"1976-01-17", "1976-02", "", false},
-		{"1976-01", "1982", "", false},
-		{"1976-01-17", "1982", "", false},
-		{"1976-01-17", "1982-01-17", "", false},
-		{"1976", "1982", "", false},
-	}
-
-	for _, tc := range testCases {
-		got, gotEqual := CompareNormalizedDate(tc.in1, tc.in2)
-
-		if gotEqual != tc.wantEqual {
-			t.Errorf("Fail to compare date %s vs. %s: wrong equality.\nWant: %v\nGot : %v", tc.in1, tc.in2, tc.wantEqual, gotEqual)
-		}
-		if got != tc.want {
-			t.Errorf("Fail to compare date %s vs. %s: most precise date is not as expected.\nWant: %v\nGot : %v", tc.in1, tc.in2, tc.want, got)
-		}
-	}
-}

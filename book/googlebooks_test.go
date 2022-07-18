@@ -8,7 +8,7 @@ import (
 	"github.com/pirmd/verify"
 )
 
-func TestFromGooglebooks(t *testing.T) {
+func TestSearchOnGooglebooks(t *testing.T) {
 	testCases, err := filepath.Glob(filepath.Join(testdataBooks, "*.epub"))
 	if err != nil {
 		t.Fatalf("cannot read test data in %s: %v", testdataBooks, err)
@@ -19,18 +19,16 @@ func TestFromGooglebooks(t *testing.T) {
 
 	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)
 
-	out := make([]*Book, len(testCases))
+	out := make([][]*Book, len(testCases))
 	for i, tc := range testCases {
 		b, err := NewFromFile(tc)
 		if err != nil {
 			t.Errorf("Fail to get metadata for %s: %v", tc, err)
 		}
 
-		if err := b.FromGooglebooks(3); err != nil {
+		if out[i], err = b.SearchOnGooglebooks(3); err != nil {
 			t.Errorf("Fail to search (mocked) googlebooks for %s: %v", tc, err)
 		}
-
-		out[i] = b
 	}
 
 	got, err := json.MarshalIndent(out, "", "  ")

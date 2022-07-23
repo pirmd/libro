@@ -194,7 +194,7 @@ func grep(path string, re *regexp.Regexp) (*Book, error) {
 }
 
 // clean rewrites Book's attributes by applying a list of Regexp.
-// Regexp guesses new attribute's value using capturing group whoses nama
+// Regexp guesses new attribute's value using capturing group whose name
 // correspond to the attribute to update or to create. Unknown attribute name
 // will raise an error.
 // Regexp are run in the cleaners order.

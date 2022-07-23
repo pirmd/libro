@@ -79,9 +79,9 @@ func (app *App) Run(args []string) error {
 	fs.Usage = func() {
 		fmt.Fprintf(fs.Output(), "Usage: %s [option...] <commands> [arguments]\n", myname)
 		fmt.Fprintf(fs.Output(), "Commands:\n")
-		fmt.Fprintf(fs.Output(), "    info       retrieve information from an epub\n")
-		fmt.Fprintf(fs.Output(), "    insert     insert an epub to the library\n")
-		fmt.Fprintf(fs.Output(), "    edit       edit information about an epub\n")
+		fmt.Fprintf(fs.Output(), "    info       retrieve information from an EPUB\n")
+		fmt.Fprintf(fs.Output(), "    insert     insert an EPUB into the library\n")
+		fmt.Fprintf(fs.Output(), "    edit       edit information about an EPUB\n")
 		fmt.Fprintf(fs.Output(), "    version    print %s version\n", myname)
 		fmt.Fprintf(fs.Output(), "Options:\n")
 		fs.PrintDefaults()
@@ -99,6 +99,7 @@ func (app *App) Run(args []string) error {
 	switch cmd := fs.Arg(0); cmd {
 	case "version":
 		fmt.Fprintf(fs.Output(), "%s version %s\n", myname, myversion)
+		return nil
 
 	case "info":
 		return app.RunInfoSubcmd(fs.Args()[1:])
@@ -112,8 +113,6 @@ func (app *App) Run(args []string) error {
 	default:
 		return fmt.Errorf("'%[1]s %s' unknown command\nRun %[1]s -help", fs.Name(), cmd)
 	}
-
-	return nil
 }
 
 // RunInfoSubcmd executes the "info" sub-command.

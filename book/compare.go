@@ -8,18 +8,6 @@ import (
 	"github.com/hbollon/go-edlib"
 )
 
-const (
-	// isAreTheSameThreshold is the minimum distance above which two strings are
-	// AreTheSame.
-	isAreTheSameThreshold = 0.9
-	// isAreAlmostTheSameThreshold is the minimum distance above which two strings are
-	// AreAlmostTheSame.
-	isAreAlmostTheSameThreshold = 0.8
-	// isAreMaybeTheSameThreshold is the minimum distance above which two strings are
-	// AreMaybeTheSame.
-	isAreMaybeTheSameThreshold = 0.7
-)
-
 // SimilarityLevel indicate the similarity level between two elements.
 type SimilarityLevel int
 
@@ -34,11 +22,21 @@ const (
 	AreAlmostTheSame
 	// AreTheSame indicates that elements are the same.
 	AreTheSame
+
+	// isAreTheSameThreshold is the minimum distance above which two strings are
+	// AreTheSame.
+	isAreTheSameThreshold = 0.9
+	// isAreAlmostTheSameThreshold is the minimum distance above which two strings are
+	// AreAlmostTheSame.
+	isAreAlmostTheSameThreshold = 0.8
+	// isAreMaybeTheSameThreshold is the minimum distance above which two strings are
+	// AreMaybeTheSame.
+	isAreMaybeTheSameThreshold = 0.7
 )
 
 // String outputs a human understandable description of a SimilarityLevel.
 func (lvl SimilarityLevel) String() string {
-	return [...]string{"same", "almost the same", "maybe the same", "not the same", "not comparable"}[lvl]
+	return [...]string{"not comparable", "not the same", "maybe the same", "almost the same", "the same"}[lvl]
 }
 
 // CompareWith assesses the similarity level between two books with a short

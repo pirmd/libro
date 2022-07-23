@@ -1,6 +1,8 @@
 # Changelog
 ## [0.4.0]
 - add string edit distances to improve detection of inconsistencies tracking.
+- add Book's Description cleaning information from HTML tags tha prevent easy
+  reading when reviewing Book's information.
 
 ## [0.3.0] - 2022-06-25
 - add a guesser that looks for ISBN numbers within the EPUB's content.

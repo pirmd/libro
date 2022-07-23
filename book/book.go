@@ -147,6 +147,25 @@ func (b *Book) SetAuthors(authors []string) {
 	}
 }
 
+// SetDescription sets Book's Description and tries to clean it from un-helping
+// HTML formatting directives.
+func (b *Book) SetDescription(desc string) {
+	// TODO: use a better 'html to text' converter that preserves formatting
+	unhtml, err := getRawTextFromHTML(strings.NewReader(desc))
+	if err != nil {
+		Debug.Printf("fail to clean Description from HTML tags: %v", err)
+		b.Description = desc
+	}
+
+	cleanDesc, err := io.ReadAll(unhtml)
+	if err != nil {
+		Debug.Printf("fail to clean Description from HTML tags: %v", err)
+		b.Description = desc
+	}
+
+	b.Description = string(cleanDesc)
+}
+
 // NewFromMap creates a Book's from to the attributes defined as a map
 // where keys are attribute's name (insensitive to case) and value is a string
 // representation of the attribute's value.
@@ -177,7 +196,7 @@ func NewFromMap(m map[string]string) (*Book, error) {
 			b.SetPublishedDate(value)
 
 		case "Description":
-			b.Description = value
+			b.SetDescription(value)
 
 		case "Series":
 			b.Series = value

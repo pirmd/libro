@@ -33,7 +33,7 @@ func NewFromEpub(path string) (*Book, error) {
 	b.SetAuthors(authors)
 
 	if len(mdata.Description) > 0 {
-		b.Description = mdata.Description[0]
+		b.SetDescription(mdata.Description[0])
 	}
 
 	b.Subject = append([]string{}, mdata.Subject...)

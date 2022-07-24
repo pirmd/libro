@@ -142,6 +142,57 @@ func TestRunInsertSubcmd(t *testing.T) {
 	})
 }
 
+func TestRunCheckSubcmd(t *testing.T) {
+	testCases, err := filepath.Glob(filepath.Join(testdataBooks, "*.epub"))
+	if err != nil {
+		t.Fatalf("cannot read test data in %s: %v", testdataBooks, err)
+	}
+
+	testRunCheckSubcmd := func(args ...string) func(*testing.T) {
+		args = append([]string{"-format={{toPrettyJSON .}}", "check"}, args...)
+
+		return func(t *testing.T) {
+			testApp := newTestApp(t)
+
+			for _, tc := range testCases {
+				b, err := testApp.Library.Read(tc)
+				if err != nil {
+					t.Errorf("Fail to read information for %s: %v", tc, err)
+				}
+
+				j, err := json.Marshal(b)
+				if err != nil {
+					t.Errorf("Fail to convert book %s to JSON: %v", tc, err)
+				}
+				bInJSON := string(j)
+
+				if err := testApp.Run(append(args, bInJSON)); err != nil {
+					fmt.Fprintf(testApp.Stdout, "\nERROR during check: %v\n", err)
+				}
+
+				fmt.Fprintln(testApp.Stdout)
+			}
+
+			got := testApp.Stdout.(*bytes.Buffer).String()
+			if failure := verify.MatchGolden(t.Name(), got); failure != nil {
+				t.Fatalf("Output is not as expected.\n%v", failure)
+			}
+		}
+	}
+
+	t.Run("Default", func(t *testing.T) {
+		testRunCheckSubcmd()(t)
+	})
+
+	t.Run("WithCompletenessCheck", func(t *testing.T) {
+		testRunCheckSubcmd("-completeness")(t)
+	})
+
+	t.Run("WithExitIfIssue", func(t *testing.T) {
+		testRunCheckSubcmd("-fail-on-issue")(t)
+	})
+}
+
 func TestRunEditSubcmd(t *testing.T) {
 	testCases, err := filepath.Glob(filepath.Join(testdataBooks, "*.epub"))
 	if err != nil {

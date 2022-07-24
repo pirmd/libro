@@ -1,8 +1,10 @@
 # Changelog
 ## [0.4.0]
 - add string edit distances to improve detection of inconsistencies tracking.
-- add Book's Description cleaning information from HTML tags tha prevent easy
-  reading when reviewing Book's information.
+- add cleaning of Book's Description to remove HTML tags for easier reading in
+  text mode.
+- add a new libro 'check' command to review Book's information completeness.
+  libro 'edit' command with flag `-auto` does not check quality anymore.
 
 ## [0.3.0] - 2022-06-25
 - add a guesser that looks for ISBN numbers within the EPUB's content.

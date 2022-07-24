@@ -1,43 +1,77 @@
 package book
 
-// IsComplete gives an evaluation whether a Book's information seems complete
-// enough.
-// Objective is to provide a way for the tool to decide whether a human
-// intervention is a good idea.
-func (b *Book) IsComplete() bool {
-	if b.Title == "" {
-		Verbose.Printf("warn: Book's Title is empty")
-		return false
+// QualityLevel indicate the similarity level between two elements.
+type QualityLevel int
+
+const (
+	// Bad indicates that quality level is not acceptable
+	Bad QualityLevel = iota
+	// Poor indicates tat quality level is poor.
+	Poor
+	// Average indicates that quality level is acceptable
+	Average
+	// Good indicates that quality level is good.
+	Good
+	// Perfect indicates that quality level is perfect.
+	Perfect
+)
+
+// String outputs a human understandable description of a QualityLevel.
+func (lvl QualityLevel) String() string {
+	return [...]string{"bad", "poor", "average", "good", "as perfect as it can be"}[lvl]
+}
+
+// Identifiability assesses whether Book has enough Metadata to be identified
+// by the end-user.
+func (b *Book) Identifiability() QualityLevel {
+	if b.Title == "" || len(b.Authors) == 0 {
+		Verbose.Printf("book has no Title or no known Author(s)")
+		return Bad
 	}
 
-	if len(b.Authors) == 0 {
-		Verbose.Printf("warn: Book has no Author(s)")
-		return false
+	if b.Publisher == "" || b.PublishedDate == "" {
+		if b.ISBN == "" {
+			Verbose.Printf("book has a Title and Author(s) but no complete Publication information")
+			return Average
+		}
 	}
 
-	if b.ISBN == "" {
-		Verbose.Printf("warn: Book has no ISBN")
-		return false
+	if b.Series != "" && b.SeriesIndex != 0 {
+		return Perfect
+	}
+
+	return Good
+}
+
+// InformationCompleteness assesses whether Book's information is complete.
+func (b *Book) InformationCompleteness() QualityLevel {
+	if b.Title == "" || len(b.Authors) == 0 {
+		Verbose.Printf("book has no Title or Author(s)")
+		return Bad
 	}
 
 	if b.Description == "" {
-		Verbose.Printf("warn: Book has no Description")
+		Verbose.Printf("book has no Description")
+		return Average
 	}
 
-	if b.Publisher == "" {
-		Verbose.Printf("warn: Book has no Publisher")
+	if b.Publisher == "" || b.PublishedDate == "" {
+		Verbose.Printf("book has no complete Publication information")
+		return Average
 	}
 
-	if b.PublishedDate == "" {
-		Verbose.Printf("warn: Book has no PublishedDate")
+	if b.ISBN == "" {
+		Verbose.Printf("book has no ISBN")
+		return Average
 	}
 
-	if (b.Series != "" && (b.SeriesIndex == 0 || b.SeriesTitle == "")) ||
-		(b.SeriesIndex != 0 && (b.Series == "" || b.SeriesTitle == "")) ||
+	if (b.Series != "" && b.SeriesIndex == 0) ||
+		(b.SeriesIndex != 0 && b.Series == "") ||
 		(b.SeriesTitle != "" && (b.SeriesIndex == 0 || b.Series == "")) {
-		Verbose.Printf("warn: Book has incomplete Series information")
-		return false
+		Verbose.Printf("book has incomplete Series information")
+
+		return Average
 	}
 
-	return true
+	return Good
 }

@@ -107,6 +107,9 @@ func (app *App) Run(args []string) error {
 	case "insert", "add":
 		return app.RunInsertSubcmd(fs.Args()[1:])
 
+	case "check":
+		return app.RunCheckSubcmd(fs.Args()[1:])
+
 	case "edit":
 		return app.RunEditSubcmd(fs.Args()[1:])
 
@@ -209,7 +212,7 @@ func (app *App) RunEditSubcmd(args []string) error {
 	}
 
 	var auto bool
-	fs.BoolVar(&auto, "auto", false, "do not trigger an editor if libro get the impression that Book's information is good enough")
+	fs.BoolVar(&auto, "auto", false, "trigger an editor only if Book's information has unresolved issues")
 
 	var dontedit bool
 	fs.BoolVar(&dontedit, "dont-edit", false, "do not trigger any editor at all. Supersedes 'auto' flag")
@@ -265,7 +268,7 @@ func (app *App) RunEditSubcmd(args []string) error {
 		app.Verbose.Printf("manual edition of book's information has been prevented by '-dont-edit' flag")
 	case editor == "":
 		app.Verbose.Printf("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
-	case auto && (b.IsComplete() && !b.NeedReview()):
+	case auto && !b.NeedReview():
 		app.Verbose.Printf("no need to edit book's information that seems good enough to me")
 	default:
 		var err error
@@ -283,6 +286,68 @@ func (app *App) RunEditSubcmd(args []string) error {
 		return fmt.Errorf("fail to display book information: %v", err)
 	}
 	fmt.Fprint(app.Stdout)
+
+	return nil
+}
+
+// RunCheckSubcmd executes the "check" sub-command.
+func (app *App) RunCheckSubcmd(args []string) error {
+	fs := flag.NewFlagSet(myname+" check", flag.ExitOnError)
+
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), "Usage: %s [option...] BOOKinJSON\n", fs.Name())
+		fmt.Fprintf(fs.Output(), "Options:\n")
+		fs.PrintDefaults()
+	}
+
+	var failOnIssue bool
+	fs.BoolVar(&failOnIssue, "fail-on-issue", false, "exit with a non-zero exit status when a quality issue is found")
+
+	var checkCompleteness bool
+	fs.BoolVar(&checkCompleteness, "completeness", false, "verify that book's information is complete")
+
+	if err := fs.Parse(args); err != nil {
+		return fmt.Errorf("%v\nRun %s -help", err, fs.Name())
+	}
+
+	var bookJSON io.Reader
+	switch fs.NArg() {
+	case 0:
+		if fi, _ := os.Stdin.Stat(); (fi.Mode() & os.ModeCharDevice) == os.ModeCharDevice {
+			return fmt.Errorf("invalid number of argument(s)\nRun %s -help", fs.Name())
+		}
+		bookJSON = os.Stdin
+	case 1:
+		bookJSON = strings.NewReader(fs.Arg(0))
+	default:
+		return fmt.Errorf("invalid number of argument(s)\nRun %s -help", fs.Name())
+	}
+
+	b := book.New()
+	if err := json.NewDecoder(bookJSON).Decode(&b); err != nil {
+		return fmt.Errorf("fail to decode book's JSON: %v", err)
+	}
+
+	app.Verbose.Print("Check ability to identify the book")
+	if b.Identifiability() < book.Good {
+		b.ReportIssue("book does not have enough information to be identified")
+	}
+
+	if checkCompleteness {
+		app.Verbose.Print("Check book's key information completeness")
+		if b.InformationCompleteness() < book.Good {
+			b.ReportIssue("book's key information is incomplete")
+		}
+	}
+
+	if err := app.Formatter.Execute(app.Stdout, b); err != nil {
+		return fmt.Errorf("fail to display book information: %v", err)
+	}
+	fmt.Fprint(app.Stdout)
+
+	if failOnIssue && b.NeedReview() {
+		return fmt.Errorf("book's quality check did not pass")
+	}
 
 	return nil
 }

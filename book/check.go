@@ -1,5 +1,9 @@
 package book
 
+import (
+	"github.com/pirmd/libro/book/epubcheck"
+)
+
 // QualityLevel indicate the similarity level between two elements.
 type QualityLevel int
 
@@ -74,4 +78,26 @@ func (b *Book) InformationCompleteness() QualityLevel {
 	}
 
 	return Good
+}
+
+// CanBeRendered uses EPUBcheck to verify that the book will likely be
+// properly rendered by most reading systems.
+func (b *Book) CanBeRendered() error {
+	Verbose.Print("Verify that Book can be rendered by most reading systems")
+	Debug.Printf("run %s --fatal --error --json - %s", epubcheck.Executable, b.Path)
+
+	report, err := epubcheck.Run(b.Path, "--fatal", "--error", "--warn")
+	if err != nil {
+		return err
+	}
+
+	if l := len(report.Messages); l > 0 {
+		for _, m := range report.Messages {
+			Verbose.Print(m)
+		}
+
+		b.ReportIssue("Book's content is likely to have rendering issues (%d findings from epubcheck)", l)
+	}
+
+	return nil
 }

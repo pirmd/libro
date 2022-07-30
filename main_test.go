@@ -188,6 +188,14 @@ func TestRunCheckSubcmd(t *testing.T) {
 		testRunCheckSubcmd("-completeness")(t)
 	})
 
+	t.Run("WithConformityCheck", func(t *testing.T) {
+		if testing.Short() {
+			t.Skip("skipping test of conformity check in short mode.")
+		}
+
+		testRunCheckSubcmd("-conformity")(t)
+	})
+
 	t.Run("WithExitIfIssue", func(t *testing.T) {
 		testRunCheckSubcmd("-fail-on-issue")(t)
 	})

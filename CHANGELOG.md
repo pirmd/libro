@@ -5,6 +5,7 @@
   text mode.
 - add a new libro 'check' command to review Book's information completeness.
   libro 'edit' command with flag `-auto` does not check quality anymore.
+- add an EPUB conformity check relying on w3.org epubcheck tool.
 
 ## [0.3.0] - 2022-06-25
 - add a guesser that looks for ISBN numbers within the EPUB's content.

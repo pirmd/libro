@@ -306,6 +306,9 @@ func (app *App) RunCheckSubcmd(args []string) error {
 	var checkCompleteness bool
 	fs.BoolVar(&checkCompleteness, "completeness", false, "verify that book's information is complete")
 
+	var checkConformity bool
+	fs.BoolVar(&checkConformity, "conformity", false, "verify that book is a conform EPUB using w3.org epucheck tool")
+
 	if err := fs.Parse(args); err != nil {
 		return fmt.Errorf("%v\nRun %s -help", err, fs.Name())
 	}
@@ -337,6 +340,12 @@ func (app *App) RunCheckSubcmd(args []string) error {
 		app.Verbose.Print("Check book's key information completeness")
 		if b.InformationCompleteness() < book.Good {
 			b.ReportIssue("book's key information is incomplete")
+		}
+	}
+
+	if checkConformity {
+		if err := b.CanBeRendered(); err != nil {
+			return fmt.Errorf("fail to run EPUBcheck on book: %v", err)
 		}
 	}
 

@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/pirmd/libro/book/htmlutil"
 )
 
 var (
@@ -151,7 +153,7 @@ func (b *Book) SetAuthors(authors []string) {
 // HTML formatting directives.
 func (b *Book) SetDescription(desc string) {
 	// TODO: use a better 'html to text' converter that preserves formatting
-	unhtml, err := getRawTextFromHTML(strings.NewReader(desc))
+	unhtml, err := htmlutil.GetRawTextFromHTML(strings.NewReader(desc))
 	if err != nil {
 		Debug.Printf("fail to clean Description from HTML tags: %v", err)
 		b.Description = desc

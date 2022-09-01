@@ -1,4 +1,4 @@
-package book
+package htmlutil
 
 import (
 	"io"
@@ -158,7 +158,7 @@ func TestGetRawTextFromHTML(t *testing.T) {
 	for _, tc := range testCases {
 		inR := strings.NewReader(tc.in)
 
-		gotR, err := getRawTextFromHTML(inR)
+		gotR, err := GetRawTextFromHTML(inR)
 		if err != nil {
 			t.Errorf("Fail to extract text from '%v': %v", tc.in, err)
 		}

@@ -1,4 +1,4 @@
-package book
+package htmlutil
 
 import (
 	"bytes"
@@ -9,15 +9,15 @@ import (
 	"golang.org/x/net/html/atom"
 )
 
-// getRaxTextFromHTML extracts text from an HTML document without retaining any
+// GetRawTextFromHTML extracts text from an HTML document without retaining any
 // particular formatting information.
 //
-// Limitation: getRawTextFromHTML is only a minimal and naive HTML to text
+// Limitation: GetRawTextFromHTML is only a minimal and naive HTML to text
 // extractor, it does not consider any fancy HTML formatting directive nor
 // complicated rules related to spaces collapsing and only concentrate into
 // getting rid of HTML directive to access meaningful information for scraping
 // or searching.
-func getRawTextFromHTML(r io.Reader) (io.Reader, error) {
+func GetRawTextFromHTML(r io.Reader) (io.Reader, error) {
 	root, err := html.Parse(r)
 	if err != nil {
 		return nil, err

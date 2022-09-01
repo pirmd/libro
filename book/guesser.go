@@ -6,6 +6,8 @@ import (
 	"regexp"
 
 	"github.com/pirmd/epub"
+
+	"github.com/pirmd/libro/book/htmlutil"
 )
 
 const (
@@ -159,7 +161,7 @@ func grep(path string, re *regexp.Regexp) (*Book, error) {
 	var found []map[string]string
 
 	if err := epub.WalkReadingContent(path, func(r io.Reader, fi fs.FileInfo) error {
-		rawr, err := getRawTextFromHTML(r)
+		rawr, err := htmlutil.GetRawTextFromHTML(r)
 		if err != nil {
 			return err
 		}

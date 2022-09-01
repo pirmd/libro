@@ -249,27 +249,27 @@ func (app *App) RunEditSubcmd(args []string) error {
 	}
 
 	if len(defaultAttr) != 0 {
-		app.Verbose.Printf("Set default value for book's information")
+		app.Verbose.Print("Set default value for book's information")
 		if err := b.CompleteFromMap(defaultAttr); err != nil {
 			return fmt.Errorf("fail to set default value: %v", err)
 		}
 	}
 
 	if len(setAttr) != 0 {
-		app.Verbose.Printf("Set new value for book's information")
+		app.Verbose.Print("Set new value for book's information")
 		if err := b.ReplaceFromMap(setAttr); err != nil {
 			return fmt.Errorf("fail to set new value: %v", err)
 		}
 	}
 
-	app.Verbose.Printf("Edit book's information")
+	app.Verbose.Print("Edit book's information")
 	switch {
 	case dontedit:
-		app.Verbose.Printf("manual edition of book's information has been prevented by '-dont-edit' flag")
+		app.Verbose.Print("manual edition of book's information has been prevented by '-dont-edit' flag")
 	case editor == "":
-		app.Verbose.Printf("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
+		app.Verbose.Print("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
 	case auto && !b.NeedReview():
-		app.Verbose.Printf("no need to edit book's information that seems good enough to me")
+		app.Verbose.Print("no need to edit book's information that seems good enough to me")
 	default:
 		var err error
 		if b, err = editBook(editor, b); err != nil {
@@ -309,6 +309,9 @@ func (app *App) RunCheckSubcmd(args []string) error {
 	var checkConformity bool
 	fs.BoolVar(&checkConformity, "conformity", false, "verify that book is a conform EPUB using w3.org epucheck tool")
 
+	var checkSecurity bool
+	fs.BoolVar(&checkSecurity, "security", false, "verify that book's content does not contain unsafe HTML")
+
 	if err := fs.Parse(args); err != nil {
 		return fmt.Errorf("%v\nRun %s -help", err, fs.Name())
 	}
@@ -346,6 +349,13 @@ func (app *App) RunCheckSubcmd(args []string) error {
 	if checkConformity {
 		if err := b.CanBeRendered(); err != nil {
 			return fmt.Errorf("fail to run EPUBcheck on book: %v", err)
+		}
+	}
+
+	if checkSecurity {
+		app.Verbose.Print("Check book's content security")
+		if err := b.CheckContentSecurity(); err != nil {
+			return fmt.Errorf("fail to scan book's content: %v", err)
 		}
 	}
 

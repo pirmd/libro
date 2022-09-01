@@ -196,6 +196,10 @@ func TestRunCheckSubcmd(t *testing.T) {
 		testRunCheckSubcmd("-conformity")(t)
 	})
 
+	t.Run("WithSecurityCheck", func(t *testing.T) {
+		testRunCheckSubcmd("-security")(t)
+	})
+
 	t.Run("WithExitIfIssue", func(t *testing.T) {
 		testRunCheckSubcmd("-fail-on-issue")(t)
 	})

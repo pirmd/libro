@@ -11,6 +11,7 @@ require (
 
 require (
 	github.com/antzucaro/matchr v0.0.0-20210222213004-b04723ef80f0 // indirect
+	github.com/gorilla/css v1.0.0 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/pirmd/text v0.6.2 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect

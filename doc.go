@@ -88,6 +88,7 @@
 // This behavior can be altered using `-auto` or `-dont-edit` flags.
 //
 // GUESSERS
+//
 // `libro` can run guessers to complete (and/or confirm) Book's metadata. Current guessers are:
 //   - guess Title, Series, Authors or Language from Book's filename,
 //   - guess Series information from Book's Title or SubTitle,

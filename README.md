@@ -26,8 +26,15 @@ libro -help
 together or with other command-line tools to developed your own books
 management workflows. For example, importing books can be run like:
 ``` shell
-libro info "my_book.epub" | vipe --suffix json | libro --root=$HOME/books add
+libro info "my_book.epub" | vipe --suffix json | libro insert --root=$HOME/books
 ̀̀``
+Or
+``̀`shell
+libro info -use-guesser -use-googlebooks "my_book.epub" \
+          | libro edit -auto -default Language=fr -editor=vimdiff \
+          | libro check -completeness -conformity \
+          | libro insert -root="$HOME/books -rename='{{template "shortname_byauthor.gotmpl" .}}
+```
 
 To communicate through pipes, `libro` outputs book's attributes in JSON format
 that is understood by each `libro`sub-command.  `libro` detects when output is
@@ -73,46 +80,58 @@ Some pre-defined templates are available:
 
 Examples:
 ``` shell
-libro info -format='{{template "plaintext" .}}' my_book.epub
+libro info -format='{{toPrettyJSON .}}' my_book.epub
 ```
 or
 ``` shell
-libro add -rename='{{template "short_byauthor" .}} my_book.epub
+libro info "my_book.epub" | libro insert -rename='{{template "shortname_byauthor.gotmpl" .}}
 ```
 or
 ``` shell
-libro add -rename='{{ tmpl "short" . | nospace }} my_book.epub
+libro info "my_book.epub" | libro insert -rename='{{ tmpl "shortname.gotmpl" . | nospace }}
 ```
 
 User-defined templates can be loaded using specific flags like:
 ``` shell
-libro info -format-tmpl=$HOME/books/my_template.gotmpl -format='{{template "my_template.gotmpl" .}}' my_book.epub
+libro info -format-tmpl=$HOME/books/my_template.gotmpl -format='{{template "my_template.gotmpl" .}}' "my_book.epub"
 ```
 or
 ``` shell
-libro add -rename-tmpl=$HOME/books/my_template.gotmpl -rename='{{template "my_template.gotmpl" .}} my_book.epub
+libro info "my_book.epub" | libro insert -rename-tmpl=$HOME/books/my_template.gotmpl -rename='{{template "my_template.gotmpl" .}}
 ```
 
 ## BEHAVIOR
-`libro` adopts some opinionated behavior when processing book's information. Main ones are:
+`libro` adopts some opinionated behavior when processing book's information.
+Main ones are:
 - when exact ISBN match is found online, online information is preferred over
-  epub's metadata or over guessed ones;
+  EPUB's metadata or over guessed ones;
 - when a match is found online but ISBN are not similar, online information is
-  only used to complete information obtained from epub's metadata or guessed;
-- guessed information are usually not preferred over epub's metadata or online
+  only used to complete information obtained from EPUB's metadata or guessed;
+- guessed information are usually not preferred over EPUB's metadata or online
   information.
 
-When editing book's information (using `libro edit`), user is only asked to review information if:
+When editing book's information (using `libro edit`), user is only asked to
+review information if:
 - key attributes are not filled,
 - unresolved conflicts or dubious automatic operation have been performed.
 This behavior can be altered using `-auto` or `-dont-edit` flags.
 
 ## GUESSERS
-`libro` can run guessers to complete (and/or confirm) Book's metadata. Current guessers are:
+`libro` can run guessers to complete (and/or confirm) Book's metadata. Current
+guessers are:
 - guess Title, Series, Authors or Language from Book's filename,
 - guess Series information from Book's Title or SubTitle,
 - guess ISBN by extracting it from the EPUB's content.
 Use of guessers is governed by the `-use-guesser` flag of `libro info` sub-command.
+
+## CHECKER
+`libro` can run different check to verify quality, completness or conformity of
+information collected about an EPUB or of the EPUB's itself. Findings requiring
+end-user attention are inserted into a specific book's attributes ('Issues')
+for later processing.
+
+`libro` relies on [EPUBcheck](https://www.w3.org/publishing/epubcheck/) tool
+for conformity verification.
 
 ## BOOK ATTRIBUTES
 `libro` uses the following attributes for a Book:
@@ -146,9 +165,7 @@ Use of guessers is governed by the `-use-guesser` flag of `libro info` sub-comma
 - Issues:        Issues collects (possible) issues encountered during Book's processing
                  that deserve end-user attention.
 - SimilarBooks   SimilarBooks collects alternative Book's metadata that are possibly
-                 better or more complete than actual metada set. `libro`is for some reasons
-                 usually not sure enough whether they are corresponding to exactly the
-                 same book.
+                 better or more complete than actual metada set.
 
 ## MAIN GOALS
 Beside bug hunting and improved user experience, main functions planned to be

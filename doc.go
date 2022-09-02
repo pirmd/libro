@@ -11,7 +11,12 @@
 // `libro` sub-commands are developed so that they can be combined (i.e. piped)
 // together or with other command-line tools to developed your own books
 // management workflows. For example, importing books can be run like:
-//  libro info "my favorite book.epub" | vipe --suffix json | libro --root=$HOME/books add
+//  libro info "my_book.epub" | vipe --suffix json | libro insert --root=$HOME/books
+// Or
+//  libro info -use-guesser -use-googlebooks "my_book.epub" \
+//    | libro edit -auto -default Language=fr -editor=vimdiff \
+//    | libro check -completeness -conformity \
+//    | libro insert -root="$HOME/books -rename='{{template "shortname_byauthor.gotmpl" .}}
 //
 // To communicate through pipes, `libro` outputs book's attributes in JSON
 // format that is understood by each `libro`sub-command.
@@ -59,27 +64,27 @@
 //    fashion. Empty optional attributes are not displayed.
 //
 // Examples:
-//    libro info -format='{{template "plaintext" .}}' my_book.epub
+//   libro info -format='{{toPrettyJSON .}}' my_book.epub
 // or
-//    libro add -rename='{{template "short_byauthor" .}} my_book.epub
+//   libro info "my_book.epub" | libro insert -rename='{{template "shortname_byauthor.gotmpl" .}}
 // or
-//    libro add -rename='{{ tmpl "short" . | nospace }} my_book.epub
+//   libro info "my_book.epub" | libro insert -rename='{{ tmpl "shortname.gotmpl" . | nospace }}
 //
 // User-defined templates can be loaded using specific flags like:
-//     libro info -format-tmpl=$HOME/books/my_template.gotmpl -format='{{template "my_template.gotmpl" .}}' my_book.epub
+//   libro info -format-tmpl=$HOME/books/my_template.gotmpl -format='{{template "my_template.gotmpl" .}}' "my_book.epub"
 // or
-//     libro add -rename-tmpl=$HOME/books/my_template.gotmpl -rename='{{template "my_template.gotmpl" .}} my_book.epub
+//   libro info "my_book.epub" | libro insert -rename-tmpl=$HOME/books/my_template.gotmpl -rename='{{template "my_template.gotmpl" .}}
 //
 // BEHAVIOR
 //
 // `libro` adopts some opinionated behavior when processing book's information.
 // Main ones are:
 //  - when exact ISBN match is found online, online information is preferred
-//    over epub's metadata or over guessed ones;
+//    over EPUB's metadata or over guessed ones;
 //  - when a match is found online but ISBN are not similar, online information
-//    is only used to complete information obtained from epub's metadata or
+//    is only used to complete information obtained from EPUB's metadata or
 //    guessed;
-//  - guessed information are usually not preferred over epub's metadata or
+//  - guessed information are usually not preferred over EPUB's metadata or
 //  online information
 //
 // When editing book's information (using `libro edit`), user is only asked to review information if:
@@ -94,4 +99,14 @@
 //   - guess Series information from Book's Title or SubTitle,
 //   - guess ISBN by extracting it from the EPUB's content.
 //  Use of guessers is governed by the `-use-guesser` flag of `libro info` sub-command.
+//
+// CHECKER
+//
+// `libro` can run different check to verify quality, completeness or conformity of
+// information collected about an EPUB or of the EPUB's itself. Findings requiring
+// end-user attention are inserted into a specific book's attributes ('Issues')
+// for later processing.
+//
+// `libro` relies on [EPUBcheck](https://www.w3.org/publishing/epubcheck/) tool
+// for conformity verification.
 package main

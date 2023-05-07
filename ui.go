@@ -38,6 +38,8 @@ func editBook(editor string, b *book.Book) (*book.Book, error) {
 		return nil, err
 	}
 
+	edbook.Path = b.Path
+
 	return edbook, nil
 }
 

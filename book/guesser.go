@@ -48,6 +48,8 @@ var (
 		regexp.MustCompile(`^(?P<Series>.+?)\s` + reSeriesIndex + `$`),
 		// Book <SeriesIndex> of <Series>
 		regexp.MustCompile(`^Book\s(?P<SeriesIndex>\d+)\sof\s(?P<Series>.+)$`),
+		// <SeriesIndex> - <SeriesTitle>
+		regexp.MustCompile(`^` + reSeriesIndex + `\s*[.-]\s*(?P<SeriesTitle>.+)$`),
 	}
 
 	// contentGuesser is a regexp that extracts information from a Book's content.

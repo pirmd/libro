@@ -2,6 +2,7 @@
 ## [0.4.1] - Unreleased
 - fix lacking book.Path information after edition.
 - add PublishedYear attribute and use it in fullname.gotmpl.
+- add new guesser regexp for (incomplete) Series information in book's Title.
 
 ## [0.4.0] - 2022-09-02
 - add string edit distances to improve detection of inconsistencies tracking.

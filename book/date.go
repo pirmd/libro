@@ -59,6 +59,17 @@ func NormalizeDate(stamp string) string {
 	}
 }
 
+// Year get year information from a time stamps.
+// Returns empty string if stamp format can be recognized.
+func Year(stamp string) string {
+	t, err := ParseTimestamp(stamp)
+	if err != nil {
+		return stamp
+	}
+
+	return t.Format("2006")
+}
+
 // cleanStamp returns an stamp without any separator or blank.
 func cleanStamp(stamp string) string {
 	return strings.Map(func(r rune) rune {

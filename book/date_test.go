@@ -58,3 +58,28 @@ func TestNormalizeDate(t *testing.T) {
 		}
 	}
 }
+
+func TestYear(t *testing.T) {
+	testCases := []struct {
+		in   string
+		want string
+	}{
+		{"1976", "1976"},
+		{"1976-01", "1976"},
+		{"01.1976", "1976"},
+		{"011976", "1976"},
+		{"1976-01-17", "1976"},
+		{"1976.01.17", "1976"},
+		{"17/01/1976", "1976"},
+		{"19760117", "1976"},
+		{"17011976", "1976"},
+	}
+
+	for _, tc := range testCases {
+		got := Year(tc.in)
+
+		if got != tc.want {
+			t.Errorf("Fail to find Year for %s.\nWant: %v\nGot : %v", tc.in, tc.want, got)
+		}
+	}
+}

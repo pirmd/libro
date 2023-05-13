@@ -168,6 +168,13 @@ func (b *Book) SetDescription(desc string) {
 	b.Description = string(cleanDesc)
 }
 
+// PublishedYear returns the year of publication.
+// Returns an empty string if Book's PublishedDate is empty or if its format
+// cannot be recognized.
+func (b *Book) PublishedYear() string {
+	return Year(b.PublishedDate)
+}
+
 // NewFromMap creates a Book's from to the attributes defined as a map
 // where keys are attribute's name (insensitive to case) and value is a string
 // representation of the attribute's value.

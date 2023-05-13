@@ -123,11 +123,13 @@
         "Herodotus"
       ],
       "Publisher": "Prabhat Prakashan",
-      "PublishedDate": "101-01-01",
       "Description": "Written in 440 BC in the Ionic dialect of classical Greek, 'The History of Herodotus' serves as a record of the ancient traditions, politics, geography, and clashes of various cultures that were known in Western Asia, Northern Africa and Greece at that time. Although not a fully impartial record, it remains one of West's most important sources regarding these affairs. Moreover, it established the genre and study of history in the Western world, despite the existence of historical records and chronicles beforehand.",
       "Language": "en",
       "Subject": [
         "Fiction"
+      ],
+      "Issues": [
+        "unrecognized PublishedDate (101-01-01)"
       ]
     },
     {

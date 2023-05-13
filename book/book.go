@@ -9,6 +9,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/pirmd/libro/book/htmlutil"
 )
@@ -132,6 +133,17 @@ func (b *Book) SetISBN(isbn string) {
 // SetPublishedDate sets Book's PublishedDate and tries to normalize its
 // format.
 func (b *Book) SetPublishedDate(date string) {
+	t, err := ParseTimestamp(date)
+	if err != nil {
+		b.ReportIssue("unrecognized PublishedDate (%s)", date)
+		return
+	}
+
+	if (t.Year() < 1800) || (t.Year() > time.Now().Year()) {
+		b.ReportIssue("suspicious PublishedDate (%s)", date)
+		return
+	}
+
 	b.PublishedDate = NormalizeDate(date)
 }
 

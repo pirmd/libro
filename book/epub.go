@@ -68,7 +68,7 @@ func NewFromEpub(path string) (*Book, error) {
 	}
 
 	if len(mdata.Language) > 0 {
-		b.Language = mdata.Language[0]
+		b.SetLanguage(mdata.Language[0])
 	}
 
 	// We extract remaining unused metadata for later improving libro tools.

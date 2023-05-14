@@ -47,7 +47,7 @@ func newFromVolumeInfo(vi *googlebooks.VolumeInfo) *Book {
 	b.Publisher = vi.Publisher
 	b.SetPublishedDate(vi.PublishedDate)
 	b.SetDescription(vi.Description)
-	b.Language = vi.Language
+	b.SetLanguage(vi.Language)
 	b.PageCount = vi.PageCount
 	b.Subject = append([]string{}, vi.Subject...)
 

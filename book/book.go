@@ -180,6 +180,15 @@ func (b *Book) SetDescription(desc string) {
 	b.Description = string(cleanDesc)
 }
 
+// SetLanguage sets Book's Language and tries to filter exotic language names.
+func (b *Book) SetLanguage(lang string) {
+	if len(lang) > 2 {
+		b.Language = lang[:2]
+	}
+
+	b.Language = lang
+}
+
 // PublishedYear returns the year of publication.
 // Returns an empty string if Book's PublishedDate is empty or if its format
 // cannot be recognized.
@@ -232,7 +241,7 @@ func NewFromMap(m map[string]string) (*Book, error) {
 			b.SetISBN(value)
 
 		case "Language":
-			b.Language = value
+			b.SetLanguage(value)
 
 		case "PageCount":
 			var err error

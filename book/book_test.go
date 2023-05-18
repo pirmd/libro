@@ -138,6 +138,7 @@ func TestReplaceFromMap(t *testing.T) {
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, Subject: []string{"Biographie"}, PublishedDate: "1980", Language: "FR",
 				Report: &Report{
 					Issues:       []string{"changed Title from La gloire de mon père to Mon père, ce héros"},
+					Warnings:     []string{},
 					SimilarBooks: []*Book{},
 				},
 			},
@@ -151,7 +152,8 @@ func TestReplaceFromMap(t *testing.T) {
 			&Book{
 				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
 				Report: &Report{
-					Issues:       []string{"changed Authors from [Mini Moi] to [Luke Skywalker]", "changed PublishedDate from 2002 to 1980"},
+					Issues:       []string{"changed Authors from [Mini Moi] to [Luke Skywalker]"},
+					Warnings:     []string{"changed PublishedDate from 2002 to 1980"},
 					SimilarBooks: []*Book{},
 				},
 			},
@@ -160,13 +162,13 @@ func TestReplaceFromMap(t *testing.T) {
 
 	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)
 
-	for _, tc := range testCases {
+	for i, tc := range testCases {
 		if err := tc.in.ReplaceFromMap(tc.inM); err != nil {
-			t.Fatalf("fail to update Book: %v", err)
+			t.Fatalf("[tc #%d] fail to update Book: %v", i, err)
 		}
 
 		if failure := verify.Equal(tc.out, tc.in); failure != nil {
-			t.Errorf("Update Book from map %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.inM, tc.out, tc.in)
+			t.Errorf("[tc #%d] Update Book from map %#v failed:\nWant: %#v\nGot : %#v\n\n", i, tc.inM, tc.out, tc.in)
 		}
 	}
 }

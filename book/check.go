@@ -104,7 +104,7 @@ func (b *Book) CanBeRendered() error {
 			Verbose.Print(m)
 		}
 
-		b.ReportIssue("Book's content is likely to have rendering issues (%d findings from epubcheck)", l)
+		b.ReportIssue("book's content is likely to have rendering issues (%d findings from epubcheck)", l)
 	}
 
 	return nil

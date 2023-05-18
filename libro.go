@@ -199,7 +199,7 @@ func (lib *Libro) guessFromFilename(b *book.Book) error {
 		b.CompleteFrom(guessedBook)
 
 	default:
-		b.ReportIssue("Filename is not consistent with Metadata: %s", rational)
+		b.ReportIssue("filename is not consistent with Metadata: %s", rational)
 	}
 
 	return nil
@@ -229,7 +229,7 @@ func (lib *Libro) guessFromContent(b *book.Book) error {
 		b.CompleteFrom(guessedBook)
 
 	default:
-		b.ReportIssue("Content is not consistent with Metadata: %s", rational)
+		b.ReportIssue("content is not consistent with Metadata: %s", rational)
 	}
 
 	return nil
@@ -242,7 +242,7 @@ func (lib *Libro) searchOnGooglebooks(b *book.Book) error {
 	}
 
 	if len(matches) == 0 {
-		b.ReportIssue("no match found on Googlebooks")
+		b.ReportWarning("no match found on Googlebooks")
 		return nil
 	}
 

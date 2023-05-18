@@ -212,7 +212,16 @@ func (app *App) RunEditSubcmd(args []string) error {
 	}
 
 	var auto bool
-	fs.BoolVar(&auto, "auto", false, "trigger an editor only if Book's information has unresolved issues")
+	fs.BoolVar(&auto, "auto", false, "trigger an editor only if Book's information has unresolved cases (issue, warning, similar books)")
+
+	var autoOnIssue bool
+	fs.BoolVar(&autoOnIssue, "auto-on-issue", false, "trigger an editor only if Book's information has unresolved issue(s)")
+
+	var autoOnWarning bool
+	fs.BoolVar(&autoOnWarning, "auto-on-warning", false, "trigger an editor only if Book's information has unresolved warning(s)")
+
+	var autoOnSimilar bool
+	fs.BoolVar(&autoOnSimilar, "auto-on-similar", false, "trigger an editor only if Book has similar book(s)")
 
 	var dontedit bool
 	fs.BoolVar(&dontedit, "dont-edit", false, "do not trigger any editor at all. Supersedes 'auto' flag")
@@ -262,13 +271,18 @@ func (app *App) RunEditSubcmd(args []string) error {
 		}
 	}
 
+	needEdit := (auto && b.NeedReview()) ||
+		(autoOnIssue && b.HasIssue()) ||
+		(autoOnWarning && b.HasWarning()) ||
+		(autoOnSimilar && b.HasSimilarBook())
+
 	app.Verbose.Print("Edit book's information")
 	switch {
 	case dontedit:
 		app.Verbose.Print("manual edition of book's information has been prevented by '-dont-edit' flag")
 	case editor == "":
 		app.Verbose.Print("no editor has been defined. Set $EDITOR global var or use -editor command line flag")
-	case auto && !b.NeedReview():
+	case !needEdit:
 		app.Verbose.Print("no need to edit book's information that seems good enough to me")
 	default:
 		var err error

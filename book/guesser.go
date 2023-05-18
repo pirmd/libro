@@ -11,9 +11,8 @@ import (
 )
 
 const (
-	// seriesKey lists usual keywords that introduce a specification of a
-	// series index.
-	reSeriesIndex = `(?i:Series |Volume |Vol |Vol. |Part |n°|#|)(?P<SeriesIndex>\d+)`
+	// reSeriesIndex is a regexp that captures a series index.
+	reSeriesIndex = `(?i:Series |Volume |Vol.* |Part |Livre |Tome |n°|#|T|)(?P<SeriesIndex>\d+)`
 
 	// reISBN is a regexp aiming at capturing ISBN-like indication in text. It does not
 	// aim at validating an ISBN, it can even return too short or too long results.
@@ -37,19 +36,26 @@ var (
 		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s(?P<Title>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
 	}
 
+	// reSeriesWithIndex is a regexp that captures a Series and its index
+	reSeriesWithIndex = `(?P<Series>.+?)(?:\s\p{Pd}|,)*\s` + reSeriesIndex
+
 	// seriesGuessers is a collection of regexp to extract series information
 	// from a Book's title or subtitle.
 	seriesGuessers = []*regexp.Regexp{
-		// <SeriesTitle> (<Series> n°<SeriesIndex>)
-		regexp.MustCompile(`^(?P<SeriesTitle>.+)\s\p{Ps}(?P<Series>.+?)\s` + reSeriesIndex + `\p{Pe}$`),
-		// <SeriesTitle> - <Series> n°<SeriesIndex>
-		regexp.MustCompile(`^(?P<SeriesTitle>.+?)\s\p{Pd}\s(?P<Series>.+?)\s` + reSeriesIndex + `$`),
-		// <Series> n°<SeriesIndex>
-		regexp.MustCompile(`^(?P<Series>.+?)\s` + reSeriesIndex + `$`),
 		// Book <SeriesIndex> of <Series>
 		regexp.MustCompile(`^Book\s(?P<SeriesIndex>\d+)\sof\s(?P<Series>.+)$`),
+		// <SeriesTitle> (<Series> <SeriesIndex>)
+		regexp.MustCompile(`^(?P<SeriesTitle>.+)\s\p{Ps}` + reSeriesWithIndex + `\p{Pe}$`),
+		// <SeriesTitle> - <Series> <SeriesIndex>
+		regexp.MustCompile(`^(?P<SeriesTitle>.+?)\s\p{Pd}\s` + reSeriesWithIndex + `$`),
+		// <Series> <SeriesIndex> - <SeriesTitle>
+		regexp.MustCompile(`^(?P<Series>.+?)\s` + reSeriesIndex + `(?:\s\p{Pd}|,)*\s(?P<SeriesTitle>.+)$`),
+		// <Series> (<SeriesIndex>) - <SeriesTitle>
+		regexp.MustCompile(`^(?P<Series>.+?)\s\p{Ps}` + reSeriesIndex + `\p{Pe}(?:\s\p{Pd}|,)*\s(?P<SeriesTitle>.+)$`),
+		// <Series> <SeriesIndex>
+		regexp.MustCompile(`^` + reSeriesWithIndex + `$`),
 		// <SeriesIndex> - <SeriesTitle>
-		regexp.MustCompile(`^` + reSeriesIndex + `\s*[.-]\s*(?P<SeriesTitle>.+)$`),
+		regexp.MustCompile(`^` + reSeriesIndex + `\s*[.,-]\s*(?P<SeriesTitle>.+)$`),
 	}
 
 	// contentGuesser is a regexp that extracts information from a Book's content.

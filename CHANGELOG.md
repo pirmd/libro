@@ -7,6 +7,7 @@
 - add naive Language normalization logic.
 - add an intermediate issue report level (warning) to help further limit manual
   intervention.
+- tweak guessers' regexp to capture more cases.
 
 ## [0.4.0] - 2022-09-02
 - add string edit distances to improve detection of inconsistencies tracking.

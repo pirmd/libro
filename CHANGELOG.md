@@ -1,4 +1,7 @@
 # Changelog
+## [0.4.2] - not released
+- fix Language cleaning function that wasn't working.
+
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.
 - add PublishedYear attribute and use it in fullname.gotmpl.

@@ -182,11 +182,11 @@ func (b *Book) SetDescription(desc string) {
 
 // SetLanguage sets Book's Language and tries to filter exotic language names.
 func (b *Book) SetLanguage(lang string) {
-	if len(lang) > 2 {
-		b.Language = lang[:2]
-	}
-
 	b.Language = lang
+
+	if len(b.Language) > 2 {
+		b.Language = b.Language[:2]
+	}
 }
 
 // PublishedYear returns the year of publication.

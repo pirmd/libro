@@ -1,6 +1,7 @@
 package book
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -50,7 +51,7 @@ func NormalizeISBN(isbn string) (string, error) {
 		return isbn13, nil
 	}
 
-	return "", fmt.Errorf("%s: invalid ISBN_10 or ISBN_13", isbn)
+	return "", errors.New("invalid ISBN_10 or ISBN_13")
 }
 
 // cleanISBN returns an ISBN identifier without anything that is not a digit or
@@ -85,7 +86,7 @@ func isValidISBN13(isbn13 string) bool {
 // like that)
 func toISBN13(isbn10 string) (string, error) {
 	if len(isbn10) != 10 {
-		return "", fmt.Errorf("convert to ISBN_13 failed: %s is not a suitable ISBN_10", isbn10)
+		return "", errors.New("convert to ISBN_13 failed: not a suitable ISBN_10")
 	}
 
 	isbn13 := "978" + isbn10[:9]
@@ -105,7 +106,7 @@ func toISBN13(isbn10 string) (string, error) {
 // different.
 func calcISBN13checkdigit(isbn13 string) (string, error) {
 	if len(isbn13) != 12 && len(isbn13) != 13 {
-		return "", fmt.Errorf("ISBN_13 check-digit calculation failed: %s is not a suitable ISBN_13", isbn13)
+		return "", errors.New("ISBN_13 check-digit calculation failed: not a suitable ISBN_13")
 	}
 
 	// from: https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-13_check_digit_calculation
@@ -151,7 +152,7 @@ func isValidISBN10(isbn10 string) bool {
 // different.
 func toISBN10(isbn13 string) (string, error) {
 	if len(isbn13) != 13 || !strings.HasPrefix(isbn13, "978") {
-		return "", fmt.Errorf("convert to ISBN_10 failed: %s is not a suitable ISBN_13", isbn13)
+		return "", errors.New("convert to ISBN_10 failed: not a suitable ISBN_13")
 	}
 
 	isbn10 := isbn13[3:12]
@@ -169,7 +170,7 @@ func toISBN10(isbn13 string) (string, error) {
 // different.
 func calcISBN10checkdigit(isbn10 string) (string, error) {
 	if len(isbn10) != 9 && len(isbn10) != 10 {
-		return "", fmt.Errorf("ISBN_10 check-digit calculation failed: %s is not a suitable ISBN_10", isbn10)
+		return "", errors.New("ISBN_10 check-digit calculation failed: not a suitable ISBN_10")
 	}
 
 	// from: https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation

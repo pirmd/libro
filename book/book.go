@@ -140,7 +140,7 @@ func (b *Book) SetPublishedDate(date string) {
 	}
 
 	if (t.Year() < 1800) || (t.Year() > time.Now().Year()) {
-		b.ReportIssue("suspicious PublishedDate (%s)", date)
+		b.ReportWarning("suspicious PublishedDate (%s)", date)
 		return
 	}
 

@@ -12,7 +12,7 @@ import (
 
 const (
 	// reSeriesIndex is a regexp that captures a series index.
-	reSeriesIndex = `(?i:Series |Volume |Vol.* |Part |Livre |Tome |n°|#|T|)(?P<SeriesIndex>\d+)`
+	reSeriesIndex = `(?i:Series |Volume |Vol.* |Part |Livre |Tome |n°|#|T|)(?P<SeriesIndex>\d{1,3})`
 
 	// reISBN is a regexp aiming at capturing ISBN-like indication in text. It does not
 	// aim at validating an ISBN, it can even return too short or too long results.
@@ -37,7 +37,7 @@ var (
 	}
 
 	// reSeriesWithIndex is a regexp that captures a Series and its index
-	reSeriesWithIndex = `(?P<Series>.+?)(?:\s\p{Pd}|,)*\s` + reSeriesIndex
+	reSeriesWithIndex = `(?P<Series>.+?)(?:\s?\p{Pd}\s?|,\s|\s)` + reSeriesIndex
 
 	// seriesGuessers is a collection of regexp to extract series information
 	// from a Book's title or subtitle.
@@ -48,8 +48,10 @@ var (
 		regexp.MustCompile(`^(?P<SeriesTitle>.+)\s\p{Ps}` + reSeriesWithIndex + `\p{Pe}$`),
 		// <SeriesTitle> - <Series> <SeriesIndex>
 		regexp.MustCompile(`^(?P<SeriesTitle>.+?)\s\p{Pd}\s` + reSeriesWithIndex + `$`),
+		// [<Series> <SeriesIndex>] <SeriesTitle>
+		regexp.MustCompile(`^\p{Ps}` + reSeriesWithIndex + `\p{Pe}\s(?P<SeriesTitle>.+)$`),
 		// <Series> <SeriesIndex> - <SeriesTitle>
-		regexp.MustCompile(`^(?P<Series>.+?)\s` + reSeriesIndex + `(?:\s\p{Pd}|,)*\s(?P<SeriesTitle>.+)$`),
+		regexp.MustCompile(`^` + reSeriesWithIndex + `(?:\s\p{Pd}|,|\s?:)\s(?P<SeriesTitle>.+)$`),
 		// <Series> (<SeriesIndex>) - <SeriesTitle>
 		regexp.MustCompile(`^(?P<Series>.+?)\s\p{Ps}` + reSeriesIndex + `\p{Pe}(?:\s\p{Pd}|,)*\s(?P<SeriesTitle>.+)$`),
 		// <Series> <SeriesIndex>

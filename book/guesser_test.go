@@ -23,6 +23,8 @@ func TestSeriesGuesser(t *testing.T) {
 		{"Sun Company (La compagnie des glaces, T25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
 		{"Sun Company (La compagnie des glaces - T25)", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
 		{"La compagnie des glaces (Livre 25) - Sun Company", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
+		{"La compagnie des glaces (Livre 25) - Sun Company", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
+		{"[Cycle d'Ambre-01] Les 9 Princes d'Ambre", map[string]string{"Series": "Cycle d'Ambre", "SeriesIndex": "01", "SeriesTitle": "Les 9 Princes d'Ambre"}},
 		{"Unknown", nil},
 	}
 

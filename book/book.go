@@ -187,6 +187,11 @@ func (b *Book) SetLanguage(lang string) {
 	if len(b.Language) > 2 {
 		b.Language = b.Language[:2]
 	}
+
+	// For some reason several of my ebook report "UN" as Language
+	if strings.EqualFold(b.Language, "un") {
+		b.Language = ""
+	}
 }
 
 // PublishedYear returns the year of publication.

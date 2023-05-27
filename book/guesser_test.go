@@ -25,6 +25,7 @@ func TestSeriesGuesser(t *testing.T) {
 		{"La compagnie des glaces (Livre 25) - Sun Company", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
 		{"La compagnie des glaces (Livre 25) - Sun Company", map[string]string{"Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
 		{"[Cycle d'Ambre-01] Les 9 Princes d'Ambre", map[string]string{"Series": "Cycle d'Ambre", "SeriesIndex": "01", "SeriesTitle": "Les 9 Princes d'Ambre"}},
+		{"La Trilogie de l'Empire 1 : Fille de l'Empire", map[string]string{"Series": "La Trilogie de l'Empire", "SeriesIndex": "1", "SeriesTitle": "Fille de l'Empire"}},
 		{"Unknown", nil},
 	}
 
@@ -51,8 +52,14 @@ func TestPathGuesser(t *testing.T) {
 	}{
 		{"GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company", "Language": "FR"}},
 		{"my/relative/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company", "Language": "FR"}},
+		{"my/relative/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company.epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company"}},
 		{"/my/full/path/GJ Arnaud - [La compagnie des glaces 25] - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Series": "La compagnie des glaces", "SeriesIndex": "25", "SeriesTitle": "Sun Company", "Language": "FR"}},
 		{"/my/full/path/GJ Arnaud - Sun Company [FR].epub", map[string]string{"Authors": "GJ Arnaud", "Title": "Sun Company", "Language": "FR"}},
+		{"/my/full/path/GJ Arnaud - Sun Company.epub", map[string]string{"Authors": "GJ Arnaud", "Title": "Sun Company"}},
+		{
+			"Feist, Raymond E. - Cycle de la Guerre de la Faille 04 - Trilogie de l_Empire 1 _ Fille de l_Empire, La.epub",
+			map[string]string{"Authors": "Feist, Raymond E.", "Series": "Cycle de la Guerre de la Faille", "SeriesIndex": "04", "SeriesTitle": "Trilogie de l_Empire 1 _ Fille de l_Empire, La"},
+		},
 		{"Unknown", nil},
 	}
 

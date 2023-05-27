@@ -18,9 +18,18 @@ const (
 	// aim at validating an ISBN, it can even return too short or too long results.
 	// Libro should rely on NormalizeISBN step to make sure detected ISBN is valid.
 	reISBN = `(?P<ISBN>(?:97[89][\d\p{Zs}\p{Pd}]{10,14})|(?:[\d][\d\p{Zs}\p{Pd}]{8,11}[\dxX]))`
+
+	// reExt is a regexp aiming at capturing any 'reasonable' filename extension.
+	reExt = `\.[\w]+$`
+
+	// reLang is a regexp aiming at capturing any 'reasonable' language identifiers.
+	reLang = `\s*\p{Ps}(?P<Language>[_-a-zA-Z]{2,5})\p{Pe}`
 )
 
 var (
+	// reSeriesWithIndex is a regexp that captures a Series and its index
+	reSeriesWithIndex = `(?P<Series>.+?)(?:\s?\p{Pd}\s?|,\s|\s)` + reSeriesIndex
+
 	// Reminder for guessers in this section: order is important as only first
 	// match is considered, so it needs to be defined from the more specific to
 	// the more general capture logic.
@@ -29,15 +38,15 @@ var (
 	// Book's filename.
 	pathGuessers = []*regexp.Regexp{
 		// parent/folder/<Authors> - [<Series> <SeriesIndex>] - <SeriesTitle> [<Language>].epub
-		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s\[(?P<Series>.+)\s(?P<SeriesIndex>\d+)\]\s-\s(?P<SeriesTitle>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s\p{Pd}\s\p{Ps}` + reSeriesWithIndex + `\p{Pe}\s\p{Pd}\s(?P<SeriesTitle>.+?)` + reLang + reExt),
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s\p{Pd}\s\p{Ps}` + reSeriesWithIndex + `\p{Pe}\s\p{Pd}\s(?P<SeriesTitle>.+?)` + reExt),
 		// parent/folder/<Authors> - <Series> <SeriesIndex> - <SeriesTitle> [<Language>].epub
-		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s(?P<Series>.+)\s(?P<SeriesIndex>\d+)\s-\s(?P<SeriesTitle>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s\p{Pd}\s` + reSeriesWithIndex + `\s\p{Pd}\s(?P<SeriesTitle>.+?)` + reLang + reExt),
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s\p{Pd}\s` + reSeriesWithIndex + `\s\p{Pd}\s(?P<SeriesTitle>.+?)` + reExt),
 		// parent/folder/<Authors> - <Title> [<Language>].epub
-		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s-\s(?P<Title>.+?)\s\[(?P<Language>.+)\]\.(?:.+)$`),
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s\p{Pd}\s(?P<Title>.+?)` + reLang + reExt),
+		regexp.MustCompile(`^(?:.*/)?(?P<Authors>.+)\s\p{Pd}\s(?P<Title>.+?)` + reExt),
 	}
-
-	// reSeriesWithIndex is a regexp that captures a Series and its index
-	reSeriesWithIndex = `(?P<Series>.+?)(?:\s?\p{Pd}\s?|,\s|\s)` + reSeriesIndex
 
 	// seriesGuessers is a collection of regexp to extract series information
 	// from a Book's title or subtitle.

@@ -8,6 +8,7 @@
 - add new cleaners for Authors (clean UPPER-CASES names, detect name/surname
   inversion) 
 - add extended guessers to extract Book's information from filenames.
+- add new Book's Title cleaners.
 
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.

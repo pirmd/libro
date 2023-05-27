@@ -144,3 +144,30 @@ func TestTitleCleaner(t *testing.T) {
 		}
 	}
 }
+
+func TestTitleCleaners(t *testing.T) {
+	testCases := []struct {
+		in  string
+		out map[string]string
+	}{
+		{"Point cardinal (LITTERATURE)", map[string]string{"Title": "Point cardinal"}},
+		{"Point cardinal (Edition française)", map[string]string{"Title": "Point cardinal"}},
+		{"Point cardinal (2017)", map[string]string{"Title": "Point cardinal"}},
+		{"Point cardinal (POINT)", map[string]string{"Title": "Point cardinal"}},
+	}
+
+	for _, tc := range testCases {
+		var got map[string]string
+
+		for _, re := range titleCleaners {
+			got = reFindStringSubmatchAsMap(tc.in, re)
+			if got != nil {
+				break
+			}
+		}
+
+		if fmt.Sprint(got) != fmt.Sprint(tc.out) {
+			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
+		}
+	}
+}

@@ -2,6 +2,7 @@
 ## [0.4.2] - not released
 - fix Language cleaning function that wasn't working.
 - update Report by downgrading PublishedDate's issue to a warning.
+- add a new PublishedDate format ("2006-01-02T15:04:05")
 
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.

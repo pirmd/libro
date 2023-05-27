@@ -20,13 +20,14 @@ var stampFormats = []string{
 	"01.2006",
 	"01/2006",
 	"012006",
-	"2006-01-02",
 	"2006.01.02",
 	"20060102",
+	time.DateOnly,
 	"02-01-2006",
 	"02.01.2006",
 	"02/01/2006",
 	"02012006",
+	"2006-01-02T15:04:05",
 }
 
 // ParseTimestamp parses a time stamp, trying different time format.

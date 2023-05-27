@@ -5,6 +5,8 @@
 - add a new PublishedDate format ("2006-01-02T15:04:05")
 - add a new Series format ("[<Series>-<SeriesIndex>] <SeriesTitle>")
 - add a cleaner step for inappropriate Language ("un")
+- add new cleaners for Authors (clean UPPER-CASES names, detect name/surname
+  inversion) 
 
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.

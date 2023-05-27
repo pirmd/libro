@@ -14,7 +14,43 @@ const (
 	testdataBooks = testdata + "/books"
 )
 
-func TestFromFile(t *testing.T) {
+func TestString2List(t *testing.T) {
+	testCases := []struct {
+		in  string
+		out []string
+	}{
+		{"A & B & C", []string{"A", "B", "C"}},
+		{"A& B & C", []string{"A", "B", "C"}},
+		{"A et B", []string{"A", "B"}},
+		{"A", []string{"A"}},
+	}
+
+	for _, tc := range testCases {
+		if got := reList.Split(tc.in, -1); fmt.Sprint(got) != fmt.Sprint(tc.out) {
+			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
+		}
+	}
+}
+
+func TestCleanAuthorName(t *testing.T) {
+	testCases := []struct {
+		in  string
+		out string
+	}{
+		{"Victor Hugo", "Victor Hugo"},
+		{"Hugo,Victor", "Victor Hugo"},
+		{"Victor HUGO", "Victor Hugo"},
+		{"HUGO,Victor", "Victor Hugo"},
+	}
+
+	for _, tc := range testCases {
+		if got := cleanAuthorName(tc.in); got != tc.out {
+			t.Errorf("Clean Author's name %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
+		}
+	}
+}
+
+func TestNewFromFile(t *testing.T) {
 	testCases, err := filepath.Glob(filepath.Join(testdataBooks, "*.epub"))
 	if err != nil {
 		t.Fatalf("cannot read test data in %s: %v", testdataBooks, err)
@@ -42,19 +78,52 @@ func TestFromFile(t *testing.T) {
 	}
 }
 
-func TestString2List(t *testing.T) {
+func TestNewFromMap(t *testing.T) {
 	testCases := []struct {
-		in  string
-		out []string
+		in  map[string]string
+		out *Book
 	}{
-		{"A & B & C", []string{"A", "B", "C"}},
-		{"A& B & C", []string{"A", "B", "C"}},
-		{"A", []string{"A"}},
+		{
+			map[string]string{
+				"Title": "Mon père, ce héros", "Authors": "Luke Skywalker", "PublishedDate": "1980", "Language": "FR",
+			},
+			&Book{
+				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
+				Report: NewReport(),
+			},
+		},
+
+		{
+			map[string]string{
+				"Title": "Mon père, ce héros", "Authors": "Skywalker,Luke", "PublishedDate": "1980", "Language": "FR",
+			},
+			&Book{
+				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker"}, PublishedDate: "1980", Language: "FR",
+				Report: NewReport(),
+			},
+		},
+
+		{
+			map[string]string{
+				"Title": "Mon père, ce héros", "Authors": "Skywalker,Luke et Mini MOI", "PublishedDate": "1980", "Language": "FR",
+			},
+			&Book{
+				Title: "Mon père, ce héros", Authors: []string{"Luke Skywalker", "Mini Moi"}, PublishedDate: "1980", Language: "FR",
+				Report: NewReport(),
+			},
+		},
 	}
 
+	Verbose, Debug = verify.NewLogger(t), verify.NewLogger(t)
+
 	for _, tc := range testCases {
-		if got := reList.Split(tc.in, -1); fmt.Sprint(got) != fmt.Sprint(tc.out) {
-			t.Errorf("Guessing %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
+		got, err := NewFromMap(tc.in)
+		if err != nil {
+			t.Fatalf("fail to create Book: %v", err)
+		}
+
+		if failure := verify.Equal(tc.out, got); failure != nil {
+			t.Errorf("Create Book from map %#v failed:\nWant: %#v\nGot : %#v\n\n", tc.in, tc.out, got)
 		}
 	}
 }

@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"unicode/utf8"
 
 	"github.com/pirmd/libro/book/htmlutil"
 )
@@ -27,11 +28,14 @@ var (
 	ErrUnknownFormat = errors.New("unknown file format")
 
 	// reList is a regexp that splits a list of values (like Authors or Subject).
-	reList = regexp.MustCompile(`\s?&\s?`)
+	reList = regexp.MustCompile(`(?:\s?&\s?|\s+et\s+)`)
 
 	// reAuthName is a regexp that splits an Author's name into its surname and
 	// forename.
 	reAuthName = regexp.MustCompile(`\s?,\s?`)
+
+	// reUpperCase is a regexp that identifies words in upper case.
+	reUpperCase = regexp.MustCompile(`\p{Lu}{3,}`)
 )
 
 // Book represents a book.
@@ -152,13 +156,24 @@ func (b *Book) SetPublishedDate(date string) {
 func (b *Book) SetAuthors(authors []string) {
 	b.Authors = make([]string, len(authors))
 
-	for i, auth := range authors {
-		if name := reAuthName.Split(auth, 2); len(name) == 2 {
-			b.Authors[i] = strings.TrimSpace(name[1] + " " + name[0])
-		} else {
-			b.Authors[i] = auth
-		}
+	for i, author := range authors {
+		b.Authors[i] = cleanAuthorName(author)
 	}
+}
+
+// cleanAuthorName tries to clean an Author name by reordering it or correcting
+// fancy case.
+func cleanAuthorName(author string) string {
+	a := reUpperCase.ReplaceAllStringFunc(author, func(w string) string {
+		r, sz := utf8.DecodeRuneInString(w)
+		return string(r) + strings.ToLower(w[sz:])
+	})
+
+	if name := reAuthName.Split(a, 2); len(name) == 2 {
+		return strings.TrimSpace(name[1] + " " + name[0])
+	}
+
+	return a
 }
 
 // SetDescription sets Book's Description and tries to clean it from un-helping

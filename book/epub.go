@@ -74,7 +74,9 @@ func NewFromEpub(path string) (*Book, error) {
 	// We extract remaining unused metadata for later improving libro tools.
 	for _, meta := range mdata.Meta {
 		if meta.Name != "" && meta.Content != "" {
-			if meta.Name != "calibre:series" && meta.Name != "calibre:series_index" {
+			if meta.Name != "calibre:series" && meta.Name != "calibre:series_index" &&
+				meta.Name != "calibre:title_sort" && meta.Name != "calibre:timestamp" &&
+				meta.Name != "cover" {
 				Debug.Printf("found 'Meta' unused information: %+v", meta)
 			}
 		}

@@ -86,13 +86,11 @@ var (
 
 // NewFromFilename creates a Book whose information are guessed from its filename.
 func NewFromFilename(path string) (*Book, error) {
-	Debug.Printf("Guess information from book's path '%s'", path)
 	return guess(path, pathGuessers...)
 }
 
 // NewFromContent creates a Book whose information are guessed from its Content.
 func NewFromContent(path string) (*Book, error) {
-	Debug.Printf("Guess information from book's Content '%s'", path)
 	return grep(path, contentGuesser)
 }
 
@@ -100,14 +98,14 @@ func NewFromContent(path string) (*Book, error) {
 // attributes (like Book's Title).
 func (b *Book) GuessFromMetadata() error {
 	if b.Title != "" {
-		Debug.Printf("Guess series information from book's Title '%s'", b.Title)
+		Debug.Printf("guess Series from Title '%s'", b.Title)
 		if err := b.guess(b.Title, seriesGuessers...); err != nil {
 			return err
 		}
 	}
 
 	if b.SubTitle != "" {
-		Debug.Printf("Guess series information from book's Sub-Title '%s'", b.SubTitle)
+		Debug.Printf("guess Series from Sub-Title '%s'", b.SubTitle)
 		if err := b.guess(b.SubTitle, seriesGuessers...); err != nil {
 			return err
 		}
@@ -118,7 +116,6 @@ func (b *Book) GuessFromMetadata() error {
 
 // CleanMetadata cleans Book's metadata.
 func (b *Book) CleanMetadata() error {
-	Debug.Printf("Clean book's Title '%s'", b.Title)
 	if err := b.clean(b.Title, titleCleaners...); err != nil {
 		return err
 	}
@@ -159,7 +156,6 @@ func guess(s string, guessers ...*regexp.Regexp) (*Book, error) {
 		}
 	}
 
-	Debug.Printf("no match found")
 	return nil, nil
 }
 
@@ -219,8 +215,7 @@ func grep(path string, re *regexp.Regexp) (*Book, error) {
 // Regexp are run in the cleaners order.
 func (b *Book) clean(s string, cleaners ...*regexp.Regexp) error {
 	for _, re := range cleaners {
-		cleaned := reFindStringSubmatchAsMap(s, re)
-		if cleaned != nil {
+		if cleaned := reFindStringSubmatchAsMap(s, re); cleaned != nil {
 			Debug.Printf("clean information: '%+v'", cleaned)
 			if err := b.ReplaceFromMap(cleaned); err != nil {
 				return err
@@ -228,6 +223,5 @@ func (b *Book) clean(s string, cleaners ...*regexp.Regexp) error {
 		}
 	}
 
-	Debug.Printf("no match found")
 	return nil
 }

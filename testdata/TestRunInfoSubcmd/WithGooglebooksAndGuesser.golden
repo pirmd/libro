@@ -81,7 +81,7 @@
     "Jurisprudence"
   ],
   "Issues": [
-    "Googlebooks returns a different book: ISBN are not comparable, Names are not the same"
+    "Googlebooks best match and book's metadata are not the same because ISBN are not comparable, Titles are not the same."
   ]
 }
 {

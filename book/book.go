@@ -111,8 +111,6 @@ func New() *Book {
 // NewFromFile creates a new Book and populates its information according to
 // the file's metadata.
 func NewFromFile(path string) (*Book, error) {
-	Debug.Printf("create a Book from '%s'", path)
-
 	switch ext := filepath.Ext(path); ext {
 	case ".epub":
 		return NewFromEpub(path)

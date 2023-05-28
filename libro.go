@@ -68,7 +68,7 @@ func NewLibro() *Libro {
 
 // Read extracts all possible information about a book.
 func (lib *Libro) Read(path string) (*book.Book, error) {
-	lib.Verbose.Printf("Read information from book's file")
+	lib.Verbose.Printf("Get information from book's metadata")
 	b, err := book.NewFromFile(path)
 	if err != nil {
 		return nil, err
@@ -80,26 +80,26 @@ func (lib *Libro) Read(path string) (*book.Book, error) {
 			return nil, err
 		}
 
-		lib.Verbose.Print("Guess information from book's Filename")
+		lib.Verbose.Print("Guess information from book's filename")
 		if err := lib.guessFromFilename(b); err != nil {
 			return nil, err
 		}
 
-		lib.Verbose.Print("Guess information from book's Content")
+		lib.Verbose.Print("Guess information from book's content")
 		if err := lib.guessFromContent(b); err != nil {
 			return nil, err
 		}
 	}
 
 	if lib.UseGooglebooks {
-		lib.Verbose.Print("Get book from Googlebooks")
+		lib.Verbose.Print("Get information from Googlebooks")
 		if err := lib.searchOnGooglebooks(b); err != nil {
 			return nil, err
 		}
 	}
 
 	if lib.UseGuesser {
-		lib.Verbose.Print("Guess information from book's Metadata")
+		lib.Verbose.Print("Guess information from book's metadata")
 		if err := b.GuessFromMetadata(); err != nil {
 			return nil, err
 		}
@@ -182,24 +182,18 @@ func (lib *Libro) guessFromFilename(b *book.Book) error {
 	}
 
 	if guessedBook == nil {
-		lib.Debug.Print("Filename contains no relevant information")
+		lib.Debug.Print("no relevant information found from filename")
 		return nil
 	}
 
+	lib.Debug.Print("verify that guessed information is consistent with current book's Metadata before merging")
 	switch lvl, rational := b.CompareWith(guessedBook); lvl {
-	case book.AreTheSame, book.AreAlmostTheSame:
-		lib.Debug.Print("Filename is consistent with Metadata")
-		b.CompleteFrom(guessedBook)
-
-	case book.AreNotComparable:
-		// Either Book's Metadata or Book's Filename where not complete
-		// enough to determine whether they are consistent or not. We try
-		// to get most use of available information.
-		lib.Debug.Print("cannot check whether Filename is consistent with Metadata")
+	case book.AreTheSame, book.AreAlmostTheSame, book.AreNotComparable:
+		lib.Debug.Printf("information are %s because %s. Merge them.", lvl, rational)
 		b.CompleteFrom(guessedBook)
 
 	default:
-		b.ReportIssue("filename is not consistent with Metadata: %s", rational)
+		lib.Debug.Printf("information are %s because %s. Do nothing.", lvl, rational)
 	}
 
 	return nil
@@ -212,24 +206,21 @@ func (lib *Libro) guessFromContent(b *book.Book) error {
 	}
 
 	if guessedBook == nil {
-		lib.Debug.Print("Content contains no relevant information")
+		lib.Debug.Print("no relevant information found in content")
 		return nil
 	}
 
+	lib.Debug.Print("verify that guessed information is consistent with current one before merging")
 	switch lvl, rational := b.CompareWith(guessedBook); lvl {
-	case book.AreTheSame, book.AreAlmostTheSame:
-		lib.Debug.Print("Content is consistent with Metadata")
+	case book.AreTheSame, book.AreAlmostTheSame, book.AreNotComparable:
+		lib.Debug.Printf("information are %s because %s. Merge them.", lvl, rational)
 		b.CompleteFrom(guessedBook)
 
-	case book.AreNotComparable:
-		// Either Book's Metadata or Book's Filename where not complete enough
-		// to determine whether they are consistent or not. We try to get most
-		// use of available information.
-		lib.Debug.Print("cannot check whether Content is consistent with Metadata")
-		b.CompleteFrom(guessedBook)
+	case book.AreNotTheSame:
+		b.ReportIssue("guessed information from book's content and book's metadata are %s because %s.", lvl, rational)
 
 	default:
-		b.ReportIssue("content is not consistent with Metadata: %s", rational)
+		lib.Debug.Printf("information are %s because %s. Do nothing.", lvl, rational)
 	}
 
 	return nil
@@ -254,20 +245,21 @@ func (lib *Libro) searchOnGooglebooks(b *book.Book) error {
 		}
 	}
 
+	lib.Debug.Print("verify that guessed information is consistent with current one before merging")
 	switch lvl, rational := b.CompareWith(bestMatch); lvl {
 	case book.AreTheSame:
-		lib.Debug.Printf("Googlebooks returns the same book: %s", rational)
+		lib.Debug.Printf("information are %s because %s. Prefer Googlebooks one.", lvl, rational)
 		b.ReplaceFrom(bestMatch)
 
 	case book.AreAlmostTheSame:
-		lib.Debug.Printf("Googlebooks returns a similar book: %s", rational)
+		lib.Debug.Printf("information are %s because %s. Merge them.", lvl, rational)
 		b.CompleteFrom(bestMatch)
 
 	case book.AreNotTheSame:
-		b.ReportIssue("Googlebooks returns a different book: %s", rational)
+		b.ReportIssue("Googlebooks best match and book's metadata are %s because %s.", lvl, rational)
 
 	default:
-		// difficult to take an informed decision, leave it to the end-user.
+		lib.Debug.Printf("information are %s because %s. Do nothing.", lvl, rational)
 		for _, match := range matches {
 			b.ReportSimilarBook(match)
 		}

@@ -9,6 +9,7 @@
   inversion) 
 - add extended guessers to extract Book's information from filenames.
 - add new Book's Title cleaners.
+- improve debug and verbose information.
 
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.

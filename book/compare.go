@@ -42,61 +42,50 @@ func (lvl SimilarityLevel) String() string {
 // CompareWith assesses the similarity level between two books with a short
 // explanation of the rational.
 func (b Book) CompareWith(b1 *Book) (SimilarityLevel, string) {
-	//TODO: fine-tunes rational by detailing 'different Name' or 'similar
-	//Names' cause, possibly by showing the Name or getting rational from
-	//compareNameWith
+	isbnLvl := b.compareIdentifierWith(b1)
+	nameLvl, nameRational := b.compareNameWith(b1)
 
-	Debug.Printf("compare %#v with %#v", b, b1)
-	switch b.compareIdentifierWith(b1) {
+	switch isbnLvl {
 	case AreTheSame:
-		switch b.compareNameWith(b1) {
+		switch nameLvl {
 		case AreTheSame:
-			return AreTheSame, "same ISBN and Names"
-		case AreAlmostTheSame:
-			return AreAlmostTheSame, "same ISBN and similar Names"
-		case AreNotComparable:
-			return AreAlmostTheSame, "same ISBN but not comparable Names"
+			return AreTheSame, fmt.Sprintf("ISBN are %s, %s", isbnLvl, nameRational)
+		case AreAlmostTheSame, AreNotComparable:
+			return AreAlmostTheSame, fmt.Sprintf("ISBN are %s, %s", isbnLvl, nameRational)
 		}
-		return AreMaybeTheSame, "Same ISBN but different Name"
+		return AreMaybeTheSame, fmt.Sprintf("ISBN are %s, %s", isbnLvl, nameRational)
 
 	case AreNotTheSame:
-		switch l := b.compareNameWith(b1); l {
+		switch nameLvl {
 		case AreTheSame, AreAlmostTheSame:
-			return AreMaybeTheSame, fmt.Sprintf("different ISBN (%s vs. %s) and Names are %s", b.ISBN, b1.ISBN, l)
+			return AreMaybeTheSame, fmt.Sprintf("ISBN are %s, %s", isbnLvl, nameRational)
 		default:
-			return AreNotTheSame, fmt.Sprintf("different ISBN (%s vs %s) and Names are %s", b.ISBN, b1.ISBN, l)
+			return AreNotTheSame, fmt.Sprintf("ISBN are %s, %s", isbnLvl, nameRational)
 		}
 
 	default:
-		l := b.compareNameWith(b1)
-		return l, fmt.Sprintf("ISBN are not comparable, Names are %s", l)
+		return nameLvl, fmt.Sprintf("ISBN are %s, %s", isbnLvl, nameRational)
 	}
 }
 
 func (b Book) compareIdentifierWith(b1 *Book) SimilarityLevel {
-	lvl := compareNormalizedISBN(b.ISBN, b1.ISBN)
-	Debug.Printf("book's ISBN are %s", lvl)
-	return lvl
+	return compareNormalizedISBN(b.ISBN, b1.ISBN)
 }
 
-func (b Book) compareNameWith(b1 *Book) SimilarityLevel {
+func (b Book) compareNameWith(b1 *Book) (SimilarityLevel, string) {
 	lvl := b.compareTitlesWith(b1)
 
 	if lvl >= AreAlmostTheSame {
 		if authLvl := b.compareAuthorsWith(b1); authLvl >= AreAlmostTheSame {
 			if pubLvl := b.comparePublicationWith(b1); pubLvl >= AreAlmostTheSame {
-				Debug.Printf("books' Title are %s, books' Authors are %s, books' Publication are %s -> are the same", lvl, authLvl, pubLvl)
-				return AreTheSame
+				return AreTheSame, fmt.Sprintf("Titles are %s, Authors are %s, Publication are %s", lvl, authLvl, pubLvl)
 			}
-			Debug.Printf("books' Title are %s, books' Authors are %s -> are almost same", lvl, authLvl)
-			return AreAlmostTheSame
+			return AreAlmostTheSame, fmt.Sprintf("Titles are %s, Authors are %s", lvl, authLvl)
 		}
-		Debug.Printf("books' Title are %s -> are maybe the same", lvl)
-		return AreMaybeTheSame
+		return AreMaybeTheSame, fmt.Sprintf("Titles are %s", lvl)
 	}
 
-	Debug.Printf("books' Title are %s -> are maybe the same", lvl)
-	return lvl
+	return lvl, fmt.Sprintf("Titles are %s", lvl)
 }
 
 func (b Book) compareTitlesWith(b1 *Book) SimilarityLevel {
@@ -107,6 +96,13 @@ func (b Book) compareTitlesWith(b1 *Book) SimilarityLevel {
 	}
 	if b1.SubTitle != "" {
 		t1 += " " + b1.SubTitle
+	}
+
+	if t == "" {
+		t = b.SeriesTitle
+	}
+	if t1 == "" {
+		t1 = b1.SeriesTitle
 	}
 
 	return compareStrings(t, t1)

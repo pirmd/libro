@@ -1,7 +1,7 @@
 {{/* Author[0] - [Series SeriesIndex] - Title [LANG].epub */ -}}
-{{if .Authors}}{{index .Authors 0}}{{else}}unknown{{end -}}
-{{if .Series}} - [{{.Series}} {{.SeriesIndex}}]{{end -}}
-{{if .SeriesTitle}} - {{.SeriesTitle}}{{else}} - {{.Title}}{{end -}}
+{{if .Authors}}{{index .Authors 0 | sanitizeFilename}}{{else}}unknown{{end -}}
+{{if .Series}} - [{{.Series | sanitizeFilename}} {{.SeriesIndex}}]{{end -}}
+{{if .SeriesTitle}} - {{.SeriesTitle | sanitizeFilename}}{{else}} - {{.Title | sanitizeFilename}}{{end -}}
 {{if .PublishedYear}} ({{.PublishedYear}}){{end -}}
 {{if .Language}} [{{.Language | upper}}]{{end -}}
 {{ ext .Path -}}

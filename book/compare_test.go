@@ -26,3 +26,21 @@ func TestCompareNormalizedDates(t *testing.T) {
 		}
 	}
 }
+
+func TestNormalizeString(t *testing.T) {
+	testCases := []struct {
+		in   string
+		want string
+	}{
+		{"Hello!", "hello "},
+		{"你好", "你好"},
+		{"I'm born in 1976", "i m born in 1976"},
+		{"Je suis très honnoré de vous rencontrer", "je suis tres honnore de vous rencontrer"},
+	}
+
+	for _, tc := range testCases {
+		if got := normalizeString(tc.in); got != tc.want {
+			t.Errorf("Fail to normalize '%s'.\nWant: %v\nGot : %v", tc.in, tc.want, got)
+		}
+	}
+}

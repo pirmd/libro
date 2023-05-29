@@ -2,8 +2,15 @@ package book
 
 import (
 	"fmt"
+	"regexp"
 	"sort"
 	"strings"
+	"unicode"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/runes"
+	"golang.org/x/text/transform"
+	"golang.org/x/text/unicode/norm"
 
 	"github.com/hbollon/go-edlib"
 )
@@ -32,6 +39,12 @@ const (
 	// isAreMaybeTheSameThreshold is the minimum distance above which two strings are
 	// AreMaybeTheSame.
 	isAreMaybeTheSameThreshold = 0.7
+)
+
+var (
+	// reMeaningless regexp that identifies meaningless part of a string
+	// (punctuation for example)
+	reMeaningless = regexp.MustCompile(`[^\p{Ll}\p{Lm}\p{Lo}\p{Lt}\p{Lu}\p{Nd}\p{Nl}\p{No}\p{Sc}\p{Sm}]`)
 )
 
 // String outputs a human understandable description of a SimilarityLevel.
@@ -105,7 +118,7 @@ func (b Book) compareTitlesWith(b1 *Book) SimilarityLevel {
 		t1 = b1.SeriesTitle
 	}
 
-	return compareStrings(t, t1)
+	return compareNormalizedStrings(t, t1)
 }
 
 func (b Book) compareAuthorsWith(b1 *Book) SimilarityLevel {
@@ -125,7 +138,7 @@ func (b Book) comparePublicationWith(b1 *Book) SimilarityLevel {
 }
 
 func (b Book) comparePublisherWith(b1 *Book) SimilarityLevel {
-	return compareStrings(b.Publisher, b1.Publisher)
+	return compareNormalizedStrings(b.Publisher, b1.Publisher)
 }
 
 func (b Book) comparePublishedDateWith(b1 *Book) SimilarityLevel {
@@ -133,11 +146,11 @@ func (b Book) comparePublishedDateWith(b1 *Book) SimilarityLevel {
 }
 
 func (b Book) compareTitleWith(b1 *Book) SimilarityLevel {
-	return compareStrings(b.Title, b1.Title)
+	return compareNormalizedStrings(b.Title, b1.Title)
 }
 
 func (b Book) compareSubTitleWith(b1 *Book) SimilarityLevel {
-	return compareStrings(b.SubTitle, b1.SubTitle)
+	return compareNormalizedStrings(b.SubTitle, b1.SubTitle)
 }
 
 func (b Book) compareSubjectWith(b1 *Book) SimilarityLevel {
@@ -165,6 +178,11 @@ func compareStrings(s1, s2 string) SimilarityLevel {
 	}
 
 	return AreNotTheSame
+}
+
+func compareNormalizedStrings(s1, s2 string) SimilarityLevel {
+	ns1, ns2 := normalizeString(s1), normalizeString(s2)
+	return compareStrings(ns1, ns2)
 }
 
 // compareLists compare two lists of strings, without considering order.
@@ -214,4 +232,16 @@ func compareNormalizedDates(date1, date2 string) SimilarityLevel {
 	}
 
 	return AreNotTheSame
+}
+
+// normalizeString outputs a normalized version of input strings to ease
+// further fuzzy comparison. It notably uses case-folding and retains only
+// meaningful symbol (ie: removes punctuations).
+func normalizeString(s string) string {
+	// TODO: use golang.org/x/text/language to improve case-folding
+
+	t := transform.Chain(norm.NFD, cases.Fold(), runes.Remove(runes.In(unicode.Mn)), norm.NFC)
+	ns, _, _ := transform.String(t, s)
+
+	return reMeaningless.ReplaceAllString(ns, " ")
 }

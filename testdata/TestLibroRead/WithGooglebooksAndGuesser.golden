@@ -81,8 +81,40 @@
       "State, The",
       "Jurisprudence"
     ],
-    "Issues": [
-      "Googlebooks best match and book's metadata are not the same because ISBN are not comparable, Titles are not the same."
+    "SimilarBooks": [
+      {
+        "Path": "",
+        "Title": "Œuvres complètes de Montesquieu: De l'esprit des lois, livres X-X",
+        "Authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "PublishedDate": "1876",
+        "Language": "fr"
+      },
+      {
+        "Path": "",
+        "Title": "De l'esprit des lois",
+        "Authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "PublishedDate": "1834",
+        "Language": "fr",
+        "Subject": [
+          "Jurisprudence"
+        ]
+      },
+      {
+        "Path": "",
+        "Title": "De l'esprit de lois",
+        "Authors": [
+          "Charles de Secondat baron de Montesquieu"
+        ],
+        "PublishedDate": "1834",
+        "Language": "fr",
+        "Subject": [
+          "Jurisprudence"
+        ]
+      }
     ]
   },
   {

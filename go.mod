@@ -8,6 +8,7 @@ require (
 	github.com/pirmd/epub v0.3.0
 	github.com/pirmd/verify v0.8.0
 	golang.org/x/net v0.10.0
+	golang.org/x/text v0.9.0
 )
 
 require (
@@ -15,5 +16,4 @@ require (
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/pirmd/text v0.6.2 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
 )

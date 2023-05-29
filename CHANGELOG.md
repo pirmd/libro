@@ -11,6 +11,7 @@
 - add new Book's Title cleaners.
 - improve debug and verbose information.
 - fix naming templates that incorrectly allowed inappropriate characters in filenames.
+- improve strings fuzzy comparison logic.
 
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.

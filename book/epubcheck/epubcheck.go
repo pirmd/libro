@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-var (
+const (
 	// Executable contains the path to EPUBcheck binary.
 	Executable = "epubcheck"
 )
@@ -97,6 +97,7 @@ func Run(path string, options ...string) (*Report, error) {
 	args := append(options, "--quiet", "--json", "-", path)
 
 	buf := new(bytes.Buffer)
+	//#nosec G204 -- Executable is a constant and args is controlled internally (no user input).
 	cmd := exec.Command(Executable, args...)
 	cmd.Stdout = buf
 

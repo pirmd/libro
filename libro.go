@@ -168,10 +168,6 @@ func (lib *Libro) Create(b *book.Book) error {
 //
 // fullPath does not check whether the fullpath exists or makes sense.
 func (lib *Libro) fullpath(path string) string {
-	if filepath.IsAbs(path) {
-		return path
-	}
-
 	return filepath.Join(lib.Root, filepath.Clean("/"+path))
 }
 

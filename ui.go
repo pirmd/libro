@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"os"
+	"path/filepath"
 
 	"github.com/pirmd/libro/book"
 	"github.com/pirmd/libro/util"
@@ -91,7 +92,7 @@ func book2file(b *book.Book) ([]string, error) {
 }
 
 func file2book(filename string) (*book.Book, error) {
-	r, err := os.Open(filename)
+	r, err := os.Open(filepath.Clean(filename))
 	if err != nil {
 		return nil, err
 	}

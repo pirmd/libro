@@ -44,6 +44,7 @@ func (api *API) SearchVolume(vi *VolumeInfo) ([]*VolumeInfo, error) {
 		return nil, nil
 	}
 
+	//#nosec G107 -- queryURL is build from internal API using url Encode method.
 	resp, err := http.Get(queryURL)
 	if err != nil {
 		return nil, err

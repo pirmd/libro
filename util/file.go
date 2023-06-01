@@ -11,17 +11,20 @@ import (
 // copyFile forces write to disk (Sync() method of os.File), and value
 // certainty that write operation happens correctly over performance.
 func CopyFile(dst string, src string) error {
-	r, err := os.Open(src)
+	r, err := os.Open(filepath.Clean(src))
 	if err != nil {
 		return err
 	}
 	defer r.Close()
 
+	//#nosec G301 -- creation mode is before umask. Similar approach than os.Create.
 	if err := os.MkdirAll(filepath.Dir(dst), 0777); err != nil {
 		return err
 	}
 
-	w, err := os.OpenFile(dst, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0666)
+	//#nosec G302 -- creation mode is before umask. Similar approach than os.Create.
+	//#nosec G304 -- dst is cleaned before calling CopyFile (using libro.fullpath())
+	w, err := os.OpenFile(filepath.Clean(dst), os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0666)
 	if err != nil {
 		return err
 	}

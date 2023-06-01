@@ -328,7 +328,9 @@ func (p *parser) parseForDeclarations() ([]*Declaration, error) {
 
 		case scanner.TokenS, scanner.TokenComment:
 			if declaration != nil && declaration.Value != nil {
-				declaration.AppendToValue(p.token)
+				if err := declaration.AppendToValue(p.token); err != nil {
+					return nil, err
+				}
 			}
 
 		default:

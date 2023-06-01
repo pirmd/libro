@@ -57,6 +57,13 @@ type Book struct {
 	// 'normalized' using Book.SetISBN.
 	ISBN string `json:",omitempty"`
 
+	// AlternateISBN contains a list of alternate ISBN that are related to the
+	// Book, like ISBN of the same book but corresponding to a different
+	// edition or a different edition support.
+	// This property is mostly here to support Book's metadata guessing
+	// heuristic.
+	AlternateISBN []string `json:",omitempty"`
+
 	// SubTitle is the book's sub-title.
 	SubTitle string `json:",omitempty"`
 
@@ -317,10 +324,12 @@ func (b *Book) MergeWith(b1 *Book, override bool) {
 			b.ReportWarning("set empty ISBN to %v", b1.ISBN)
 			b.ISBN = b1.ISBN
 		} else if override && b.compareIdentifierWith(b1) != AreTheSame {
-			b.ReportIssue("changed ISBN from %v to %v", b.ISBN, b1.ISBN)
+			b.ReportWarning("changed ISBN from %v to %v", b.ISBN, b1.ISBN)
+			b.AlternateISBN = append(b.AlternateISBN, b.ISBN) //TODO: create an addAlternateISBN that ensures no redundant ISBN are recorded
 			b.ISBN = b1.ISBN
 		} else if b.compareIdentifierWith(b1) != AreTheSame {
-			b.ReportIssue("found a different ISBN: %v (vs. %s)", b1.ISBN, b.ISBN)
+			b.ReportWarning("found a different ISBN: %v (vs. %s)", b1.ISBN, b.ISBN)
+			b.AlternateISBN = append(b.AlternateISBN, b1.ISBN)
 		}
 	}
 

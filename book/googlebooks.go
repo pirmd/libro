@@ -23,7 +23,7 @@ func (b *Book) SearchOnGooglebooks(MaxResults int) ([]*Book, error) {
 
 // toVolumeInfo converts a Book's information into a googlebooks.VolumeInfo.
 func (b Book) toVolumeInfo() *googlebooks.VolumeInfo {
-	return &googlebooks.VolumeInfo{
+	vi := &googlebooks.VolumeInfo{
 		Title:         b.Title,
 		SubTitle:      b.SubTitle,
 		Language:      b.Language,
@@ -35,6 +35,12 @@ func (b Book) toVolumeInfo() *googlebooks.VolumeInfo {
 		PublishedDate: b.PublishedDate,
 		PageCount:     b.PageCount,
 	}
+
+	for _, isbn := range b.AlternateISBN {
+		vi.Identifier = append(vi.Identifier, googlebooks.Identifier{Type: "ISBN", Identifier: isbn})
+	}
+
+	return vi
 }
 
 // newFromVolumeInfo populates Book's information from a googlebooks.VolumeInfo.
@@ -61,6 +67,8 @@ func getVolumeInfoISBN(vi *googlebooks.VolumeInfo) (isbn string) {
 		}
 
 		if len(isbn) == 13 {
+			// TODO: populate AlternateISBN with further possible ISBN found in
+			// vi.Identifier
 			break
 		}
 	}

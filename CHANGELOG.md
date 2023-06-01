@@ -12,6 +12,8 @@
 - improve debug and verbose information.
 - fix naming templates that incorrectly allowed inappropriate characters in filenames.
 - improve strings fuzzy comparison logic.
+- add initial support for alternate ISBN that can be used to identify the same
+  book but published on alternate support.
 
 ## [0.4.1] - 2023-05-19
 - fix lacking book.Path information after edition.

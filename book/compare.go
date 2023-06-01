@@ -82,7 +82,29 @@ func (b Book) CompareWith(b1 *Book) (SimilarityLevel, string) {
 }
 
 func (b Book) compareIdentifierWith(b1 *Book) SimilarityLevel {
-	return compareNormalizedISBN(b.ISBN, b1.ISBN)
+	lvl := compareNormalizedISBN(b.ISBN, b1.ISBN)
+	if lvl == AreTheSame {
+		return lvl
+	}
+
+	for _, isbn1 := range b1.AlternateISBN {
+		if l := compareNormalizedISBN(b.ISBN, isbn1); l == AreTheSame {
+			return AreAlmostTheSame
+		}
+	}
+
+	for _, isbn := range b.AlternateISBN {
+		if l := compareNormalizedISBN(isbn, b1.ISBN); l == AreTheSame {
+			return AreAlmostTheSame
+		}
+		for _, isbn1 := range b1.AlternateISBN {
+			if l := compareNormalizedISBN(isbn, isbn1); l == AreTheSame {
+				return AreAlmostTheSame
+			}
+		}
+	}
+
+	return lvl
 }
 
 func (b Book) compareNameWith(b1 *Book) (SimilarityLevel, string) {

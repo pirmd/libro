@@ -32,7 +32,7 @@ Or
 ``̀`shell
 libro info -use-guesser -use-googlebooks "my_book.epub" \
           | libro edit -auto -default Language=fr -editor=vimdiff \
-          | libro check -completeness -conformity \
+          | libro check -conformity \
           | libro insert -root="$HOME/books -rename='{{template "shortname_byauthor.gotmpl" .}}
 ```
 

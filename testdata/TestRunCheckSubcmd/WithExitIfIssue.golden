@@ -12,8 +12,10 @@
     "Imaginary places -- Juvenile fiction",
     "Alice (Fictitious character from Carroll) -- Juvenile fiction"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -30,8 +32,10 @@ ERROR during check: book's quality check did not pass
     "Taoism",
     "Philosophy, Chinese"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -48,8 +52,10 @@ ERROR during check: book's quality check did not pass
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -66,8 +72,10 @@ ERROR during check: book's quality check did not pass
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -86,8 +94,10 @@ ERROR during check: book's quality check did not pass
     "State, The",
     "Jurisprudence"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -103,8 +113,10 @@ ERROR during check: book's quality check did not pass
   "Subject": [
     "Rabbits -- Juvenile fiction"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -117,8 +129,10 @@ ERROR during check: book's quality check did not pass
   ],
   "PublishedDate": "2017-06-09",
   "Language": "fr",
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass
@@ -134,8 +148,10 @@ ERROR during check: book's quality check did not pass
   "Subject": [
     "French poetry -- 19th century"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 ERROR during check: book's quality check did not pass

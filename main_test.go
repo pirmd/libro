@@ -184,10 +184,6 @@ func TestRunCheckSubcmd(t *testing.T) {
 		testRunCheckSubcmd()(t)
 	})
 
-	t.Run("WithCompletenessCheck", func(t *testing.T) {
-		testRunCheckSubcmd("-completeness")(t)
-	})
-
 	t.Run("WithConformityCheck", func(t *testing.T) {
 		if testing.Short() {
 			t.Skip("skipping test of conformity check in short mode.")

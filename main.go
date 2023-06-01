@@ -317,9 +317,6 @@ func (app *App) RunCheckSubcmd(args []string) error {
 	var failOnIssue bool
 	fs.BoolVar(&failOnIssue, "fail-on-issue", false, "exit with a non-zero exit status when a quality issue is found")
 
-	var checkCompleteness bool
-	fs.BoolVar(&checkCompleteness, "completeness", false, "verify that book's information is complete")
-
 	var checkConformity bool
 	fs.BoolVar(&checkConformity, "conformity", false, "verify that book is a conform EPUB using w3.org epucheck tool")
 
@@ -348,20 +345,14 @@ func (app *App) RunCheckSubcmd(args []string) error {
 		return fmt.Errorf("fail to decode book's JSON: %v", err)
 	}
 
-	app.Verbose.Print("Check ability to identify the book")
-	if b.Identifiability() < book.Good {
-		b.ReportIssue("book does not have enough information to be identified")
-	}
-
-	if checkCompleteness {
-		app.Verbose.Print("Check book's key information completeness")
-		if b.InformationCompleteness() < book.Good {
-			b.ReportIssue("book's key information is incomplete")
-		}
+	app.Verbose.Print("Check book's key information completeness")
+	if err := b.CheckCompleteness(); err != nil {
+		return fmt.Errorf("fail to check book's information completeness: %v", err)
 	}
 
 	if checkConformity {
-		if err := b.CanBeRendered(); err != nil {
+		app.Verbose.Print("Check that book complies to EPUB specifications")
+		if err := b.CheckConformity(); err != nil {
 			return fmt.Errorf("fail to run EPUBcheck on book: %v", err)
 		}
 	}

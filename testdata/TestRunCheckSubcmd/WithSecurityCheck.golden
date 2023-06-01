@@ -12,8 +12,10 @@
     "Imaginary places -- Juvenile fiction",
     "Alice (Fictitious character from Carroll) -- Juvenile fiction"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -28,8 +30,10 @@
     "Taoism",
     "Philosophy, Chinese"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -44,8 +48,10 @@
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -60,8 +66,10 @@
     "History, Ancient",
     "Greece -- History -- To 146 B.C."
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -78,8 +86,10 @@
     "State, The",
     "Jurisprudence"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -93,8 +103,10 @@
   "Subject": [
     "Rabbits -- Juvenile fiction"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -105,8 +117,10 @@
   ],
   "PublishedDate": "2017-06-09",
   "Language": "fr",
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -120,7 +134,9 @@
   "Subject": [
     "French poetry -- 19th century"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }

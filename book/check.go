@@ -12,86 +12,42 @@ import (
 	"github.com/pirmd/libro/book/htmlutil"
 )
 
-// QualityLevel indicate the similarity level between two elements.
-type QualityLevel int
-
-const (
-	// Bad indicates that quality level is not acceptable
-	Bad QualityLevel = iota
-	// Poor indicates tat quality level is poor.
-	Poor
-	// Average indicates that quality level is acceptable
-	Average
-	// Good indicates that quality level is good.
-	Good
-	// Perfect indicates that quality level is perfect.
-	Perfect
-)
-
-// String outputs a human understandable description of a QualityLevel.
-func (lvl QualityLevel) String() string {
-	return [...]string{"bad", "poor", "average", "good", "as perfect as it can be"}[lvl]
-}
-
-// Identifiability assesses whether Book has enough Metadata to be identified
-// by the end-user.
-func (b *Book) Identifiability() QualityLevel {
+// CheckCompletness assesses whether Book has enough Metadata to be
+// identified by the end-user.
+func (b *Book) CheckCompleteness() error {
 	if b.Title == "" || len(b.Authors) == 0 {
-		Verbose.Printf("book has no Title or no known Author(s)")
-		return Bad
+		b.ReportIssue("book has no Title or no Author")
+	}
+
+	if len(b.Authors) > 1 {
+		b.ReportWarning("book has several Authors. Some might be wrongly considered as book's creator.")
+	}
+
+	if b.ISBN == "" || len(b.AlternateISBN) > 0 {
+		b.ReportWarning("book ISBN is unknown or has alternate possible values.")
 	}
 
 	if b.Publisher == "" || b.PublishedDate == "" {
-		if b.ISBN == "" {
-			Verbose.Printf("book has a Title and Author(s) but no complete Publication information")
-			return Average
-		}
-	}
-
-	if b.Series != "" && b.SeriesIndex != 0 {
-		return Perfect
-	}
-
-	return Good
-}
-
-// InformationCompleteness assesses whether Book's information is complete.
-func (b *Book) InformationCompleteness() QualityLevel {
-	if b.Title == "" || len(b.Authors) == 0 {
-		Verbose.Printf("book has no Title or Author(s)")
-		return Bad
-	}
-
-	if b.Description == "" {
-		Verbose.Printf("book has no Description")
-		return Average
-	}
-
-	if b.Publisher == "" || b.PublishedDate == "" {
-		Verbose.Printf("book has no complete Publication information")
-		return Average
-	}
-
-	if b.ISBN == "" {
-		Verbose.Printf("book has no ISBN")
-		return Average
+		b.ReportWarning("book has incomplete publishing information.")
 	}
 
 	if (b.Series != "" && b.SeriesIndex == 0) ||
 		(b.SeriesIndex != 0 && b.Series == "") ||
 		(b.SeriesTitle != "" && (b.SeriesIndex == 0 || b.Series == "")) {
-		Verbose.Printf("book has incomplete Series information")
-
-		return Average
+		b.ReportWarning("book seems to belong to a series that is not properly identified.")
 	}
 
-	return Good
+	if len(b.Description) < 80 {
+		b.ReportWarning("book has no description or a too small description")
+	}
+
+	return nil
 }
 
-// CanBeRendered uses EPUBcheck to verify that the book will likely be
-// properly rendered by most reading systems.
-func (b *Book) CanBeRendered() error {
-	Verbose.Print("Verify that Book can be rendered by most reading systems")
+// CheckConformity uses EPUBcheck to verify that the book complies with
+// EPUB specification so that it will likely be properly rendered by most reading
+// systems.
+func (b *Book) CheckConformity() error {
 	Debug.Printf("run %s --fatal --error --json - %s", epubcheck.Executable, b.Path)
 
 	report, err := epubcheck.Run(b.Path, "--fatal", "--error", "--warn")
@@ -104,7 +60,7 @@ func (b *Book) CanBeRendered() error {
 			Verbose.Print(m)
 		}
 
-		b.ReportIssue("book's content is likely to have rendering issues (%d findings from epubcheck)", l)
+		b.ReportIssue("book's content is likely to have rendering issues (%d findings from EPUBcheck)", l)
 	}
 
 	return nil
@@ -113,8 +69,6 @@ func (b *Book) CanBeRendered() error {
 // CheckContentSecurity verifies that Book's content does not contain unsafe
 // HTML.
 func (b *Book) CheckContentSecurity() error {
-	Verbose.Print("Verify Book's content HTML safety")
-
 	// TODO: change logic for scanning: go through all content
 	// (epub.WalkReadingContent), record CSS linked by HTML content in the
 	// scanning process then scanCSS
@@ -123,7 +77,7 @@ func (b *Book) CheckContentSecurity() error {
 	// focusing only on detecting suspicious URL, JS or CSS?
 	EPUBScanner := htmlutil.NewPermissiveScanner()
 	EPUBScanner.AllowedTags[atom.Img] = []string{"src=__REL_URL", "*"}
-	// Add some specfic tags and cie encountered in the wild
+	// Add some specific tags and cie encountered in the wild
 	EPUBScanner.AllowedTags[atom.Meta] = append([]string{
 		"http-equiv=Content-Style-Type",
 	}, EPUBScanner.AllowedTags[atom.Meta]...)

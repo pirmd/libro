@@ -13,8 +13,12 @@
     "Alice (Fictitious character from Carroll) -- Juvenile fiction"
   ],
   "Issues": [
-    "book does not have enough information to be identified",
-    "book's content is likely to have rendering issues (1 findings from epubcheck)"
+    "book's content is likely to have rendering issues (1 findings from EPUBcheck)"
+  ],
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -29,8 +33,10 @@
     "Taoism",
     "Philosophy, Chinese"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -46,8 +52,12 @@
     "Greece -- History -- To 146 B.C."
   ],
   "Issues": [
-    "book does not have enough information to be identified",
-    "book's content is likely to have rendering issues (1 findings from epubcheck)"
+    "book's content is likely to have rendering issues (1 findings from EPUBcheck)"
+  ],
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -63,8 +73,12 @@
     "Greece -- History -- To 146 B.C."
   ],
   "Issues": [
-    "book does not have enough information to be identified",
-    "book's content is likely to have rendering issues (1 findings from epubcheck)"
+    "book's content is likely to have rendering issues (1 findings from EPUBcheck)"
+  ],
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -81,8 +95,10 @@
     "State, The",
     "Jurisprudence"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -97,8 +113,12 @@
     "Rabbits -- Juvenile fiction"
   ],
   "Issues": [
-    "book does not have enough information to be identified",
-    "book's content is likely to have rendering issues (2 findings from epubcheck)"
+    "book's content is likely to have rendering issues (2 findings from EPUBcheck)"
+  ],
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -110,8 +130,12 @@
   "PublishedDate": "2017-06-09",
   "Language": "fr",
   "Issues": [
-    "book does not have enough information to be identified",
-    "book's content is likely to have rendering issues (5 findings from epubcheck)"
+    "book's content is likely to have rendering issues (5 findings from EPUBcheck)"
+  ],
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }
 {
@@ -125,7 +149,9 @@
   "Subject": [
     "French poetry -- 19th century"
   ],
-  "Issues": [
-    "book does not have enough information to be identified"
+  "Warnings": [
+    "book ISBN is unknown or has alternate possible values.",
+    "book has incomplete publishing information.",
+    "book has no description or a too small description"
   ]
 }

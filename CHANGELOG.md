@@ -1,5 +1,5 @@
 # Changelog
-## [0.4.2] - not released
+## [0.4.2] - 2023-06-02
 - fix Language cleaning function that wasn't working.
 - update Report by downgrading PublishedDate's issue to a warning.
 - add a new PublishedDate format ("2006-01-02T15:04:05")
